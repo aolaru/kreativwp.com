@@ -1,13 +1,14 @@
 :root {
-  --bg: #0a1224;
-  --bg-alt: #101c34;
-  --text: #e8f0ff;
-  --muted: #a8b9db;
-  --card: rgba(13, 24, 44, 0.86);
-  --card-border: rgba(120, 171, 255, 0.2);
-  --card-border-hover: rgba(149, 193, 255, 0.7);
-  --accent: #8bc3ff;
-  --accent-strong: #b4ffcf;
+  --bg: #07121f;
+  --bg-alt: #0d2238;
+  --text: #eaf3ff;
+  --muted: #aac2dc;
+  --soft: rgba(170, 194, 220, 0.78);
+  --card: rgba(12, 27, 44, 0.86);
+  --card-border: rgba(34, 113, 177, 0.34);
+  --card-border-hover: rgba(114, 174, 230, 0.72);
+  --accent: #2271b1;
+  --accent-strong: #72aee6;
 }
 
 * {
@@ -22,8 +23,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background:
-    radial-gradient(1200px 560px at 95% -20%, rgba(44, 96, 171, 0.45), transparent 58%),
-    radial-gradient(900px 480px at -15% 110%, rgba(33, 83, 139, 0.55), transparent 62%),
+    radial-gradient(1200px 560px at 95% -20%, rgba(34, 113, 177, 0.42), transparent 58%),
+    radial-gradient(900px 480px at -15% 110%, rgba(26, 76, 122, 0.56), transparent 62%),
     linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
 
@@ -36,9 +37,11 @@ a:hover {
   text-decoration: underline;
 }
 
-a:focus-visible {
+a:focus-visible,
+.product-card:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
+  border-radius: 10px;
 }
 
 .container {
@@ -52,22 +55,11 @@ a:focus-visible {
   text-align: center;
 }
 
-.logo-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.logo-mark {
+  display: block;
   width: 128px;
   height: 128px;
   margin: 0 auto 1rem;
-  border-radius: 10px;
-  background: #000;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  line-height: 1.2;
-  text-align: center;
 }
 
 .eyebrow {
@@ -95,12 +87,10 @@ a:focus-visible {
 }
 
 .plugins {
-  display: grid;
-  gap: 1.25rem;
+  margin-top: 0.8rem;
   margin-bottom: 2.2rem;
 }
 
-.plugin,
 .card {
   background: var(--card);
   border: 1px solid var(--card-border);
@@ -110,24 +100,95 @@ a:focus-visible {
   transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
 }
 
-.plugin:hover,
-.plugin:focus-within {
-  transform: translateY(-5px);
-  border-color: var(--card-border-hover);
-  box-shadow: 0 14px 40px rgba(6, 10, 18, 0.35);
+.plugins h2 {
+  font-size: 1.12rem;
+  margin-bottom: 0.35rem;
 }
 
-.plugin h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.7rem;
-  letter-spacing: -0.01em;
+.plugins-intro {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
 }
 
-.plugin p,
+.plugins-intro,
 .about p {
   font-size: 0.95rem;
   color: var(--muted);
   margin-bottom: 1rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.95rem;
+  list-style: none;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 0.78rem;
+  border-radius: 12px;
+  border: 1px solid rgba(114, 174, 230, 0.2);
+  background: rgba(114, 174, 230, 0.06);
+  transition: transform 170ms ease, border-color 170ms ease, background 170ms ease;
+}
+
+.product-card:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  border-color: var(--card-border-hover);
+  background: rgba(34, 113, 177, 0.16);
+}
+
+.product-thumb {
+  width: 128px;
+  height: 128px;
+  min-width: 128px;
+  min-height: 128px;
+  max-width: 128px;
+  max-height: 128px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #000;
+}
+
+.thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+.thumb-placeholder span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.product-title {
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.product-meta,
+.product-use {
+  text-align: center;
+  font-size: 0.74rem;
+  line-height: 1.3;
+}
+
+.product-meta {
+  color: var(--muted);
+}
+
+.product-use {
+  color: var(--soft);
 }
 
 .cta {
@@ -152,23 +213,29 @@ a:focus-visible {
 .coming {
   display: inline-block;
   font-size: 0.85rem;
-  color: rgba(200, 217, 246, 0.75);
-  border: 1px solid rgba(180, 255, 207, 0.28);
+  color: rgba(170, 194, 220, 0.92);
+  border: 1px solid rgba(114, 174, 230, 0.4);
   border-radius: 999px;
   padding: 0.24rem 0.6rem;
 }
 
 .about {
+  margin-top: 1.25rem;
   margin-bottom: 3.4rem;
+  color: var(--soft);
+  font-size: 0.92rem;
+  text-align: center;
 }
 
 .about p {
   margin-bottom: 0;
+  color: inherit;
+  font-size: inherit;
 }
 
 .footer {
   font-size: 0.85rem;
-  color: rgba(200, 217, 246, 0.7);
+  color: rgba(170, 194, 220, 0.86);
 }
 
 @media (max-width: 700px) {
@@ -176,9 +243,47 @@ a:focus-visible {
     padding: 4rem 1rem;
   }
 
-  .plugin,
   .card {
     padding: 1.2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .product-card {
+    padding: 0.72rem;
+  }
+
+  .product-thumb {
+    width: 112px;
+    height: 112px;
+    min-width: 112px;
+    min-height: 112px;
+    max-width: 112px;
+    max-height: 112px;
+  }
+
+  .logo-mark {
+    width: 112px;
+    height: 112px;
+  }
+
+  .thumb-placeholder span {
+    font-size: 0.68rem;
+  }
+
+  .coming {
+    font-size: 0.8rem;
+  }
+
+  .about {
+    margin-bottom: 2.6rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
   }
 }
 
@@ -192,9 +297,7 @@ a:focus-visible {
     scroll-behavior: auto !important;
   }
 
-  .plugin,
-  .plugin:hover,
-  .plugin:focus-within,
+  .product-card:hover,
   .cta::after,
   .cta:hover::after,
   .cta:focus-visible::after {

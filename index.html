@@ -27,7 +27,7 @@
   <main class="container">
 
     <header class="hero">
-      <div class="logo-badge" aria-label="Kreativ WP logo">KREATIV WP</div>
+      <img class="logo-mark" src="kreativ-wp-logo-128.svg" width="128" height="128" alt="Kreativ WP logo" />
       <p class="eyebrow">WordPress utilities</p>
       <h1>Kreativ WP</h1>
       <p class="tagline">
@@ -35,37 +35,58 @@
       </p>
     </header>
 
-    <section class="plugins" aria-label="Kreativ WP plugins">
-
-      <article class="plugin" id="kreativ-report-broken-link">
-        <h2>Kreativ Report Broken Link</h2>
-        <p>
-          Scan your site for broken internal and external links and generate clear reports for cleanup.
-        </p>
-        <a class="cta" href="https://wordpress.org/plugins/kreativ-report-broken-link/" target="_blank" rel="noopener noreferrer">
-          View on WordPress.org
-        </a>
-      </article>
-
-      <article class="plugin" id="kreativ-broken-image-finder">
-        <h2>Kreativ Broken Image Finder</h2>
-        <p>
-          Detect missing and broken images across posts and pages to keep your site clean and professional.
-        </p>
-        <span class="coming">Coming soon</span>
-      </article>
-
-      <article class="plugin" id="kreativ-orphan-pages-finder">
-        <h2>Kreativ Orphan Pages Finder</h2>
-        <p>
-          Identify published pages with no internal links so you can improve structure and SEO.
-        </p>
-        <span class="coming">Coming soon</span>
-      </article>
-
+    <section class="plugins card" aria-labelledby="plugins-title">
+      <h2 id="plugins-title">Plugins</h2>
+      <p class="plugins-intro">Structured like product tiles so you can drop in thumbnails directly.</p>
+      <ul class="product-grid">
+        <li>
+          <article class="product-card" id="kreativ-report-broken-link">
+            <div class="product-thumb thumb-placeholder" aria-hidden="true">
+              <span>128 x 128</span>
+            </div>
+            <h3 class="product-title">Kreativ Report Broken Link</h3>
+            <p class="product-meta">Scan and report broken links.</p>
+            <p class="product-use">Find broken internal and external links and export clean reports.</p>
+            <a class="cta" href="https://wordpress.org/plugins/kreativ-report-broken-link/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
+          </article>
+        </li>
+        <li>
+          <article class="product-card" id="kreativ-broken-image-finder">
+            <div class="product-thumb thumb-placeholder" aria-hidden="true">
+              <span>128 x 128</span>
+            </div>
+            <h3 class="product-title">Kreativ Broken Image Finder</h3>
+            <p class="product-meta">Detect missing media references.</p>
+            <p class="product-use">Catch missing images across posts and pages before users see them.</p>
+            <a class="cta" href="https://wordpress.org/plugins/kreativ-broken-image-finder/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
+          </article>
+        </li>
+        <li>
+          <article class="product-card" id="kreativ-orphan-pages-finder">
+            <div class="product-thumb thumb-placeholder" aria-hidden="true">
+              <span>128 x 128</span>
+            </div>
+            <h3 class="product-title">Kreativ Orphan Pages Finder</h3>
+            <p class="product-meta">Find pages with no internal links.</p>
+            <p class="product-use">Surface orphan content to improve structure, navigation, and SEO.</p>
+            <span class="coming">Coming soon</span>
+          </article>
+        </li>
+        <li>
+          <article class="product-card" id="kreativ-smart-related-posts">
+            <div class="product-thumb thumb-placeholder" aria-hidden="true">
+              <span>128 x 128</span>
+            </div>
+            <h3 class="product-title">Kreativ Smart Related Posts</h3>
+            <p class="product-meta">Show context-aware related content.</p>
+            <p class="product-use">Improve discovery and session depth with smarter internal recommendations.</p>
+            <span class="coming">Coming soon</span>
+          </article>
+        </li>
+      </ul>
     </section>
 
-    <section class="about card">
+    <section class="about">
       <p>
         Kreativ WP is part of the <a href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">KREATIV</a> ecosystem,
         independent tools and creative assets built with long-term maintenance in mind.
@@ -113,7 +134,7 @@
                 "name": "Kreativ Broken Image Finder",
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "WordPress",
-                "url": "https://kreativwp.com/#kreativ-broken-image-finder"
+                "url": "https://wordpress.org/plugins/kreativ-broken-image-finder/"
               }
             },
             {
@@ -125,6 +146,17 @@
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "WordPress",
                 "url": "https://kreativwp.com/#kreativ-orphan-pages-finder"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Kreativ Smart Related Posts",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "WordPress",
+                "url": "https://kreativwp.com/#kreativ-smart-related-posts"
               }
             }
           ]
