@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Kreativ WP</title>
+  <meta name="description" content="Page not found on Kreativ WP." />
+  <meta name="theme-color" content="#0f1526" />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://kreativwp.com/404.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script>
+    (function() {
+      var key = "kreativwp-theme";
+      var saved = localStorage.getItem(key);
+      var systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      var theme = saved || (systemPrefersLight ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container error-page">
+    <header class="hero">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+      <span class="sr-only" id="theme-status" aria-live="polite"></span>
+      <img class="logo-mark" src="kreativ-wp-logo-128.svg" width="128" height="128" alt="Kreativ WP logo" />
+      <p class="eyebrow">Kreativ WP</p>
+      <h1>404</h1>
+      <p class="tagline">The page you requested does not exist or may have moved.</p>
+    </header>
+
+    <section class="card launch-cta" aria-labelledby="next-steps-title">
+      <h2 id="next-steps-title">Try One of These</h2>
+      <p>Head back to the homepage or jump directly to plugin listings.</p>
+      <p>
+        <a class="button-like" href="/">Go to Homepage</a>
+      </p>
+      <p>
+        <a class="detail-link" href="/#kreativ-report-broken-link">Kreativ Report Broken Link</a> ·
+        <a class="detail-link" href="/#kreativ-broken-image-finder">Kreativ Broken Image Finder</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> KREATIV · WordPress utilities</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function() {
+      var key = "kreativwp-theme";
+      var root = document.documentElement;
+      var button = document.getElementById("theme-toggle");
+      var status = document.getElementById("theme-status");
+      var metaTheme = document.querySelector('meta[name="theme-color"]');
+      var colors = {
+        dark: "#0f1526",
+        light: "#f3f8ff"
+      };
+
+      function applyTheme(theme, persist) {
+        root.setAttribute("data-theme", theme);
+        if (metaTheme) {
+          metaTheme.setAttribute("content", colors[theme]);
+        }
+        if (button) {
+          var next = theme === "dark" ? "light" : "dark";
+          button.textContent = next === "light" ? "Light mode" : "Dark mode";
+          button.setAttribute("aria-label", next === "light" ? "Switch to light theme" : "Switch to dark theme");
+          button.setAttribute("title", button.getAttribute("aria-label"));
+        }
+        if (status) {
+          status.textContent = theme === "dark" ? "Dark theme enabled." : "Light theme enabled.";
+        }
+        if (persist) {
+          localStorage.setItem(key, theme);
+        }
+      }
+
+      var current = root.getAttribute("data-theme") || "dark";
+      applyTheme(current, false);
+
+      if (button) {
+        button.addEventListener("click", function() {
+          var active = root.getAttribute("data-theme") || "dark";
+          applyTheme(active === "dark" ? "light" : "dark", true);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

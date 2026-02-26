@@ -21,3 +21,9 @@ This repository contains the landing page for Kreativ WP, including:
 ## Deployment
 
 Designed for GitHub Pages with the custom domain `kreativwp.com`.
+
+## Visual Regression Checks
+
+- Install deps: `npm install`
+- Run screenshots: `npm run test:visual`
+- Outputs are saved to `tests/home-dark.png` and `tests/home-light.png`.

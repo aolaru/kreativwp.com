@@ -13,13 +13,26 @@
   <meta property="og:description" content="Practical WordPress utilities and maintenance plugins built for real sites." />
   <meta property="og:url" content="https://kreativwp.com/" />
   <meta property="og:site_name" content="Kreativ WP" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://kreativwp.com/og-image.svg" />
+  <meta property="og:image:alt" content="Kreativ WP plugin showcase preview" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kreativ WP" />
   <meta name="twitter:description" content="Practical WordPress utilities and maintenance plugins built for real sites." />
+  <meta name="twitter:image" content="https://kreativwp.com/og-image.svg" />
+  <meta name="twitter:image:alt" content="Kreativ WP plugin showcase preview" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body{margin:0;font-family:"Space Grotesk","Avenir Next","Segoe UI",sans-serif;line-height:1.6}
+    .container{max-width:980px;margin:0 auto;padding:5rem 1.5rem}
+    .hero{position:relative;margin-bottom:2.7rem;text-align:center}
+    .theme-toggle{position:absolute;top:0;right:0;border-radius:999px;padding:.42rem .78rem;font:700 .78rem inherit;cursor:pointer}
+    .logo-mark{display:block;width:128px;height:128px;margin:0 auto 1rem;border-radius:10px}
+    @media (max-width:700px){.container{padding:4rem 1rem}.logo-mark{width:112px;height:112px}.theme-toggle{position:static;margin:0 auto 1rem;display:inline-block}}
+  </style>
+  <script defer data-domain="kreativwp.com" src="https://plausible.io/js/script.js"></script>
   <script>
     (function() {
       var key = "kreativwp-theme";
@@ -37,6 +50,7 @@
 
     <header class="hero">
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+      <span class="sr-only" id="theme-status" aria-live="polite"></span>
       <img class="logo-mark" src="kreativ-wp-logo-128.svg" width="128" height="128" alt="Kreativ WP logo" />
       <p class="eyebrow">WordPress utilities</p>
       <h1>Kreativ WP</h1>
@@ -51,49 +65,71 @@
       <ul class="product-grid">
         <li>
           <article class="product-card" id="kreativ-report-broken-link">
-            <div class="product-thumb thumb-placeholder" aria-hidden="true">
-              <span>128 x 128</span>
-            </div>
+            <img class="product-thumb" src="thumb-kreativ-report-broken-link-128.svg" width="128" height="128" alt="Kreativ Report Broken Link thumbnail" />
             <h3 class="product-title">Kreativ Report Broken Link</h3>
             <p class="product-meta">Scan and report broken links.</p>
             <p class="product-use">Find broken internal and external links and export clean reports.</p>
             <a class="cta" href="https://wordpress.org/plugins/kreativ-report-broken-link/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
+            <a class="detail-link" href="#details-kreativ-report-broken-link">Learn more</a>
           </article>
         </li>
         <li>
           <article class="product-card" id="kreativ-broken-image-finder">
-            <div class="product-thumb thumb-placeholder" aria-hidden="true">
-              <span>128 x 128</span>
-            </div>
+            <img class="product-thumb" src="thumb-kreativ-broken-image-finder-128.svg" width="128" height="128" alt="Kreativ Broken Image Finder thumbnail" />
             <h3 class="product-title">Kreativ Broken Image Finder</h3>
             <p class="product-meta">Detect missing media references.</p>
             <p class="product-use">Catch missing images across posts and pages before users see them.</p>
             <a class="cta" href="https://wordpress.org/plugins/kreativ-broken-image-finder/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
+            <a class="detail-link" href="#details-kreativ-broken-image-finder">Learn more</a>
           </article>
         </li>
         <li>
           <article class="product-card" id="kreativ-orphan-pages-finder">
-            <div class="product-thumb thumb-placeholder" aria-hidden="true">
-              <span>128 x 128</span>
-            </div>
+            <img class="product-thumb" src="thumb-kreativ-orphan-pages-finder-128.svg" width="128" height="128" alt="Kreativ Orphan Pages Finder thumbnail" />
             <h3 class="product-title">Kreativ Orphan Pages Finder</h3>
             <p class="product-meta">Find pages with no internal links.</p>
             <p class="product-use">Surface orphan content to improve structure, navigation, and SEO.</p>
             <span class="coming">Coming soon</span>
+            <a class="detail-link" href="#details-kreativ-orphan-pages-finder">Learn more</a>
           </article>
         </li>
         <li>
           <article class="product-card" id="kreativ-smart-related-posts">
-            <div class="product-thumb thumb-placeholder" aria-hidden="true">
-              <span>128 x 128</span>
-            </div>
+            <img class="product-thumb" src="thumb-kreativ-smart-related-posts-128.svg" width="128" height="128" alt="Kreativ Smart Related Posts thumbnail" />
             <h3 class="product-title">Kreativ Smart Related Posts</h3>
             <p class="product-meta">Show context-aware related content.</p>
             <p class="product-use">Improve discovery and session depth with smarter internal recommendations.</p>
             <span class="coming">Coming soon</span>
+            <a class="detail-link" href="#details-kreativ-smart-related-posts">Learn more</a>
           </article>
         </li>
       </ul>
+    </section>
+
+    <section class="plugin-details card" aria-labelledby="plugin-details-title">
+      <h2 id="plugin-details-title">Plugin Details</h2>
+      <article class="plugin-detail" id="details-kreativ-report-broken-link">
+        <h3>Kreativ Report Broken Link</h3>
+        <p>Designed for maintenance workflows with fast scans, clear issue grouping, and cleanup-ready reporting.</p>
+      </article>
+      <article class="plugin-detail" id="details-kreativ-broken-image-finder">
+        <h3>Kreativ Broken Image Finder</h3>
+        <p>Targets missing media URLs and broken references that hurt trust, accessibility, and page quality.</p>
+      </article>
+      <article class="plugin-detail" id="details-kreativ-orphan-pages-finder">
+        <h3>Kreativ Orphan Pages Finder</h3>
+        <p>Helps identify disconnected content so you can improve internal linking and strengthen crawlability.</p>
+      </article>
+      <article class="plugin-detail" id="details-kreativ-smart-related-posts">
+        <h3>Kreativ Smart Related Posts</h3>
+        <p>Surfaces relevant posts based on context to improve engagement and keep visitors exploring your site.</p>
+      </article>
+    </section>
+
+    <section class="launch-cta card" aria-labelledby="launch-cta-title">
+      <h2 id="launch-cta-title">Get Launch Updates</h2>
+      <p>Want early access to new plugins and release notes?</p>
+      <a class="button-like" href="mailto:contact@madebykreativ.com?subject=Kreativ%20WP%20Plugin%20Updates">Request notifications</a>
     </section>
 
     <section class="about">
@@ -105,6 +141,7 @@
 
     <footer class="footer">
       <p>© <span id="year"></span> KREATIV · WordPress utilities</p>
+      <p class="updated">Last updated: <time datetime="2026-02-26">February 26, 2026</time></p>
     </footer>
 
   </main>
@@ -116,6 +153,7 @@
       var key = "kreativwp-theme";
       var root = document.documentElement;
       var button = document.getElementById("theme-toggle");
+      var status = document.getElementById("theme-status");
       var metaTheme = document.querySelector('meta[name="theme-color"]');
       var colors = {
         dark: "#0f1526",
@@ -132,6 +170,9 @@
           button.textContent = next === "light" ? "Light mode" : "Dark mode";
           button.setAttribute("aria-label", next === "light" ? "Switch to light theme" : "Switch to dark theme");
           button.setAttribute("title", button.getAttribute("aria-label"));
+        }
+        if (status) {
+          status.textContent = theme === "dark" ? "Dark theme enabled." : "Light theme enabled.";
         }
         if (persist) {
           localStorage.setItem(key, theme);
