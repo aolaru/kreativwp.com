@@ -28,15 +28,22 @@
     body{margin:0;font-family:"Space Grotesk","Avenir Next","Segoe UI",sans-serif;line-height:1.6}
     .container{max-width:980px;margin:0 auto;padding:5rem 1.5rem}
     .hero{position:relative;margin-bottom:2.7rem;text-align:center}
-    .theme-toggle{position:absolute;top:0;right:0;border-radius:999px;padding:.42rem .78rem;font:700 .78rem inherit;cursor:pointer}
+    .top-menu{display:flex;align-items:center;justify-content:center;gap:1.15rem;flex-wrap:wrap;margin-bottom:1.25rem}
+    .menu-link{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;padding:0;font:500 .95rem inherit;cursor:pointer}
     .logo-mark{display:block;width:128px;height:128px;margin:0 auto 1rem;border-radius:10px}
-    @media (max-width:700px){.container{padding:4rem 1rem}.logo-mark{width:112px;height:112px}.theme-toggle{position:static;margin:0 auto 1rem;display:inline-block}}
+    @media (max-width:700px){.container{padding:4rem 1rem}.logo-mark{width:112px;height:112px}.top-menu{gap:.82rem}.menu-link{font-size:.72rem}.theme-toggle{width:1.35rem;height:1.35rem}}
   </style>
   <script defer data-domain="kreativwp.com" src="https://plausible.io/js/script.js"></script>
   <script>
     (function() {
       var key = "kreativwp-theme";
-      var saved = localStorage.getItem(key);
+      var saved = null;
+      try {
+        saved = localStorage.getItem(key);
+      } catch (error) {
+        saved = null;
+      }
       var systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
       var theme = saved || (systemPrefersLight ? "light" : "dark");
       document.documentElement.setAttribute("data-theme", theme);
@@ -49,7 +56,13 @@
   <main class="container">
 
     <header class="hero">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+      <nav class="top-menu" aria-label="Main">
+        <a class="menu-link home-icon" href="/" aria-label="Home" title="Home"><span aria-hidden="true">&#8962;</span><span class="sr-only">Home</span></a>
+        <a class="menu-link" href="/news.html">News</a>
+        <a class="menu-link" href="/about.html">About</a>
+        <a class="menu-link" href="/contact.html">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="sr-only">Toggle color theme</span></button>
+      </nav>
       <span class="sr-only" id="theme-status" aria-live="polite"></span>
       <img class="logo-mark" src="kreativ-wp-logo-128.svg" width="128" height="128" alt="Kreativ WP logo" />
       <p class="eyebrow">WordPress utilities</p>
@@ -70,7 +83,6 @@
             <p class="product-meta">Scan and report broken links.</p>
             <p class="product-use">Find broken internal and external links and export clean reports.</p>
             <a class="cta" href="https://wordpress.org/plugins/kreativ-report-broken-link/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
-            <a class="detail-link" href="#details-kreativ-report-broken-link">Learn more</a>
           </article>
         </li>
         <li>
@@ -80,7 +92,6 @@
             <p class="product-meta">Detect missing media references.</p>
             <p class="product-use">Catch missing images across posts and pages before users see them.</p>
             <a class="cta" href="https://wordpress.org/plugins/kreativ-broken-image-finder/" target="_blank" rel="noopener noreferrer">View on WordPress.org</a>
-            <a class="detail-link" href="#details-kreativ-broken-image-finder">Learn more</a>
           </article>
         </li>
         <li>
@@ -90,7 +101,6 @@
             <p class="product-meta">Find pages with no internal links.</p>
             <p class="product-use">Surface orphan content to improve structure, navigation, and SEO.</p>
             <span class="coming">Coming soon</span>
-            <a class="detail-link" href="#details-kreativ-orphan-pages-finder">Learn more</a>
           </article>
         </li>
         <li>
@@ -100,56 +110,23 @@
             <p class="product-meta">Show context-aware related content.</p>
             <p class="product-use">Improve discovery and session depth with smarter internal recommendations.</p>
             <span class="coming">Coming soon</span>
-            <a class="detail-link" href="#details-kreativ-smart-related-posts">Learn more</a>
           </article>
         </li>
       </ul>
     </section>
 
-    <section class="plugin-details card" aria-labelledby="plugin-details-title">
-      <h2 id="plugin-details-title">Plugin Details</h2>
-      <article class="plugin-detail" id="details-kreativ-report-broken-link">
-        <h3>Kreativ Report Broken Link</h3>
-        <p>Designed for maintenance workflows with fast scans, clear issue grouping, and cleanup-ready reporting.</p>
-      </article>
-      <article class="plugin-detail" id="details-kreativ-broken-image-finder">
-        <h3>Kreativ Broken Image Finder</h3>
-        <p>Targets missing media URLs and broken references that hurt trust, accessibility, and page quality.</p>
-      </article>
-      <article class="plugin-detail" id="details-kreativ-orphan-pages-finder">
-        <h3>Kreativ Orphan Pages Finder</h3>
-        <p>Helps identify disconnected content so you can improve internal linking and strengthen crawlability.</p>
-      </article>
-      <article class="plugin-detail" id="details-kreativ-smart-related-posts">
-        <h3>Kreativ Smart Related Posts</h3>
-        <p>Surfaces relevant posts based on context to improve engagement and keep visitors exploring your site.</p>
-      </article>
-    </section>
-
-    <section class="launch-cta card" aria-labelledby="launch-cta-title">
-      <h2 id="launch-cta-title">Get Launch Updates</h2>
-      <p>Want early access to new plugins and release notes?</p>
-      <a class="button-like" href="mailto:contact@madebykreativ.com?subject=Kreativ%20WP%20Plugin%20Updates">Request notifications</a>
-    </section>
-
-    <section class="about">
-      <p>
-        Kreativ WP is part of the <a href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">KREATIV</a> ecosystem,
-        independent tools and creative assets built with long-term maintenance in mind.
-      </p>
-    </section>
-
     <footer class="footer">
-      <p>© <span id="year"></span> KREATIV · WordPress utilities</p>
-      <p class="updated"><a class="detail-link" href="/about.html">About</a> · <a class="detail-link" href="/contact.html">Contact</a></p>
-      <p class="updated">Last updated: <time datetime="2026-02-26">February 26, 2026</time></p>
+      <p class="updated">
+        <a class="detail-link" href="https://kreativfont.com" target="_blank" rel="noopener noreferrer">Kreativ Font</a> ·
+        <a class="detail-link" href="https://kreativsound.com" target="_blank" rel="noopener noreferrer">Kreativ Sound</a> ·
+        <a class="detail-link" href="https://kreativwp.com">Kreativ WP</a>
+      </p>
+      <p>© 2026 <a class="detail-link" href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">Made by KREATIV</a> · Independent creative tools and assets by Andrei Olaru</p>
     </footer>
 
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
     (function() {
       var key = "kreativwp-theme";
       var root = document.documentElement;
@@ -168,7 +145,7 @@
         }
         if (button) {
           var next = theme === "dark" ? "light" : "dark";
-          button.textContent = next === "light" ? "Light mode" : "Dark mode";
+          button.setAttribute("data-next-theme", next);
           button.setAttribute("aria-label", next === "light" ? "Switch to light theme" : "Switch to dark theme");
           button.setAttribute("title", button.getAttribute("aria-label"));
         }
@@ -176,7 +153,11 @@
           status.textContent = theme === "dark" ? "Dark theme enabled." : "Light theme enabled.";
         }
         if (persist) {
-          localStorage.setItem(key, theme);
+          try {
+            localStorage.setItem(key, theme);
+          } catch (error) {
+            // Ignore persistence failures (privacy mode, blocked storage).
+          }
         }
       }
 
