@@ -15,7 +15,12 @@
   <script>
     (function() {
       var key = "kreativwp-theme";
-      var saved = localStorage.getItem(key);
+      var saved = null;
+      try {
+        saved = localStorage.getItem(key);
+      } catch (error) {
+        saved = null;
+      }
       var systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
       var theme = saved || (systemPrefersLight ? "light" : "dark");
       document.documentElement.setAttribute("data-theme", theme);
@@ -89,7 +94,11 @@
           status.textContent = theme === "dark" ? "Dark theme enabled." : "Light theme enabled.";
         }
         if (persist) {
-          localStorage.setItem(key, theme);
+          try {
+            localStorage.setItem(key, theme);
+          } catch (error) {
+            // Ignore persistence failures (privacy mode, blocked storage).
+          }
         }
       }
 
