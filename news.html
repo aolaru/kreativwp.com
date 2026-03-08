@@ -8,10 +8,26 @@
   <meta name="theme-color" content="#0f1526" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://kreativwp.com/news.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="News | Kreativ WP" />
+  <meta property="og:description" content="Latest Kreativ WP plugin updates, release notes, and roadmap highlights." />
+  <meta property="og:url" content="https://kreativwp.com/news.html" />
+  <meta property="og:site_name" content="Kreativ WP" />
+  <meta property="og:image" content="https://kreativwp.com/og-image-1200x630.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Kreativ WP plugin showcase preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="News | Kreativ WP" />
+  <meta name="twitter:description" content="Latest Kreativ WP plugin updates, release notes, and roadmap highlights." />
+  <meta name="twitter:image" content="https://kreativwp.com/og-image-1200x630.png" />
+  <meta name="twitter:image:alt" content="Kreativ WP plugin showcase preview" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script defer data-domain="kreativwp.com" src="https://plausible.io/js/script.js"></script>
   <script>
     (function() {
       var key = "kreativwp-theme";
@@ -46,18 +62,18 @@
     </header>
     <section class="card plugin-details" aria-labelledby="latest-news-title">
       <h2 id="latest-news-title">Recent News</h2>
-      <article class="plugin-detail">
-        <h3>March 2026: Site Navigation and UX Refresh</h3>
-        <p>We rolled out a cleaner cross-site navigation, improved theme switching behavior, and refreshed the footer for better brand consistency across all pages.</p>
-      </article>
-      <article class="plugin-detail">
-        <h3>February 2026: Plugin Showcase Update</h3>
-        <p>The homepage plugin cards were simplified to focus on core value and direct access to each tool on WordPress.org.</p>
-      </article>
-      <article class="plugin-detail">
-        <h3>Current Focus: Maintenance Workflow Tools</h3>
-        <p>Our active work remains centered on practical WordPress maintenance: broken links, missing media detection, and structure improvements through internal linking insights.</p>
-      </article>
+      <ul class="news-list">
+        <li class="news-item">
+          <p class="news-meta">March 7, 2026 · Product Update</p>
+          <h3><a href="/news/internal-links-audit-announcement.html">Kreativ Internal Links Audit announced</a></h3>
+          <p>Our next plugin focuses on auditing internal link quality, link balance, and crawl structure opportunities.</p>
+        </li>
+        <li class="news-item">
+          <p class="news-meta">March 5, 2026 · Website Update</p>
+          <h3><a href="/news/navigation-and-news-refresh.html">Navigation and News refresh shipped</a></h3>
+          <p>We introduced streamlined navigation, clearer footer branding, and a structured news publishing flow.</p>
+        </li>
+      </ul>
     </section>
 
     <section class="card plugin-details" aria-labelledby="plugin-links-title">
@@ -75,6 +91,16 @@
     <section class="launch-cta card" aria-labelledby="roadmap-title">
       <h2 id="roadmap-title">Roadmap</h2>
       <p>Next planned updates include public changelog entries and monthly product notes for upcoming releases.</p>
+    </section>
+
+    <section class="launch-cta card" aria-labelledby="updates-title">
+      <h2 id="updates-title">Get Product Updates</h2>
+      <p>Get monthly release notes in your inbox.</p>
+      <form class="signup-form" id="updates-form" novalidate>
+        <label class="sr-only" for="updates-email">Email address</label>
+        <input class="signup-input" id="updates-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        <button class="signup-button" type="submit">Request Updates</button>
+      </form>
     </section>
   </main>
   <script>
@@ -111,6 +137,26 @@
         var active = root.getAttribute("data-theme") || "dark";
         applyTheme(active === "dark" ? "light" : "dark", true);
       });
+
+      var updatesForm = document.getElementById("updates-form");
+      var updatesEmail = document.getElementById("updates-email");
+      if (updatesForm && updatesEmail) {
+        updatesForm.addEventListener("submit", function(event) {
+          event.preventDefault();
+          if (!updatesEmail.checkValidity()) {
+            updatesEmail.reportValidity();
+            return;
+          }
+          var email = encodeURIComponent(updatesEmail.value.trim());
+          if (!email) {
+            return;
+          }
+          if (window.plausible) {
+            window.plausible("Newsletter Signup");
+          }
+          window.location.href = "mailto:contact@madebykreativ.com?subject=Kreativ%20WP%20Updates%20Request&body=Please%20add%20this%20email%20to%20Kreativ%20WP%20updates%3A%20" + email;
+        });
+      }
     })();
   </script>
 </body>

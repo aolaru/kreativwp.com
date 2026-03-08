@@ -68,6 +68,7 @@
 
 body {
   font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  font-size-adjust: 0.52;
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
@@ -370,6 +371,74 @@ a:focus-visible,
 .plugin-detail p {
   font-size: 0.87rem;
   color: var(--muted);
+}
+
+.news-list {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.news-item {
+  border: 1px solid var(--product-border);
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: var(--product-surface);
+}
+
+.news-meta {
+  font-size: 0.75rem;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.news-item h3 {
+  margin-top: 0.35rem;
+  font-size: 1rem;
+}
+
+.news-item p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.signup-form {
+  display: flex;
+  gap: 0.55rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.signup-input {
+  min-width: min(280px, 100%);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0.58rem 0.88rem;
+  font: inherit;
+}
+
+.signup-input::placeholder {
+  color: var(--muted);
+}
+
+.signup-button {
+  border: 1px solid var(--card-border-hover);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: var(--text);
+  padding: 0.56rem 0.92rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background: var(--toggle-bg-hover);
 }
 
 .launch-cta {
