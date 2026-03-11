@@ -27,3 +27,9 @@ Designed for GitHub Pages with the custom domain `kreativwp.com`.
 - Install deps: `npm install`
 - Run screenshots: `npm run test:visual`
 - Outputs are saved to `tests/home-dark.png` and `tests/home-light.png`.
+
+## Quality Checks
+
+- Run HTML validation: `npm run lint:html`
+- Run internal link checks: `npm run lint:links`
+- Run all checks (HTML, links, visual tests): `npm run check`

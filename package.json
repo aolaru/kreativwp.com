@@ -2,9 +2,14 @@
   "name": "kreativwp-com",
   "private": true,
   "scripts": {
-    "test:visual": "playwright test"
+    "test:visual": "playwright test",
+    "test:ci": "playwright test --reporter=line",
+    "lint:html": "html-validate \"*.html\" \"news/**/*.html\" \"plugins/**/*.html\"",
+    "lint:links": "node scripts/check-internal-links.mjs",
+    "check": "npm run lint:html && npm run lint:links && npm run test:ci"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "html-validate": "^9.3.0"
   }
 }
