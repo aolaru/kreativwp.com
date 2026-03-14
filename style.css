@@ -165,7 +165,8 @@ textarea:focus-visible {
   text-decoration: none;
 }
 
-.theme-toggle {
+.theme-toggle,
+.share-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -184,12 +185,14 @@ textarea:focus-visible {
   transition: opacity 170ms ease, transform 170ms ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.share-button:hover {
   opacity: 1;
   transform: translateY(-1px);
 }
 
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+.share-button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -200,6 +203,14 @@ textarea:focus-visible {
 
 .theme-toggle[data-next-theme="dark"]::before {
   content: "\263E";
+}
+
+.share-button {
+  font-size: 0.88rem;
+}
+
+.share-button i {
+  pointer-events: none;
 }
 
 .logo-mark {

@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "25656ed21c7d4f9c89164c724c8ca781"}'></script><!-- End Cloudflare Web Analytics -->
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "25656ed21c7d4f9c89164c724c8ca781"}'></script><!-- End Cloudflare Web Analytics -->
   <script>
     (function() {
       var key = "kreativwp-theme";
@@ -57,6 +57,7 @@
         <a class="menu-link" href="/news.html">News</a>
         <a class="menu-link" href="/about.html">About</a>
         <a class="menu-link" href="/contact.html">Contact</a>
+        <button class="share-button" id="share-button" type="button" aria-label="Share this page" title="Share this page"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span class="sr-only">Share this page</span></button>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"><span class="sr-only">Toggle color theme</span></button>
       </nav>
       <span class="sr-only" id="theme-status" aria-live="polite"></span>
@@ -133,6 +134,41 @@
       if (button) button.addEventListener("click", function() {
         var active = root.getAttribute("data-theme") || "dark";
         applyTheme(active === "dark" ? "light" : "dark", true);
+      });
+    })();
+  </script>
+  <script>
+    (function() {
+      var shareButton = document.getElementById("share-button");
+      var status = document.getElementById("theme-status");
+      if (!shareButton) {
+        return;
+      }
+      shareButton.addEventListener("click", async function() {
+        var url = window.location.href;
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: document.title, url: url });
+            if (status) status.textContent = "Page shared.";
+          } catch (error) {
+            if (error && error.name !== "AbortError" && status) status.textContent = "Sharing failed.";
+          }
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          try {
+            await navigator.clipboard.writeText(url);
+            shareButton.setAttribute("title", "Link copied");
+            if (status) status.textContent = "Page link copied.";
+            window.setTimeout(function() {
+              shareButton.setAttribute("title", "Share this page");
+            }, 1600);
+            return;
+          } catch (error) {
+            // Fall through to manual copy.
+          }
+        }
+        window.prompt("Copy this link:", url);
       });
     })();
   </script>
