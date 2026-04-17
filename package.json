@@ -2,14 +2,20 @@
   "name": "kreativwp-com",
   "private": true,
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "test:visual": "playwright test",
     "test:ci": "playwright test --reporter=line",
-    "lint:html": "html-validate \"*.html\" \"news/**/*.html\" \"plugins/**/*.html\"",
-    "lint:links": "node scripts/check-internal-links.mjs",
+    "lint:html": "npm run build && html-validate \"dist/**/*.html\"",
+    "lint:links": "npm run build && node scripts/check-internal-links.mjs dist",
     "check": "npm run lint:html && npm run lint:links && npm run test:ci"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "html-validate": "^9.3.0"
+  },
+  "dependencies": {
+    "astro": "^6.1.7"
   }
 }

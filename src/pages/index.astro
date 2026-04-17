@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { newsPosts, plugins } from "../data/site";
+
+const structuredData = JSON.stringify(
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Kreativ WP",
+        url: "https://kreativwp.com/"
+      },
+      {
+        "@type": "ItemList",
+        name: "Kreativ WP Plugins",
+        itemListElement: plugins.map((plugin, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "SoftwareApplication",
+            name: plugin.name,
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "WordPress",
+            url: new URL(plugin.canonicalPath, Astro.site).toString()
+          }
+        }))
+      }
+    ]
+  },
+  null,
+  2
+);
+---
+<BaseLayout
+  title="Kreativ WP"
+  description="Practical WordPress utilities and maintenance plugins built for real sites."
+  canonicalPath="/"
+  heroEyebrow="WordPress utilities"
+  heroTitle="Kreativ WP"
+  heroTagline="Practical WordPress utilities and maintenance plugins built for reliability, not hype."
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="Kreativ WP logo"
+  currentPath="/"
+  structuredData={structuredData}
+>
+  <section class="plugins card" aria-labelledby="plugins-title">
+    <h2 id="plugins-title">Plugins</h2>
+    <p class="plugins-intro">Structured like product tiles so you can drop in thumbnails directly.</p>
+    <ul class="product-grid">
+      {plugins.map((plugin) => (
+        <li>
+          <article class="product-card" id={plugin.slug}>
+            <img class="product-thumb" src={plugin.thumb} width="128" height="128" alt={plugin.imageAlt} />
+            <h3 class="product-title">{plugin.name}</h3>
+            <p class="product-meta">{plugin.cardMeta}</p>
+            <p class="product-use">{plugin.cardUse}</p>
+            {plugin.live ? (
+              <a class="cta" href={plugin.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.ctaLabel}</a>
+            ) : (
+              <span class="coming">{plugin.homepageStatus}</span>
+            )}
+            <a class="detail-link" href={plugin.canonicalPath}>Plugin details</a>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="launch-cta card" aria-labelledby="updates-title">
+    <h2 id="updates-title">Get Product Updates</h2>
+    <p>Receive release notes and launch announcements by email.</p>
+    <form class="signup-form" id="updates-form" novalidate>
+      <label class="sr-only" for="updates-email">Email address</label>
+      <input class="signup-input" id="updates-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      <button class="signup-button" type="submit">Request Updates</button>
+    </form>
+  </section>
+
+  <script slot="scripts" is:inline>
+    (() => {
+      const updatesForm = document.getElementById("updates-form");
+      const updatesEmail = document.getElementById("updates-email");
+      if (!updatesForm || !updatesEmail) return;
+      updatesForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!updatesEmail.checkValidity()) {
+          updatesEmail.reportValidity();
+          return;
+        }
+        const email = encodeURIComponent(updatesEmail.value.trim());
+        if (!email) return;
+        window.location.href =
+          "mailto:info@kreativwp.com?subject=Kreativ%20WP%20Updates%20Request&body=Please%20add%20this%20email%20to%20Kreativ%20WP%20updates%3A%20" +
+          email;
+      });
+    })();
+  </script>
+</BaseLayout>

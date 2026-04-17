@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { plugins } from "../../data/site";
+
+export function getStaticPaths() {
+  return plugins.map((plugin) => ({
+    params: { slug: plugin.slug },
+    props: { plugin }
+  }));
+}
+
+const { plugin } = Astro.props;
+const lastLineLinksNews = plugin.ctaLines.map((line) =>
+  line === "Follow our News page for release updates."
+    ? 'Follow our <a class="detail-link" href="/news.html">News</a> page for release updates.'
+    : line
+);
+---
+<BaseLayout
+  title={plugin.title}
+  description={plugin.metaDescription}
+  canonicalPath={plugin.canonicalPath}
+  ogTitle={plugin.name}
+  ogDescription={plugin.metaDescription}
+  heroEyebrow="Plugin"
+  heroTitle={plugin.name}
+  heroTagline={plugin.description}
+  heroImageSrc={plugin.thumb}
+  heroImageAlt={plugin.imageAlt}
+>
+  <section class="card plugin-details" aria-labelledby="features-title">
+    <h2 id="features-title">{plugin.detailTitle}</h2>
+    {plugin.detailItems.map((item) => (
+      <article class="plugin-detail">
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="launch-cta card" aria-labelledby="plugin-cta-title">
+    <h2 id="plugin-cta-title">{plugin.ctaTitle}</h2>
+    {lastLineLinksNews.map((line) => <p set:html={line} />)}
+    {plugin.ctaHref && plugin.ctaLabel && (
+      <p><a class="button-like" href={plugin.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.ctaLabel}</a></p>
+    )}
+  </section>
+</BaseLayout>

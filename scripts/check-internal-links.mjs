@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const root = process.cwd();
+const targetDir = process.argv[2] || ".";
+const root = path.resolve(process.cwd(), targetDir);
 const htmlFiles = [];
 const missing = [];
 
@@ -69,4 +70,4 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log(`Checked ${htmlFiles.length} HTML files: no broken internal links.`);
+console.log(`Checked ${htmlFiles.length} HTML files in ${path.relative(process.cwd(), root) || "."}: no broken internal links.`);

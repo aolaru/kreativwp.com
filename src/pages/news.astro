@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { newsPosts, plugins } from "../data/site";
+
+const livePlugins = plugins.filter((plugin) => plugin.live);
+---
+<BaseLayout
+  title="News | Kreativ WP"
+  description="Latest Kreativ WP plugin updates, release notes, and roadmap highlights."
+  canonicalPath="/news.html"
+  ogTitle="News | Kreativ WP"
+  ogDescription="Latest Kreativ WP plugin updates, release notes, and roadmap highlights."
+  heroEyebrow="News"
+  heroTitle="Latest Updates"
+  heroTagline="Release notes, product updates, and roadmap highlights for Kreativ WP plugins."
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="Kreativ WP logo"
+  currentPath="/news.html"
+>
+  <section class="card plugin-details" aria-labelledby="latest-news-title">
+    <h2 id="latest-news-title">Recent News</h2>
+    <ul class="news-list">
+      {newsPosts.map((post) => (
+        <li class="news-item">
+          <p class="news-meta">{post.date} · {post.tag}</p>
+          <h3><a href={post.canonicalPath}>{post.title}</a></h3>
+          <p>{post.intro}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="card plugin-details" aria-labelledby="plugin-links-title">
+    <h2 id="plugin-links-title">Plugin Links</h2>
+    {livePlugins.map((plugin) => (
+      <article class="plugin-detail">
+        <h3>{plugin.name}</h3>
+        <p><a class="cta" href={plugin.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.ctaLabel}</a></p>
+      </article>
+    ))}
+  </section>
+
+  <section class="launch-cta card" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">Roadmap</h2>
+    <p>Current focus is getting back into WordPress plugin submission flow, with Kreativ Internal Links Audit still positioned as the next release target.</p>
+  </section>
+
+  <section class="launch-cta card" aria-labelledby="updates-title">
+    <h2 id="updates-title">Get Product Updates</h2>
+    <p>Get monthly release notes in your inbox.</p>
+    <form class="signup-form" id="updates-form" novalidate>
+      <label class="sr-only" for="updates-email">Email address</label>
+      <input class="signup-input" id="updates-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      <button class="signup-button" type="submit">Request Updates</button>
+    </form>
+  </section>
+
+  <script slot="scripts" is:inline>
+    (() => {
+      const updatesForm = document.getElementById("updates-form");
+      const updatesEmail = document.getElementById("updates-email");
+      if (!updatesForm || !updatesEmail) return;
+      updatesForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!updatesEmail.checkValidity()) {
+          updatesEmail.reportValidity();
+          return;
+        }
+        const email = encodeURIComponent(updatesEmail.value.trim());
+        if (!email) return;
+        window.location.href =
+          "mailto:info@kreativwp.com?subject=Kreativ%20WP%20Updates%20Request&body=Please%20add%20this%20email%20to%20Kreativ%20WP%20updates%3A%20" +
+          email;
+      });
+    })();
+  </script>
+</BaseLayout>

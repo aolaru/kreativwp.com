@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="404 | Kreativ WP"
+  description="Page not found on Kreativ WP."
+  canonicalPath="/404.html"
+  robots="noindex,follow"
+  mainClass="error-page"
+  heroEyebrow="Kreativ WP"
+  heroTitle="404"
+  heroTagline="The page you requested does not exist or may have moved."
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="Kreativ WP logo"
+>
+  <section class="card launch-cta" aria-labelledby="next-steps-title">
+    <h2 id="next-steps-title">Try One of These</h2>
+    <p>Head back to the homepage or jump directly to plugin listings.</p>
+    <p><a class="button-like" href="/">Go to Homepage</a></p>
+    <p>
+      <a class="detail-link" href="/#kreativ-report-broken-link">Kreativ Report Broken Link</a> ·
+      <a class="detail-link" href="/#kreativ-broken-image-finder">Kreativ Broken Image Finder</a>
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Contact | Kreativ WP"
+  description="Contact Kreativ WP for plugin support, collaboration, and release updates."
+  canonicalPath="/contact.html"
+  ogTitle="Contact | Kreativ WP"
+  ogDescription="Contact Kreativ WP for support, collaborations, and plugin roadmap questions."
+  heroEyebrow="Contact"
+  heroTitle="Get in Touch"
+  heroTagline="For plugin support, partnerships, or roadmap questions, reach out directly."
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="Kreativ WP logo"
+  currentPath="/contact.html"
+>
+  <section class="launch-cta card" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Options</h2>
+    <p>Email is the fastest route for support and collaboration requests.</p>
+    <p><a class="button-like" href="mailto:info@kreativwp.com?subject=Kreativ%20WP%20Support">info@kreativwp.com</a></p>
+    <p><a class="detail-link" href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">Visit madebykreativ.com</a></p>
+  </section>
+
+  <section class="card plugin-details" aria-labelledby="response-title">
+    <h2 id="response-title">What to include</h2>
+    <article class="plugin-detail">
+      <h3>Support requests</h3>
+      <p>Plugin name, WordPress version, and the exact issue or screenshot.</p>
+    </article>
+    <article class="plugin-detail">
+      <h3>Partnerships</h3>
+      <p>Project context, expected scope, timeline, and preferred contact details.</p>
+    </article>
+  </section>
+</BaseLayout>

@@ -1,0 +1,212 @@
+---
+import { footerLinks } from "../data/site";
+
+type Props = {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: "website" | "article";
+  robots?: string;
+  mainClass?: string;
+  heroEyebrow: string;
+  heroTitle: string;
+  heroTagline: string;
+  heroImageSrc: string;
+  heroImageAlt: string;
+  currentPath?: string;
+  structuredData?: string;
+};
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogTitle = title,
+  ogDescription = description,
+  ogType = "website",
+  robots = "index,follow",
+  mainClass = "",
+  heroEyebrow,
+  heroTitle,
+  heroTagline,
+  heroImageSrc,
+  heroImageAlt,
+  currentPath = "",
+  structuredData
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+const ogImage = new URL("/og-image-1200x630.png", Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f1526" />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalUrl.toString()} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonicalUrl.toString()} />
+    <meta property="og:site_name" content="Kreativ WP" />
+    <meta property="og:image" content={ogImage.toString()} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kreativ WP plugin showcase preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage.toString()} />
+    <meta name="twitter:image:alt" content="Kreativ WP plugin showcase preview" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "25656ed21c7d4f9c89164c724c8ca781"}'></script>
+    <script is:inline>
+      (() => {
+        const key = "kreativwp-theme";
+        let saved = null;
+        try {
+          saved = localStorage.getItem(key);
+        } catch {
+          saved = null;
+        }
+        const prefersLight =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        const theme = saved || (prefersLight ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="/style.css" />
+    {structuredData && <script type="application/ld+json" set:html={structuredData} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main class={`container ${mainClass}`.trim()} id="main-content">
+      <header class="hero">
+        <nav class="top-menu" aria-label="Main">
+          <a class="menu-link home-icon" href="/" aria-label="Home" title="Home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i><span class="sr-only">Home</span>
+          </a>
+          <a class="menu-link" href="/news.html" aria-current={currentPath === "/news.html" ? "page" : undefined}>News</a>
+          <a class="menu-link" href="/about.html" aria-current={currentPath === "/about.html" ? "page" : undefined}>About</a>
+          <a class="menu-link" href="/contact.html" aria-current={currentPath === "/contact.html" ? "page" : undefined}>Contact</a>
+          <button class="share-button" id="share-button" type="button" aria-label="Share this page" title="Share this page">
+            <i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span class="sr-only">Share this page</span>
+          </button>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="sr-only">Toggle color theme</span>
+          </button>
+        </nav>
+        <span class="sr-only" id="theme-status" aria-live="polite"></span>
+        <img class="logo-mark" src={heroImageSrc} width="128" height="128" alt={heroImageAlt} />
+        <p class="eyebrow">{heroEyebrow}</p>
+        <h1>{heroTitle}</h1>
+        <p class="tagline">{heroTagline}</p>
+      </header>
+
+      <slot />
+
+      <footer class="footer">
+        <p class="updated">
+          {footerLinks.map((link, index) => (
+            <>
+              <a class="detail-link" href={link.href} target={link.href.startsWith("https://kreativwp.com") ? undefined : "_blank"} rel={link.href.startsWith("https://kreativwp.com") ? undefined : "noopener noreferrer"}>{link.label}</a>{index < footerLinks.length - 1 ? " · " : ""}
+            </>
+          ))}
+        </p>
+        <p>© 2026 <a class="detail-link" href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">Made by KREATIV</a> · Independent creative tools and assets by Andrei Olaru</p>
+      </footer>
+    </main>
+
+    <script is:inline>
+      (() => {
+        const key = "kreativwp-theme";
+        const root = document.documentElement;
+        const button = document.getElementById("theme-toggle");
+        const shareButton = document.getElementById("share-button");
+        const status = document.getElementById("theme-status");
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+        const colors = { dark: "#0f1526", light: "#f3f8ff" };
+
+        const applyTheme = (theme, persist) => {
+          root.setAttribute("data-theme", theme);
+          if (metaTheme) metaTheme.setAttribute("content", colors[theme]);
+          if (button) {
+            const next = theme === "dark" ? "light" : "dark";
+            const label = next === "light" ? "Switch to light theme" : "Switch to dark theme";
+            button.setAttribute("data-next-theme", next);
+            button.setAttribute("aria-label", label);
+            button.setAttribute("title", label);
+          }
+          if (status) {
+            status.textContent = theme === "dark" ? "Dark theme enabled." : "Light theme enabled.";
+          }
+          if (persist) {
+            try {
+              localStorage.setItem(key, theme);
+            } catch {
+              // Ignore persistence failures.
+            }
+          }
+        };
+
+        applyTheme(root.getAttribute("data-theme") || "dark", false);
+
+        if (button) {
+          button.addEventListener("click", () => {
+            const active = root.getAttribute("data-theme") || "dark";
+            applyTheme(active === "dark" ? "light" : "dark", true);
+          });
+        }
+
+        if (shareButton) {
+          shareButton.addEventListener("click", async () => {
+            const url = window.location.href;
+            if (navigator.share) {
+              try {
+                await navigator.share({ title: document.title, url });
+                if (status) status.textContent = "Page shared.";
+              } catch (error) {
+                if (error && error.name !== "AbortError" && status) {
+                  status.textContent = "Sharing failed.";
+                }
+              }
+              return;
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              try {
+                await navigator.clipboard.writeText(url);
+                shareButton.setAttribute("title", "Link copied");
+                if (status) status.textContent = "Page link copied.";
+                window.setTimeout(() => {
+                  shareButton.setAttribute("title", "Share this page");
+                }, 1600);
+                return;
+              } catch {
+                // Fall through to manual copy.
+              }
+            }
+            window.prompt("Copy this link:", url);
+          });
+        }
+      })();
+    </script>
+    <slot name="scripts" />
+  </body>
+</html>

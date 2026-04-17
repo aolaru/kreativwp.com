@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { newsPosts } from "../../data/site";
+
+export function getStaticPaths() {
+  return newsPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+---
+<BaseLayout
+  title={`${post.title} | Kreativ WP News`}
+  description={post.description}
+  canonicalPath={post.canonicalPath}
+  ogTitle={post.title}
+  ogDescription={post.metaDescription}
+  ogType="article"
+  heroEyebrow="News"
+  heroTitle={post.title}
+  heroTagline={`Published on ${post.date}`}
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="Kreativ WP logo"
+>
+  <article class="card plugin-details" aria-labelledby="article-title">
+    <h2 id="article-title">{post.sectionTitle}</h2>
+    {post.items.map((item) => (
+      <article class="plugin-detail">
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+      </article>
+    ))}
+  </article>
+
+  <section class="launch-cta card" aria-labelledby="read-more-title">
+    <h2 id="read-more-title">More Updates</h2>
+    <p><a class="button-like" href="/news.html">Back to all news</a></p>
+  </section>
+</BaseLayout>
