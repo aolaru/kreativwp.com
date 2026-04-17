@@ -1,0 +1,24 @@
+{
+  "title": "Late March 2026 Progress Update",
+  "description": "A late March update on Kreativ Internal Links Audit, Smart Related Posts, and the current Kreativ WP release focus.",
+  "metaDescription": "A late March update on Kreativ Internal Links Audit, Smart Related Posts, and the current Kreativ WP release focus.",
+  "published": "2026-03-28",
+  "publishedLabel": "March 28, 2026",
+  "tag": "Product Update",
+  "intro": "Internal Links Audit moved into active development and Smart Related Posts is now positioned as the next follow-up release.",
+  "sectionTitle": "Current Focus",
+  "items": [
+    {
+      "title": "Internal Links Audit moved into active development",
+      "body": "The next release priority is now centered on Kreativ Internal Links Audit. Current work is focused on turning the audit concept into a first practical release with clear signals for weak, missing, and unbalanced internal links."
+    },
+    {
+      "title": "Smart Related Posts stays in the near-term pipeline",
+      "body": "Kreativ Smart Related Posts remains part of the active roadmap, but it is positioned after Internal Links Audit rather than being presented as an immediate parallel launch."
+    },
+    {
+      "title": "Homepage and plugin pages updated",
+      "body": "We refreshed status messaging across the site so upcoming plugins now show clearer progress states instead of a generic coming-soon label."
+    }
+  ]
+}

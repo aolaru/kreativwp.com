@@ -1,0 +1,24 @@
+{
+  "title": "Kreativ Internal Links Audit Announced",
+  "description": "Kreativ Internal Links Audit is the next planned plugin in the Kreativ WP roadmap.",
+  "metaDescription": "The next Kreativ WP plugin will focus on auditing internal links and site structure quality.",
+  "published": "2026-03-07",
+  "publishedLabel": "March 7, 2026",
+  "tag": "Product Update",
+  "intro": "Our next plugin focuses on auditing internal link quality, link balance, and crawl structure opportunities.",
+  "sectionTitle": "What’s New",
+  "items": [
+    {
+      "title": "Next plugin direction",
+      "body": "Kreativ Internal Links Audit is now the next planned plugin in our lineup. It replaces the previous concept focused only on orphan pages with a broader internal linking audit approach."
+    },
+    {
+      "title": "Planned capabilities",
+      "body": "The first release is planned to highlight weak and missing internal links, identify linking imbalance across key pages, and surface actionable structure recommendations."
+    },
+    {
+      "title": "Status",
+      "body": "Currently in planning and UX scoping. We will publish implementation and changelog updates in upcoming monthly notes."
+    }
+  ]
+}

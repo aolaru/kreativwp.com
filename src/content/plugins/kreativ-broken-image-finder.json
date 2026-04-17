@@ -1,0 +1,33 @@
+{
+  "name": "Kreativ Broken Image Finder",
+  "description": "Catch missing images early and keep content quality high across your site.",
+  "cardMeta": "Detect missing media references.",
+  "cardUse": "Catch missing images across posts and pages before users see them.",
+  "thumb": "/thumb-kreativ-broken-image-finder-128.svg",
+  "imageAlt": "Kreativ Broken Image Finder thumbnail",
+  "metaDescription": "Detect missing image references across posts and pages before they impact trust and UX.",
+  "detailTitle": "Key Features",
+  "detailItems": [
+    {
+      "title": "Broken media detection",
+      "body": "Scans content for missing or unreachable image references that harm trust and readability."
+    },
+    {
+      "title": "Content-level visibility",
+      "body": "Highlights affected posts and pages so teams can prioritize high-impact fixes first."
+    },
+    {
+      "title": "Maintenance ready",
+      "body": "Supports recurring quality checks as part of routine WordPress maintenance workflows."
+    }
+  ],
+  "ctaTitle": "Get the Plugin",
+  "ctaLines": ["Last updated: March 28, 2026"],
+  "ctaHref": "https://wordpress.org/plugins/kreativ-broken-image-finder/",
+  "ctaLabel": "View on WordPress.org",
+  "lastUpdated": "March 28, 2026",
+  "lastUpdatedIso": "2026-03-28",
+  "live": true,
+  "statusPhase": "live",
+  "sortOrder": 2
+}

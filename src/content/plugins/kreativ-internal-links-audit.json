@@ -1,0 +1,36 @@
+{
+  "name": "Kreativ Internal Links Audit",
+  "description": "A full internal linking health audit to improve structure, crawl depth, and discoverability.",
+  "cardMeta": "Audit internal linking quality across your site.",
+  "cardUse": "Identify weak, missing, and unbalanced internal links to improve structure and crawlability.",
+  "thumb": "/thumb-kreativ-internal-links-audit-128.svg",
+  "imageAlt": "Kreativ Internal Links Audit thumbnail",
+  "metaDescription": "Audit internal link quality, discover weak link patterns, and improve crawlability.",
+  "detailTitle": "Planned Features",
+  "detailItems": [
+    {
+      "title": "Link distribution analysis",
+      "body": "Identify underlinked pages and excessive concentration around a small subset of URLs."
+    },
+    {
+      "title": "Coverage and opportunity signals",
+      "body": "Surface link gaps where related pages should reference each other for better navigation and crawl paths."
+    },
+    {
+      "title": "Actionable prioritization",
+      "body": "Highlight high-value fixes first so teams can improve structural quality with predictable effort."
+    }
+  ],
+  "ctaTitle": "Status",
+  "ctaLines": [
+    "Last updated: March 28, 2026",
+    "Current status: In development. Release target: April 2026.",
+    "Follow our News page for release updates."
+  ],
+  "lastUpdated": "March 28, 2026",
+  "lastUpdatedIso": "2026-03-28",
+  "live": false,
+  "homepageStatus": "In development · Release target: April 2026",
+  "statusPhase": "in-development",
+  "sortOrder": 3
+}

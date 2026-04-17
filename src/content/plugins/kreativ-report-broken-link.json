@@ -1,0 +1,33 @@
+{
+  "name": "Kreativ Report Broken Link",
+  "description": "Find broken internal and external links and export clean maintenance reports.",
+  "cardMeta": "Scan and report broken links.",
+  "cardUse": "Find broken internal and external links and export clean reports.",
+  "thumb": "/thumb-kreativ-report-broken-link-128.svg",
+  "imageAlt": "Kreativ Report Broken Link thumbnail",
+  "metaDescription": "Scan internal and external links, detect breakage, and export actionable maintenance reports.",
+  "detailTitle": "Key Features",
+  "detailItems": [
+    {
+      "title": "Internal + external scanning",
+      "body": "Crawls links across your content and highlights broken targets by type, source, and status code."
+    },
+    {
+      "title": "Actionable reporting",
+      "body": "Exports clear reports for cleanup sessions so teams can resolve link debt quickly."
+    },
+    {
+      "title": "Maintenance-first workflow",
+      "body": "Designed for recurring audits in real WordPress maintenance cycles."
+    }
+  ],
+  "ctaTitle": "Get the Plugin",
+  "ctaLines": ["Last updated: March 28, 2026"],
+  "ctaHref": "https://wordpress.org/plugins/kreativ-report-broken-link/",
+  "ctaLabel": "View on WordPress.org",
+  "lastUpdated": "March 28, 2026",
+  "lastUpdatedIso": "2026-03-28",
+  "live": true,
+  "statusPhase": "live",
+  "sortOrder": 1
+}

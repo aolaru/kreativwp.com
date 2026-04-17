@@ -1,10 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { newsPosts } from "../../data/site";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const newsPosts = await getCollection("news");
   return newsPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post }
   }));
 }
@@ -12,21 +13,21 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 ---
 <BaseLayout
-  title={`${post.title} | Kreativ WP News`}
-  description={post.description}
-  canonicalPath={post.canonicalPath}
-  ogTitle={post.title}
-  ogDescription={post.metaDescription}
+  title={`${post.data.title} | Kreativ WP News`}
+  description={post.data.description}
+  canonicalPath={`/news/${post.id}.html`}
+  ogTitle={post.data.title}
+  ogDescription={post.data.metaDescription}
   ogType="article"
   heroEyebrow="News"
-  heroTitle={post.title}
-  heroTagline={`Published on ${post.date}`}
+  heroTitle={post.data.title}
+  heroTagline={`Published on ${post.data.publishedLabel}`}
   heroImageSrc="/kreativ-wp-logo-128.svg"
   heroImageAlt="Kreativ WP logo"
 >
   <article class="card plugin-details" aria-labelledby="article-title">
-    <h2 id="article-title">{post.sectionTitle}</h2>
-    {post.items.map((item) => (
+    <h2 id="article-title">{post.data.sectionTitle}</h2>
+    {post.data.items.map((item) => (
       <article class="plugin-detail">
         <h3>{item.title}</h3>
         <p>{item.body}</p>

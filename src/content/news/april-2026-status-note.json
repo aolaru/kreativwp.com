@@ -1,0 +1,24 @@
+{
+  "title": "Early April 2026 Status Note",
+  "description": "A short early April update on Kreativ WP priorities, including plugin submission prep and the next release target.",
+  "metaDescription": "A short early April update on Kreativ WP priorities, including plugin submission prep and the next release target.",
+  "published": "2026-04-04",
+  "publishedLabel": "April 4, 2026",
+  "tag": "Status Update",
+  "intro": "Work slowed down for a bit, but Internal Links Audit remains the active next release and plugin submission prep is back in focus.",
+  "sectionTitle": "Quick Update",
+  "items": [
+    {
+      "title": "Work paused briefly",
+      "body": "Progress slowed down for a short stretch while attention moved to other work. This is a pause in momentum, not a roadmap reset."
+    },
+    {
+      "title": "Submission prep is back in focus",
+      "body": "The immediate goal now is to review plugin state, prepare WordPress.org submission materials, and get back into a reliable release rhythm."
+    },
+    {
+      "title": "Next public target remains unchanged",
+      "body": "Kreativ Internal Links Audit is still positioned as the next release target, with Smart Related Posts following after that work stabilizes."
+    }
+  ]
+}

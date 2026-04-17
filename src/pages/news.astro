@@ -1,8 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { newsPosts, plugins } from "../data/site";
-
-const livePlugins = plugins.filter((plugin) => plugin.live);
+const newsPosts = (await getCollection("news")).sort((a, b) =>
+  b.data.published.localeCompare(a.data.published)
+);
+const livePlugins = (await getCollection("plugins"))
+  .filter((plugin) => plugin.data.live)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const nextRelease = (await getCollection("plugins"))
+  .filter((plugin) => !plugin.data.live)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)[0];
 ---
 <BaseLayout
   title="News | Kreativ WP"
@@ -22,9 +29,9 @@ const livePlugins = plugins.filter((plugin) => plugin.live);
     <ul class="news-list">
       {newsPosts.map((post) => (
         <li class="news-item">
-          <p class="news-meta">{post.date} · {post.tag}</p>
-          <h3><a href={post.canonicalPath}>{post.title}</a></h3>
-          <p>{post.intro}</p>
+          <p class="news-meta">{post.data.publishedLabel} · {post.data.tag}</p>
+          <h3><a href={`/news/${post.id}.html`}>{post.data.title}</a></h3>
+          <p>{post.data.intro}</p>
         </li>
       ))}
     </ul>
@@ -34,15 +41,15 @@ const livePlugins = plugins.filter((plugin) => plugin.live);
     <h2 id="plugin-links-title">Plugin Links</h2>
     {livePlugins.map((plugin) => (
       <article class="plugin-detail">
-        <h3>{plugin.name}</h3>
-        <p><a class="cta" href={plugin.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.ctaLabel}</a></p>
+        <h3>{plugin.data.name}</h3>
+        <p><a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a></p>
       </article>
     ))}
   </section>
 
   <section class="launch-cta card" aria-labelledby="roadmap-title">
     <h2 id="roadmap-title">Roadmap</h2>
-    <p>Current focus is getting back into WordPress plugin submission flow, with Kreativ Internal Links Audit still positioned as the next release target.</p>
+    <p>Current focus is getting back into WordPress plugin submission flow, with {nextRelease.data.name} still positioned as the next release target.</p>
   </section>
 
   <section class="launch-cta card" aria-labelledby="updates-title">

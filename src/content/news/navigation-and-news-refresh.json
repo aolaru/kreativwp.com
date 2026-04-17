@@ -1,0 +1,24 @@
+{
+  "title": "Navigation and News Refresh Shipped",
+  "description": "Kreativ WP navigation, footer, and news structure have been refreshed.",
+  "metaDescription": "A website update covering navigation cleanup, footer branding, and a more structured news flow for Kreativ WP.",
+  "published": "2026-03-05",
+  "publishedLabel": "March 5, 2026",
+  "tag": "Website Update",
+  "intro": "We introduced streamlined navigation, clearer footer branding, and a structured news publishing flow.",
+  "sectionTitle": "What Changed",
+  "items": [
+    {
+      "title": "Navigation cleaned up",
+      "body": "The main header now uses a simpler centered navigation structure with direct access to Home, News, About, and Contact."
+    },
+    {
+      "title": "News became a real section",
+      "body": "Instead of placeholder copy, the site now has a dedicated News page and separate update pages for roadmap and release notes."
+    },
+    {
+      "title": "Branding tightened",
+      "body": "Footer links and supporting brand references were aligned with the wider KREATIV ecosystem for clearer positioning."
+    }
+  ]
+}

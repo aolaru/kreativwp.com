@@ -1,0 +1,36 @@
+{
+  "name": "Kreativ Smart Related Posts",
+  "description": "Show relevant related content based on context to increase discovery and engagement.",
+  "cardMeta": "Show context-aware related content.",
+  "cardUse": "Improve discovery and session depth with smarter internal recommendations.",
+  "thumb": "/thumb-kreativ-smart-related-posts-128.svg",
+  "imageAlt": "Kreativ Smart Related Posts thumbnail",
+  "metaDescription": "Context-aware related post recommendations to improve content discovery and session depth.",
+  "detailTitle": "Planned Features",
+  "detailItems": [
+    {
+      "title": "Context-aware recommendations",
+      "body": "Prioritize related posts using content context and topical proximity instead of static tag overlap alone."
+    },
+    {
+      "title": "Flexible display controls",
+      "body": "Configure placement, limit, and presentation style to match different themes and content layouts."
+    },
+    {
+      "title": "Engagement-focused defaults",
+      "body": "Designed to support longer sessions and stronger internal discovery without manual curation overhead."
+    }
+  ],
+  "ctaTitle": "Status",
+  "ctaLines": [
+    "Last updated: March 28, 2026",
+    "Current status: Prototype in progress. Planned after Internal Links Audit.",
+    "Follow our News page for release updates."
+  ],
+  "lastUpdated": "March 28, 2026",
+  "lastUpdatedIso": "2026-03-28",
+  "live": false,
+  "homepageStatus": "Prototype in progress · Planned after Internal Links Audit",
+  "statusPhase": "prototype",
+  "sortOrder": 4
+}

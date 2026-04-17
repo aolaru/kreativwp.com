@@ -1,22 +1,24 @@
-import { newsPosts, plugins } from "../data/site";
+import { getCollection } from "astro:content";
 
-export function GET({ site }) {
+export async function GET({ site }) {
+  const newsPosts = await getCollection("news");
+  const plugins = await getCollection("plugins");
   const urls = [
     { path: "/", lastmod: "2026-04-04", changefreq: "weekly", priority: "1.0" },
     { path: "/about.html", lastmod: "2026-03-28", changefreq: "monthly", priority: "0.7" },
     { path: "/contact.html", lastmod: "2026-03-28", changefreq: "monthly", priority: "0.7" },
     { path: "/news.html", lastmod: "2026-04-04", changefreq: "monthly", priority: "0.6" },
     ...newsPosts.map((post) => ({
-      path: post.canonicalPath,
-      lastmod: post.slug === "april-2026-status-note" ? "2026-04-04" : "2026-03-28",
+      path: `/news/${post.id}.html`,
+      lastmod: post.data.published,
       changefreq: "monthly",
       priority: "0.5"
     })),
     ...plugins.map((plugin) => ({
-      path: plugin.canonicalPath,
-      lastmod: plugin.lastUpdated === "March 28, 2026" ? "2026-03-28" : "2026-03-16",
+      path: `/plugins/${plugin.id}.html`,
+      lastmod: plugin.data.lastUpdatedIso,
       changefreq: "monthly",
-      priority: plugin.live ? "0.7" : "0.6"
+      priority: plugin.data.live ? "0.7" : "0.6"
     }))
   ];
 

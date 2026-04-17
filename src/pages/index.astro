@@ -1,6 +1,9 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { newsPosts, plugins } from "../data/site";
+const pluginEntries = (await getCollection("plugins")).sort(
+  (a, b) => a.data.sortOrder - b.data.sortOrder
+);
 
 const structuredData = JSON.stringify(
   {
@@ -14,15 +17,15 @@ const structuredData = JSON.stringify(
       {
         "@type": "ItemList",
         name: "Kreativ WP Plugins",
-        itemListElement: plugins.map((plugin, index) => ({
+        itemListElement: pluginEntries.map((plugin, index) => ({
           "@type": "ListItem",
           position: index + 1,
           item: {
             "@type": "SoftwareApplication",
-            name: plugin.name,
+            name: plugin.data.name,
             applicationCategory: "DeveloperApplication",
             operatingSystem: "WordPress",
-            url: new URL(plugin.canonicalPath, Astro.site).toString()
+            url: new URL(`/plugins/${plugin.id}.html`, Astro.site).toString()
           }
         }))
       }
@@ -48,19 +51,19 @@ const structuredData = JSON.stringify(
     <h2 id="plugins-title">Plugins</h2>
     <p class="plugins-intro">Structured like product tiles so you can drop in thumbnails directly.</p>
     <ul class="product-grid">
-      {plugins.map((plugin) => (
+      {pluginEntries.map((plugin) => (
         <li>
-          <article class="product-card" id={plugin.slug}>
-            <img class="product-thumb" src={plugin.thumb} width="128" height="128" alt={plugin.imageAlt} />
-            <h3 class="product-title">{plugin.name}</h3>
-            <p class="product-meta">{plugin.cardMeta}</p>
-            <p class="product-use">{plugin.cardUse}</p>
-            {plugin.live ? (
-              <a class="cta" href={plugin.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.ctaLabel}</a>
+          <article class="product-card" id={plugin.id}>
+            <img class="product-thumb" src={plugin.data.thumb} width="128" height="128" alt={plugin.data.imageAlt} />
+            <h3 class="product-title">{plugin.data.name}</h3>
+            <p class="product-meta">{plugin.data.cardMeta}</p>
+            <p class="product-use">{plugin.data.cardUse}</p>
+            {plugin.data.live ? (
+              <a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a>
             ) : (
-              <span class="coming">{plugin.homepageStatus}</span>
+              <span class="coming">{plugin.data.homepageStatus}</span>
             )}
-            <a class="detail-link" href={plugin.canonicalPath}>Plugin details</a>
+            <a class="detail-link" href={`/plugins/${plugin.id}.html`}>Plugin details</a>
           </article>
         </li>
       ))}
