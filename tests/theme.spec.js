@@ -22,7 +22,7 @@ test("homepage nav and theme toggle work", async ({ page }) => {
 });
 
 test("news page exposes article links and signup form", async ({ page }) => {
-  await page.goto("/news.html");
+  await page.goto("/news/");
   await expect(page).toHaveTitle(/News \| Kreativ WP/i);
   await expect(page.getByRole("link", { name: /Internal Links Audit announced/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /Navigation and News refresh shipped/i })).toBeVisible();
@@ -32,10 +32,10 @@ test("news page exposes article links and signup form", async ({ page }) => {
 
 test("plugin detail pages are reachable", async ({ page }) => {
   const pages = [
-    { url: "/plugins/kreativ-report-broken-link.html", title: /Kreativ Report Broken Link/i },
-    { url: "/plugins/kreativ-broken-image-finder.html", title: /Kreativ Broken Image Finder/i },
-    { url: "/plugins/kreativ-internal-links-audit.html", title: /Kreativ Internal Links Audit/i },
-    { url: "/plugins/kreativ-smart-related-posts.html", title: /Kreativ Smart Related Posts/i }
+    { url: "/plugins/kreativ-report-broken-link/", title: /Kreativ Report Broken Link/i },
+    { url: "/plugins/kreativ-broken-image-finder/", title: /Kreativ Broken Image Finder/i },
+    { url: "/plugins/kreativ-internal-links-audit/", title: /Kreativ Internal Links Audit/i },
+    { url: "/plugins/kreativ-smart-related-posts/", title: /Kreativ Smart Related Posts/i }
   ];
 
   for (const entry of pages) {

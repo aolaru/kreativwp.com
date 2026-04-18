@@ -13,14 +13,14 @@ export async function getStaticPaths() {
 const { plugin } = Astro.props;
 const lastLineLinksNews = plugin.data.ctaLines.map((line) =>
   line === "Follow our News page for release updates."
-    ? 'Follow our <a class="detail-link" href="/news.html">News</a> page for release updates.'
+    ? 'Follow our <a class="detail-link" href="/news/">News</a> page for release updates.'
     : line
 );
 ---
 <BaseLayout
   title={`${plugin.data.name} | Kreativ WP`}
   description={plugin.data.metaDescription}
-  canonicalPath={`/plugins/${plugin.id}.html`}
+  canonicalPath={`/plugins/${plugin.id}/`}
   ogTitle={plugin.data.name}
   ogDescription={plugin.data.metaDescription}
   heroEyebrow="Plugin"

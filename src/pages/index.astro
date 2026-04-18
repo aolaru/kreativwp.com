@@ -25,7 +25,7 @@ const structuredData = JSON.stringify(
             name: plugin.data.name,
             applicationCategory: "DeveloperApplication",
             operatingSystem: "WordPress",
-            url: new URL(`/plugins/${plugin.id}.html`, Astro.site).toString()
+            url: new URL(`/plugins/${plugin.id}/`, Astro.site).toString()
           }
         }))
       }
@@ -63,7 +63,7 @@ const structuredData = JSON.stringify(
             ) : (
               <span class="coming">{plugin.data.homepageStatus}</span>
             )}
-            <a class="detail-link" href={`/plugins/${plugin.id}.html`}>Plugin details</a>
+            <a class="detail-link" href={`/plugins/${plugin.id}/`}>Plugin details</a>
           </article>
         </li>
       ))}

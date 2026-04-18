@@ -15,7 +15,7 @@ const { post } = Astro.props;
 <BaseLayout
   title={`${post.data.title} | Kreativ WP News`}
   description={post.data.description}
-  canonicalPath={`/news/${post.id}.html`}
+  canonicalPath={`/news/${post.id}/`}
   ogTitle={post.data.title}
   ogDescription={post.data.metaDescription}
   ogType="article"
@@ -37,6 +37,6 @@ const { post } = Astro.props;
 
   <section class="launch-cta card" aria-labelledby="read-more-title">
     <h2 id="read-more-title">More Updates</h2>
-    <p><a class="button-like" href="/news.html">Back to all news</a></p>
+    <p><a class="button-like" href="/news/">Back to all news</a></p>
   </section>
 </BaseLayout>

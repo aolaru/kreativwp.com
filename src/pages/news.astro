@@ -14,7 +14,7 @@ const nextRelease = (await getCollection("plugins"))
 <BaseLayout
   title="News | Kreativ WP"
   description="Latest Kreativ WP plugin updates, release notes, and roadmap highlights."
-  canonicalPath="/news.html"
+  canonicalPath="/news/"
   ogTitle="News | Kreativ WP"
   ogDescription="Latest Kreativ WP plugin updates, release notes, and roadmap highlights."
   heroEyebrow="News"
@@ -22,7 +22,7 @@ const nextRelease = (await getCollection("plugins"))
   heroTagline="Release notes, product updates, and roadmap highlights for Kreativ WP plugins."
   heroImageSrc="/kreativ-wp-logo-128.svg"
   heroImageAlt="Kreativ WP logo"
-  currentPath="/news.html"
+  currentPath="/news/"
 >
   <section class="card plugin-details" aria-labelledby="latest-news-title">
     <h2 id="latest-news-title">Recent News</h2>
@@ -30,7 +30,7 @@ const nextRelease = (await getCollection("plugins"))
       {newsPosts.map((post) => (
         <li class="news-item">
           <p class="news-meta">{post.data.publishedLabel} · {post.data.tag}</p>
-          <h3><a href={`/news/${post.id}.html`}>{post.data.title}</a></h3>
+          <h3><a href={`/news/${post.id}/`}>{post.data.title}</a></h3>
           <p>{post.data.intro}</p>
         </li>
       ))}
