@@ -23,14 +23,14 @@
   ],
   "ctaTitle": "Status",
   "ctaLines": [
-    "Last updated: March 28, 2026",
-    "Current status: Prototype in progress. Planned after Internal Links Audit.",
+    "Last updated: May 10, 2026",
+    "Current status: Prototype direction is still under review. Planned after Internal Links Audit.",
     "Follow our News page for release updates."
   ],
-  "lastUpdated": "March 28, 2026",
-  "lastUpdatedIso": "2026-03-28",
+  "lastUpdated": "May 10, 2026",
+  "lastUpdatedIso": "2026-05-10",
   "live": false,
-  "homepageStatus": "Prototype in progress · Planned after Internal Links Audit",
+  "homepageStatus": "Prototype under review · Planned after Internal Links Audit",
   "statusPhase": "prototype",
   "sortOrder": 4
 }

@@ -1,0 +1,24 @@
+{
+  "title": "May 2026 Submission Update",
+  "description": "A May update on WordPress plugin submission prep, Internal Links Audit progress, and the near-term Kreativ WP roadmap.",
+  "metaDescription": "A May 2026 update on WordPress plugin submission prep, Internal Links Audit progress, and the near-term Kreativ WP roadmap.",
+  "published": "2026-05-10",
+  "publishedLabel": "May 10, 2026",
+  "tag": "Status Update",
+  "intro": "Work this month is centered on plugin review and submission prep, with Internal Links Audit still leading the next release queue.",
+  "sectionTitle": "Current Focus",
+  "items": [
+    {
+      "title": "Submission work is the immediate priority",
+      "body": "Current effort is focused on checking plugin state, tightening submission details, and getting WordPress.org packaging and review materials in order."
+    },
+    {
+      "title": "Internal Links Audit remains next",
+      "body": "Kreativ Internal Links Audit is still the next release candidate, but the public status is now framed around submission prep and release scoping rather than an expired April target."
+    },
+    {
+      "title": "Smart Related Posts stays behind it",
+      "body": "Kreativ Smart Related Posts remains in the near-term pipeline, but it stays positioned after Internal Links Audit while the current submission work is completed."
+    }
+  ]
+}
