@@ -4,6 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pluginEntries = (await getCollection("plugins")).sort(
   (a, b) => a.data.sortOrder - b.data.sortOrder
 );
+const livePlugins = pluginEntries.filter((plugin) => plugin.data.live);
+const upcomingPlugins = pluginEntries.filter((plugin) => !plugin.data.live);
+const nextRelease = upcomingPlugins[0];
 
 const structuredData = JSON.stringify(
   {
@@ -48,26 +51,49 @@ const structuredData = JSON.stringify(
   structuredData={structuredData}
 >
   <section class="plugins card" aria-labelledby="plugins-title">
-    <h2 id="plugins-title">Plugins</h2>
-    <p class="plugins-intro">Structured like product tiles so you can drop in thumbnails directly.</p>
+    <h2 id="plugins-title">Live Plugins</h2>
+    <p class="plugins-intro">Two utilities are already live on WordPress.org and built for practical maintenance work.</p>
     <ul class="product-grid">
-      {pluginEntries.map((plugin) => (
+      {livePlugins.map((plugin) => (
         <li>
           <article class="product-card" id={plugin.id}>
             <img class="product-thumb" src={plugin.data.thumb} width="128" height="128" alt={plugin.data.imageAlt} />
             <h3 class="product-title">{plugin.data.name}</h3>
             <p class="product-meta">{plugin.data.cardMeta}</p>
             <p class="product-use">{plugin.data.cardUse}</p>
-            {plugin.data.live ? (
-              <a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a>
-            ) : (
-              <span class="coming">{plugin.data.homepageStatus}</span>
-            )}
+            <span class="coming">Live now · Ready on WordPress.org</span>
+            <a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a>
             <a class="detail-link" href={`/plugins/${plugin.id}/`}>Plugin details</a>
           </article>
         </li>
       ))}
     </ul>
+  </section>
+
+  <section class="card plugin-details" aria-labelledby="next-release-title">
+    <h2 id="next-release-title">Next Release</h2>
+    <article class="plugin-detail">
+      <h3>{nextRelease.data.name}</h3>
+      <p>{nextRelease.data.cardUse}</p>
+      <p><strong>Status:</strong> {nextRelease.data.homepageStatus}</p>
+      <p><a class="button-like" href={`/plugins/${nextRelease.id}/`}>Review next plugin</a></p>
+    </article>
+    {upcomingPlugins.slice(1).map((plugin) => (
+      <article class="plugin-detail">
+        <h3>{plugin.data.name}</h3>
+        <p>{plugin.data.cardUse}</p>
+        <p>{plugin.data.homepageStatus}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="card plugin-details" aria-labelledby="process-title">
+    <h2 id="process-title">Submission Process</h2>
+    <article class="plugin-detail">
+      <h3>How we prepare releases</h3>
+      <p>Before a plugin goes public, we review packaging, admin-side hygiene, security basics, and uninstall behavior to reduce avoidable WordPress.org review friction.</p>
+      <p><a class="detail-link" href="/news/wordpress-org-submission-checklist/">Read the submission checklist</a></p>
+    </article>
   </section>
 
   <section class="launch-cta card" aria-labelledby="updates-title">
