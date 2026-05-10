@@ -1,0 +1,24 @@
+{
+  "title": "What We Check Before a WordPress.org Submission",
+  "description": "A short overview of the practical checks we run before preparing a WordPress plugin submission.",
+  "metaDescription": "A practical overview of the checks we run before preparing a WordPress.org plugin submission.",
+  "published": "2026-05-10",
+  "publishedLabel": "May 10, 2026",
+  "tag": "Process Update",
+  "intro": "Before submitting a plugin, we focus on a small set of checks that reduce avoidable review friction and make the release easier to maintain.",
+  "sectionTitle": "Submission Checklist",
+  "items": [
+    {
+      "title": "Plugin basics and packaging",
+      "body": "We review plugin headers, versioning, stable tag, readme structure, assets, and packaging details so the submission is clean before it reaches review."
+    },
+    {
+      "title": "Security and admin hygiene",
+      "body": "We check sanitization, escaping, nonce usage, capability checks, and whether admin-side behavior stays focused and predictable."
+    },
+    {
+      "title": "Maintenance and uninstall behavior",
+      "body": "We verify activation behavior, uninstall expectations, and whether the plugin leaves behind anything that would make long-term maintenance messy."
+    }
+  ]
+}

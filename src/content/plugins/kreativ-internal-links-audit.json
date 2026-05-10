@@ -29,6 +29,47 @@
   ],
   "lastUpdated": "May 10, 2026",
   "lastUpdatedIso": "2026-05-10",
+  "additionalSections": [
+    {
+      "title": "Who It Is For",
+      "items": [
+        {
+          "title": "Content-heavy WordPress sites",
+          "body": "This plugin is aimed at publishers, agencies, and site owners who need a clearer view of how internal links are distributed across a growing content base."
+        },
+        {
+          "title": "Teams doing ongoing maintenance",
+          "body": "It is especially useful when internal linking is no longer something you can review manually page by page."
+        }
+      ]
+    },
+    {
+      "title": "What Problem It Solves",
+      "items": [
+        {
+          "title": "Weak structure is hard to see early",
+          "body": "Many WordPress sites accumulate underlinked pages, uneven link concentration, and missed linking opportunities without obvious warning signs."
+        },
+        {
+          "title": "Manual audits do not scale",
+          "body": "The goal is to turn crawl-structure and internal-linking issues into a practical maintenance workflow instead of an occasional one-off review."
+        }
+      ]
+    },
+    {
+      "title": "First Release Scope",
+      "items": [
+        {
+          "title": "What v1 will include",
+          "body": "The first version is expected to focus on underlinked pages, internal-link imbalance, and actionable signals for missing or weak contextual links."
+        },
+        {
+          "title": "What v1 will not do",
+          "body": "The first release is not intended to be a full SEO suite or an automatic link-rewriting tool. It is being scoped as a focused audit and reporting plugin."
+        }
+      ]
+    }
+  ],
   "live": false,
   "homepageStatus": "In development · Submission prep in progress",
   "statusPhase": "in-development",

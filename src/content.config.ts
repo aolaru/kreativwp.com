@@ -24,6 +24,19 @@ const plugins = defineCollection({
     ctaLabel: z.string().optional(),
     lastUpdated: z.string(),
     lastUpdatedIso: z.string(),
+    additionalSections: z
+      .array(
+        z.object({
+          title: z.string(),
+          items: z.array(
+            z.object({
+              title: z.string(),
+              body: z.string()
+            })
+          )
+        })
+      )
+      .optional(),
     live: z.boolean(),
     homepageStatus: z.string().optional(),
     statusPhase: z.enum(["live", "in-development", "prototype"]),

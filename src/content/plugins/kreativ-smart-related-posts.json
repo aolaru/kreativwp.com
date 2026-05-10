@@ -29,6 +29,47 @@
   ],
   "lastUpdated": "May 10, 2026",
   "lastUpdatedIso": "2026-05-10",
+  "additionalSections": [
+    {
+      "title": "Who It Is For",
+      "items": [
+        {
+          "title": "Sites that need better content discovery",
+          "body": "This plugin is aimed at blogs, magazines, and documentation-style sites that want readers to discover more relevant content without hand-curating every related-post block."
+        },
+        {
+          "title": "Teams that want useful defaults",
+          "body": "It is being designed for site owners who want stronger internal recommendations without building a custom recommendation system."
+        }
+      ]
+    },
+    {
+      "title": "What Problem It Solves",
+      "items": [
+        {
+          "title": "Generic related posts often miss context",
+          "body": "Simple tag overlap or date-based widgets often produce low-value recommendations that do not improve session depth or content discovery."
+        },
+        {
+          "title": "Manual curation does not scale",
+          "body": "The goal is to make related-post output feel relevant enough to support navigation and engagement without creating another maintenance burden."
+        }
+      ]
+    },
+    {
+      "title": "First Release Scope",
+      "items": [
+        {
+          "title": "What v1 will include",
+          "body": "The first version is expected to focus on context-aware matching, basic display controls, and sensible defaults that work on typical content sites."
+        },
+        {
+          "title": "What v1 will not do",
+          "body": "The initial release is not being positioned as a machine-learning recommendation engine or a full personalization platform. The scope stays intentionally practical."
+        }
+      ]
+    }
+  ],
   "live": false,
   "homepageStatus": "Prototype under review · Planned after Internal Links Audit",
   "statusPhase": "prototype",

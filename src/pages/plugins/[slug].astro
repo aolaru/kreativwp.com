@@ -39,6 +39,18 @@ const lastLineLinksNews = plugin.data.ctaLines.map((line) =>
     ))}
   </section>
 
+  {plugin.data.additionalSections?.map((section, index) => (
+    <section class="card plugin-details" aria-labelledby={`plugin-section-${index}`}>
+      <h2 id={`plugin-section-${index}`}>{section.title}</h2>
+      {section.items.map((item) => (
+        <article class="plugin-detail">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </section>
+  ))}
+
   <section class="launch-cta card" aria-labelledby="plugin-cta-title">
     <h2 id="plugin-cta-title">{plugin.data.ctaTitle}</h2>
     {lastLineLinksNews.map((line) => <p set:html={line} />)}
