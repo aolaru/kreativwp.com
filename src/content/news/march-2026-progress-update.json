@@ -5,6 +5,7 @@
   "published": "2026-03-28",
   "publishedLabel": "March 28, 2026",
   "tag": "Product Update",
+  "kind": "status",
   "intro": "Internal Links Audit moved into active development and Smart Related Posts is now positioned as the next follow-up release.",
   "sectionTitle": "Current Focus",
   "items": [

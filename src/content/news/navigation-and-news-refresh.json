@@ -5,6 +5,7 @@
   "published": "2026-03-05",
   "publishedLabel": "March 5, 2026",
   "tag": "Website Update",
+  "kind": "website",
   "intro": "We introduced streamlined navigation, clearer footer branding, and a structured news publishing flow.",
   "sectionTitle": "What Changed",
   "items": [

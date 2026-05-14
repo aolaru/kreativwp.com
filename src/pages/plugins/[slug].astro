@@ -57,5 +57,20 @@ const lastLineLinksNews = plugin.data.ctaLines.map((line) =>
     {plugin.data.ctaHref && plugin.data.ctaLabel && (
       <p><a class="button-like" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a></p>
     )}
+    {plugin.data.supportingLinks?.map((link) => (
+      <p><a class="detail-link" href={link.href}>{link.label}</a></p>
+    ))}
   </section>
+
+  {plugin.data.changelog?.length ? (
+    <section class="card plugin-details" aria-labelledby="plugin-changelog-title">
+      <h2 id="plugin-changelog-title">{plugin.data.changelogTitle || "Changelog"}</h2>
+      {plugin.data.changelog.map((entry) => (
+        <article class="plugin-detail">
+          <h3>{entry.date} · {entry.label}</h3>
+          <p>{entry.body}</p>
+        </article>
+      ))}
+    </section>
+  ) : null}
 </BaseLayout>

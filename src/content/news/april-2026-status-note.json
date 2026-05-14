@@ -5,6 +5,7 @@
   "published": "2026-04-04",
   "publishedLabel": "April 4, 2026",
   "tag": "Status Update",
+  "kind": "status",
   "intro": "Work slowed down for a bit, but Internal Links Audit remains the active next release and plugin submission prep is back in focus.",
   "sectionTitle": "Quick Update",
   "items": [

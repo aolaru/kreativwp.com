@@ -5,6 +5,7 @@
   "published": "2026-05-10",
   "publishedLabel": "May 10, 2026",
   "tag": "Process Update",
+  "kind": "process",
   "intro": "Before submitting a plugin, we focus on a small set of checks that reduce avoidable review friction and make the release easier to maintain.",
   "sectionTitle": "Submission Checklist",
   "items": [

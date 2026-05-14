@@ -1,0 +1,25 @@
+{
+  "title": "Kreativ Report Broken Link in Active Maintenance",
+  "description": "A short update on what Kreativ Report Broken Link is built for and how it fits recurring WordPress maintenance work.",
+  "metaDescription": "A short update on Kreativ Report Broken Link, its use case, and how it fits recurring WordPress maintenance work.",
+  "published": "2026-05-14",
+  "publishedLabel": "May 14, 2026",
+  "tag": "Release Note",
+  "kind": "release",
+  "intro": "Kreativ Report Broken Link is live and positioned as a practical cleanup tool for sites that need repeatable broken-link reporting.",
+  "sectionTitle": "Release Context",
+  "items": [
+    {
+      "title": "Built for recurring maintenance",
+      "body": "The plugin is aimed at WordPress teams that need a repeatable way to detect broken internal and external links without turning each audit into a manual crawl."
+    },
+    {
+      "title": "Best fit",
+      "body": "It is most useful on sites where link quality directly affects trust, navigation, and editorial maintenance velocity."
+    },
+    {
+      "title": "What to expect",
+      "body": "The value is not just in finding broken links once. The real use case is making link cleanup part of a predictable maintenance workflow."
+    }
+  ]
+}

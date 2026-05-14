@@ -22,6 +22,14 @@ const plugins = defineCollection({
     ctaLines: z.array(z.string()),
     ctaHref: z.string().optional(),
     ctaLabel: z.string().optional(),
+    supportingLinks: z
+      .array(
+        z.object({
+          label: z.string(),
+          href: z.string()
+        })
+      )
+      .optional(),
     lastUpdated: z.string(),
     lastUpdatedIso: z.string(),
     additionalSections: z
@@ -34,6 +42,16 @@ const plugins = defineCollection({
               body: z.string()
             })
           )
+        })
+      )
+      .optional(),
+    changelogTitle: z.string().optional(),
+    changelog: z
+      .array(
+        z.object({
+          date: z.string(),
+          label: z.string(),
+          body: z.string()
         })
       )
       .optional(),
@@ -53,6 +71,10 @@ const news = defineCollection({
     published: z.string(),
     publishedLabel: z.string(),
     tag: z.string(),
+    kind: z.enum(["release", "process", "status", "website"]),
+    featured: z.boolean().optional(),
+    ctaLabel: z.string().optional(),
+    ctaHref: z.string().optional(),
     intro: z.string(),
     sectionTitle: z.string(),
     items: z.array(

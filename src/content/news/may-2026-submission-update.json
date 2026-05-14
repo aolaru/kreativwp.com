@@ -5,6 +5,10 @@
   "published": "2026-05-10",
   "publishedLabel": "May 10, 2026",
   "tag": "Status Update",
+  "kind": "status",
+  "featured": true,
+  "ctaLabel": "Review the next plugin",
+  "ctaHref": "/plugins/kreativ-internal-links-audit/",
   "intro": "Work this month is centered on plugin review and submission prep, with Internal Links Audit still leading the next release queue.",
   "sectionTitle": "Current Focus",
   "items": [

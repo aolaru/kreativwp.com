@@ -32,6 +32,18 @@ Builds as a static Astro site for deployment on any static host.
 - Build static output: `npm run build`
 - Preview production output: `npm run preview`
 
+## Workspace Reliability
+
+- Do not use a Dropbox-synced folder as the primary live working tree for this repo.
+- Git index operations and Astro builds can time out in synced folders.
+- Preferred workflow: keep the active clone in a normal local path and let Dropbox sync only backups or exports if needed.
+
+## Workspace Reliability
+
+- Do not use a Dropbox-synced folder as the primary live working tree for this repo.
+- Git index operations and Astro builds can time out in synced folders.
+- Preferred workflow: keep the active clone in a normal local path, then let Dropbox sync backups or a secondary copy if needed.
+
 ## Visual Regression Checks
 
 - Run screenshots: `npm run test:visual`

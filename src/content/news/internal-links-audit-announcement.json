@@ -5,6 +5,7 @@
   "published": "2026-03-07",
   "publishedLabel": "March 7, 2026",
   "tag": "Product Update",
+  "kind": "status",
   "intro": "Our next plugin focuses on auditing internal link quality, link balance, and crawl structure opportunities.",
   "sectionTitle": "What’s New",
   "items": [

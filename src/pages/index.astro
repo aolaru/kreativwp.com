@@ -7,6 +7,7 @@ const pluginEntries = (await getCollection("plugins")).sort(
 const livePlugins = pluginEntries.filter((plugin) => plugin.data.live);
 const upcomingPlugins = pluginEntries.filter((plugin) => !plugin.data.live);
 const nextRelease = upcomingPlugins[0];
+const latestLivePlugin = livePlugins[livePlugins.length - 1];
 
 const structuredData = JSON.stringify(
   {
@@ -63,6 +64,9 @@ const structuredData = JSON.stringify(
             <p class="product-use">{plugin.data.cardUse}</p>
             <span class="coming">Live now · Ready on WordPress.org</span>
             <a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a>
+            {plugin.data.supportingLinks?.[0] ? (
+              <a class="detail-link" href={plugin.data.supportingLinks[0].href}>{plugin.data.supportingLinks[0].label}</a>
+            ) : null}
             <a class="detail-link" href={`/plugins/${plugin.id}/`}>Plugin details</a>
           </article>
         </li>
@@ -93,6 +97,22 @@ const structuredData = JSON.stringify(
       <h3>How we prepare releases</h3>
       <p>Before a plugin goes public, we review packaging, admin-side hygiene, security basics, and uninstall behavior to reduce avoidable WordPress.org review friction.</p>
       <p><a class="detail-link" href="/news/wordpress-org-submission-checklist/">Read the submission checklist</a></p>
+    </article>
+  </section>
+
+  <section class="card plugin-details" aria-labelledby="timeline-title">
+    <h2 id="timeline-title">Release Timeline</h2>
+    <article class="plugin-detail">
+      <h3>Latest live plugin</h3>
+      <p>{latestLivePlugin.data.name} is live on WordPress.org and reflects the current maintenance-first direction of Kreativ WP.</p>
+    </article>
+    <article class="plugin-detail">
+      <h3>Current focus</h3>
+      <p>Submission prep is active now, with packaging, admin-side hygiene, and release scoping driving the current work.</p>
+    </article>
+    <article class="plugin-detail">
+      <h3>Next planned release</h3>
+      <p>{nextRelease.data.name} remains the next release target, with {upcomingPlugins[1].data.name} staying behind it in the near-term queue.</p>
     </article>
   </section>
 

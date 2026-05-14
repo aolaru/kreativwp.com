@@ -1,0 +1,25 @@
+{
+  "title": "Kreativ Broken Image Finder in Active Maintenance",
+  "description": "A short update on what Kreativ Broken Image Finder is built for and how it supports recurring media-quality reviews.",
+  "metaDescription": "A short update on Kreativ Broken Image Finder, its use case, and how it supports recurring media-quality reviews.",
+  "published": "2026-05-14",
+  "publishedLabel": "May 14, 2026",
+  "tag": "Release Note",
+  "kind": "release",
+  "intro": "Kreativ Broken Image Finder is live and focused on helping content teams catch missing media references before those issues become visible to readers.",
+  "sectionTitle": "Release Context",
+  "items": [
+    {
+      "title": "Built for media-quality maintenance",
+      "body": "The plugin is intended for sites where broken images weaken the perceived quality of published content and create avoidable cleanup work later."
+    },
+    {
+      "title": "Best fit",
+      "body": "It is especially useful for content-heavy WordPress sites that need a repeatable way to review image integrity across posts and pages."
+    },
+    {
+      "title": "What to expect",
+      "body": "The main value is operational: run checks, identify the affected content quickly, and fix broken media references before readers hit them."
+    }
+  ]
+}

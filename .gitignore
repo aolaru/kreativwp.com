@@ -3,3 +3,4 @@ dist/
 .astro/
 test-results/
 tests/*.png
+.DS_Store

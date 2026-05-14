@@ -25,8 +25,51 @@
   "ctaLines": ["Last updated: May 10, 2026"],
   "ctaHref": "https://wordpress.org/plugins/kreativ-broken-image-finder/",
   "ctaLabel": "View on WordPress.org",
+  "supportingLinks": [
+    {
+      "label": "Read plugin update",
+      "href": "/news/kreativ-broken-image-finder-live/"
+    }
+  ],
   "lastUpdated": "May 10, 2026",
   "lastUpdatedIso": "2026-05-10",
+  "additionalSections": [
+    {
+      "title": "Who Should Use It",
+      "items": [
+        {
+          "title": "Content teams watching media quality",
+          "body": "This plugin is aimed at WordPress sites where missing images hurt trust, readability, and the perceived quality of published content."
+        },
+        {
+          "title": "Teams with recurring audits",
+          "body": "It fits sites that need a repeatable way to catch broken media references instead of discovering them one page at a time."
+        }
+      ]
+    },
+    {
+      "title": "Typical Workflow",
+      "items": [
+        {
+          "title": "Scan, identify affected content, repair the missing assets",
+          "body": "The expected workflow is straightforward: run checks, review affected posts or pages, then fix or replace missing media before the issue reaches users."
+        }
+      ]
+    }
+  ],
+  "changelogTitle": "Recent Updates",
+  "changelog": [
+    {
+      "date": "May 10, 2026",
+      "label": "Status refresh",
+      "body": "Plugin page copy and public metadata were refreshed to align with the current Kreativ WP maintenance positioning."
+    },
+    {
+      "date": "May 14, 2026",
+      "label": "Release note link added",
+      "body": "The plugin page now points to a dedicated update post so visitors can move from the plugin page into concrete release context."
+    }
+  ],
   "live": true,
   "statusPhase": "live",
   "sortOrder": 2
