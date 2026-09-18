@@ -1,0 +1,15 @@
+{
+  "title": "Kadence Theme Review",
+  "description": "A clearly marked editorial outline for a future Kadence review, focused on site-building workflow and practical trade-offs.",
+  "metaDescription": "Editorial preview: the structure KreativWP will use for a Kadence WordPress theme review.",
+  "category": "Theme review",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "isPlaceholder": true,
+  "themeName": "Kadence",
+  "developer": "Kadence WP",
+  "freeVersion": "To be verified during editorial testing",
+  "price": "To be verified during editorial testing",
+  "highlights": ["Design workflow", "Gutenberg compatibility", "WooCommerce options"],
+  "bestFor": "A future tested recommendation for site owners weighing flexibility, defaults, and a block-first workflow."
+}

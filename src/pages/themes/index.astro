@@ -1,0 +1,9 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "../../components/ContentCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const themes = (await getCollection("themeReviews")).sort((a, b) => a.data.themeName.localeCompare(b.data.themeName));
+---
+<BaseLayout title="WordPress Theme Reviews | KreativWP" description="Independent, clearly scoped WordPress theme reviews and selection guidance from KreativWP." canonicalPath="/themes/" heroEyebrow="WordPress research" heroTitle="Themes" heroTagline="Editorial theme reviews and practical selection guidance, built around real site requirements." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
+  <section class="editorial-section" aria-labelledby="theme-reviews-title"><div class="section-heading"><div><p class="eyebrow">Editorial library</p><h2 id="theme-reviews-title">Theme reviews</h2></div></div><p class="section-intro">Every entry marked as an editorial preview is an outline awaiting hands-on testing; it is not a published verdict.</p><div class="content-grid content-grid--two">{themes.map((theme) => <ContentCard href={`/themes/${theme.id}/`} type="Theme review" title={theme.data.title} description={theme.data.description} updatedLabel={theme.data.updatedLabel} isPlaceholder={theme.data.isPlaceholder} />)}</div></section>
+</BaseLayout>

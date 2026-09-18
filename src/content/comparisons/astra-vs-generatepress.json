@@ -1,0 +1,14 @@
+{
+  "title": "Astra vs GeneratePress",
+  "description": "A planned, evidence-led comparison structure for evaluating two popular WordPress themes without forcing a universal winner.",
+  "metaDescription": "Editorial preview: a future KreativWP Astra versus GeneratePress theme comparison.",
+  "category": "Theme comparison",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": true,
+  "isPlaceholder": true,
+  "leftName": "Astra",
+  "rightName": "GeneratePress",
+  "comparisonAreas": ["Setup and starter-site workflow", "Performance in a documented test environment", "Block editor and customization workflow", "Pricing and support scope"],
+  "takeaway": "The final comparison will match different requirements to each theme instead of declaring one blanket winner."
+}

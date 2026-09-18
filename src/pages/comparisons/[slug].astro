@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+export async function getStaticPaths() { const entries = await getCollection("comparisons"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
+const { entry } = Astro.props;
+---
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/comparisons/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="WordPress comparison" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/comparisons/">
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Comparisons", href: "/comparisons/" }, { label: entry.data.title }]} />
+  {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this comparison template does not make performance or product claims until hands-on testing is complete.</div> : null}
+  <section class="editorial-section" aria-labelledby="compare-title"><h2 id="compare-title">{entry.data.leftName} and {entry.data.rightName}</h2><p class="section-intro">{entry.data.takeaway}</p><ul class="check-list">{entry.data.comparisonAreas.map((area) => <li>{area}</li>)}</ul></section>
+</BaseLayout>

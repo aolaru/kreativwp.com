@@ -1,0 +1,19 @@
+---
+type Props = {
+  href: string;
+  type: string;
+  title: string;
+  description: string;
+  updatedLabel?: string;
+  isPlaceholder?: boolean;
+  compact?: boolean;
+};
+
+const { href, type, title, description, updatedLabel, isPlaceholder = false, compact = false } = Astro.props;
+---
+<article class:list={["content-card", { "content-card--compact": compact }]}>
+  <p class="content-card__meta">{type}{isPlaceholder ? " · Editorial preview" : ""}</p>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{description}</p>
+  {updatedLabel ? <p class="content-card__date">Updated {updatedLabel}</p> : null}
+</article>

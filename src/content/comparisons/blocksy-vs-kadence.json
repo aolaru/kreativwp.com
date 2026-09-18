@@ -1,0 +1,13 @@
+{
+  "title": "Blocksy vs Kadence",
+  "description": "A planned comparison framework for testing design controls, Gutenberg workflow, and WooCommerce considerations.",
+  "metaDescription": "Editorial preview: a future KreativWP Blocksy versus Kadence theme comparison.",
+  "category": "Theme comparison",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "isPlaceholder": true,
+  "leftName": "Blocksy",
+  "rightName": "Kadence",
+  "comparisonAreas": ["Design and global style controls", "Gutenberg editing experience", "Commerce use cases", "Documented performance checks"],
+  "takeaway": "The eventual recommendation will be use-case specific and will show the test context behind it."
+}

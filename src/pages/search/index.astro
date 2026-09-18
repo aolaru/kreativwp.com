@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "../../components/ContentCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const [themes, pluginReviews, comparisons, guides, tools, products] = await Promise.all([getCollection("themeReviews"), getCollection("pluginReviews"), getCollection("comparisons"), getCollection("guides"), getCollection("tools"), getCollection("plugins")]);
+const results = [
+  ...themes.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/themes/${entry.id}/`, type: "Theme review", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...pluginReviews.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/plugins/reviews/${entry.id}/`, type: "Plugin recommendation", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...comparisons.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/comparisons/${entry.id}/`, type: "Comparison", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...guides.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/guides/${entry.id}/`, type: "Guide", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...tools.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/tools/${entry.id}/`, type: "Free tool", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...products.map((entry) => ({ title: entry.data.name, description: entry.data.description, href: `/plugins/${entry.id}/`, type: "KreativWP product", updatedLabel: entry.data.lastUpdated, isPlaceholder: false }))
+];
+---
+<BaseLayout title="Search KreativWP" description="Search WordPress themes, plugins, comparisons, guides, tools, and KreativWP products." canonicalPath="/search/" robots="noindex,follow" heroEyebrow="Find a resource" heroTitle="Search KreativWP" heroTagline="Search themes, plugins, comparisons, guides, tools, and products." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo">
+  <section class="editorial-section" aria-labelledby="search-title"><h2 id="search-title">Search the library</h2><form class="site-search" id="site-search"><label for="site-search-input">Search all resources</label><div><input id="site-search-input" name="q" type="search" placeholder="Try “theme”, “performance”, or “broken images”" autocomplete="off" /><button class="button-like button-like--primary" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite"></p></section>
+  <section class="content-grid content-grid--three" id="search-results" aria-label="Search results">{results.map((entry) => <div data-search={`${entry.title} ${entry.description} ${entry.type}`.toLowerCase()}><ContentCard {...entry} /></div>)}</section>
+  <script is:inline>
+    (() => {
+      const form = document.getElementById("site-search");
+      const input = document.getElementById("site-search-input");
+      const status = document.getElementById("search-status");
+      const cards = Array.from(document.querySelectorAll("#search-results [data-search]"));
+      if (!(form instanceof HTMLFormElement) || !(input instanceof HTMLInputElement) || !status) return;
+      const search = () => {
+        const query = input.value.trim().toLowerCase();
+        let count = 0;
+        cards.forEach((card) => { const match = !query || (card.dataset.search || "").includes(query); card.hidden = !match; if (match) count += 1; });
+        status.textContent = query ? `${count} result${count === 1 ? "" : "s"} for “${input.value.trim()}”.` : `Browse ${count} resources.`;
+        const url = new URL(window.location.href); if (query) url.searchParams.set("q", input.value.trim()); else url.searchParams.delete("q"); window.history.replaceState({}, "", url);
+      };
+      const query = new URLSearchParams(window.location.search).get("q"); if (query) input.value = query;
+      search(); form.addEventListener("submit", (event) => { event.preventDefault(); search(); }); input.addEventListener("input", search);
+    })();
+  </script>
+</BaseLayout>

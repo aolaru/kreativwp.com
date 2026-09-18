@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "../../components/ContentCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const reviews = (await getCollection("pluginReviews")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const products = (await getCollection("plugins")).filter((entry) => entry.data.live).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+<BaseLayout title="WordPress Plugin Reviews | KreativWP" description="WordPress plugin recommendations, future hands-on reviews, and products built by KreativWP." canonicalPath="/plugins/" heroEyebrow="WordPress research" heroTitle="Plugins" heroTagline="Editorial plugin recommendations, practical maintenance tools, and products made by KreativWP." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/plugins/">
+  <section class="editorial-section" aria-labelledby="review-title"><div class="section-heading"><div><p class="eyebrow">Independent research</p><h2 id="review-title">Plugin reviews &amp; recommendations</h2></div></div><div class="content-grid content-grid--two">{reviews.map((entry) => <ContentCard href={`/plugins/reviews/${entry.id}/`} type="Plugin recommendation" title={entry.data.title} description={entry.data.description} updatedLabel={entry.data.updatedLabel} isPlaceholder={entry.data.isPlaceholder} />)}</div></section>
+  <section class="editorial-section product-section" aria-labelledby="product-title"><div class="section-heading"><div><p class="eyebrow">Built by KreativWP</p><h2 id="product-title">Our WordPress plugins</h2></div><a class="detail-link" href="/products/">All products</a></div><div class="content-grid content-grid--two">{products.map((entry) => <ContentCard href={`/plugins/${entry.id}/`} type="KreativWP product" title={entry.data.name} description={entry.data.description} updatedLabel={entry.data.lastUpdated} />)}</div></section>
+</BaseLayout>

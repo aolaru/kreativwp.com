@@ -86,4 +86,71 @@ const news = defineCollection({
   })
 });
 
-export const collections = { plugins, news };
+const editorialBase = z.object({
+  title: z.string(),
+  description: z.string(),
+  metaDescription: z.string(),
+  category: z.string(),
+  updated: z.string(),
+  updatedLabel: z.string(),
+  featured: z.boolean().optional(),
+  isPlaceholder: z.boolean().default(true),
+  thumbnail: z.string().optional(),
+  thumbnailAlt: z.string().optional()
+});
+
+const themeReviews = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/theme-reviews" }),
+  schema: editorialBase.extend({
+    themeName: z.string(),
+    developer: z.string(),
+    freeVersion: z.string(),
+    price: z.string(),
+    highlights: z.array(z.string()),
+    bestFor: z.string(),
+    officialUrl: z.string().url().optional(),
+    affiliateId: z.string().optional()
+  })
+});
+
+const pluginReviews = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/plugin-reviews" }),
+  schema: editorialBase.extend({
+    pluginName: z.string(),
+    developer: z.string(),
+    pricing: z.string(),
+    freeVersion: z.string(),
+    highlights: z.array(z.string()),
+    bestFor: z.string(),
+    officialUrl: z.string().url().optional(),
+    affiliateId: z.string().optional()
+  })
+});
+
+const comparisons = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/comparisons" }),
+  schema: editorialBase.extend({
+    leftName: z.string(),
+    rightName: z.string(),
+    comparisonAreas: z.array(z.string()),
+    takeaway: z.string()
+  })
+});
+
+const guides = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/guides" }),
+  schema: editorialBase.extend({
+    intro: z.string(),
+    sections: z.array(z.object({ title: z.string(), body: z.string() }))
+  })
+});
+
+const tools = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/tools" }),
+  schema: editorialBase.extend({
+    availability: z.enum(["planned", "in-progress", "available"]),
+    purpose: z.string()
+  })
+});
+
+export const collections = { plugins, news, themeReviews, pluginReviews, comparisons, guides, tools };

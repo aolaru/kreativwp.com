@@ -1,148 +1,77 @@
 ---
 import { getCollection } from "astro:content";
+import ContentCard from "../components/ContentCard.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pluginEntries = (await getCollection("plugins")).sort(
-  (a, b) => a.data.sortOrder - b.data.sortOrder
-);
-const livePlugins = pluginEntries.filter((plugin) => plugin.data.live);
-const upcomingPlugins = pluginEntries.filter((plugin) => !plugin.data.live);
-const nextRelease = upcomingPlugins[0];
-const latestLivePlugin = livePlugins[livePlugins.length - 1];
 
-const structuredData = JSON.stringify(
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        name: "Kreativ WP",
-        url: "https://kreativwp.com/"
-      },
-      {
-        "@type": "ItemList",
-        name: "Kreativ WP Plugins",
-        itemListElement: pluginEntries.map((plugin, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "SoftwareApplication",
-            name: plugin.data.name,
-            applicationCategory: "DeveloperApplication",
-            operatingSystem: "WordPress",
-            url: new URL(`/plugins/${plugin.id}/`, Astro.site).toString()
-          }
-        }))
-      }
-    ]
-  },
-  null,
-  2
-);
+const byUpdated = (a, b) => b.data.updated.localeCompare(a.data.updated);
+const plugins = (await getCollection("plugins")).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const liveProducts = plugins.filter((plugin) => plugin.data.live);
+const themes = (await getCollection("themeReviews")).sort(byUpdated);
+const pluginReviews = (await getCollection("pluginReviews")).sort(byUpdated);
+const comparisons = (await getCollection("comparisons")).sort(byUpdated);
+const guides = (await getCollection("guides")).sort(byUpdated);
+const tools = (await getCollection("tools")).sort(byUpdated);
+const featured = [
+  ...themes.filter((entry) => entry.data.featured).map((entry) => ({ entry, href: `/themes/${entry.id}/`, type: "Theme review" })),
+  ...comparisons.filter((entry) => entry.data.featured).map((entry) => ({ entry, href: `/comparisons/${entry.id}/`, type: "Comparison" })),
+  ...guides.filter((entry) => entry.data.featured).map((entry) => ({ entry, href: `/guides/${entry.id}/`, type: "Guide" })),
+  ...pluginReviews.filter((entry) => entry.data.featured).map((entry) => ({ entry, href: `/plugins/reviews/${entry.id}/`, type: "Plugin recommendation" }))
+].slice(0, 5);
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", name: "KreativWP", url: "https://kreativwp.com/" },
+    { "@type": "WebSite", name: "KreativWP", url: "https://kreativwp.com/", potentialAction: { "@type": "SearchAction", target: "https://kreativwp.com/search/?q={search_term_string}", "query-input": "required name=search_term_string" } }
+  ]
+});
 ---
-<BaseLayout
-  title="Kreativ WP"
-  description="Practical WordPress utilities and maintenance plugins built for real sites."
-  canonicalPath="/"
-  heroEyebrow="WordPress utilities"
-  heroTitle="Kreativ WP"
-  heroTagline="Practical WordPress utilities and maintenance plugins built for reliability, not hype."
-  heroImageSrc="/kreativ-wp-logo-128.svg"
-  heroImageAlt="Kreativ WP logo"
-  currentPath="/"
-  structuredData={structuredData}
->
-  <section class="plugins card" aria-labelledby="plugins-title">
-    <h2 id="plugins-title">Live Plugins</h2>
-    <p class="plugins-intro">Two utilities are already live on WordPress.org and built for practical maintenance work.</p>
-    <ul class="product-grid">
-      {livePlugins.map((plugin) => (
-        <li>
-          <article class="product-card" id={plugin.id}>
-            <img class="product-thumb" src={plugin.data.thumb} width="128" height="128" alt={plugin.data.imageAlt} />
-            <h3 class="product-title">{plugin.data.name}</h3>
-            <p class="product-meta">{plugin.data.cardMeta}</p>
-            <p class="product-use">{plugin.data.cardUse}</p>
-            <span class="coming">Live now · Ready on WordPress.org</span>
-            <a class="cta" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a>
-            {plugin.data.supportingLinks?.[0] ? (
-              <a class="detail-link" href={plugin.data.supportingLinks[0].href}>{plugin.data.supportingLinks[0].label}</a>
-            ) : null}
-            <a class="detail-link" href={`/plugins/${plugin.id}/`}>Plugin details</a>
-          </article>
-        </li>
-      ))}
-    </ul>
+<BaseLayout title="KreativWP | Themes, Plugins & Tools for Better WordPress Sites" description="Independent WordPress reviews, practical guides, useful tools, and software built by KreativWP." canonicalPath="/" heroEyebrow="Independent WordPress resource" heroTitle="KreativWP" heroTagline="Themes, Plugins & Tools for Better WordPress Sites" heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
+  <section class="home-intro" aria-labelledby="home-intro-title">
+    <h2 id="home-intro-title">Make better WordPress decisions</h2>
+    <p>Independent reviews, practical guides and useful WordPress tools — plus software built by KreativWP.</p>
+    <div class="button-row"><a class="button-like button-like--primary" href="#featured">Explore WordPress Resources</a><a class="button-like" href="#products">View Our Plugins</a></div>
   </section>
 
-  <section class="card plugin-details" aria-labelledby="next-release-title">
-    <h2 id="next-release-title">Next Release</h2>
-    <article class="plugin-detail">
-      <h3>{nextRelease.data.name}</h3>
-      <p>{nextRelease.data.cardUse}</p>
-      <p><strong>Status:</strong> {nextRelease.data.homepageStatus}</p>
-      <p><a class="button-like" href={`/plugins/${nextRelease.id}/`}>Review next plugin</a></p>
-    </article>
-    {upcomingPlugins.slice(1).map((plugin) => (
-      <article class="plugin-detail">
-        <h3>{plugin.data.name}</h3>
-        <p>{plugin.data.cardUse}</p>
-        <p>{plugin.data.homepageStatus}</p>
-      </article>
-    ))}
+  <section class="editorial-section" id="featured" aria-labelledby="featured-title">
+    <div class="section-heading"><div><p class="eyebrow">Start here</p><h2 id="featured-title">Featured &amp; Popular</h2></div><a class="detail-link" href="/guides/">Browse all guides</a></div>
+    <div class="content-grid content-grid--featured">
+      {featured.map(({ entry, href, type }) => <ContentCard href={href} type={type} title={entry.data.title} description={entry.data.description} updatedLabel={entry.data.updatedLabel} isPlaceholder={entry.data.isPlaceholder} />)}
+    </div>
   </section>
 
-  <section class="card plugin-details" aria-labelledby="process-title">
-    <h2 id="process-title">Submission Process</h2>
-    <article class="plugin-detail">
-      <h3>How we prepare releases</h3>
-      <p>Before a plugin goes public, we review packaging, admin-side hygiene, security basics, and uninstall behavior to reduce avoidable WordPress.org review friction.</p>
-      <p><a class="detail-link" href="/news/wordpress-org-submission-checklist/">Read the submission checklist</a></p>
-    </article>
+  <section class="editorial-section" aria-labelledby="themes-title">
+    <div class="section-heading"><div><p class="eyebrow">Research</p><h2 id="themes-title">Explore Themes</h2></div><a class="detail-link" href="/themes/">Explore WordPress Themes</a></div>
+    <p class="section-intro">Find theme reviews and practical selection guidance for lightweight, Gutenberg, WooCommerce, portfolio, blog, and free-theme workflows.</p>
+    <ul class="topic-list">{['Lightweight themes', 'Gutenberg themes', 'WooCommerce themes', 'Portfolio themes', 'Blog themes', 'Free themes'].map((topic) => <li>{topic}</li>)}</ul>
   </section>
 
-  <section class="card plugin-details" aria-labelledby="timeline-title">
-    <h2 id="timeline-title">Release Timeline</h2>
-    <article class="plugin-detail">
-      <h3>Latest live plugin</h3>
-      <p>{latestLivePlugin.data.name} is live on WordPress.org and reflects the current maintenance-first direction of Kreativ WP.</p>
-    </article>
-    <article class="plugin-detail">
-      <h3>Current focus</h3>
-      <p>Submission prep is active now, with packaging, admin-side hygiene, and release scoping driving the current work.</p>
-    </article>
-    <article class="plugin-detail">
-      <h3>Next planned release</h3>
-      <p>{nextRelease.data.name} remains the next release target, with {upcomingPlugins[1].data.name} staying behind it in the near-term queue.</p>
-    </article>
+  <section class="editorial-section" aria-labelledby="plugin-reviews-title">
+    <div class="section-heading"><div><p class="eyebrow">Research</p><h2 id="plugin-reviews-title">Explore Plugins</h2></div><a class="detail-link" href="/plugins/">Explore WordPress Plugins</a></div>
+    <p class="section-intro">Recommendations and future hands-on reviews organized around real jobs: SEO, performance, security, AI, content, design, developer tools, and affiliate sites.</p>
+    <ul class="topic-list">{['SEO', 'Performance', 'Security', 'AI', 'Content', 'Design', 'Developer tools', 'Affiliate marketing'].map((topic) => <li>{topic}</li>)}</ul>
   </section>
 
-  <section class="launch-cta card" aria-labelledby="updates-title">
-    <h2 id="updates-title">Get Product Updates</h2>
-    <p>Receive release notes and launch announcements by email.</p>
-    <form class="signup-form" id="updates-form" novalidate>
-      <label class="sr-only" for="updates-email">Email address</label>
-      <input class="signup-input" id="updates-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
-      <button class="signup-button" type="submit">Request Updates</button>
-    </form>
+  <section class="editorial-section" aria-labelledby="comparisons-title">
+    <div class="section-heading"><div><p class="eyebrow">Decide with context</p><h2 id="comparisons-title">Comparisons</h2></div><a class="detail-link" href="/comparisons/">View comparisons</a></div>
+    <div class="content-grid content-grid--two">{comparisons.map((entry) => <ContentCard href={`/comparisons/${entry.id}/`} type="Theme comparison" title={entry.data.title} description={entry.data.description} updatedLabel={entry.data.updatedLabel} isPlaceholder={entry.data.isPlaceholder} />)}</div>
   </section>
 
-  <script slot="scripts" is:inline>
-    (() => {
-      const updatesForm = document.getElementById("updates-form");
-      const updatesEmail = document.getElementById("updates-email");
-      if (!updatesForm || !updatesEmail) return;
-      updatesForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (!updatesEmail.checkValidity()) {
-          updatesEmail.reportValidity();
-          return;
-        }
-        const email = encodeURIComponent(updatesEmail.value.trim());
-        if (!email) return;
-        window.location.href =
-          "mailto:info@kreativwp.com?subject=Kreativ%20WP%20Updates%20Request&body=Please%20add%20this%20email%20to%20Kreativ%20WP%20updates%3A%20" +
-          email;
-      });
-    })();
-  </script>
+  <section class="editorial-section" aria-labelledby="tools-title">
+    <div class="section-heading"><div><p class="eyebrow">Free resources</p><h2 id="tools-title">KreativWP Tools</h2></div><a class="detail-link" href="/tools/">Explore Free Tools</a></div>
+    <div class="content-grid content-grid--two">{tools.slice(0, 4).map((entry) => <ContentCard href={`/tools/${entry.id}/`} type="Free WordPress tool" title={entry.data.title} description={entry.data.description} isPlaceholder={entry.data.isPlaceholder} compact />)}</div>
+  </section>
+
+  <section class="editorial-section product-section" id="products" aria-labelledby="products-title">
+    <div class="section-heading"><div><p class="eyebrow">Made by our team</p><h2 id="products-title">Built by KreativWP</h2></div><a class="detail-link" href="/products/">All KreativWP products</a></div>
+    <p class="section-intro">We don’t just review WordPress tools. We build them too.</p>
+    <ul class="product-grid">{liveProducts.map((plugin) => <li><article class="product-card" id={plugin.id}><img class="product-thumb" src={plugin.data.thumb} width="128" height="128" alt={plugin.data.imageAlt} loading="lazy" /><p class="content-card__meta">KreativWP product</p><h3 class="product-title">{plugin.data.name}</h3><p class="product-use">{plugin.data.cardUse}</p><a class="detail-link" href={`/plugins/${plugin.id}/`}>Product details</a></article></li>)}</ul>
+  </section>
+
+  <section class="editorial-section" aria-labelledby="guides-title">
+    <div class="section-heading"><div><p class="eyebrow">Learn</p><h2 id="guides-title">Latest Guides</h2></div><a class="detail-link" href="/guides/">All WordPress guides</a></div>
+    <div class="content-grid content-grid--three">{guides.map((entry) => <ContentCard href={`/guides/${entry.id}/`} type="WordPress guide" title={entry.data.title} description={entry.data.description} updatedLabel={entry.data.updatedLabel} isPlaceholder={entry.data.isPlaceholder} />)}</div>
+  </section>
+
+  <section class="launch-cta card newsletter" aria-labelledby="updates-title"><p class="eyebrow">Newsletter</p><h2 id="updates-title">Better WordPress, without the noise.</h2><p>Get useful WordPress tools, theme discoveries, plugin recommendations and practical guides.</p><NewsletterForm id="home-updates" /></section>
 </BaseLayout>

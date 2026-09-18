@@ -1,0 +1,16 @@
+{
+  "title": "How to Speed Up WordPress",
+  "description": "A planned practical guide to finding meaningful WordPress performance issues before adding another optimization plugin.",
+  "metaDescription": "Editorial preview: a future KreativWP guide to speeding up a WordPress site.",
+  "category": "WordPress guide",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": true,
+  "isPlaceholder": true,
+  "intro": "This article is a working editorial outline, not a completed performance prescription. The published version will document test conditions and practical trade-offs.",
+  "sections": [
+    { "title": "Measure before changing anything", "body": "A useful optimization begins with a repeatable baseline and a clear idea of what users experience." },
+    { "title": "Find the limiting layer", "body": "Themes, plugins, images, third-party scripts, caching, and hosting have different failure modes and should not be treated as one problem." },
+    { "title": "Keep the solution maintainable", "body": "Prefer a smaller set of understood changes over an opaque stack of overlapping optimization tools." }
+  ]
+}

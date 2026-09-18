@@ -1,0 +1,9 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "../../components/ContentCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const guides = (await getCollection("guides")).sort((a, b) => b.data.updated.localeCompare(a.data.updated));
+---
+<BaseLayout title="WordPress Guides | KreativWP" description="Practical, maintenance-minded WordPress guides from KreativWP." canonicalPath="/guides/" heroEyebrow="Practical WordPress" heroTitle="Guides" heroTagline="Useful WordPress guidance for choosing, building, improving, and maintaining better sites." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/guides/">
+  <section class="editorial-section" aria-labelledby="guide-list-title"><div class="section-heading"><div><p class="eyebrow">Editorial library</p><h2 id="guide-list-title">Latest guides</h2></div></div><div class="content-grid content-grid--three">{guides.map((entry) => <ContentCard href={`/guides/${entry.id}/`} type="WordPress guide" title={entry.data.title} description={entry.data.description} updatedLabel={entry.data.updatedLabel} isPlaceholder={entry.data.isPlaceholder} />)}</div></section>
+</BaseLayout>

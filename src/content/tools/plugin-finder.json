@@ -1,0 +1,11 @@
+{
+  "title": "WordPress Plugin Finder",
+  "description": "A planned discovery tool for matching a WordPress task to the kind of plugin and evaluation criteria it needs.",
+  "metaDescription": "Planned KreativWP tool: WordPress Plugin Finder.",
+  "category": "Free WordPress tool",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "isPlaceholder": true,
+  "availability": "planned",
+  "purpose": "Make it easier to define a requirement before comparing individual plugins."
+}

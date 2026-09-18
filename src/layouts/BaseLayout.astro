@@ -39,6 +39,17 @@ const {
 
 const canonicalUrl = new URL(canonicalPath, Astro.site);
 const ogImage = new URL("/og-image-1200x630.png", Astro.site);
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Themes", href: "/themes/" },
+  { label: "Plugins", href: "/plugins/" },
+  { label: "Comparisons", href: "/comparisons/" },
+  { label: "Guides", href: "/guides/" },
+  { label: "Tools", href: "/tools/" },
+  { label: "Products", href: "/products/" }
+];
+const isActive = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath === href || currentPath.startsWith(href);
 ---
 <!doctype html>
 <html lang="en">
@@ -54,7 +65,7 @@ const ogImage = new URL("/og-image-1200x630.png", Astro.site);
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonicalUrl.toString()} />
-    <meta property="og:site_name" content="Kreativ WP" />
+    <meta property="og:site_name" content="KreativWP" />
     <meta property="og:image" content={ogImage.toString()} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
@@ -99,13 +110,13 @@ const ogImage = new URL("/og-image-1200x630.png", Astro.site);
     <a class="skip-link" href="#main-content">Skip to content</a>
     <main class={`container ${mainClass}`.trim()} id="main-content">
       <header class="hero">
-        <nav class="top-menu" aria-label="Main">
-          <a class="menu-link home-icon" href="/" aria-label="Home" title="Home">
-            <i class="fa-solid fa-house" aria-hidden="true"></i><span class="sr-only">Home</span>
+        <nav class="top-menu" aria-label="Main navigation">
+          {navigation.map((item) => (
+            <a class="menu-link" href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
+          ))}
+          <a class="menu-link menu-link--icon" href="/search/" aria-label="Search KreativWP" title="Search KreativWP">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only">Search</span>
           </a>
-          <a class="menu-link" href="/news/" aria-current={currentPath === "/news/" ? "page" : undefined}>News</a>
-          <a class="menu-link" href="/about/" aria-current={currentPath === "/about/" ? "page" : undefined}>About</a>
-          <a class="menu-link" href="/contact/" aria-current={currentPath === "/contact/" ? "page" : undefined}>Contact</a>
           <button class="share-button" id="share-button" type="button" aria-label="Share this page" title="Share this page">
             <i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span class="sr-only">Share this page</span>
           </button>
@@ -126,11 +137,11 @@ const ogImage = new URL("/og-image-1200x630.png", Astro.site);
         <p class="updated">
           {footerLinks.map((link, index) => (
             <>
-              <a class="detail-link" href={link.href} target={link.href.startsWith("https://kreativwp.com") ? undefined : "_blank"} rel={link.href.startsWith("https://kreativwp.com") ? undefined : "noopener noreferrer"}>{link.label}</a>{index < footerLinks.length - 1 ? " · " : ""}
+          <a class="detail-link" href={link.href} target={link.href.startsWith("https://kreativwp.com") ? undefined : "_blank"} rel={link.href.startsWith("https://kreativwp.com") ? undefined : "noopener noreferrer"}>{link.label}</a>{index < footerLinks.length - 1 ? " · " : ""}
             </>
           ))}
         </p>
-        <p>© 2026 <a class="detail-link" href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">Made by KREATIV</a> · Independent creative tools and assets by Andrei Olaru</p>
+        <p>© 2026 <a class="detail-link" href="https://madebykreativ.com" target="_blank" rel="noopener noreferrer">Made by KREATIV</a> · Independent WordPress research and tools by Andrei Olaru</p>
       </footer>
     </main>
 

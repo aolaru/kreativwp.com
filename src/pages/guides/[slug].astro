@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+export async function getStaticPaths() { const entries = await getCollection("guides"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
+const { entry } = Astro.props;
+const articleSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: entry.data.title, description: entry.data.metaDescription, dateModified: entry.data.updated, author: { "@type": "Organization", name: "KreativWP" }, publisher: { "@type": "Organization", name: "KreativWP" } });
+---
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/guides/${entry.id}/`} ogType="article" robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="WordPress guide" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/guides/" structuredData={entry.data.isPlaceholder ? undefined : articleSchema}>
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides/" }, { label: entry.data.title }]} />
+  {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this outline will be expanded and tested before it is presented as a complete how-to guide.</div> : null}
+  <article class="editorial-section longform" aria-labelledby="guide-title"><h2 id="guide-title">{entry.data.title}</h2><p class="section-intro">{entry.data.intro}</p>{entry.data.sections.map((section) => <section><h3>{section.title}</h3><p>{section.body}</p></section>)}</article>
+</BaseLayout>

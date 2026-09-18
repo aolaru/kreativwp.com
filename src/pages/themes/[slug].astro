@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { getAffiliateLink } from "../../data/affiliate";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+export async function getStaticPaths() { const entries = await getCollection("themeReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
+const { entry } = Astro.props;
+const affiliate = getAffiliateLink(entry.data.affiliateId);
+---
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="Theme review" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Themes", href: "/themes/" }, { label: entry.data.themeName }]} />
+  {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this page is a transparent template for planned hands-on testing, not a completed recommendation.</div> : null}
+  <section class="editorial-section" aria-labelledby="overview-title"><h2 id="overview-title">Review framework</h2><dl class="fact-grid"><div><dt>Developer</dt><dd>{entry.data.developer}</dd></div><div><dt>Free version</dt><dd>{entry.data.freeVersion}</dd></div><div><dt>Price</dt><dd>{entry.data.price}</dd></div><div><dt>Best for</dt><dd>{entry.data.bestFor}</dd></div></dl></section>
+  <section class="editorial-section" aria-labelledby="testing-title"><h2 id="testing-title">What we’ll evaluate</h2><ul class="check-list">{entry.data.highlights.map((item) => <li>{item}</li>)}</ul></section>
+  {affiliate ? <><AffiliateDisclosure /><p class="centered-action"><a class="button-like" href={affiliate.href} target="_blank" rel="sponsored noopener noreferrer">{affiliate.label}</a></p></> : null}
+</BaseLayout>

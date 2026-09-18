@@ -4,10 +4,10 @@ Official Astro website for [kreativwp.com](https://kreativwp.com).
 
 ## Overview
 
-This repository contains the Astro source for Kreativ WP, including:
+This repository contains the Astro source for KreativWP, including:
 
-- plugin showcase content
-- news and plugin detail routes
+- editorial theme, plugin, comparison, guide, and tool content
+- KreativWP product pages, news, and legacy plugin detail routes
 - SEO metadata and structured data
 - favicon and branding assets
 - responsive styles
@@ -16,6 +16,9 @@ This repository contains the Astro source for Kreativ WP, including:
 
 - `src/pages/` - Astro routes
 - `src/data/site.ts` - shared content for plugins and news
+- `src/data/affiliate.ts` - centrally managed affiliate destinations
+- `src/content/` - JSON collections for editorial and product content
+- `src/components/` - reusable cards, disclosures, breadcrumbs, and newsletter UI
 - `src/layouts/BaseLayout.astro` - shared page shell
 - `public/style.css` - site styling
 - `public/favicon.svg` - site favicon
@@ -54,3 +57,7 @@ Builds as a static Astro site for deployment on any static host.
 - Run built HTML validation: `npm run lint:html`
 - Run built internal link checks: `npm run lint:links`
 - Run all checks (HTML, links, visual tests): `npm run check`
+
+## Editorial Content
+
+Editorial seed entries are deliberately marked `isPlaceholder: true`. Their detail pages remain `noindex` until hands-on testing replaces the preview copy with substantiated editorial material. Existing product routes under `/plugins/<slug>/` remain the canonical product URLs; `/products/` is the dedicated product archive.

@@ -1,0 +1,9 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "../../components/ContentCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const products = (await getCollection("plugins")).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+<BaseLayout title="KreativWP Products | WordPress Plugins" description="WordPress plugins developed by the team behind KreativWP." canonicalPath="/products/" heroEyebrow="Built by KreativWP" heroTitle="Products" heroTagline="Practical WordPress software from the same team behind our editorial resource library." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/products/">
+  <section class="editorial-section" aria-labelledby="products-list-title"><div class="section-heading"><div><p class="eyebrow">Our software</p><h2 id="products-list-title">KreativWP products</h2></div></div><p class="section-intro">We don’t just review WordPress tools. We build focused utilities for practical site maintenance.</p><div class="content-grid content-grid--two">{products.map((entry) => <ContentCard href={`/plugins/${entry.id}/`} type={entry.data.live ? "KreativWP product · Live" : "KreativWP product · In development"} title={entry.data.name} description={entry.data.description} updatedLabel={entry.data.lastUpdated} />)}</div></section>
+</BaseLayout>

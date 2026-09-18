@@ -1,0 +1,16 @@
+{
+  "title": "Best WordPress Performance Plugins",
+  "description": "An editorial shortlist framework for documenting which performance plugins suit different WordPress stacks and hosting environments.",
+  "metaDescription": "Editorial preview: a future KreativWP guide to WordPress performance plugins.",
+  "category": "Plugin recommendation",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": true,
+  "isPlaceholder": true,
+  "pluginName": "WordPress Performance Plugins",
+  "developer": "Multiple developers",
+  "pricing": "To be verified during editorial testing",
+  "freeVersion": "Varies by plugin",
+  "highlights": ["Caching and asset delivery", "Image and database workflow", "Hosting compatibility"],
+  "bestFor": "A future tested shortlist that starts with a site’s actual bottleneck rather than a generic plugin stack."
+}

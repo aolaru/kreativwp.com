@@ -1,0 +1,15 @@
+{
+  "title": "How to Find Broken Images in WordPress",
+  "description": "A practical guide outline for finding missing image references before they damage a site’s reader experience.",
+  "metaDescription": "Editorial preview: a future KreativWP guide to finding broken images in WordPress.",
+  "category": "WordPress guide",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "isPlaceholder": true,
+  "intro": "This planned guide will explain a maintenance workflow and link to the relevant KreativWP product where that is useful, without treating the product as the only option.",
+  "sections": [
+    { "title": "Look beyond the media library", "body": "Broken references can appear in older content, imported posts, templates, and external image sources." },
+    { "title": "Create a repeatable check", "body": "A documented periodic check is more dependable than noticing missing images after readers report them." },
+    { "title": "Fix the cause, not only the symptom", "body": "A good cleanup considers redirects, migrated file paths, and the content process that produced the broken reference." }
+  ]
+}

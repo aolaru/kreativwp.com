@@ -1,13 +1,17 @@
 const { test, expect } = require("@playwright/test");
 
-test("homepage nav and theme toggle work", async ({ page }) => {
+test("homepage navigation and theme toggle work", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveTitle(/Kreativ WP/i);
+  await expect(page).toHaveTitle(/KreativWP/i);
   await expect(page.locator('nav.top-menu')).toBeVisible();
   await expect(page.locator('a.skip-link')).toHaveAttribute("href", "#main-content");
-  await expect(page.getByRole("link", { name: "News" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "About" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Contact" })).toBeVisible();
+  const nav = page.locator("nav.top-menu");
+  await expect(nav.getByRole("link", { name: "Themes" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Plugins" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Comparisons" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Guides" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Tools" })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Products" })).toBeVisible();
 
   await page.screenshot({ path: "tests/home-dark.png", fullPage: true });
 
@@ -43,4 +47,28 @@ test("plugin detail pages are reachable", async ({ page }) => {
     await expect(page).toHaveTitle(entry.title);
     await expect(page.locator("main#main-content")).toBeVisible();
   }
+});
+
+test("editorial archives and search are reachable", async ({ page }) => {
+  for (const entry of [
+    { url: "/themes/", title: /WordPress Theme Reviews/i },
+    { url: "/plugins/", title: /WordPress Plugin Reviews/i },
+    { url: "/comparisons/", title: /WordPress Comparisons/i },
+    { url: "/guides/", title: /WordPress Guides/i },
+    { url: "/tools/", title: /Free WordPress Tools/i },
+    { url: "/products/", title: /KreativWP Products/i },
+    { url: "/search/?q=theme", title: /Search KreativWP/i }
+  ]) {
+    await page.goto(entry.url);
+    await expect(page).toHaveTitle(entry.title);
+    await expect(page.locator("main#main-content")).toBeVisible();
+  }
+});
+
+test("homepage remains usable on a narrow viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  await expect(page.locator("nav.top-menu")).toBeVisible();
+  await expect(page.locator(".content-grid").first()).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });

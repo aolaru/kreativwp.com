@@ -1,0 +1,18 @@
+{
+  "title": "Astra Theme Review",
+  "description": "An editorial review template for evaluating Astra’s workflow, starter-site approach, and fit for different WordPress builds.",
+  "metaDescription": "Editorial preview: the structure KreativWP will use for an in-depth Astra WordPress theme review.",
+  "category": "Theme review",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": true,
+  "isPlaceholder": true,
+  "themeName": "Astra",
+  "developer": "Brainstorm Force",
+  "freeVersion": "Available",
+  "price": "To be verified during editorial testing",
+  "highlights": ["Starter-site workflow", "Page-builder and block-editor considerations", "Performance testing notes"],
+  "bestFor": "A future tested recommendation for teams weighing a flexible starting point against a more minimal build.",
+  "officialUrl": "https://wpastra.com/",
+  "affiliateId": "astra"
+}
