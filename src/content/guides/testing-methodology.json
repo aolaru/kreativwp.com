@@ -1,0 +1,18 @@
+{
+  "title": "How KreativWP Tests WordPress Themes and Plugins",
+  "description": "Our public methodology for turning WordPress product research into useful, qualified recommendations.",
+  "metaDescription": "Learn how KreativWP plans, tests, documents, and qualifies WordPress theme and plugin recommendations.",
+  "category": "Editorial methodology",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "intro": "KreativWP does not treat a feature list, a vendor demo, or an affiliate relationship as a product verdict. This methodology defines what a completed review or comparison must show before we call it tested.",
+  "sections": [
+    { "title": "Start with a declared use case", "body": "Each review starts with the intended site type, content workflow, editor, required plugins, and the question the evaluation is trying to answer. We do not use a universal winner as the default conclusion." },
+    { "title": "Record the test environment", "body": "Published testing notes must state the WordPress, PHP, theme or plugin, and relevant dependency versions; the host or local environment; and the sample content or configuration used. If a result is not reproducible, it is presented as an observation rather than a benchmark." },
+    { "title": "Evaluate real workflows", "body": "We assess installation, configuration, common editing tasks, responsive behavior, update and maintenance considerations, and compatibility with the declared stack. Performance checks are interpreted alongside the page, hosting, images, and third-party scripts involved." },
+    { "title": "Separate facts, observations, and recommendations", "body": "Official documentation supports factual claims about availability and documented features. Our observations are labelled as such. Recommendations explain the intended use case and trade-offs instead of claiming that a product is best for everyone." },
+    { "title": "Disclose commercial relationships", "body": "Affiliate links are disclosed near relevant content and use the appropriate sponsored relationship markup. A commercial relationship never changes the inclusion criteria, testing notes, or conclusion." }
+  ]
+}

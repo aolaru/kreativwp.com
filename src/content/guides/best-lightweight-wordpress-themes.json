@@ -1,0 +1,16 @@
+{
+  "title": "Best Lightweight WordPress Themes",
+  "description": "A planned, evidence-led shortlist of lightweight WordPress themes, with the test context required before a recommendation is published.",
+  "metaDescription": "Editorial preview: a future KreativWP tested guide to lightweight WordPress themes.",
+  "category": "Theme recommendation",
+  "updated": "2026-09-18",
+  "updatedLabel": "September 18, 2026",
+  "featured": false,
+  "isPlaceholder": true,
+  "intro": "This future shortlist will name and compare themes only after they have been checked in a documented, repeatable WordPress environment. It is intentionally not a ranking yet.",
+  "sections": [
+    { "title": "What lightweight means here", "body": "The guide will look beyond a theme’s marketing claim to the page, plugins, assets, content, and configuration used in the documented test." },
+    { "title": "What will be tested", "body": "The final guide will record installation state, editing workflow, representative page configuration, responsive behavior, maintainability, and performance observations for every included theme." },
+    { "title": "How recommendations will work", "body": "The finished article will match themes to specific needs—such as a block-first editorial site, an ecommerce build, or a developer-led project—instead of producing an unsupported universal ranking." }
+  ]
+}

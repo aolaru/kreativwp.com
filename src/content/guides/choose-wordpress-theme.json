@@ -6,11 +6,13 @@
   "updated": "2026-09-18",
   "updatedLabel": "September 18, 2026",
   "featured": true,
-  "isPlaceholder": true,
-  "intro": "This is a clearly marked guide outline. It establishes the practical questions the full tested guide will answer before it is published as editorial advice.",
+  "isPlaceholder": false,
+  "intro": "A strong theme choice starts with how a site needs to work after launch. This guide is a practical decision framework, not a ranked list or a claim that one theme fits every WordPress site.",
   "sections": [
-    { "title": "Start with the editing workflow", "body": "Choose around the way your team creates pages, posts, patterns, and reusable site elements—not around a feature list alone." },
-    { "title": "Separate essentials from extras", "body": "List the site capabilities you genuinely need, then avoid adding a theme because it promises controls that will never be used." },
-    { "title": "Test the complete stack", "body": "A theme should be checked alongside the plugins, host, content, and devices that will make up the actual site." }
+    { "title": "Start with the editing workflow", "body": "Choose around the way your team creates pages, posts, patterns, and reusable site elements—not around a feature list alone. A theme that looks right in a demo can still be a poor fit for the people who have to update it." },
+    { "title": "Separate essentials from extras", "body": "Write down the site capabilities you genuinely need: blog layouts, navigation, commerce, portfolio work, multilingual support, or a pattern library. Treat everything else as a trade-off, not an automatic advantage." },
+    { "title": "Check the complete stack", "body": "A theme is only one layer. Evaluate it with the editor, plugins, host, content volume, image strategy, analytics, and devices that will make up the actual site. Avoid judging performance from a theme demo alone." },
+    { "title": "Look at maintenance before launch", "body": "Review update practices, documentation, support boundaries, export options, and how much custom code the project will need. A lighter initial setup is not useful if ordinary edits become fragile later." },
+    { "title": "Make a small proof site", "body": "Before migrating a production site, build a representative page and one real content workflow in a staging environment. Record what was installed, what changed, and what still needs custom work." }
   ]
 }

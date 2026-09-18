@@ -57,6 +57,8 @@ test("editorial archives and search are reachable", async ({ page }) => {
     { url: "/guides/", title: /WordPress Guides/i },
     { url: "/tools/", title: /Free WordPress Tools/i },
     { url: "/products/", title: /KreativWP Products/i },
+    { url: "/methodology/", title: /Editorial Methodology/i },
+    { url: "/guides/testing-methodology/", title: /How KreativWP Tests/i },
     { url: "/search/?q=theme", title: /Search KreativWP/i }
   ]) {
     await page.goto(entry.url);
