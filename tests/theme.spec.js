@@ -71,6 +71,6 @@ test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await expect(page.locator("nav.top-menu")).toBeVisible();
-  await expect(page.locator(".content-grid").first()).toBeVisible();
+  await expect(page.locator(".feature-desk")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
