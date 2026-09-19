@@ -78,7 +78,7 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
 
   await page.goto("/plugins/");
-  await expect(page.locator(".plugin-card")).toHaveCount(4);
+  await expect(page.locator(".plugin-card")).toHaveCount(15);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
 });
 

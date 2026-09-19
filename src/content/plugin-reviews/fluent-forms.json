@@ -1,0 +1,11 @@
+{
+  "title": "Fluent Forms Review",
+  "description": "A documented profile of Fluent Forms for contact forms, submissions, integrations, and payment-form workflows.",
+  "metaDescription": "A transparently scoped Fluent Forms WordPress plugin profile from KreativWP.",
+  "category": "Forms", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "pluginName": "Fluent Forms", "developer": "WPManageNinja", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "forms", "recommendationType": "core",
+  "highlights": ["Official documentation describes a drag-and-drop builder and ready-made form types", "The documented workflow includes submission management and reporting", "Payment forms and integrations are supported in the product ecosystem"],
+  "bestFor": "Sites that need forms beyond a basic contact address, while keeping the editor workflow approachable.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews Fluent Forms’ official documentation. It does not test deliverability, payment processing, or every integration.", "caveats": "Form plugins handle personal data. Validate consent, retention, spam prevention, notification delivery, and the exact plan’s capabilities before publishing forms.",
+  "sources": [{ "label": "Fluent Forms documentation", "href": "https://docs.fluentforms.com/" }], "officialUrl": "https://fluentforms.com/"
+}

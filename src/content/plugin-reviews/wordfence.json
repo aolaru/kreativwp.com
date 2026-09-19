@@ -1,0 +1,11 @@
+{
+  "title": "Wordfence Review",
+  "description": "A documented profile of Wordfence’s WordPress firewall, malware scanning, and login-security tooling.",
+  "metaDescription": "A transparently scoped Wordfence WordPress plugin profile from KreativWP.",
+  "category": "Security", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "pluginName": "Wordfence", "developer": "Wordfence", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "security", "recommendationType": "core",
+  "highlights": ["Wordfence Free includes an endpoint firewall, scanner, login security, alerts, and centralized management", "Free threat rules and malware signatures are delayed compared with premium", "The documentation covers firewall, scan, login-security, and performance-tuning workflows"],
+  "bestFor": "Most WordPress sites that need a documented, layered security baseline.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews Wordfence’s official free-tier and documentation materials. It is not an independent security audit.", "caveats": "Security plugins need configuration and maintenance. Review resource use, false positives, and the free-tier update delay against the site’s risk level.",
+  "sources": [{ "label": "Wordfence Free documentation", "href": "https://www.wordfence.com/help/wordfence-free/" }], "officialUrl": "https://www.wordfence.com/"
+}

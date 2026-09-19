@@ -1,0 +1,11 @@
+{
+  "title": "WP Rocket Review",
+  "description": "A documented profile of WP Rocket as a paid page-caching option for WordPress sites not using LiteSpeed server caching.",
+  "metaDescription": "A transparently scoped WP Rocket WordPress plugin profile from KreativWP.",
+  "category": "Performance", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "pluginName": "WP Rocket", "developer": "WP Media", "pricing": "Paid", "freeVersion": "No free edition listed", "previewStyle": "performance", "recommendationType": "core",
+  "highlights": ["Page caching is enabled by default according to the official knowledge base", "The cache reduces repeated PHP and database work by serving generated HTML", "Cache behavior can be controlled for mobile, logged-in users, and specific URLs"],
+  "bestFor": "Sites on non-LiteSpeed hosting that need a focused paid page-cache option.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews WP Rocket’s official caching documentation. It does not compare measured speed against other cache plugins.", "caveats": "Use only one full-page cache plugin. Test exclusions for carts, account pages, memberships, and other dynamic content before launch.",
+  "sources": [{ "label": "WP Rocket page-caching documentation", "href": "https://docs.wp-rocket.me/article/1528-page-caching" }], "officialUrl": "https://wp-rocket.me/"
+}

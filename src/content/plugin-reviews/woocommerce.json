@@ -1,0 +1,11 @@
+{
+  "title": "WooCommerce Review",
+  "description": "A documented profile of WooCommerce for WordPress sites that need products, carts, checkout, and store operations.",
+  "metaDescription": "A transparently scoped WooCommerce WordPress plugin profile from KreativWP.",
+  "category": "Ecommerce", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": false, "isPlaceholder": false,
+  "pluginName": "WooCommerce", "developer": "Woo", "pricing": "Free core; extensions and services vary", "freeVersion": "Available", "previewStyle": "commerce", "recommendationType": "conditional",
+  "highlights": ["WooCommerce provides the core product, cart, checkout, and order-management workflow", "Its documentation covers store setup, payments, shipping, taxes, and extensions", "A store’s needs should drive the extension stack instead of adding extensions by default"],
+  "bestFor": "Sites with a genuine ecommerce requirement—not a content site that only needs a payment link or one-off form.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews WooCommerce’s official documentation. It does not test a particular payment, tax, shipping, or high-volume store configuration.", "caveats": "Ecommerce introduces legal, operational, performance, and support requirements. Define payment, tax, shipping, privacy, and fulfillment needs before installing extensions.",
+  "sources": [{ "label": "WooCommerce documentation", "href": "https://woocommerce.com/documentation/" }], "officialUrl": "https://woocommerce.com/"
+}

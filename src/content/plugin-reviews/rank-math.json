@@ -1,0 +1,11 @@
+{
+  "title": "Rank Math Review",
+  "description": "A documented profile of Rank Math for on-page SEO controls, metadata, and WordPress search-visibility workflows.",
+  "metaDescription": "A transparently scoped Rank Math WordPress plugin profile from KreativWP.",
+  "category": "SEO", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": false, "isPlaceholder": false,
+  "pluginName": "Rank Math", "developer": "Rank Math", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "seo", "recommendationType": "core",
+  "highlights": ["The product provides WordPress SEO configuration and content-level controls", "Official documentation covers setup and plugin modules", "A single SEO plugin should own titles, metadata, and schema-related configuration"],
+  "bestFor": "Sites that need one SEO control center and are prepared to configure it deliberately.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews Rank Math’s official documentation. It does not claim search-ranking outcomes or compare every SEO plugin.", "caveats": "Do not run it beside another full SEO plugin. Audit imported settings, titles, sitemaps, schema, and redirects before removing an existing SEO tool.",
+  "sources": [{ "label": "Rank Math knowledge base", "href": "https://rankmath.com/kb/" }], "officialUrl": "https://rankmath.com/"
+}

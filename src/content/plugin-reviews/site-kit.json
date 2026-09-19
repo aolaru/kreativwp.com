@@ -1,0 +1,11 @@
+{
+  "title": "Site Kit by Google Review",
+  "description": "A documented profile of Google’s official WordPress plugin for Search Console, Analytics, and PageSpeed insights.",
+  "metaDescription": "A transparently scoped Site Kit by Google WordPress plugin profile from KreativWP.",
+  "category": "Analytics", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "pluginName": "Site Kit by Google", "developer": "Google", "pricing": "Free", "freeVersion": "Available", "previewStyle": "analytics", "recommendationType": "core",
+  "highlights": ["Site Kit is Google’s official WordPress plugin", "It connects Search Console, Analytics, and PageSpeed Insights in the WordPress dashboard", "The documented setup does not require manual code editing"],
+  "bestFor": "Site owners who need a straightforward view of Google search and analytics signals in WordPress.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews Google’s official Site Kit materials. It does not evaluate analytics governance or consent requirements for a specific jurisdiction.", "caveats": "Analytics implementation has privacy and consent implications. Configure data collection and cookie consent for the site’s audience and legal context.",
+  "sources": [{ "label": "Site Kit official site", "href": "https://sitekit.withgoogle.com/" }], "officialUrl": "https://sitekit.withgoogle.com/"
+}

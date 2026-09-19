@@ -5,21 +5,23 @@ type Props = {
   developer: string;
   description: string;
   freeVersion: string;
-  previewStyle: "performance" | "designer" | "product";
+  previewStyle: string;
   imageSrc?: string;
   imageAlt?: string;
+  recommendationType?: "core" | "conditional" | "research" | "product";
   isPlaceholder?: boolean;
   featured?: boolean;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, isPlaceholder = false, featured = false } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", isPlaceholder = false, featured = false } = Astro.props;
+const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN" };
 ---
 <article class:list={["plugin-card", { "plugin-card--featured": featured }]}>
   <a class={`plugin-thumbnail plugin-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name}`}>
-    {imageSrc ? <img src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewStyle === "performance" ? "FAST" : "DESIGN"}</b><i></i><i></i><i></i><em></em></span>}
+    {imageSrc ? <img src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
   </a>
   <div class="plugin-card__body">
-    <div class="plugin-card__meta"><span>{developer}</span><span>{isPlaceholder ? "In research" : "Published"}</span></div>
+    <div class="plugin-card__meta"><span>{developer}</span><span>{isPlaceholder || recommendationType === "research" ? "In research" : recommendationType === "conditional" ? "Use when needed" : recommendationType === "product" ? "KreativWP product" : "Core pick"}</span></div>
     <h3><a href={href}>{name}</a></h3>
     <p>{description}</p>
     <div class="plugin-card__footer"><span>{freeVersion}</span><a href={href}>View profile <span aria-hidden="true">→</span></a></div>

@@ -13,5 +13,6 @@
   "freeVersion": "Varies by plugin",
   "highlights": ["Caching and asset delivery", "Image and database workflow", "Hosting compatibility"],
   "bestFor": "A future tested shortlist that starts with a site’s actual bottleneck rather than a generic plugin stack.",
-  "previewStyle": "performance"
+  "previewStyle": "performance",
+  "recommendationType": "research"
 }

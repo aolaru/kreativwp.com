@@ -127,7 +127,12 @@ const pluginReviews = defineCollection({
     freeVersion: z.string(),
     highlights: z.array(z.string()),
     bestFor: z.string(),
-    previewStyle: z.enum(["performance", "designer"]),
+    previewStyle: z.string(),
+    recommendationType: z.enum(["core", "conditional", "research"]).default("research"),
+    researchMethod: z.enum(["documented-research", "hands-on"]).optional(),
+    researchScope: z.string().optional(),
+    caveats: z.string().optional(),
+    sources: z.array(z.object({ label: z.string(), href: z.string().url() })).optional(),
     officialUrl: z.string().url().optional(),
     affiliateId: z.string().optional()
   })

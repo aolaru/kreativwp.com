@@ -1,0 +1,11 @@
+{
+  "title": "Redirection Review",
+  "description": "A documented profile of Redirection for managing 301 redirects and monitoring missing URLs during site changes.",
+  "metaDescription": "A transparently scoped Redirection WordPress plugin profile from KreativWP.",
+  "category": "Maintenance", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": false, "isPlaceholder": false,
+  "pluginName": "Redirection", "developer": "John Godley", "pricing": "Free", "freeVersion": "Available", "previewStyle": "redirects", "recommendationType": "conditional",
+  "highlights": ["The WordPress.org listing describes 301 redirect management and 404 error monitoring", "Redirect groups and logs support migration and maintenance workflows", "Redirect rules should be treated as a deliberate mapping, not a substitute for fixing internal links"],
+  "bestFor": "Migrations, URL restructures, and sites that need an auditable approach to discontinued URLs.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews Redirection’s WordPress.org listing and official project materials. It does not test a large redirect migration.", "caveats": "Avoid redirect chains and bulk rules without a tested URL map. Review logs regularly, then remove obsolete rules where appropriate.",
+  "sources": [{ "label": "Redirection on WordPress.org", "href": "https://wordpress.org/plugins/redirection/" }], "officialUrl": "https://wordpress.org/plugins/redirection/"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "WP Mail SMTP Review",
+  "description": "A documented profile of WP Mail SMTP for routing WordPress email through an authenticated mailer.",
+  "metaDescription": "A transparently scoped WP Mail SMTP WordPress plugin profile from KreativWP.",
+  "category": "Email delivery", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": false, "isPlaceholder": false,
+  "pluginName": "WP Mail SMTP", "developer": "Awesome Motive", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "email", "recommendationType": "core",
+  "highlights": ["The product is designed to improve WordPress email delivery by using SMTP or supported mailer APIs", "The official documentation covers setup and mailer configuration", "Transactional messages such as form notifications and password resets are the practical use case"],
+  "bestFor": "Sites that depend on reliable WordPress-originated email instead of a host’s default mail function.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews WP Mail SMTP’s official setup materials. It does not test delivery rates with a particular mail provider.", "caveats": "Email authentication requires careful domain and DNS configuration. Send test messages and monitor deliverability after any mailer or DNS change.",
+  "sources": [{ "label": "WP Mail SMTP documentation", "href": "https://wpmailsmtp.com/docs/" }], "officialUrl": "https://wpmailsmtp.com/"
+}

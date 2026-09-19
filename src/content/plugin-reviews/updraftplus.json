@@ -1,0 +1,11 @@
+{
+  "title": "UpdraftPlus Review",
+  "description": "A documented profile of UpdraftPlus for scheduled WordPress backup and restore workflows.",
+  "metaDescription": "A transparently scoped UpdraftPlus WordPress plugin profile from KreativWP.",
+  "category": "Backups", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "pluginName": "UpdraftPlus", "developer": "UpdraftPlus", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "security", "recommendationType": "core",
+  "highlights": ["The product is designed to back up WordPress files and databases", "It supports scheduled backup workflows", "Restore capability should be part of the operational plan, not an afterthought"],
+  "bestFor": "Any WordPress site that lacks a tested, independent backup-and-restore routine.",
+  "researchMethod": "documented-research", "researchScope": "This profile reviews the vendor’s published backup materials. It does not test storage reliability or a full disaster-recovery exercise.", "caveats": "A backup plugin is not a backup strategy until restores are tested. Keep at least one copy outside the production host.",
+  "sources": [{ "label": "UpdraftPlus official site", "href": "https://updraftplus.com/" }], "officialUrl": "https://updraftplus.com/"
+}

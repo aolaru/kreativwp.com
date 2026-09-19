@@ -10,6 +10,7 @@ const products = (await getCollection("plugins")).sort((a, b) => a.data.sortOrde
 const liveProducts = products.filter((plugin) => plugin.data.live);
 const themes = (await getCollection("themeReviews")).sort(byUpdated);
 const pluginReviews = (await getCollection("pluginReviews")).sort(byUpdated);
+const featuredPluginReviews = pluginReviews.filter((entry) => entry.data.recommendationType === "core").sort((a, b) => Number(Boolean(b.data.featured)) - Number(Boolean(a.data.featured)) || a.data.pluginName.localeCompare(b.data.pluginName)).slice(0, 4);
 const comparisons = (await getCollection("comparisons")).sort(byUpdated);
 const guides = (await getCollection("guides")).sort(byUpdated);
 const tools = (await getCollection("tools")).sort(byUpdated);
@@ -66,9 +67,9 @@ const structuredData = JSON.stringify({
 
   <section class="plugin-catalogue" aria-labelledby="plugins-title">
     <div class="section-kicker"><span>03</span><p>Browse plugins</p><a href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
-    <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done, then review focused research collections and the maintenance tools we build ourselves.</p></div>
-    <div class="theme-catalogue__filters"><span>All plugins</span><span>Performance</span><span>Design workflow</span><span>Site maintenance</span><span>Free</span></div>
-    <div class="plugin-catalogue__grid">{pluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}{liveProducts.map((entry) => <PluginCard href={`/plugins/${entry.id}/`} name={entry.data.name} developer="KreativWP" description={entry.data.description} freeVersion="Free on WordPress.org" previewStyle="product" imageSrc={entry.data.thumb} imageAlt={entry.data.imageAlt} />)}</div>
+    <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done. Our first picks cover performance, backups, security, forms, analytics, and email delivery.</p></div>
+    <div class="theme-catalogue__filters"><span>Core stack</span><span>Performance</span><span>Security</span><span>Forms</span><span>Analytics</span><span>SEO</span></div>
+    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
   </section>
 
   <section class="explore-band" aria-labelledby="explore-title">
