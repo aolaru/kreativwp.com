@@ -9,6 +9,7 @@
   "isPlaceholder": true,
   "themeName": "Astra",
   "developer": "Brainstorm Force",
+  "previewStyle": "astra",
   "freeVersion": "Available",
   "price": "To be verified during editorial testing",
   "highlights": ["Starter-site workflow", "Page-builder and block-editor considerations", "Performance testing notes"],

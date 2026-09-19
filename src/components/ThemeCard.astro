@@ -1,0 +1,28 @@
+---
+type Props = {
+  href: string;
+  name: string;
+  developer: string;
+  description: string;
+  freeVersion: string;
+  previewStyle: "astra" | "generatepress" | "blocksy" | "kadence";
+  isPlaceholder?: boolean;
+  featured?: boolean;
+};
+
+const { href, name, developer, description, freeVersion, previewStyle, isPlaceholder = false, featured = false } = Astro.props;
+---
+<article class:list={["theme-card", { "theme-card--featured": featured }]}>
+  <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name} theme review`}>
+    <span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span>
+    <span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span>
+    <span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span>
+  </a>
+  <div class="theme-card__body">
+    <div class="theme-card__meta"><span>{developer}</span><span>{isPlaceholder ? "In research" : "Editorial review"}</span></div>
+    <h3><a href={href}>{name}</a></h3>
+    <p>{description}</p>
+    <div class="theme-card__footer"><span>{freeVersion === "Available" ? "Free version available" : "Research in progress"}</span><a href={href}>View profile <span aria-hidden="true">→</span></a></div>
+  </div>
+</article>

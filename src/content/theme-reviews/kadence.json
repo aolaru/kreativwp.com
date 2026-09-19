@@ -8,6 +8,7 @@
   "isPlaceholder": true,
   "themeName": "Kadence",
   "developer": "Kadence WP",
+  "previewStyle": "kadence",
   "freeVersion": "To be verified during editorial testing",
   "price": "To be verified during editorial testing",
   "highlights": ["Design workflow", "Gutenberg compatibility", "WooCommerce options"],

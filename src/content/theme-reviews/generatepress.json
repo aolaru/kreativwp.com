@@ -9,6 +9,7 @@
   "isPlaceholder": true,
   "themeName": "GeneratePress",
   "developer": "Tom Usborne",
+  "previewStyle": "generatepress",
   "freeVersion": "Available",
   "price": "To be verified during editorial testing",
   "highlights": ["Lightweight build approach", "Block-editor workflow", "Developer-facing customization"],

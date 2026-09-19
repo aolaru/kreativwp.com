@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import NewsletterForm from "../components/NewsletterForm.astro";
+import ThemeCard from "../components/ThemeCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const byUpdated = (a, b) => b.data.updated.localeCompare(a.data.updated);
@@ -28,7 +29,8 @@ const structuredData = JSON.stringify({
 <BaseLayout title="KreativWP | Themes, Plugins & Tools for Better WordPress Sites" description="Independent WordPress reviews, practical guides, useful tools, and software built by KreativWP." canonicalPath="/" heroEyebrow="Independent WordPress resource" heroTitle="Themes, plugins & tools for better WordPress sites." heroTagline="Clearer choices for the people who build, edit, and maintain WordPress." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" mainClass="home-page" structuredData={structuredData}>
   <section class="home-actions" aria-label="Explore KreativWP">
     <p>Practical guides, transparent research, and useful software — built without the noise.</p>
-    <div class="button-row"><a class="button-like button-like--primary" href="#latest">Explore the library <span aria-hidden="true">↘</span></a><a class="text-action" href="#products">Our WordPress products <span aria-hidden="true">→</span></a></div>
+    <form class="discovery-search" action="/search/" role="search"><label class="sr-only" for="home-search">Search KreativWP</label><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="home-search" name="q" type="search" placeholder="Search themes, plugins, guides…" /><button type="submit">Search</button></form>
+    <a class="text-action" href="#products">Our WordPress products <span aria-hidden="true">→</span></a>
   </section>
 
   <section class="feature-desk" id="latest" aria-labelledby="latest-title">
@@ -52,12 +54,20 @@ const structuredData = JSON.stringify({
     </div>
   </section>
 
+  <section class="theme-catalogue" aria-labelledby="themes-title">
+    <div class="section-kicker"><span>02</span><p>Browse themes</p><a href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
+    <div class="theme-catalogue__heading"><div><p class="section-label">A visual theme library</p><h2 id="themes-title">Find a better starting point for your next WordPress site.</h2></div><p>Browse the growing collection by editing workflow, practical fit, and the questions that matter after launch.</p></div>
+    <div class="theme-catalogue__filters"><span>All themes</span><span>Lightweight</span><span>Block editor</span><span>Portfolio</span><span>WooCommerce</span><span>Free</span></div>
+    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
+    <p class="theme-catalogue__note">Visual profiles are original KreativWP browsing previews. Published conclusions only follow documented testing.</p>
+  </section>
+
   <section class="explore-band" aria-labelledby="explore-title">
     <div class="explore-band__intro"><p class="section-label">Explore with intent</p><h2 id="explore-title">Tools for making a better WordPress decision.</h2><p>Start with what your site needs to do — then find the right theme, plugin, comparison, or guide.</p></div>
     <div class="explore-band__paths">
-      <a href="/themes/"><span>01</span><strong>Themes</strong><em>Reviews, workflows &amp; fit</em><b>→</b></a>
-      <a href="/plugins/"><span>02</span><strong>Plugins</strong><em>Recommendations &amp; utilities</em><b>→</b></a>
-      <a href="/comparisons/"><span>03</span><strong>Comparisons</strong><em>Trade-offs without a false winner</em><b>→</b></a>
+      <a href="/plugins/"><span>01</span><strong>Plugins</strong><em>Recommendations &amp; utilities</em><b>→</b></a>
+      <a href="/comparisons/"><span>02</span><strong>Comparisons</strong><em>Trade-offs without a false winner</em><b>→</b></a>
+      <a href="/guides/"><span>03</span><strong>Guides</strong><em>Build and maintain with more confidence</em><b>→</b></a>
       <a href="/tools/"><span>04</span><strong>Free tools</strong><em>Make a more informed shortlist</em><b>→</b></a>
     </div>
   </section>

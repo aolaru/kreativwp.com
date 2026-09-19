@@ -8,6 +8,7 @@
   "isPlaceholder": true,
   "themeName": "Blocksy",
   "developer": "Creative Themes",
+  "previewStyle": "blocksy",
   "freeVersion": "To be verified during editorial testing",
   "price": "To be verified during editorial testing",
   "highlights": ["Design-system controls", "WooCommerce workflow", "Block-editor fit"],
