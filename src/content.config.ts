@@ -109,6 +109,10 @@ const themeReviews = defineCollection({
     price: z.string(),
     highlights: z.array(z.string()),
     bestFor: z.string(),
+    researchMethod: z.enum(["documented-research", "hands-on"]),
+    researchScope: z.string(),
+    caveats: z.string(),
+    sources: z.array(z.object({ label: z.string(), href: z.string().url() })).min(1),
     officialUrl: z.string().url().optional(),
     affiliateId: z.string().optional()
   })
@@ -123,6 +127,7 @@ const pluginReviews = defineCollection({
     freeVersion: z.string(),
     highlights: z.array(z.string()),
     bestFor: z.string(),
+    previewStyle: z.enum(["performance", "designer"]),
     officialUrl: z.string().url().optional(),
     affiliateId: z.string().optional()
   })

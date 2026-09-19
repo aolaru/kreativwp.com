@@ -67,6 +67,20 @@ test("editorial archives and search are reachable", async ({ page }) => {
   }
 });
 
+test("theme and plugin libraries use the visual discovery cards", async ({ page }) => {
+  await page.goto("/themes/");
+  await expect(page.locator(".theme-card")).toHaveCount(4);
+  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(4);
+
+  await page.goto("/themes/astra/");
+  await expect(page.locator(".source-links")).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
+
+  await page.goto("/plugins/");
+  await expect(page.locator(".plugin-card")).toHaveCount(4);
+  await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
+});
+
 test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");

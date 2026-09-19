@@ -1,16 +1,26 @@
 {
   "title": "Blocksy Theme Review",
-  "description": "A clearly marked editorial outline for a future Blocksy review, including design controls, commerce workflow, and performance checks.",
-  "metaDescription": "Editorial preview: the structure KreativWP will use for a Blocksy WordPress theme review.",
+  "description": "A documentation-led profile of Blocksy’s customizer-based controls, site-wide settings, and page-level layout overrides.",
+  "metaDescription": "A transparently scoped, documentation-led Blocksy WordPress theme profile from KreativWP.",
   "category": "Theme review",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "isPlaceholder": true,
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
   "themeName": "Blocksy",
   "developer": "Creative Themes",
   "previewStyle": "blocksy",
-  "freeVersion": "To be verified during editorial testing",
-  "price": "To be verified during editorial testing",
-  "highlights": ["Design-system controls", "WooCommerce workflow", "Block-editor fit"],
-  "bestFor": "A future tested recommendation for visual site builders who need practical controls without overcomplicating a build."
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["Theme-wide controls are organized in the WordPress Customizer with live previews", "Global colors, typography, layouts, headers, and footers are documented in the settings workflow", "Supported content can use page-level layout overrides without changing the site-wide configuration"],
+  "bestFor": "Site builders who want many presentation controls in a familiar Customizer workflow and are willing to validate the final setup on their own stack.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Blocksy’s current official documentation and WordPress.org listing. It reports the documented Customizer and layout workflow rather than a performance or commerce benchmark.",
+  "caveats": "No controlled install, WooCommerce build, or page-speed benchmark has been completed. Feature availability can vary by edition and extension, so confirm the exact plan before purchase.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/blocksy/screenshot.jpg?ver=2.1.57",
+  "thumbnailAlt": "Blocksy theme screenshot from its WordPress.org listing",
+  "sources": [
+    { "label": "Blocksy on WordPress.org", "href": "https://wordpress.org/themes/blocksy/" },
+    { "label": "Blocksy theme options documentation", "href": "https://creativethemes.com/blocksy/docs/theme-options/theme-options-intro/" }
+  ],
+  "officialUrl": "https://creativethemes.com/blocksy/"
 }

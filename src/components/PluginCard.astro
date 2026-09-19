@@ -1,0 +1,27 @@
+---
+type Props = {
+  href: string;
+  name: string;
+  developer: string;
+  description: string;
+  freeVersion: string;
+  previewStyle: "performance" | "designer" | "product";
+  imageSrc?: string;
+  imageAlt?: string;
+  isPlaceholder?: boolean;
+  featured?: boolean;
+};
+
+const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, isPlaceholder = false, featured = false } = Astro.props;
+---
+<article class:list={["plugin-card", { "plugin-card--featured": featured }]}>
+  <a class={`plugin-thumbnail plugin-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name}`}>
+    {imageSrc ? <img src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewStyle === "performance" ? "FAST" : "DESIGN"}</b><i></i><i></i><i></i><em></em></span>}
+  </a>
+  <div class="plugin-card__body">
+    <div class="plugin-card__meta"><span>{developer}</span><span>{isPlaceholder ? "In research" : "Published"}</span></div>
+    <h3><a href={href}>{name}</a></h3>
+    <p>{description}</p>
+    <div class="plugin-card__footer"><span>{freeVersion}</span><a href={href}>View profile <span aria-hidden="true">→</span></a></div>
+  </div>
+</article>

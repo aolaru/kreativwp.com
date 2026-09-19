@@ -11,5 +11,6 @@
   "pricing": "To be verified during editorial testing",
   "freeVersion": "Varies by plugin",
   "highlights": ["Design system support", "Content editing experience", "Lean site-building workflow"],
-  "bestFor": "A future tested guide for designers choosing tools that make sites easier to ship and maintain."
+  "bestFor": "A future tested guide for designers choosing tools that make sites easier to ship and maintain.",
+  "previewStyle": "designer"
 }

@@ -1,16 +1,26 @@
 {
   "title": "Kadence Theme Review",
-  "description": "A clearly marked editorial outline for a future Kadence review, focused on site-building workflow and practical trade-offs.",
-  "metaDescription": "Editorial preview: the structure KreativWP will use for a Kadence WordPress theme review.",
+  "description": "A documentation-led profile of Kadence’s header and footer builders, global design settings, and accessibility-oriented claims.",
+  "metaDescription": "A transparently scoped, documentation-led Kadence WordPress theme profile from KreativWP.",
   "category": "Theme review",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "isPlaceholder": true,
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
   "themeName": "Kadence",
   "developer": "Kadence WP",
   "previewStyle": "kadence",
-  "freeVersion": "To be verified during editorial testing",
-  "price": "To be verified during editorial testing",
-  "highlights": ["Design workflow", "Gutenberg compatibility", "WooCommerce options"],
-  "bestFor": "A future tested recommendation for site owners weighing flexibility, defaults, and a block-first workflow."
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["A drag-and-drop header builder and footer builder are documented as core theme features", "Global color palettes and typography settings are intended to apply design decisions site-wide", "The vendor documents accessibility-related capabilities including keyboard navigation and ARIA labels"],
+  "bestFor": "Site owners who want visual header and footer controls alongside centrally managed colors, typography, and layout settings.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Kadence’s official feature documentation and WordPress.org listing. It distinguishes documented accessibility features from an independent accessibility audit.",
+  "caveats": "No controlled install, accessibility audit, WooCommerce build, or performance benchmark has been completed. Validate the output against your content, plugins, and accessibility requirements.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/kadence/screenshot.png?ver=1.5.2",
+  "thumbnailAlt": "Kadence theme screenshot from its WordPress.org listing",
+  "sources": [
+    { "label": "Kadence on WordPress.org", "href": "https://wordpress.org/themes/kadence/" },
+    { "label": "Kadence Theme features", "href": "https://www.kadencewp.com/kadence-theme/features/" }
+  ],
+  "officialUrl": "https://www.kadencewp.com/kadence-theme/"
 }

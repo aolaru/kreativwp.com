@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import NewsletterForm from "../components/NewsletterForm.astro";
+import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -8,6 +9,7 @@ const byUpdated = (a, b) => b.data.updated.localeCompare(a.data.updated);
 const products = (await getCollection("plugins")).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 const liveProducts = products.filter((plugin) => plugin.data.live);
 const themes = (await getCollection("themeReviews")).sort(byUpdated);
+const pluginReviews = (await getCollection("pluginReviews")).sort(byUpdated);
 const comparisons = (await getCollection("comparisons")).sort(byUpdated);
 const guides = (await getCollection("guides")).sort(byUpdated);
 const tools = (await getCollection("tools")).sort(byUpdated);
@@ -58,8 +60,15 @@ const structuredData = JSON.stringify({
     <div class="section-kicker"><span>02</span><p>Browse themes</p><a href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
     <div class="theme-catalogue__heading"><div><p class="section-label">A visual theme library</p><h2 id="themes-title">Find a better starting point for your next WordPress site.</h2></div><p>Browse the growing collection by editing workflow, practical fit, and the questions that matter after launch.</p></div>
     <div class="theme-catalogue__filters"><span>All themes</span><span>Lightweight</span><span>Block editor</span><span>Portfolio</span><span>WooCommerce</span><span>Free</span></div>
-    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
-    <p class="theme-catalogue__note">Visual profiles are original KreativWP browsing previews. Published conclusions only follow documented testing.</p>
+    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
+    <p class="theme-catalogue__note">Screenshots are supplied by the respective WordPress.org theme listings. Published conclusions state their research scope.</p>
+  </section>
+
+  <section class="plugin-catalogue" aria-labelledby="plugins-title">
+    <div class="section-kicker"><span>03</span><p>Browse plugins</p><a href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
+    <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done, then review focused research collections and the maintenance tools we build ourselves.</p></div>
+    <div class="theme-catalogue__filters"><span>All plugins</span><span>Performance</span><span>Design workflow</span><span>Site maintenance</span><span>Free</span></div>
+    <div class="plugin-catalogue__grid">{pluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}{liveProducts.map((entry) => <PluginCard href={`/plugins/${entry.id}/`} name={entry.data.name} developer="KreativWP" description={entry.data.description} freeVersion="Free on WordPress.org" previewStyle="product" imageSrc={entry.data.thumb} imageAlt={entry.data.imageAlt} />)}</div>
   </section>
 
   <section class="explore-band" aria-labelledby="explore-title">

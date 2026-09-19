@@ -6,18 +6,17 @@ type Props = {
   description: string;
   freeVersion: string;
   previewStyle: "astra" | "generatepress" | "blocksy" | "kadence";
+  thumbnail?: string;
+  thumbnailAlt?: string;
   isPlaceholder?: boolean;
   featured?: boolean;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, isPlaceholder = false, featured = false } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, isPlaceholder = false, featured = false } = Astro.props;
 ---
 <article class:list={["theme-card", { "theme-card--featured": featured }]}>
   <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name} theme review`}>
-    <span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span>
-    <span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span>
-    <span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span>
-    <span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span>
+    {thumbnail ? <img src={thumbnail} alt={thumbnailAlt || `${name} theme screenshot`} loading="lazy" /> : <><span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span></>}
   </a>
   <div class="theme-card__body">
     <div class="theme-card__meta"><span>{developer}</span><span>{isPlaceholder ? "In research" : "Editorial review"}</span></div>
