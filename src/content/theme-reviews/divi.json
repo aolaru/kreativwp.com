@@ -1,0 +1,23 @@
+{
+  "title": "Divi Theme Review",
+  "description": "A documentation-led profile of Divi’s visual builder, site-wide template controls, and design-system workflow.",
+  "metaDescription": "A transparently scoped, documentation-led Divi WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Divi",
+  "developer": "Elegant Themes",
+  "previewStyle": "divi",
+  "freeVersion": "No free theme edition listed",
+  "price": "Check current plans on the official site",
+  "highlights": ["Elegant Themes documents full-site, drag-and-drop editing for headers, footers, and individual pages", "The visual builder includes on-canvas editing, responsive controls, global styles, and class-based presets", "The Theme Builder can apply visual templates across posts, products, categories, and other site areas"],
+  "bestFor": "Teams that want an all-in-one visual-building system and are prepared to standardize on Divi’s editor and design conventions.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks current Elegant Themes product and support documentation. It describes the documented visual-builder workflow, not an independent performance or lock-in assessment.",
+  "caveats": "No controlled install, content-migration exercise, Core Web Vitals benchmark, or third-party compatibility test has been completed. Assess the long-term editor and migration fit before standardizing on Divi.",
+  "thumbnail": "https://www.elegantthemes.com/images/divi-5/d5-builder-poster.jpg",
+  "thumbnailAlt": "Divi visual builder preview from Elegant Themes",
+  "sources": [{ "label": "Divi official product page", "href": "https://www.elegantthemes.com/gallery/divi/" }, { "label": "Divi Builder getting-started guide", "href": "https://help.elegantthemes.com/en/articles/8630544-getting-started-with-the-divi-builder" }],
+  "officialUrl": "https://www.elegantthemes.com/gallery/divi/"
+}
