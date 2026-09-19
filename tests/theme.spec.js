@@ -73,6 +73,9 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator(".theme-card img")).toHaveCount(15);
   await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(14);
 
+  await page.getByRole("button", { name: "Page builder" }).click();
+  await expect(page.locator(".theme-card:visible")).toHaveCount(8);
+
   await page.goto("/themes/astra/");
   await expect(page.locator(".source-links")).toBeVisible();
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
@@ -80,6 +83,23 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await page.goto("/plugins/");
   await expect(page.locator(".plugin-card")).toHaveCount(15);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
+
+  await page.getByRole("button", { name: "Security" }).click();
+  await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
+});
+
+test("stack finder returns a constrained theme and plugin shortlist", async ({ page }) => {
+  await page.goto("/tools/stack-finder/");
+  await page.getByLabel("An online store").check();
+  await page.getByLabel("A visual page builder").check();
+  await page.getByLabel("LiteSpeed or QUIC.cloud").check();
+  await page.getByLabel("Contact or lead-capture forms").check();
+  await page.getByRole("button", { name: "Build my starting stack" }).click();
+  const result = page.locator("#stack-finder-result");
+  await expect(result).toBeVisible();
+  await expect(result).toContainText("LiteSpeed Cache");
+  await expect(result).toContainText("WooCommerce");
+  await expect(result).toContainText("Fluent Forms");
 });
 
 test("homepage remains usable on a narrow viewport", async ({ page }) => {

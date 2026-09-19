@@ -9,14 +9,15 @@ type Props = {
   imageSrc?: string;
   imageAlt?: string;
   recommendationType?: "core" | "conditional" | "research" | "product";
+  filterValues?: string[];
   isPlaceholder?: boolean;
   featured?: boolean;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", isPlaceholder = false, featured = false } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false } = Astro.props;
 const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN" };
 ---
-<article class:list={["plugin-card", { "plugin-card--featured": featured }]}>
+<article class:list={["plugin-card", { "plugin-card--featured": featured }]} data-library-card data-filters={filterValues.join(" ")}>
   <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" }]} href={href} aria-label={`Read ${name}`}>
     {imageSrc ? <img src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
   </a>

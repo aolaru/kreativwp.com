@@ -1119,6 +1119,12 @@ body {
 .theme-catalogue__filters { border-bottom: 1px solid var(--card-border); border-top: 1px solid var(--card-border); display: flex; gap: .5rem; margin-bottom: 1.5rem; overflow-x: auto; padding: .7rem 0; }
 .theme-catalogue__filters span { border: 1px solid var(--card-border); border-radius: 999px; color: var(--muted); flex: 0 0 auto; font-size: .7rem; font-weight: 700; padding: .35rem .65rem; }
 .theme-catalogue__filters span:first-child { background: var(--text); border-color: var(--text); color: #fff; }
+.library-filter { border-bottom: 1px solid var(--card-border); border-top: 1px solid var(--card-border); margin-bottom: 1.5rem; padding: .7rem 0; }
+.library-filter__controls { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .2rem; }
+.library-filter__button { appearance: none; background: transparent; border: 1px solid var(--card-border); border-radius: 999px; color: var(--muted); cursor: pointer; flex: 0 0 auto; font: inherit; font-size: .7rem; font-weight: 700; padding: .35rem .65rem; }
+.library-filter__button:hover, .library-filter__button:focus-visible { border-color: var(--text); color: var(--text); outline: none; }
+.library-filter__button.is-active { background: var(--text); border-color: var(--text); color: #fff; }
+.library-filter__status { color: var(--muted); font-size: .7rem; margin-top: .55rem; }
 .theme-catalogue__grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .theme-card { background: rgba(255,255,255,.26); border: 1px solid var(--card-border); display: flex; flex-direction: column; min-width: 0; }
 .theme-card--featured { grid-column: span 2; grid-row: span 2; }
@@ -1207,6 +1213,20 @@ body {
 .source-links a { color: var(--text); font-size: .86rem; font-weight: 700; text-decoration-color: var(--signal); text-underline-offset: .2em; }
 .source-links a span { color: var(--signal); }
 .editorial-caveat { background: rgba(227,115,78,.09); border-left: 3px solid var(--signal); color: var(--muted); font-size: .9rem; line-height: 1.55; margin-top: 1rem; padding: .85rem 1rem; }
+.stack-finder { background: var(--paper-deep); border-top: 3px solid var(--signal); margin-bottom: 3rem; padding: clamp(1.4rem, 4vw, 3rem); }
+.stack-finder h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.07em; line-height: .95; margin-top: .45rem; }
+.stack-finder__form { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 2rem; }
+.stack-finder fieldset { border: 1px solid var(--line); display: grid; gap: .65rem; min-width: 0; padding: 1rem; }
+.stack-finder legend { font-size: .85rem; font-weight: 700; padding: 0 .25rem; }
+.stack-finder label { align-items: start; color: var(--ink-muted); display: flex; font-size: .84rem; gap: .55rem; line-height: 1.35; }
+.stack-finder input { accent-color: var(--signal); margin-top: .12rem; }
+.stack-finder__form > button { justify-self: start; }
+.stack-finder__result { background: rgba(255,255,255,.45); border: 1px solid var(--line); margin-top: 1.5rem; padding: 1.25rem; }
+.stack-finder__result h3 { font-size: 1.55rem; letter-spacing: -.05em; margin: .45rem 0 .8rem; }
+.stack-finder__result > p { color: var(--ink-muted); line-height: 1.55; margin-top: .65rem; }
+.stack-finder__result a { color: var(--ink); font-weight: 700; text-decoration-color: var(--signal); text-underline-offset: .2em; }
+.stack-finder__caveat { border-top: 1px solid var(--line); font-size: .86rem; padding-top: .8rem; }
+[data-library-card][hidden], [data-filter-section][hidden] { display: none !important; }
 
 .explore-band { background: var(--paper-deep); margin: 0 calc((100vw - min(1180px, 100vw - 4rem)) / -2) 6rem; padding: 4.8rem max(2rem, calc((100vw - 1180px) / 2)); }
 .explore-band__intro { display: grid; gap: 1.4rem; grid-template-columns: .6fr 1.35fr 1fr; padding-bottom: 2.3rem; }
@@ -1282,6 +1302,7 @@ body {
   .theme-catalogue__heading { grid-template-columns: 1fr; }
   .theme-catalogue__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plugin-catalogue__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stack-finder__form { grid-template-columns: 1fr; }
   .feature-desk__grid { gap: 1.5rem; }
   .lead-story { min-height: 420px; }
   .explore-band__intro, .comparison-showcase__heading { grid-template-columns: 1fr; }

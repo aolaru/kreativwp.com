@@ -1,0 +1,5 @@
+{
+  "title": "GeneratePress vs Kadence", "description": "A documentation-led comparison of a deliberate block-editor workflow and a more visual design-control workflow.", "metaDescription": "A transparently scoped GeneratePress versus Kadence WordPress comparison from KreativWP.", "category": "Theme comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "leftName": "GeneratePress", "rightName": "Kadence", "comparisonAreas": ["Block Elements and composable layout workflow", "Header, footer, typography, and global design controls", "Companion-plugin and premium-feature dependencies", "Same-content performance and accessibility tests still required"],
+  "takeaway": "GeneratePress is a stronger starting point for teams that prefer deliberate composition in the block editor; Kadence merits attention when visual header, footer, and global-design controls are central. Test both with the same content before deciding."
+}

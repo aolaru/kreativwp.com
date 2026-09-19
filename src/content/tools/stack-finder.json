@@ -1,0 +1,11 @@
+{
+  "title": "WordPress Stack Finder",
+  "description": "A working questionnaire that suggests a minimal WordPress theme and plugin shortlist based on your workflow and site needs.",
+  "metaDescription": "Build a minimal WordPress theme and plugin shortlist with KreativWP’s Stack Finder.",
+  "category": "WordPress planning tool",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "availability": "available",
+  "purpose": "Turn a few practical constraints—editing workflow, hosting, site type, and needed capabilities—into a smaller shortlist to research before installation."
+}

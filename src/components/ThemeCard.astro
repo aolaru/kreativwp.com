@@ -8,13 +8,14 @@ type Props = {
   previewStyle: string;
   thumbnail?: string;
   thumbnailAlt?: string;
+  filterValues?: string[];
   isPlaceholder?: boolean;
   featured?: boolean;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, isPlaceholder = false, featured = false } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, filterValues = [], isPlaceholder = false, featured = false } = Astro.props;
 ---
-<article class:list={["theme-card", { "theme-card--featured": featured }]}>
+<article class:list={["theme-card", { "theme-card--featured": featured }]} data-library-card data-filters={filterValues.join(" ")}>
   <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name} theme review`}>
     {thumbnail ? <img src={thumbnail} alt={thumbnailAlt || `${name} theme screenshot`} loading="lazy" /> : <><span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span></>}
   </a>

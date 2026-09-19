@@ -1,0 +1,39 @@
+<section class="stack-finder" aria-labelledby="stack-finder-title">
+  <div><p class="eyebrow">A smaller, saner starting point</p><h2 id="stack-finder-title">Build a minimal WordPress stack</h2><p class="section-intro">Answer four quick questions. The result is a starting point to investigate, not an automatic install list.</p></div>
+  <form id="stack-finder-form" class="stack-finder__form">
+    <fieldset><legend>What are you building?</legend><label><input type="radio" name="site" value="content" checked /> Content, portfolio, or business site</label><label><input type="radio" name="site" value="store" /> An online store</label></fieldset>
+    <fieldset><legend>How do you want to edit the site?</legend><label><input type="radio" name="editor" value="blocks" checked /> WordPress block editor</label><label><input type="radio" name="editor" value="visual" /> A visual page builder</label></fieldset>
+    <fieldset><legend>What does your host use?</legend><label><input type="radio" name="hosting" value="litespeed" /> LiteSpeed or QUIC.cloud</label><label><input type="radio" name="hosting" value="other" checked /> Other or I’m not sure</label></fieldset>
+    <fieldset><legend>What else does the site need?</legend><label><input type="checkbox" name="needs-forms" value="forms" data-need /> Contact or lead-capture forms</label><label><input type="checkbox" name="needs-analytics" value="analytics" data-need /> Search and analytics reporting</label><label><input type="checkbox" name="needs-images" value="images" data-need /> A large image library</label><label><input type="checkbox" name="needs-redirects" value="redirects" data-need /> A URL migration or redirect cleanup</label></fieldset>
+    <button class="button-like button-like--primary" type="submit">Build my starting stack</button>
+  </form>
+  <div class="stack-finder__result" id="stack-finder-result" aria-live="polite" hidden></div>
+</section>
+<script>
+  const form = document.querySelector("#stack-finder-form");
+  const result = document.querySelector("#stack-finder-result");
+  const link = (href, label) => {
+    const anchor = document.createElement("a");
+    anchor.href = href;
+    anchor.textContent = label;
+    return anchor.outerHTML;
+  };
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const values = new FormData(form);
+    const site = values.get("site");
+    const editor = values.get("editor");
+    const hosting = values.get("hosting");
+    const needs = Array.from(form.querySelectorAll("[data-need]:checked")).map((input) => input.value);
+    const themes = editor === "blocks" ? [link("/themes/generatepress/", "GeneratePress"), link("/themes/spectra-one/", "Spectra One")] : [link("/themes/astra/", "Astra"), link("/themes/divi/", "Divi")];
+    const plugins = [hosting === "litespeed" ? link("/plugins/reviews/litespeed-cache/", "LiteSpeed Cache") : link("/plugins/reviews/wp-rocket/", "WP Rocket"), link("/plugins/reviews/updraftplus/", "UpdraftPlus"), link("/plugins/reviews/wordfence/", "Wordfence"), link("/plugins/reviews/wp-mail-smtp/", "WP Mail SMTP")];
+    if (site === "store") plugins.push(link("/plugins/reviews/woocommerce/", "WooCommerce"));
+    if (needs.includes("forms")) plugins.push(link("/plugins/reviews/fluent-forms/", "Fluent Forms"));
+    if (needs.includes("analytics")) plugins.push(link("/plugins/reviews/site-kit/", "Site Kit by Google"));
+    if (needs.includes("images")) plugins.push(link("/plugins/reviews/shortpixel/", "ShortPixel"));
+    if (needs.includes("redirects")) plugins.push(link("/plugins/reviews/redirection/", "Redirection"));
+    result.hidden = false;
+    result.innerHTML = `<p class="eyebrow">Your starting stack</p><h3>Start with ${editor === "blocks" ? "a block-first" : "a visual-builder"} workflow.</h3><p><strong>Theme shortlist:</strong> ${themes.join(" or ")}</p><p><strong>Plugin shortlist:</strong> ${plugins.join(", ")}</p><p class="stack-finder__caveat">Install one page-cache plugin only. Review every profile’s constraints before installation, then test the stack on a staging site.</p>`;
+    result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script>

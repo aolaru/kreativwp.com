@@ -1,12 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import StackFinder from "../../components/StackFinder.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 export async function getStaticPaths() { const entries = await getCollection("tools"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 ---
 <BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/tools/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="Free WordPress tool" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/tools/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools/" }, { label: entry.data.title }]} />
-  <section class="editorial-section" aria-labelledby="tool-purpose-title"><p class="content-card__meta">Status · {entry.data.availability}</p><h2 id="tool-purpose-title">What it will do</h2><p class="section-intro">{entry.data.purpose}</p></section>
-  <div class="editorial-notice" role="status">This tool is not available yet. Its listing is here so the resource architecture can grow without presenting a placeholder as a working product.</div>
+  <section class="editorial-section" aria-labelledby="tool-purpose-title"><p class="content-card__meta">Status · {entry.data.availability}</p><h2 id="tool-purpose-title">What it does</h2><p class="section-intro">{entry.data.purpose}</p></section>
+  {entry.id === "stack-finder" ? <StackFinder /> : <div class="editorial-notice" role="status">This tool is not available yet. Its listing is here so the resource architecture can grow without presenting a placeholder as a working product.</div>}
 </BaseLayout>

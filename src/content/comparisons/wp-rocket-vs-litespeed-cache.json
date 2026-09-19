@@ -1,0 +1,5 @@
+{
+  "title": "WP Rocket vs LiteSpeed Cache", "description": "A documentation-led comparison centered on the hosting constraint behind two popular WordPress performance tools.", "metaDescription": "A transparently scoped WP Rocket versus LiteSpeed Cache comparison from KreativWP.", "category": "Plugin comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "leftName": "WP Rocket", "rightName": "LiteSpeed Cache", "comparisonAreas": ["Page-cache approach and server-level requirements", "LiteSpeed or QUIC.cloud availability", "Dynamic-page exclusions for ecommerce and memberships", "A repeatable performance test with one cache plugin at a time"],
+  "takeaway": "Hosting is the first decision: LiteSpeed Cache’s caching features depend on LiteSpeed or QUIC.cloud, while WP Rocket is positioned as a paid page-cache choice for other stacks. Do not run two full-page cache plugins together."
+}

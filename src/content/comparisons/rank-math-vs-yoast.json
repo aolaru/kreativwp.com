@@ -1,0 +1,5 @@
+{
+  "title": "Rank Math vs Yoast", "description": "A documentation-led comparison for choosing one SEO control center—not layering competing SEO plugins.", "metaDescription": "A transparently scoped Rank Math versus Yoast WordPress comparison from KreativWP.", "category": "Plugin comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "leftName": "Rank Math", "rightName": "Yoast", "comparisonAreas": ["Titles, metadata, and sitemap ownership", "Schema and content-workflow requirements", "Migration, imports, and existing SEO configuration", "A pre-launch technical SEO audit after any switch"],
+  "takeaway": "Choose one plugin based on the team’s workflow and existing configuration, then migrate carefully. The important outcome is a complete, auditable SEO setup—not running two plugins with overlapping output."
+}

@@ -1,0 +1,38 @@
+---
+type Filter = { label: string; value: string };
+type Props = { filters: Filter[]; label: string };
+const { filters, label } = Astro.props;
+---
+<div class="library-filter" data-library-filter>
+  <div class="library-filter__controls" role="group" aria-label={label}>
+    {filters.map((filter, index) => <button class:list={["library-filter__button", { "is-active": index === 0 }]} type="button" data-filter-value={filter.value} aria-pressed={index === 0 ? "true" : "false"}>{filter.label}</button>)}
+  </div>
+  <p class="library-filter__status" aria-live="polite"></p>
+</div>
+<script>
+  document.querySelectorAll("[data-library]").forEach((library) => {
+    const buttons = Array.from(library.querySelectorAll("[data-filter-value]"));
+    const cards = Array.from(library.querySelectorAll("[data-library-card]"));
+    const sections = Array.from(library.querySelectorAll("[data-filter-section]"));
+    const status = library.querySelector(".library-filter__status");
+    const applyFilter = (value) => {
+      let count = 0;
+      cards.forEach((card) => {
+        const matches = value === "all" || (card.dataset.filters || "").split(" ").includes(value);
+        card.hidden = !matches;
+        if (matches) count += 1;
+      });
+      sections.forEach((section) => {
+        section.hidden = !Array.from(section.querySelectorAll("[data-library-card]")).some((card) => !card.hidden);
+      });
+      buttons.forEach((button) => {
+        const active = button.dataset.filterValue === value;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      if (status) status.textContent = `${count} ${count === 1 ? "result" : "results"} shown.`;
+    };
+    buttons.forEach((button) => button.addEventListener("click", () => applyFilter(button.dataset.filterValue || "all")));
+    applyFilter("all");
+  });
+</script>

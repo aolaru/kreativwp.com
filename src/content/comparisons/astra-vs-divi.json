@@ -1,0 +1,5 @@
+{
+  "title": "Astra vs Divi", "description": "A documentation-led comparison of Astra’s flexible theme ecosystem and Divi’s all-in-one visual-building workflow.", "metaDescription": "A transparently scoped Astra versus Divi WordPress comparison from KreativWP.", "category": "Theme comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
+  "leftName": "Astra", "rightName": "Divi", "comparisonAreas": ["Starter templates and preferred editor workflow", "How much of the site system lives in the theme versus a visual builder", "Pricing, migration, and long-term editor fit", "Performance testing still required on the same representative site"],
+  "takeaway": "Choose Astra when you want flexibility across WordPress editing workflows; evaluate Divi when a unified visual builder and its broader ecosystem fit the team. Neither choice should be made without confirming editor ownership and migration expectations."
+}
