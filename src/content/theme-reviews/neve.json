@@ -1,0 +1,23 @@
+{
+  "title": "Neve Theme Review",
+  "description": "A documentation-led profile of Neve’s lightweight positioning, editor compatibility, and broad site-type fit.",
+  "metaDescription": "A transparently scoped, documentation-led Neve WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Neve",
+  "developer": "Themeisle",
+  "previewStyle": "neve",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing describes compatibility with the block editor, popular page builders, and WooCommerce", "The theme is positioned for blogs, businesses, agencies, portfolios, and stores", "Its responsive workflow includes mobile-oriented customization controls"],
+  "bestFor": "Teams comparing a broad, flexible starter theme across editor and page-builder workflows.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile cross-checks Neve’s current WordPress.org listing and official product site. It describes documented fit and workflow rather than independently measured speed.",
+  "caveats": "No controlled install, Core Web Vitals benchmark, or compatibility test has been completed. Confirm premium feature availability and pricing directly with the vendor.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/neve/screenshot.png?ver=4.2.11",
+  "thumbnailAlt": "Neve theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Neve on WordPress.org", "href": "https://wordpress.org/themes/neve/" }, { "label": "Neve official site", "href": "https://themeisle.com/themes/neve/" }],
+  "officialUrl": "https://themeisle.com/themes/neve/"
+}

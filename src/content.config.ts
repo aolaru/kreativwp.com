@@ -104,7 +104,7 @@ const themeReviews = defineCollection({
   schema: editorialBase.extend({
     themeName: z.string(),
     developer: z.string(),
-    previewStyle: z.enum(["astra", "generatepress", "blocksy", "kadence"]),
+    previewStyle: z.string(),
     freeVersion: z.string(),
     price: z.string(),
     highlights: z.array(z.string()),

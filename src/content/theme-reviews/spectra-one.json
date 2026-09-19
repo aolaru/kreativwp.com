@@ -1,0 +1,23 @@
+{
+  "title": "Spectra One Theme Review",
+  "description": "A documentation-led profile of Spectra One as a Full Site Editing theme for modern block-based WordPress sites.",
+  "metaDescription": "A transparently scoped, documentation-led Spectra One WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Spectra One",
+  "developer": "Brainstorm Force",
+  "previewStyle": "spectra-one",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing identifies Spectra One as a theme built for Full Site Editing", "Its stated use cases include blogs, portfolios, and businesses", "The product positioning centers on a modern block-theme workflow"],
+  "bestFor": "People who want to evaluate a Full Site Editing starting point and plan to work primarily in WordPress’s site editor.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Spectra One’s current WordPress.org listing and official product information. It documents the stated FSE workflow rather than testing templates or extensions.",
+  "caveats": "No controlled site-editor build, pattern audit, or performance benchmark has been completed. Validate plugin and block compatibility with your exact WordPress version.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/spectra-one/screenshot.png?ver=1.2.6",
+  "thumbnailAlt": "Spectra One theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Spectra One on WordPress.org", "href": "https://wordpress.org/themes/spectra-one/" }, { "label": "Spectra One official site", "href": "https://wpspectra.com/spectra-one/" }],
+  "officialUrl": "https://wpspectra.com/spectra-one/"
+}

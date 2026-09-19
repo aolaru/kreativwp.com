@@ -69,8 +69,8 @@ test("editorial archives and search are reachable", async ({ page }) => {
 
 test("theme and plugin libraries use the visual discovery cards", async ({ page }) => {
   await page.goto("/themes/");
-  await expect(page.locator(".theme-card")).toHaveCount(4);
-  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(4);
+  await expect(page.locator(".theme-card")).toHaveCount(14);
+  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(14);
 
   await page.goto("/themes/astra/");
   await expect(page.locator(".source-links")).toBeVisible();

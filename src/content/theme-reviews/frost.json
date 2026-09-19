@@ -1,0 +1,23 @@
+{
+  "title": "Frost Theme Review",
+  "description": "A documentation-led profile of Frost’s minimal visual system and pattern-led workflow for agency and portfolio sites.",
+  "metaDescription": "A transparently scoped, documentation-led Frost WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Frost",
+  "developer": "WP Engine",
+  "previewStyle": "frost",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing describes a clean, minimal design aimed at agency websites", "Documented patterns include hero and portfolio sections, calls to action, and testimonials", "The stated use cases include business, personal-brand, and creative-project sites"],
+  "bestFor": "Agencies and creatives looking for a restrained, pattern-oriented base before they add their own content and system decisions.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Frost’s current WordPress.org listing and official repository. It records documented patterns and intended use cases rather than testing site builds.",
+  "caveats": "No controlled install, pattern customization study, accessibility audit, or loading benchmark has been completed. Verify maintenance expectations and update cadence before standardizing on it.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/frost/screenshot.png?ver=1.0.10",
+  "thumbnailAlt": "Frost theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Frost on WordPress.org", "href": "https://wordpress.org/themes/frost/" }, { "label": "Frost official repository", "href": "https://github.com/wpengine/frost" }],
+  "officialUrl": "https://github.com/wpengine/frost"
+}

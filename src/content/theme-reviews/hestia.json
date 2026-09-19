@@ -1,0 +1,23 @@
+{
+  "title": "Hestia Theme Review",
+  "description": "A documentation-led profile of Hestia’s one-page leaning, multipurpose positioning, and supported site types.",
+  "metaDescription": "A transparently scoped, documentation-led Hestia WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Hestia",
+  "developer": "Themeisle",
+  "previewStyle": "hestia",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing presents a multipurpose one-page design", "Documented use cases include businesses, agencies, portfolios, ecommerce, and freelancers", "The listing notes a widgetized footer plus separate blog and news page support"],
+  "bestFor": "Smaller professional sites looking for a structured, presentation-forward starting point with a separate content area.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile cross-checks Hestia’s WordPress.org listing and official product page. It summarizes documented structure and intended use cases rather than testing a production build.",
+  "caveats": "No controlled install, ecommerce build, or plugin-compatibility test has been completed. Validate the exact page-builder and commerce requirements before choosing a plan.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/hestia/screenshot.png?ver=3.3.6",
+  "thumbnailAlt": "Hestia theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Hestia on WordPress.org", "href": "https://wordpress.org/themes/hestia/" }, { "label": "Hestia official site", "href": "https://themeisle.com/themes/hestia/" }],
+  "officialUrl": "https://themeisle.com/themes/hestia/"
+}

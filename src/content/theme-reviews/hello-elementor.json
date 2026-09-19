@@ -1,0 +1,23 @@
+{
+  "title": "Hello Elementor Theme Review",
+  "description": "A documentation-led profile of Hello Elementor as a minimal base for sites designed in Elementor.",
+  "metaDescription": "A transparently scoped, documentation-led Hello Elementor WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Hello Elementor",
+  "developer": "Elementor Team",
+  "previewStyle": "hello-elementor",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing describes a lightweight, minimalist theme built to work with Elementor", "It is presented as a free, open-source foundation for custom designs", "The stated workflow assumes Elementor’s drag-and-drop site builder is central to the build"],
+  "bestFor": "Elementor-first teams that want a minimal theme layer and intend to build most presentation decisions in the page builder.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Hello Elementor’s current WordPress.org listing and official Elementor product page. It explains the stated Elementor-first workflow, not an independent performance comparison.",
+  "caveats": "No controlled install, Elementor Pro test, template audit, or page-speed benchmark has been completed. This is not a recommendation for non-Elementor workflows.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/hello-elementor/screenshot.png?ver=3.5.1",
+  "thumbnailAlt": "Hello Elementor theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Hello Elementor on WordPress.org", "href": "https://wordpress.org/themes/hello-elementor/" }, { "label": "Hello Elementor official site", "href": "https://elementor.com/hello-theme/" }],
+  "officialUrl": "https://elementor.com/hello-theme/"
+}

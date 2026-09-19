@@ -1,0 +1,23 @@
+{
+  "title": "Ollie Theme Review",
+  "description": "A documentation-led profile of Ollie’s block-theme patterns, global styles, and editor-first design system.",
+  "metaDescription": "A transparently scoped, documentation-led Ollie WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Ollie",
+  "developer": "Mike McAlister",
+  "previewStyle": "ollie",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing describes a WordPress block theme with more than 50 patterns and seven full-page layouts", "It presents a customizable design system built around Global Styles", "The stated workflow integrates with current WordPress editor features without requiring a page-builder plugin"],
+  "bestFor": "Block-editor-native teams who want to evaluate a pattern-rich theme before introducing a separate page-builder layer.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Ollie’s current WordPress.org listing and official product site. It records the documented block-theme workflow, not an independent audit of its patterns or output.",
+  "caveats": "No controlled install, full-site editing migration, or performance benchmark has been completed. Test the pattern workflow with your content model and editor permissions.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/ollie/screenshot.png?ver=1.6.3",
+  "thumbnailAlt": "Ollie theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Ollie on WordPress.org", "href": "https://wordpress.org/themes/ollie/" }, { "label": "Ollie official site", "href": "https://olliewp.com/" }],
+  "officialUrl": "https://olliewp.com/"
+}

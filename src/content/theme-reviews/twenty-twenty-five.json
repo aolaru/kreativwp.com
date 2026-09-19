@@ -1,0 +1,23 @@
+{
+  "title": "Twenty Twenty-Five Theme Review",
+  "description": "A documentation-led profile of the Twenty Twenty-Five block theme, its patterns, and adaptable editorial layouts.",
+  "metaDescription": "A transparently scoped, documentation-led Twenty Twenty-Five WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Twenty Twenty-Five",
+  "developer": "WordPress.org",
+  "previewStyle": "twentytwentyfive",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing emphasizes simplicity and adaptability", "Documented patterns support page types such as services and landing pages", "The listing describes templates for text-focused and image-heavy blog layouts"],
+  "bestFor": "Publishers and site owners who want to start close to WordPress core and shape an editorial or portfolio site with block patterns.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks the current WordPress.org listing and WordPress theme documentation. It describes documented patterns and templates, not a complete production-site evaluation.",
+  "caveats": "No controlled content migration, accessibility audit, or plugin compatibility test has been completed. Confirm that the core theme’s design language suits your brand before committing.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/twentytwentyfive/screenshot.png?ver=1.5",
+  "thumbnailAlt": "Twenty Twenty-Five theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Twenty Twenty-Five on WordPress.org", "href": "https://wordpress.org/themes/twentytwentyfive/" }, { "label": "WordPress theme documentation", "href": "https://wordpress.org/documentation/article/site-editor/" }],
+  "officialUrl": "https://wordpress.org/themes/twentytwentyfive/"
+}

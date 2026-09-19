@@ -1,0 +1,23 @@
+{
+  "title": "Inspiro Theme Review",
+  "description": "A documentation-led profile of Inspiro’s visual portfolio focus, starter sites, and dual editor support.",
+  "metaDescription": "A transparently scoped, documentation-led Inspiro WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Inspiro",
+  "developer": "WPZOOM",
+  "previewStyle": "inspiro",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing positions the theme for creative professionals, photographers, and visual portfolios", "It describes starter sites for Elementor and the WordPress block editor", "Documented starter-site categories include business, agency, portfolio, store, and blog"],
+  "bestFor": "Creative portfolios that need to compare a visually oriented starting point across Elementor and core block-editor setups.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile cross-checks Inspiro’s current WordPress.org listing and official product page. It records documented starter-site options, not a media performance or portfolio usability study.",
+  "caveats": "No controlled image-heavy site build, video workflow test, or performance benchmark has been completed. Check the relevant edition and starter-site requirements before purchase.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/inspiro/screenshot.png?ver=2.2.3",
+  "thumbnailAlt": "Inspiro theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Inspiro on WordPress.org", "href": "https://wordpress.org/themes/inspiro/" }, { "label": "Inspiro official site", "href": "https://www.wpzoom.com/themes/inspiro/" }],
+  "officialUrl": "https://www.wpzoom.com/themes/inspiro/"
+}

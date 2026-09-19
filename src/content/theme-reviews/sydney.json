@@ -1,0 +1,23 @@
+{
+  "title": "Sydney Theme Review",
+  "description": "A documentation-led profile of Sydney’s business-focused controls, block patterns, and Elementor compatibility.",
+  "metaDescription": "A transparently scoped, documentation-led Sydney WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "Sydney",
+  "developer": "aThemes",
+  "previewStyle": "sydney",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing describes support for both Elementor and the WordPress block editor", "A library of block patterns is presented as part of the page-building workflow", "The listing describes fonts, colors, layouts, logo upload, sliders, headers, and sticky navigation controls"],
+  "bestFor": "Businesses, freelancers, and portfolios that want to compare a visually controlled theme across Elementor and block-editor workflows.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks the current WordPress.org listing and Sydney’s official site. It records documented controls and workflow, not a quality or loading-speed verdict.",
+  "caveats": "No controlled installation, pattern-library review, or responsive performance test has been completed. Confirm which capabilities are included in the edition you plan to use.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/sydney/screenshot.png?ver=2.71",
+  "thumbnailAlt": "Sydney theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Sydney on WordPress.org", "href": "https://wordpress.org/themes/sydney/" }, { "label": "Sydney official site", "href": "https://athemes.com/theme/sydney/" }],
+  "officialUrl": "https://athemes.com/theme/sydney/"
+}

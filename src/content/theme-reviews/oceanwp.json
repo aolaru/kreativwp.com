@@ -1,0 +1,23 @@
+{
+  "title": "OceanWP Theme Review",
+  "description": "A documentation-led profile of OceanWP’s extendable setup, multipurpose positioning, and commerce-oriented claims.",
+  "metaDescription": "A transparently scoped, documentation-led OceanWP WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-19",
+  "updatedLabel": "September 19, 2026",
+  "isPlaceholder": false,
+  "themeName": "OceanWP",
+  "developer": "OceanWP",
+  "previewStyle": "oceanwp",
+  "freeVersion": "Available",
+  "price": "Check current plans on the official site",
+  "highlights": ["The official listing presents the theme as lightweight and highly extendable", "Documented use cases include blogs, portfolios, business sites, and WooCommerce storefronts", "The listing describes responsive controls for tablet and mobile settings"],
+  "bestFor": "Site builders who want to evaluate an extendable multipurpose theme, especially where storefront needs are part of the brief.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile cross-checks the current WordPress.org listing and OceanWP’s official site. It reports documented positioning and does not make a conversion or performance claim.",
+  "caveats": "No controlled install, extension audit, WooCommerce build, or performance benchmark has been completed. Validate the selected extensions against your site’s complexity.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/oceanwp/screenshot.png?ver=4.2.6",
+  "thumbnailAlt": "OceanWP theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "OceanWP on WordPress.org", "href": "https://wordpress.org/themes/oceanwp/" }, { "label": "OceanWP official site", "href": "https://oceanwp.org/" }],
+  "officialUrl": "https://oceanwp.org/"
+}
