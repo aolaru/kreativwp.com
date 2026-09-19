@@ -7,5 +7,6 @@
   "highlights": ["The plugin bridges WordPress cache rules to LiteSpeed’s cache engine", "Its caching features require LiteSpeed server caching or QUIC.cloud", "Optimization features remain available without a LiteSpeed server"],
   "bestFor": "Sites hosted on LiteSpeed or intentionally using QUIC.cloud.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews LiteSpeed’s own installation and requirements documentation. It does not benchmark hosting configurations.", "caveats": "Do not use alongside another full-page cache plugin. Without LiteSpeed or QUIC.cloud, the plugin’s caching functionality is unavailable.",
+  "thumbnail": "https://ps.w.org/litespeed-cache/assets/screenshot-1.png?rev=2554181", "thumbnailAlt": "LiteSpeed Cache screenshot from its WordPress.org listing",
   "sources": [{ "label": "LiteSpeed Cache installation documentation", "href": "https://docs.litespeedtech.com/lscache/lscwp/installation/" }], "officialUrl": "https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration"
 }

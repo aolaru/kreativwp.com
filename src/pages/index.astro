@@ -69,7 +69,7 @@ const structuredData = JSON.stringify({
     <div class="section-kicker"><span>03</span><p>Browse plugins</p><a href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
     <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done. Our first picks cover performance, backups, security, forms, analytics, and email delivery.</p></div>
     <div class="theme-catalogue__filters"><span>Core stack</span><span>Performance</span><span>Security</span><span>Forms</span><span>Analytics</span><span>SEO</span></div>
-    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
+    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
   </section>
 
   <section class="explore-band" aria-labelledby="explore-title">

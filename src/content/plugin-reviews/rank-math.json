@@ -7,5 +7,6 @@
   "highlights": ["The product provides WordPress SEO configuration and content-level controls", "Official documentation covers setup and plugin modules", "A single SEO plugin should own titles, metadata, and schema-related configuration"],
   "bestFor": "Sites that need one SEO control center and are prepared to configure it deliberately.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews Rank Math’s official documentation. It does not claim search-ranking outcomes or compare every SEO plugin.", "caveats": "Do not run it beside another full SEO plugin. Audit imported settings, titles, sitemaps, schema, and redirects before removing an existing SEO tool.",
+  "thumbnail": "https://ps.w.org/seo-by-rank-math/assets/screenshot-1.gif?rev=2626116", "thumbnailAlt": "Rank Math screenshot from its WordPress.org listing",
   "sources": [{ "label": "Rank Math knowledge base", "href": "https://rankmath.com/kb/" }], "officialUrl": "https://rankmath.com/"
 }

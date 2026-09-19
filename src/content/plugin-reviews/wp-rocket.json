@@ -7,5 +7,6 @@
   "highlights": ["Page caching is enabled by default according to the official knowledge base", "The cache reduces repeated PHP and database work by serving generated HTML", "Cache behavior can be controlled for mobile, logged-in users, and specific URLs"],
   "bestFor": "Sites on non-LiteSpeed hosting that need a focused paid page-cache option.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews WP Rocket’s official caching documentation. It does not compare measured speed against other cache plugins.", "caveats": "Use only one full-page cache plugin. Test exclusions for carts, account pages, memberships, and other dynamic content before launch.",
+  "thumbnail": "https://wp-rocket.me/wp-content/uploads/2021/03/Featured-image.png", "thumbnailAlt": "WP Rocket image from the official WP Rocket site",
   "sources": [{ "label": "WP Rocket page-caching documentation", "href": "https://docs.wp-rocket.me/article/1528-page-caching" }], "officialUrl": "https://wp-rocket.me/"
 }

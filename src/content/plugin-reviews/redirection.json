@@ -7,5 +7,6 @@
   "highlights": ["The WordPress.org listing describes 301 redirect management and 404 error monitoring", "Redirect groups and logs support migration and maintenance workflows", "Redirect rules should be treated as a deliberate mapping, not a substitute for fixing internal links"],
   "bestFor": "Migrations, URL restructures, and sites that need an auditable approach to discontinued URLs.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews Redirection’s WordPress.org listing and official project materials. It does not test a large redirect migration.", "caveats": "Avoid redirect chains and bulk rules without a tested URL map. Review logs regularly, then remove obsolete rules where appropriate.",
+  "thumbnail": "https://ps.w.org/redirection/assets/screenshot-1.png?rev=1764489", "thumbnailAlt": "Redirection screenshot from its WordPress.org listing",
   "sources": [{ "label": "Redirection on WordPress.org", "href": "https://wordpress.org/plugins/redirection/" }], "officialUrl": "https://wordpress.org/plugins/redirection/"
 }

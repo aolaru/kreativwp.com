@@ -7,5 +7,6 @@
   "highlights": ["The product is designed to optimize WordPress media assets", "Image optimization should be paired with appropriate source dimensions and modern delivery formats", "Media-heavy sites benefit from measuring the impact before applying bulk changes"],
   "bestFor": "Sites where large or numerous images are a confirmed contributor to slow page loads.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews ShortPixel’s official product materials. It does not test compression quality or visual impact for a particular image library.", "caveats": "Back up original media before bulk optimization. Evaluate image quality, credits, CDN behavior, and whether the hosting platform already provides optimization.",
+  "thumbnail": "https://ps.w.org/shortpixel-image-optimiser/assets/screenshot-1.png?rev=3271838", "thumbnailAlt": "ShortPixel screenshot from its WordPress.org listing",
   "sources": [{ "label": "ShortPixel official site", "href": "https://shortpixel.com/" }], "officialUrl": "https://shortpixel.com/"
 }

@@ -7,5 +7,6 @@
   "highlights": ["WooCommerce provides the core product, cart, checkout, and order-management workflow", "Its documentation covers store setup, payments, shipping, taxes, and extensions", "A store’s needs should drive the extension stack instead of adding extensions by default"],
   "bestFor": "Sites with a genuine ecommerce requirement—not a content site that only needs a payment link or one-off form.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews WooCommerce’s official documentation. It does not test a particular payment, tax, shipping, or high-volume store configuration.", "caveats": "Ecommerce introduces legal, operational, performance, and support requirements. Define payment, tax, shipping, privacy, and fulfillment needs before installing extensions.",
+  "thumbnail": "https://ps.w.org/woocommerce/assets/screenshot-1.png?rev=3234504", "thumbnailAlt": "WooCommerce screenshot from its WordPress.org listing",
   "sources": [{ "label": "WooCommerce documentation", "href": "https://woocommerce.com/documentation/" }], "officialUrl": "https://woocommerce.com/"
 }

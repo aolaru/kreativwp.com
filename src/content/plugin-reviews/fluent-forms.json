@@ -7,5 +7,6 @@
   "highlights": ["Official documentation describes a drag-and-drop builder and ready-made form types", "The documented workflow includes submission management and reporting", "Payment forms and integrations are supported in the product ecosystem"],
   "bestFor": "Sites that need forms beyond a basic contact address, while keeping the editor workflow approachable.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews Fluent Forms’ official documentation. It does not test deliverability, payment processing, or every integration.", "caveats": "Form plugins handle personal data. Validate consent, retention, spam prevention, notification delivery, and the exact plan’s capabilities before publishing forms.",
+  "thumbnail": "https://ps.w.org/fluentform/assets/screenshot-1.gif?rev=2957809", "thumbnailAlt": "Fluent Forms screenshot from its WordPress.org listing",
   "sources": [{ "label": "Fluent Forms documentation", "href": "https://docs.fluentforms.com/" }], "officialUrl": "https://fluentforms.com/"
 }

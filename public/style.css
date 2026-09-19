@@ -1180,6 +1180,8 @@ body {
 .plugin-thumbnail--designer { background: #eadde6; }
 .plugin-thumbnail--product { background: #eae7df; }
 .plugin-thumbnail img { height: 118px; max-width: 75%; object-fit: contain; width: 118px; }
+.plugin-thumbnail--screenshot { align-items: stretch; padding: 0; }
+.plugin-thumbnail--screenshot img { height: 100%; max-width: none; object-fit: cover; object-position: top center; width: 100%; }
 .plugin-card--featured .plugin-thumbnail img { height: 142px; width: 142px; }
 .plugin-thumbnail__editorial { display: grid; gap: .65rem; grid-template-columns: repeat(3, 1fr); max-width: 325px; min-width: min(100%, 220px); width: 72%; }
 .plugin-thumbnail__editorial b { color: #264c50; font-size: clamp(1.35rem, 3vw, 2.5rem); grid-column: 1 / -1; letter-spacing: -.08em; line-height: .8; }

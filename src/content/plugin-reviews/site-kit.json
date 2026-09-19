@@ -7,5 +7,6 @@
   "highlights": ["Site Kit is Google’s official WordPress plugin", "It connects Search Console, Analytics, and PageSpeed Insights in the WordPress dashboard", "The documented setup does not require manual code editing"],
   "bestFor": "Site owners who need a straightforward view of Google search and analytics signals in WordPress.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews Google’s official Site Kit materials. It does not evaluate analytics governance or consent requirements for a specific jurisdiction.", "caveats": "Analytics implementation has privacy and consent implications. Configure data collection and cookie consent for the site’s audience and legal context.",
+  "thumbnail": "https://ps.w.org/google-site-kit/assets/screenshot-1.png?rev=3606666", "thumbnailAlt": "Site Kit screenshot from its WordPress.org listing",
   "sources": [{ "label": "Site Kit official site", "href": "https://sitekit.withgoogle.com/" }], "officialUrl": "https://sitekit.withgoogle.com/"
 }

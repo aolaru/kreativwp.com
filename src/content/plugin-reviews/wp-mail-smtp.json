@@ -7,5 +7,6 @@
   "highlights": ["The product is designed to improve WordPress email delivery by using SMTP or supported mailer APIs", "The official documentation covers setup and mailer configuration", "Transactional messages such as form notifications and password resets are the practical use case"],
   "bestFor": "Sites that depend on reliable WordPress-originated email instead of a host’s default mail function.",
   "researchMethod": "documented-research", "researchScope": "This profile reviews WP Mail SMTP’s official setup materials. It does not test delivery rates with a particular mail provider.", "caveats": "Email authentication requires careful domain and DNS configuration. Send test messages and monitor deliverability after any mailer or DNS change.",
+  "thumbnail": "https://ps.w.org/wp-mail-smtp/assets/screenshot-1.png?rev=2834385", "thumbnailAlt": "WP Mail SMTP screenshot from its WordPress.org listing",
   "sources": [{ "label": "WP Mail SMTP documentation", "href": "https://wpmailsmtp.com/docs/" }], "officialUrl": "https://wpmailsmtp.com/"
 }
