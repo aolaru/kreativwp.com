@@ -88,14 +88,11 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
 });
 
-test("homepage discovery filters narrow the visible cards", async ({ page }) => {
+test("homepage is the interactive theme library", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator(".theme-card")).toHaveCount(20);
   await page.getByRole("button", { name: "WooCommerce" }).click();
   await expect(page.locator(".theme-card:visible")).toHaveCount(9);
-
-  await page.getByRole("button", { name: "Security" }).click();
-  await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
-  await expect(page.locator(".plugin-card:visible")).toContainText("Wordfence");
 });
 
 test("stack finder returns a constrained theme and plugin shortlist", async ({ page }) => {
@@ -156,6 +153,6 @@ test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await expect(page.locator("nav.top-menu")).toBeVisible();
-  await expect(page.locator(".feature-desk")).toBeVisible();
+  await expect(page.locator(".theme-archive")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });

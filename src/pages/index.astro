@@ -1,34 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-import LibraryFilter from "../components/LibraryFilter.astro";
-import NewsletterForm from "../components/NewsletterForm.astro";
-import PluginCard from "../components/PluginCard.astro";
-import ThemeCard from "../components/ThemeCard.astro";
+import ThemeLibrary from "../components/ThemeLibrary.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const byUpdated = (a, b) => b.data.updated.localeCompare(a.data.updated);
-const products = (await getCollection("plugins")).sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-const liveProducts = products.filter((plugin) => plugin.data.live);
-const themes = (await getCollection("themeReviews")).sort(byUpdated);
-const pluginReviews = (await getCollection("pluginReviews")).sort(byUpdated);
-const homepagePluginIds = ["wp-rocket", "wordfence", "fluent-forms", "site-kit"];
-const featuredPluginReviews = homepagePluginIds.map((id) => pluginReviews.find((entry) => entry.id === id)!).filter(Boolean);
-const comparisons = (await getCollection("comparisons")).sort(byUpdated);
-const guides = (await getCollection("guides")).sort(byUpdated);
-const tools = (await getCollection("tools")).sort(byUpdated);
-const themeFilters: Record<string, string[]> = {
-  astra: ["lightweight", "block-editor", "page-builder", "free"], blocksy: ["lightweight", "block-editor", "ecommerce", "free"], divi: ["page-builder", "ecommerce"], frost: ["block-editor", "portfolio", "free"], generatepress: ["lightweight", "block-editor", "free"], go: ["lightweight", "block-editor", "ecommerce", "free"], "hello-elementor": ["lightweight", "page-builder", "free"], hestia: ["page-builder", "ecommerce", "free"], inspiro: ["portfolio", "page-builder", "free"], jadro: ["lightweight", "block-editor", "free"], kadence: ["block-editor", "ecommerce", "free"], neve: ["lightweight", "block-editor", "page-builder", "ecommerce", "free"], oceanwp: ["ecommerce", "page-builder", "free"], ollie: ["block-editor", "free"], raft: ["lightweight", "block-editor", "page-builder", "ecommerce", "free"], "spectra-one": ["block-editor", "portfolio", "free"], storefront: ["ecommerce", "free"], sydney: ["page-builder", "block-editor", "portfolio", "free"], "twenty-twenty-four": ["block-editor", "portfolio", "free"], "twenty-twenty-five": ["block-editor", "portfolio", "free"]
-};
-const pluginFilters: Record<string, string[]> = {
-  "wp-rocket": ["performance"], "litespeed-cache": ["performance"], updraftplus: ["backups"], wordfence: ["security"], "fluent-forms": ["forms"], "site-kit": ["analytics"]
-};
-const featureStories = [
-  { entry: guides.find((entry) => entry.id === "choose-wordpress-theme")!, href: "/guides/choose-wordpress-theme/", type: "Guide" },
-  { entry: comparisons.find((entry) => entry.id === "astra-vs-generatepress")!, href: "/comparisons/astra-vs-generatepress/", type: "Comparison" },
-  { entry: themes.find((entry) => entry.id === "astra")!, href: "/themes/astra/", type: "Theme review" },
-  { entry: guides.find((entry) => entry.id === "testing-methodology")!, href: "/guides/testing-methodology/", type: "Methodology" }
-];
-const [leadStory, ...supportingStories] = featureStories;
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -37,80 +10,6 @@ const structuredData = JSON.stringify({
   ]
 });
 ---
-<BaseLayout title="KreativWP | Themes, Plugins & Tools for Better WordPress Sites" description="Independent WordPress reviews, practical guides, useful tools, and software built by KreativWP." canonicalPath="/" heroEyebrow="Independent WordPress resource" heroTitle="Themes, plugins & tools for better WordPress sites." heroTagline="Clearer choices for the people who build, edit, and maintain WordPress." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" mainClass="home-page" structuredData={structuredData}>
-  <section class="home-actions" aria-label="Explore KreativWP">
-    <p>Practical guides, transparent research, and useful software — built without the noise.</p>
-    <form class="discovery-search" action="/search/" role="search"><label class="sr-only" for="home-search">Search KreativWP</label><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="home-search" name="q" type="search" placeholder="Search themes, plugins, guides…" /><button type="submit">Search</button></form>
-    <a class="text-action" href="#products">Our WordPress products <span aria-hidden="true">→</span></a>
-  </section>
-
-  <section class="feature-desk" id="latest" aria-labelledby="latest-title">
-    <div class="section-kicker"><span>01</span><p>Start here</p><a href="/guides/">All guides <span aria-hidden="true">→</span></a></div>
-    <div class="feature-desk__grid">
-      <article class="lead-story">
-        <p class="story-label">{leadStory.type}</p>
-        <h2 id="latest-title"><a href={leadStory.href}>{leadStory.entry.data.title}</a></h2>
-        <p>{leadStory.entry.data.description}</p>
-        <div class="story-footer"><span>Updated {leadStory.entry.data.updatedLabel}</span><a href={leadStory.href}>Read guide <span aria-hidden="true">→</span></a></div>
-      </article>
-      <div class="story-rail">
-        {supportingStories.map(({ entry, href, type }, index) => (
-          <article class="rail-story">
-            <span class="rail-story__number">0{index + 2}</span>
-            <div><p class="story-label">{type}{entry.data.isPlaceholder ? " · In research" : ""}</p><h3><a href={href}>{entry.data.title}</a></h3><p>{entry.data.description}</p></div>
-            <a class="rail-story__link" href={href} aria-label={`Read ${entry.data.title}`}>↗</a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="theme-catalogue" data-library data-filter-section aria-labelledby="themes-title">
-    <div class="section-kicker"><span>02</span><p>Browse themes</p><a href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
-    <div class="theme-catalogue__heading"><div><p class="section-label">A visual theme library</p><h2 id="themes-title">Find a better starting point for your next WordPress site.</h2></div><p>Browse the growing collection by editing workflow, practical fit, and the questions that matter after launch.</p></div>
-    <LibraryFilter label="Filter featured WordPress themes" filters={[{ label: "All themes", value: "all" }, { label: "Lightweight", value: "lightweight" }, { label: "Block editor", value: "block-editor" }, { label: "Portfolio", value: "portfolio" }, { label: "WooCommerce", value: "ecommerce" }, { label: "Free", value: "free" }]} />
-    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} filterValues={themeFilters[theme.id] || []} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
-    <p class="theme-catalogue__note">Screenshots are supplied by the respective WordPress.org theme listings. Published conclusions state their research scope.</p>
-  </section>
-
-  <section class="plugin-catalogue" data-library data-filter-section aria-labelledby="plugins-title">
-    <div class="section-kicker"><span>03</span><p>Browse plugins</p><a href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
-    <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done. Our first picks cover performance, backups, security, forms, analytics, and email delivery.</p></div>
-    <LibraryFilter label="Filter featured WordPress plugins" filters={[{ label: "All picks", value: "all" }, { label: "Performance", value: "performance" }, { label: "Security", value: "security" }, { label: "Forms", value: "forms" }, { label: "Analytics", value: "analytics" }]} />
-    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} filterValues={pluginFilters[entry.id] || []} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
-  </section>
-
-  <section class="explore-band" aria-labelledby="explore-title">
-    <div class="explore-band__intro"><p class="section-label">Explore with intent</p><h2 id="explore-title">Tools for making a better WordPress decision.</h2><p>Start with what your site needs to do — then find the right theme, plugin, comparison, or guide.</p></div>
-    <div class="explore-band__paths">
-      <a href="/plugins/"><span>01</span><strong>Plugins</strong><em>Recommendations &amp; utilities</em><b>→</b></a>
-      <a href="/comparisons/"><span>02</span><strong>Comparisons</strong><em>Trade-offs without a false winner</em><b>→</b></a>
-      <a href="/guides/"><span>03</span><strong>Guides</strong><em>Build and maintain with more confidence</em><b>→</b></a>
-      <a href="/tools/"><span>04</span><strong>Free tools</strong><em>Make a more informed shortlist</em><b>→</b></a>
-    </div>
-  </section>
-
-  <section class="comparison-showcase" aria-labelledby="comparison-title">
-    <div class="comparison-showcase__heading"><p class="section-label">Head to head</p><h2 id="comparison-title">Compare the things that shape your site.</h2><a class="text-action" href="/comparisons/">See all comparisons <span aria-hidden="true">→</span></a></div>
-    <div class="comparison-showcase__cards">
-      {comparisons.map((entry) => <article><p>{entry.data.isPlaceholder ? "In research" : "Published comparison"}</p><h3><a href={`/comparisons/${entry.id}/`}>{entry.data.leftName} <span>vs</span> {entry.data.rightName}</a></h3><a href={`/comparisons/${entry.id}/`} aria-label={`Read ${entry.data.title}`}>Explore <span aria-hidden="true">↗</span></a></article>)}
-    </div>
-  </section>
-
-  <section class="tool-index" aria-labelledby="tools-title">
-    <div class="section-kicker"><span>02</span><p>Free resources</p><a href="/tools/">Explore tools <span aria-hidden="true">→</span></a></div>
-    <div class="tool-index__grid"><div><h2 id="tools-title">Free tools for planning a smarter WordPress stack.</h2><p>Focused utilities that help you clarify requirements before you choose a product.</p></div><ol>{tools.map((entry, index) => <li><span>0{index + 1}</span><a href={`/tools/${entry.id}/`}>{entry.data.title}</a><em>{entry.data.availability}</em></li>)}</ol></div>
-  </section>
-
-  <section class="product-edition" id="products" aria-labelledby="products-title">
-    <div class="product-edition__intro"><p class="section-label">Built by KreativWP</p><h2 id="products-title">We make tools, too.</h2><p>The practical products we wanted to exist for everyday WordPress maintenance.</p><a class="text-action" href="/products/">View all products <span aria-hidden="true">→</span></a></div>
-    <div class="product-edition__list">{liveProducts.map((plugin, index) => <article><span>0{index + 1}</span><img src={plugin.data.thumb} width="128" height="128" alt={plugin.data.imageAlt} loading="lazy" /><div><h3>{plugin.data.name}</h3><p>{plugin.data.cardUse}</p><a href={`/plugins/${plugin.id}/`}>Product details <span aria-hidden="true">→</span></a></div></article>)}</div>
-  </section>
-
-  <section class="guide-shelf" aria-labelledby="guides-title">
-    <div class="section-kicker"><span>03</span><p>From the field notes</p><a href="/guides/">All WordPress guides <span aria-hidden="true">→</span></a></div>
-    <div class="guide-shelf__grid"><h2 id="guides-title">Guides for the work behind a better site.</h2><div>{guides.slice(0, 4).map((entry) => <article><p>{entry.data.category}{entry.data.isPlaceholder ? " · In research" : ""}</p><h3><a href={`/guides/${entry.id}/`}>{entry.data.title}</a></h3><a href={`/guides/${entry.id}/`} aria-label={`Read ${entry.data.title}`}>↗</a></article>)}</div></div>
-  </section>
-
-  <section class="newsletter-panel" aria-labelledby="updates-title"><div><p class="section-label">A considered inbox</p><h2 id="updates-title">Better WordPress,<br />without the noise.</h2></div><div><p>New guides, useful tools, and honest product research when it’s worth your time.</p><NewsletterForm id="home-updates" /></div></section>
+<BaseLayout title="WordPress Themes | KreativWP" description="Browse independent, clearly scoped WordPress theme reviews and selection guidance from KreativWP." canonicalPath="/" heroEyebrow="WordPress theme library" heroTitle="Find a WordPress theme that fits the work." heroTagline="Explore 20 documented theme profiles by editing workflow, ecommerce needs, portfolio fit, and free availability." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
+  <ThemeLibrary />
 </BaseLayout>
