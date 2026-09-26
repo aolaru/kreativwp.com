@@ -1,0 +1,38 @@
+<section class="plugin-finder" aria-labelledby="plugin-finder-title">
+  <div><p class="eyebrow">Start with the job to be done</p><h2 id="plugin-finder-title">Find the right kind of WordPress plugin</h2><p class="section-intro">Choose the requirement, then begin with a small set of documented profiles. The result is a research shortlist, not an install checklist.</p></div>
+  <form id="plugin-finder-form" class="stack-finder__form">
+    <fieldset><legend>What job needs attention?</legend><label><input type="radio" name="job" value="performance" checked /> Page performance and caching</label><label><input type="radio" name="job" value="security" /> Security and recovery</label><label><input type="radio" name="job" value="forms" /> Forms or lead capture</label><label><input type="radio" name="job" value="analytics" /> Search and analytics reporting</label><label><input type="radio" name="job" value="maintenance" /> Redirects or media maintenance</label></fieldset>
+    <fieldset><legend>What does the site use?</legend><label><input type="radio" name="hosting" value="litespeed" /> LiteSpeed or QUIC.cloud</label><label><input type="radio" name="hosting" value="other" checked /> Other hosting or I’m not sure</label><label><input type="checkbox" name="store" value="store" /> WooCommerce store</label></fieldset>
+    <button class="button-like button-like--primary" type="submit">Build my plugin shortlist</button>
+  </form>
+  <div class="stack-finder__result" id="plugin-finder-result" aria-live="polite" hidden></div>
+</section>
+<script>
+  const form = document.querySelector("#plugin-finder-form");
+  const result = document.querySelector("#plugin-finder-result");
+  const link = (href, label) => {
+    const anchor = document.createElement("a");
+    anchor.href = href;
+    anchor.textContent = label;
+    return anchor.outerHTML;
+  };
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const values = new FormData(form);
+    const job = values.get("job");
+    const hosting = values.get("hosting");
+    const options = {
+      performance: [hosting === "litespeed" ? link("/plugins/reviews/litespeed-cache/", "LiteSpeed Cache") : link("/plugins/reviews/wp-rocket/", "WP Rocket"), link("/plugins/reviews/shortpixel/", "ShortPixel")],
+      security: [link("/plugins/reviews/wordfence/", "Wordfence"), link("/plugins/reviews/updraftplus/", "UpdraftPlus")],
+      forms: [link("/plugins/reviews/fluent-forms/", "Fluent Forms"), link("/plugins/reviews/wp-mail-smtp/", "WP Mail SMTP")],
+      analytics: [link("/plugins/reviews/site-kit/", "Site Kit by Google"), link("/plugins/reviews/rank-math/", "Rank Math")],
+      maintenance: [link("/plugins/reviews/redirection/", "Redirection"), link("/plugins/kreativ-broken-image-finder/", "Kreativ Broken Image Finder")]
+    };
+    const plugins = options[job] || [];
+    if (values.get("store") === "store") plugins.push(link("/plugins/reviews/woocommerce/", "WooCommerce"));
+    result.hidden = false;
+    result.innerHTML = `<p class="eyebrow">Your research shortlist</p><h3>Investigate the ${job} requirement first.</h3><p><strong>Start with:</strong> ${plugins.join(", ")}</p><p>Check the scope of each profile, avoid installing overlapping tools, and test the real site workflow on staging. Use only one page-cache strategy at a time.</p><p class="stack-finder__caveat"><a href="/plugins/">Explore the complete plugin library</a> or use the <a href="/tools/stack-finder/">Stack Finder</a> for a broader starting stack.</p>`;
+    window.dispatchEvent(new CustomEvent("kreativwp:track", { detail: { name: "tool_completed", params: { tool_name: "plugin_finder", plugin_job: job } } }));
+    result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script>

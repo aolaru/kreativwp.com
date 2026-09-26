@@ -1,0 +1,23 @@
+{
+  "title": "Jadro Theme Review",
+  "description": "A documentation-led profile of Jadro’s minimal full-site-editing workflow and block-pattern approach for smaller content and business sites.",
+  "metaDescription": "A transparently scoped, documentation-led Jadro WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "themeName": "Jadro",
+  "developer": "WPShout",
+  "previewStyle": "jadro",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing describes Jadro as a minimal block-based full-site-editing theme", "Its documented workflow uses WordPress blocks and bundled patterns to create layouts", "The listing positions it for blogs, small businesses, startups, firms, and creative agencies"],
+  "bestFor": "Block-editor teams that want a smaller starting point and will supply their own content hierarchy, typography, and component decisions.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Jadro’s WordPress.org listing and its stated block-theme workflow. It does not test loading performance, support quality, or production maintainability.",
+  "caveats": "No controlled install, pattern customization study, accessibility audit, or plugin compatibility test has been completed. Validate the available patterns against an actual content workflow.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/jadro/screenshot.png?ver=1.0.2",
+  "thumbnailAlt": "Jadro theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Jadro on WordPress.org", "href": "https://wordpress.org/themes/jadro/" }, { "label": "Jadro preview", "href": "https://wordpress.org/themes/jadro/preview/" }],
+  "officialUrl": "https://wordpress.org/themes/jadro/"
+}

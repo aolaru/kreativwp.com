@@ -1,16 +1,25 @@
 {
   "title": "How to Speed Up WordPress",
-  "description": "A planned practical guide to finding meaningful WordPress performance issues before adding another optimization plugin.",
-  "metaDescription": "Editorial preview: a future KreativWP guide to speeding up a WordPress site.",
-  "category": "WordPress guide",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
+  "description": "A practical workflow for finding WordPress performance constraints before adding another optimization plugin.",
+  "metaDescription": "A practical KreativWP guide to diagnosing WordPress performance before changing themes, hosts, or optimization plugins.",
+  "category": "Performance guide",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
   "featured": true,
-  "isPlaceholder": true,
-  "intro": "This article is a working editorial outline, not a completed performance prescription. The published version will document test conditions and practical trade-offs.",
+  "isPlaceholder": false,
+  "intro": "A faster WordPress site starts with a representative page and a clear question: what is slow for the people using it? Avoid treating a cache plugin, a new theme, or a score from an empty page as a complete answer. This workflow helps you identify the likely constraint before changing the stack.",
   "sections": [
-    { "title": "Measure before changing anything", "body": "A useful optimization begins with a repeatable baseline and a clear idea of what users experience." },
-    { "title": "Find the limiting layer", "body": "Themes, plugins, images, third-party scripts, caching, and hosting have different failure modes and should not be treated as one problem." },
-    { "title": "Keep the solution maintainable", "body": "Prefer a smaller set of understood changes over an opaque stack of overlapping optimization tools." }
+    { "title": "Start with a real page", "body": "Choose a page that reflects the site’s actual work: a product page, long article, landing page, portfolio, or logged-in workflow. Include the real images, fonts, embeds, forms, analytics, navigation, and relevant plugins. An empty test installation may be useful for comparison, but it does not describe the site visitors use." },
+    { "title": "Separate page weight from server work", "body": "Look for the broad source of delay before choosing a fix. Large or poorly delivered images, heavy third-party scripts, unnecessary fonts, complex page-builder output, and slow server responses are different problems. A page cache can help some repeat visits, but it will not replace image handling, remove third-party work, or repair an expensive application workflow." },
+    { "title": "Review the host and cache constraint", "body": "Confirm the host, server stack, CDN, and existing cache layers before installing anything new. Use one page-cache strategy at a time and read the host’s documentation first. For example, LiteSpeed Cache is relevant when the host provides its compatible stack; another host may call for a different approach. Test exclusions for carts, checkout, account areas, and personalized content." },
+    { "title": "Audit plugins by overlapping jobs", "body": "List every active plugin by the job it performs. Look especially for duplicate optimization features, multiple analytics tags, competing SEO systems, image tools that overlap, and page builders or template libraries added only for one section. Remove or replace software only with a backup and staging test, not from a generic speed checklist." },
+    { "title": "Improve images and third-party scripts", "body": "Use correctly sized source images, avoid uploading much larger originals than the layout needs, and inspect background images as well as visible content. Then review external scripts such as analytics, chat, embeds, maps, and social widgets. Each may be valuable, but each should justify its cost on the real page." },
+    { "title": "Measure the change and keep notes", "body": "Make one change at a time on staging where possible, then test the same representative pages and device conditions again. Record the theme, plugins, host, cache state, and change made. A simple before-and-after log is more useful than a long collection of unrepeatable speed scores." }
+  ],
+  "relatedLinks": [
+    { "label": "Compare WP Rocket and LiteSpeed Cache", "href": "/comparisons/wp-rocket-vs-litespeed-cache/" },
+    { "label": "Explore performance plugin profiles", "href": "/plugins/" },
+    { "label": "Build a lean WordPress stack", "href": "/tools/stack-finder/" },
+    { "label": "Read the lightweight-theme guide", "href": "/guides/best-lightweight-wordpress-themes/" }
   ]
 }

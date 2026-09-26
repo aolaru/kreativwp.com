@@ -69,12 +69,12 @@ test("editorial archives and search are reachable", async ({ page }) => {
 
 test("theme and plugin libraries use the visual discovery cards", async ({ page }) => {
   await page.goto("/themes/");
-  await expect(page.locator(".theme-card")).toHaveCount(15);
-  await expect(page.locator(".theme-card img")).toHaveCount(15);
-  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(14);
+  await expect(page.locator(".theme-card")).toHaveCount(20);
+  await expect(page.locator(".theme-card img")).toHaveCount(20);
+  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(19);
 
   await page.getByRole("button", { name: "Page builder" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(8);
+  await expect(page.locator(".theme-card:visible")).toHaveCount(9);
 
   await page.goto("/themes/astra/");
   await expect(page.locator(".source-links")).toBeVisible();
@@ -86,6 +86,16 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 
   await page.getByRole("button", { name: "Security" }).click();
   await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
+});
+
+test("homepage discovery filters narrow the visible cards", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "WooCommerce" }).click();
+  await expect(page.locator(".theme-card:visible")).toHaveCount(9);
+
+  await page.getByRole("button", { name: "Security" }).click();
+  await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
+  await expect(page.locator(".plugin-card:visible")).toContainText("Wordfence");
 });
 
 test("stack finder returns a constrained theme and plugin shortlist", async ({ page }) => {
@@ -114,11 +124,32 @@ test("theme finder returns a workflow-specific shortlist", async ({ page }) => {
   await expect(result).toContainText("Neve");
 });
 
+test("plugin finder returns a requirement-specific shortlist", async ({ page }) => {
+  await page.goto("/tools/plugin-finder/");
+  await page.getByLabel("Security and recovery").check();
+  await page.getByRole("button", { name: "Build my plugin shortlist" }).click();
+  const result = page.locator("#plugin-finder-result");
+  await expect(result).toBeVisible();
+  await expect(result).toContainText("Wordfence");
+  await expect(result).toContainText("UpdraftPlus");
+});
+
 test("flagship lightweight theme guide is published and linked to the finder", async ({ page }) => {
   await page.goto("/guides/best-lightweight-wordpress-themes/");
   await expect(page).toHaveTitle(/Best Lightweight WordPress Themes/i);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
   await expect(page.getByRole("link", { name: "Use the WordPress Theme Finder" })).toHaveAttribute("href", "/tools/theme-finder/");
+});
+
+test("performance and broken-image guides are published", async ({ page }) => {
+  for (const entry of [
+    { url: "/guides/speed-up-wordpress/", title: /How to Speed Up WordPress/i },
+    { url: "/guides/find-broken-images/", title: /How to Find Broken Images/i }
+  ]) {
+    await page.goto(entry.url);
+    await expect(page).toHaveTitle(entry.title);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
+  }
 });
 
 test("homepage remains usable on a narrow viewport", async ({ page }) => {

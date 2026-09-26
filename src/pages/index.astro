@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import LibraryFilter from "../components/LibraryFilter.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
 import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
@@ -10,10 +11,17 @@ const products = (await getCollection("plugins")).sort((a, b) => a.data.sortOrde
 const liveProducts = products.filter((plugin) => plugin.data.live);
 const themes = (await getCollection("themeReviews")).sort(byUpdated);
 const pluginReviews = (await getCollection("pluginReviews")).sort(byUpdated);
-const featuredPluginReviews = pluginReviews.filter((entry) => entry.data.recommendationType === "core").sort((a, b) => Number(Boolean(b.data.featured)) - Number(Boolean(a.data.featured)) || a.data.pluginName.localeCompare(b.data.pluginName)).slice(0, 4);
+const homepagePluginIds = ["wp-rocket", "wordfence", "fluent-forms", "site-kit"];
+const featuredPluginReviews = homepagePluginIds.map((id) => pluginReviews.find((entry) => entry.id === id)!).filter(Boolean);
 const comparisons = (await getCollection("comparisons")).sort(byUpdated);
 const guides = (await getCollection("guides")).sort(byUpdated);
 const tools = (await getCollection("tools")).sort(byUpdated);
+const themeFilters: Record<string, string[]> = {
+  astra: ["lightweight", "block-editor", "page-builder", "free"], blocksy: ["lightweight", "block-editor", "ecommerce", "free"], divi: ["page-builder", "ecommerce"], frost: ["block-editor", "portfolio", "free"], generatepress: ["lightweight", "block-editor", "free"], go: ["lightweight", "block-editor", "ecommerce", "free"], "hello-elementor": ["lightweight", "page-builder", "free"], hestia: ["page-builder", "ecommerce", "free"], inspiro: ["portfolio", "page-builder", "free"], jadro: ["lightweight", "block-editor", "free"], kadence: ["block-editor", "ecommerce", "free"], neve: ["lightweight", "block-editor", "page-builder", "ecommerce", "free"], oceanwp: ["ecommerce", "page-builder", "free"], ollie: ["block-editor", "free"], raft: ["lightweight", "block-editor", "page-builder", "ecommerce", "free"], "spectra-one": ["block-editor", "portfolio", "free"], storefront: ["ecommerce", "free"], sydney: ["page-builder", "block-editor", "portfolio", "free"], "twenty-twenty-four": ["block-editor", "portfolio", "free"], "twenty-twenty-five": ["block-editor", "portfolio", "free"]
+};
+const pluginFilters: Record<string, string[]> = {
+  "wp-rocket": ["performance"], "litespeed-cache": ["performance"], updraftplus: ["backups"], wordfence: ["security"], "fluent-forms": ["forms"], "site-kit": ["analytics"]
+};
 const featureStories = [
   { entry: guides.find((entry) => entry.id === "choose-wordpress-theme")!, href: "/guides/choose-wordpress-theme/", type: "Guide" },
   { entry: comparisons.find((entry) => entry.id === "astra-vs-generatepress")!, href: "/comparisons/astra-vs-generatepress/", type: "Comparison" },
@@ -57,19 +65,19 @@ const structuredData = JSON.stringify({
     </div>
   </section>
 
-  <section class="theme-catalogue" aria-labelledby="themes-title">
+  <section class="theme-catalogue" data-library data-filter-section aria-labelledby="themes-title">
     <div class="section-kicker"><span>02</span><p>Browse themes</p><a href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
     <div class="theme-catalogue__heading"><div><p class="section-label">A visual theme library</p><h2 id="themes-title">Find a better starting point for your next WordPress site.</h2></div><p>Browse the growing collection by editing workflow, practical fit, and the questions that matter after launch.</p></div>
-    <div class="theme-catalogue__filters"><span>All themes</span><span>Lightweight</span><span>Block editor</span><span>Portfolio</span><span>WooCommerce</span><span>Free</span></div>
-    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
+    <LibraryFilter label="Filter featured WordPress themes" filters={[{ label: "All themes", value: "all" }, { label: "Lightweight", value: "lightweight" }, { label: "Block editor", value: "block-editor" }, { label: "Portfolio", value: "portfolio" }, { label: "WooCommerce", value: "ecommerce" }, { label: "Free", value: "free" }]} />
+    <div class="theme-catalogue__grid">{themes.map((theme, index) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} filterValues={themeFilters[theme.id] || []} isPlaceholder={theme.data.isPlaceholder} featured={index === 0} />)}</div>
     <p class="theme-catalogue__note">Screenshots are supplied by the respective WordPress.org theme listings. Published conclusions state their research scope.</p>
   </section>
 
-  <section class="plugin-catalogue" aria-labelledby="plugins-title">
+  <section class="plugin-catalogue" data-library data-filter-section aria-labelledby="plugins-title">
     <div class="section-kicker"><span>03</span><p>Browse plugins</p><a href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
     <div class="theme-catalogue__heading"><div><p class="section-label">A practical plugin library</p><h2 id="plugins-title">Find useful tools without building a bloated stack.</h2></div><p>Start with the job to be done. Our first picks cover performance, backups, security, forms, analytics, and email delivery.</p></div>
-    <div class="theme-catalogue__filters"><span>Core stack</span><span>Performance</span><span>Security</span><span>Forms</span><span>Analytics</span><span>SEO</span></div>
-    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
+    <LibraryFilter label="Filter featured WordPress plugins" filters={[{ label: "All picks", value: "all" }, { label: "Performance", value: "performance" }, { label: "Security", value: "security" }, { label: "Forms", value: "forms" }, { label: "Analytics", value: "analytics" }]} />
+    <div class="plugin-catalogue__grid">{featuredPluginReviews.map((entry, index) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} filterValues={pluginFilters[entry.id] || []} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} featured={index === 0} />)}</div>
   </section>
 
   <section class="explore-band" aria-labelledby="explore-title">

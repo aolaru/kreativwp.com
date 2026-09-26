@@ -1,0 +1,23 @@
+{
+  "title": "Go Theme Review",
+  "description": "A documentation-led profile of Go’s Gutenberg-first workflow and its focus on helping makers build with WordPress blocks.",
+  "metaDescription": "A transparently scoped, documentation-led Go WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "themeName": "Go",
+  "developer": "GoDaddy",
+  "previewStyle": "go",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing describes Go as a Gutenberg-first WordPress theme", "Its listed features include editor styles, custom colours, wide blocks, and ecommerce support", "The theme is positioned as a maker-focused route to building with WordPress"],
+  "bestFor": "People who want a straightforward Gutenberg-oriented theme and will verify that its design controls suit their ongoing publishing workflow.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Go’s current WordPress.org listing. It describes the documented block-editor focus and feature set, not an independent assessment of performance or support.",
+  "caveats": "No controlled install, design-system study, ecommerce build, or accessibility audit has been completed. Test a representative page and editing flow before using it as a project default.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/go/screenshot.png?ver=1.8.18",
+  "thumbnailAlt": "Go theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Go on WordPress.org", "href": "https://wordpress.org/themes/go/" }, { "label": "Go preview", "href": "https://wordpress.org/themes/go/preview/" }],
+  "officialUrl": "https://wordpress.org/themes/go/"
+}

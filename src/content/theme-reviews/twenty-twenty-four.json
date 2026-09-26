@@ -1,0 +1,23 @@
+{
+  "title": "Twenty Twenty-Four Theme Review",
+  "description": "A documentation-led profile of the Twenty Twenty-Four block theme, its patterns, style variations, and full-site-editing workflow.",
+  "metaDescription": "A transparently scoped, documentation-led Twenty Twenty-Four WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "themeName": "Twenty Twenty-Four",
+  "developer": "WordPress.org",
+  "previewStyle": "twentytwentyfour",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["WordPress documents Twenty Twenty-Four as a block theme designed for full site editing", "Its bundled patterns support business, writer, and portfolio-oriented page structures", "The theme includes alternative templates and multiple style variations through the Site Editor"],
+  "bestFor": "Teams that want to stay close to WordPress core and are ready to create their design system with the Site Editor and patterns.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks the WordPress.org listing and official theme documentation. It records documented Site Editor capabilities and patterns, not production performance or migration outcomes.",
+  "caveats": "No controlled content migration, accessibility audit, or third-party plugin study has been completed. Confirm that a block-first workflow works for the people who will maintain the site.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/twentytwentyfour/screenshot.png?ver=1.6",
+  "thumbnailAlt": "Twenty Twenty-Four theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Twenty Twenty-Four on WordPress.org", "href": "https://wordpress.org/themes/twentytwentyfour/" }, { "label": "Twenty Twenty-Four documentation", "href": "https://wordpress.org/documentation/article/twenty-twenty-four/" }],
+  "officialUrl": "https://wordpress.org/themes/twentytwentyfour/"
+}

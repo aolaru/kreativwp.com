@@ -1,11 +1,11 @@
 {
   "title": "WordPress Plugin Finder",
-  "description": "A planned discovery tool for matching a WordPress task to the kind of plugin and evaluation criteria it needs.",
-  "metaDescription": "Planned KreativWP tool: WordPress Plugin Finder.",
+  "description": "A working questionnaire that builds a smaller plugin research shortlist around the job your WordPress site needs done.",
+  "metaDescription": "Use the KreativWP Plugin Finder to build a smaller WordPress plugin shortlist around a practical site requirement.",
   "category": "Free WordPress tool",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "isPlaceholder": true,
-  "availability": "planned",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "availability": "available",
   "purpose": "Make it easier to define a requirement before comparing individual plugins."
 }

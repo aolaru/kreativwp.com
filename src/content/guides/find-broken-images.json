@@ -1,15 +1,25 @@
 {
   "title": "How to Find Broken Images in WordPress",
-  "description": "A practical guide outline for finding missing image references before they damage a site’s reader experience.",
-  "metaDescription": "Editorial preview: a future KreativWP guide to finding broken images in WordPress.",
-  "category": "WordPress guide",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "isPlaceholder": true,
-  "intro": "This planned guide will explain a maintenance workflow and link to the relevant KreativWP product where that is useful, without treating the product as the only option.",
+  "description": "A practical maintenance workflow for locating broken WordPress images, confirming the cause, and repairing the underlying content or media path.",
+  "metaDescription": "A practical KreativWP guide to finding and repairing broken images in WordPress without guessing at the underlying cause.",
+  "category": "Maintenance guide",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "intro": "A broken image is usually a content-maintenance problem, not only a visual one. The missing file may come from an incomplete migration, a changed URL, a deleted attachment, a CDN rule, or an image that was never generated in the required size. Start by identifying where the break appears, then repair the root cause rather than only hiding the empty space.",
   "sections": [
-    { "title": "Look beyond the media library", "body": "Broken references can appear in older content, imported posts, templates, and external image sources." },
-    { "title": "Create a repeatable check", "body": "A documented periodic check is more dependable than noticing missing images after readers report them." },
-    { "title": "Fix the cause, not only the symptom", "body": "A good cleanup considers redirects, migrated file paths, and the content process that produced the broken reference." }
+    { "title": "Confirm the problem on the rendered page", "body": "Open the affected page in a normal browser session and note the exact image, page URL, and viewport where the problem occurs. Check whether it is a visible content image, a background image, a logo, a responsive image size, or an image loaded by a plugin or theme. The distinction matters because not every broken visual comes from the Media Library." },
+    { "title": "Inspect the image request", "body": "Use browser developer tools or a crawler to see whether the image request returns an error, redirects unexpectedly, is blocked, or points to a file that no longer exists. Record the requested URL before editing the page. This makes it easier to distinguish a deleted file from a bad path, a mixed-domain migration issue, or an external service problem." },
+    { "title": "Check the WordPress attachment", "body": "If the image belongs in the Media Library, open the attachment and verify that the original file, metadata, and intended size are present. After a migration or image-processing change, WordPress may need required thumbnail sizes regenerated. Back up first, and validate the affected page after any bulk regeneration or URL replacement." },
+    { "title": "Review migrations and external delivery", "body": "Broken images commonly follow a domain move, a switch from HTTP to HTTPS, a CDN configuration change, or a deleted uploads directory. Check that the site URL, upload URLs, CDN origin, and any offloaded-media provider match the active production environment. Avoid broad database replacements without a backup and a staging test." },
+    { "title": "Repair content deliberately", "body": "Replace or relink the image where it is used, including reusable blocks, templates, product galleries, and custom fields. If the original asset is truly unavailable, choose a replacement that preserves the purpose of the content and update descriptive alt text where appropriate. Do not rely on a placeholder image as a permanent repair." },
+    { "title": "Create a recurring check", "body": "Run a scheduled crawl after migrations, plugin changes, and major content imports. Prioritize high-traffic pages, product pages, landing pages, and templates that feed many URLs. A small maintenance routine prevents a few missing media assets from becoming a site-wide quality problem." }
+  ],
+  "relatedLinks": [
+    { "label": "Try Kreativ Broken Image Finder", "href": "/plugins/kreativ-broken-image-finder/" },
+    { "label": "Explore WordPress maintenance products", "href": "/products/" },
+    { "label": "Find a maintenance plugin", "href": "/tools/plugin-finder/" },
+    { "label": "Contact KreativWP support", "href": "/contact/" }
   ]
 }

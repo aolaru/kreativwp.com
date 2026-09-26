@@ -1,0 +1,23 @@
+{
+  "title": "Raft Theme Review",
+  "description": "A documentation-led profile of Raft’s full-site-editing approach, patterns, and broad block-editor compatibility claims.",
+  "metaDescription": "A transparently scoped, documentation-led Raft WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "themeName": "Raft",
+  "developer": "Themeisle",
+  "previewStyle": "raft",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing describes Raft as a full-site-editing-compatible theme", "Its stated use cases include content sites, businesses, portfolios, and WooCommerce storefronts", "The listing documents block patterns and compatibility with the block editor alongside popular page builders"],
+  "bestFor": "Teams seeking a pattern-led FSE starting point who will test their preferred editor and commerce requirements before committing.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Raft’s current WordPress.org listing and official theme page. It summarizes documented workflow and stated compatibility, not independent speed or compatibility testing.",
+  "caveats": "No controlled install, builder compatibility test, checkout study, or accessibility audit has been completed. Treat broad compatibility claims as a starting point for staging validation.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/raft/screenshot.png?ver=1.1.14",
+  "thumbnailAlt": "Raft theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Raft on WordPress.org", "href": "https://wordpress.org/themes/raft/" }, { "label": "Raft official theme page", "href": "https://themeisle.com/themes/raft/" }],
+  "officialUrl": "https://themeisle.com/themes/raft/"
+}

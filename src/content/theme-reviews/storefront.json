@@ -1,0 +1,23 @@
+{
+  "title": "Storefront Theme Review",
+  "description": "A documentation-led profile of Storefront’s WooCommerce-first foundation and the constraints to check before making it a shop’s long-term theme.",
+  "metaDescription": "A transparently scoped, documentation-led Storefront WordPress theme profile from KreativWP.",
+  "category": "Theme review",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "isPlaceholder": false,
+  "themeName": "Storefront",
+  "developer": "Automattic",
+  "previewStyle": "storefront",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": ["The official listing describes Storefront as a WooCommerce project theme built by WooCommerce Core developers", "Its documented purpose is close integration with WooCommerce and common customer-facing extensions", "The theme includes layout and colour options, widget regions, and a responsive storefront base"],
+  "bestFor": "WooCommerce-first teams that prefer an established shop foundation and will validate their product, cart, checkout, and extension flow on staging.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile checks Storefront’s WordPress.org listing and WooCommerce documentation. It describes the documented commerce focus, not a checkout conversion or performance benchmark.",
+  "caveats": "No controlled catalog build, checkout test, accessibility audit, or extension compatibility study has been completed. Test the complete buying journey with the actual plugins and host before standardizing on it.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/storefront/screenshot.png?ver=4.6.2",
+  "thumbnailAlt": "Storefront theme screenshot from its WordPress.org listing",
+  "sources": [{ "label": "Storefront on WordPress.org", "href": "https://wordpress.org/themes/storefront/" }, { "label": "WooCommerce Storefront documentation", "href": "https://woocommerce.com/documentation/storefront/" }],
+  "officialUrl": "https://woocommerce.com/storefront/"
+}
