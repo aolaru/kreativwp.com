@@ -60,7 +60,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0f1526" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="robots" content={robots} />
     {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
     <link rel="canonical" href={canonicalUrl.toString()} />
@@ -100,9 +100,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
         } catch {
           saved = null;
         }
-        const prefersLight =
-          window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-        const theme = saved || (prefersLight ? "light" : "dark");
+        const theme = saved || "light";
         document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
@@ -162,7 +160,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
         const shareButton = document.getElementById("share-button");
         const status = document.getElementById("theme-status");
         const metaTheme = document.querySelector('meta[name="theme-color"]');
-        const colors = { dark: "#0f1526", light: "#f3f8ff" };
+        const colors = { dark: "#071b33", light: "#ffffff" };
 
         const applyTheme = (theme, persist) => {
           root.setAttribute("data-theme", theme);
