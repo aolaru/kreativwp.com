@@ -35,6 +35,10 @@ Builds as a static Astro site for deployment on any static host.
 - Build static output: `npm run build`
 - Preview production output: `npm run preview`
 
+## Newsletter integration
+
+The newsletter form can post directly to any provider-compatible endpoint. Set `PUBLIC_NEWSLETTER_FORM_ACTION` in the build environment to that endpoint; until it is configured, the form retains its email-request fallback. A provider account and its exact subscribe endpoint are required before live email capture can be enabled.
+
 ## Workspace Reliability
 
 - Do not use a Dropbox-synced folder as the primary live working tree for this repo.

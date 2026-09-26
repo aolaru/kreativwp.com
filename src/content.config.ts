@@ -152,7 +152,8 @@ const guides = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/guides" }),
   schema: editorialBase.extend({
     intro: z.string(),
-    sections: z.array(z.object({ title: z.string(), body: z.string() }))
+    sections: z.array(z.object({ title: z.string(), body: z.string() })),
+    relatedLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional()
   })
 });
 

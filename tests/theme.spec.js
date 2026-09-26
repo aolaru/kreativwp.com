@@ -102,6 +102,25 @@ test("stack finder returns a constrained theme and plugin shortlist", async ({ p
   await expect(result).toContainText("Fluent Forms");
 });
 
+test("theme finder returns a workflow-specific shortlist", async ({ page }) => {
+  await page.goto("/tools/theme-finder/");
+  await page.getByLabel("An online store").check();
+  await page.getByLabel("A visual page builder").check();
+  await page.getByRole("button", { name: "Build my theme shortlist" }).click();
+  const result = page.locator("#theme-finder-result");
+  await expect(result).toBeVisible();
+  await expect(result).toContainText("Astra");
+  await expect(result).toContainText("Blocksy");
+  await expect(result).toContainText("Neve");
+});
+
+test("flagship lightweight theme guide is published and linked to the finder", async ({ page }) => {
+  await page.goto("/guides/best-lightweight-wordpress-themes/");
+  await expect(page).toHaveTitle(/Best Lightweight WordPress Themes/i);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
+  await expect(page.getByRole("link", { name: "Use the WordPress Theme Finder" })).toHaveAttribute("href", "/tools/theme-finder/");
+});
+
 test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");

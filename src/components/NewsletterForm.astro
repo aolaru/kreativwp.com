@@ -1,23 +1,26 @@
 ---
 const { id = "updates" } = Astro.props;
+const subscribeUrl = import.meta.env.PUBLIC_NEWSLETTER_FORM_ACTION || "";
 ---
-<form class="signup-form" id={`${id}-form`} novalidate>
+<form class="signup-form" id={`${id}-form`} action={subscribeUrl || undefined} method={subscribeUrl ? "post" : undefined} novalidate>
   <label class="sr-only" for={`${id}-email`}>Email address</label>
   <input class="signup-input" id={`${id}-email`} name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
   <button class="signup-button" type="submit">Request Updates</button>
 </form>
 
-<script is:inline define:vars={{ id }}>
+<script is:inline define:vars={{ id, subscribeUrl }}>
   (() => {
     const form = document.getElementById(`${id}-form`);
     const emailInput = document.getElementById(`${id}-email`);
     if (!(form instanceof HTMLFormElement) || !(emailInput instanceof HTMLInputElement)) return;
     form.addEventListener("submit", (event) => {
-      event.preventDefault();
       if (!emailInput.checkValidity()) {
+        event.preventDefault();
         emailInput.reportValidity();
         return;
       }
+      if (subscribeUrl) return;
+      event.preventDefault();
       const email = encodeURIComponent(emailInput.value.trim());
       if (!email) return;
       window.location.href =

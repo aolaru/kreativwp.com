@@ -1,16 +1,25 @@
 {
   "title": "Best Lightweight WordPress Themes",
-  "description": "A planned, evidence-led shortlist of lightweight WordPress themes, with the test context required before a recommendation is published.",
-  "metaDescription": "Editorial preview: a future KreativWP tested guide to lightweight WordPress themes.",
+  "description": "A practical shortlist of lightweight WordPress themes, organized by editing workflow and site requirements instead of a single winner.",
+  "metaDescription": "A practical KreativWP guide to choosing a lightweight WordPress theme around workflow, site needs, and long-term maintenance.",
   "category": "Theme recommendation",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "featured": false,
-  "isPlaceholder": true,
-  "intro": "This future shortlist will name and compare themes only after they have been checked in a documented, repeatable WordPress environment. It is intentionally not a ranking yet.",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "intro": "A lightweight theme is not automatically the fastest option for every site. It is a theme whose editing model, features, assets, and maintenance demands fit the site you are actually building. This guide gives you a smaller starting shortlist and the questions to validate it on staging.",
   "sections": [
-    { "title": "What lightweight means here", "body": "The guide will look beyond a theme’s marketing claim to the page, plugins, assets, content, and configuration used in the documented test." },
-    { "title": "What will be tested", "body": "The final guide will record installation state, editing workflow, representative page configuration, responsive behavior, maintainability, and performance observations for every included theme." },
-    { "title": "How recommendations will work", "body": "The finished article will match themes to specific needs—such as a block-first editorial site, an ecommerce build, or a developer-led project—instead of producing an unsupported universal ranking." }
+    { "title": "Start with the editor, not a score", "body": "The right theme should make ordinary publishing easy for the people who will maintain the site. If the team works in the block editor, begin with a block-first option such as GeneratePress, Kadence, Spectra One, or a default WordPress theme. If the project depends on a visual builder, shortlist a builder-oriented option such as Astra, Divi, or Hello Elementor instead. Do not add a second editing system merely to reproduce a demo." },
+    { "title": "A focused shortlist for block-first sites", "body": "GeneratePress is a sensible place to start when you want a deliberately minimal foundation and are comfortable assembling the design system. Kadence is useful when the team wants more design controls and starter patterns while remaining in the block-editor workflow. Spectra One and Frost are worth investigating for simpler editorial, portfolio, and full-site-editing projects. The best choice is the one that lets the team create a representative page without unnecessary add-ons." },
+    { "title": "A focused shortlist for visual-builder sites", "body": "Astra is a broad starting point for teams that want flexible templates and compatibility with common builders. Divi makes more sense when the team has chosen its all-in-one visual workflow and accepts that decision as part of the stack. Hello Elementor is a minimal base for Elementor-led work. Keep the builder decision explicit: moving between editing systems later is often more expensive than choosing carefully now." },
+    { "title": "For stores, test the complete path", "body": "A storefront needs more than a light-looking landing page. Build a representative product page, cart, checkout, navigation, image treatment, and mobile interaction on staging. Blocksy, Neve, Kadence, Astra, and OceanWP can all be evaluated for commerce use, but the useful answer depends on your WooCommerce configuration, extensions, host, and content—not a generic performance claim." },
+    { "title": "Keep the initial stack small", "body": "Start with one theme, one editing approach, and only the plugins required for the first real workflow. Avoid stacking page builders, template libraries, optimization plugins, and overlapping features before the site has a representative page. If performance is a priority, assess the finished page with its real images, fonts, forms, analytics, and hosting rather than an empty installation." },
+    { "title": "Validate before migrating", "body": "Before committing to a theme, create one real page and one ongoing content workflow in a staging environment. Check the editing experience, responsive behavior, accessibility basics, plugin compatibility, update process, and what happens when a non-technical editor changes the page. Record the versions and configuration you tested so the decision remains understandable later." }
+  ],
+  "relatedLinks": [
+    { "label": "Use the WordPress Theme Finder", "href": "/tools/theme-finder/" },
+    { "label": "Explore all theme profiles", "href": "/themes/" },
+    { "label": "Read the theme selection framework", "href": "/guides/choose-wordpress-theme/" },
+    { "label": "Build a lean plugin stack", "href": "/tools/stack-finder/" }
   ]
 }

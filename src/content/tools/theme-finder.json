@@ -1,12 +1,12 @@
 {
   "title": "WordPress Theme Finder",
-  "description": "A planned guided tool for narrowing WordPress theme options by workflow, content type, and practical requirements.",
-  "metaDescription": "Planned KreativWP tool: WordPress Theme Finder.",
+  "description": "A working questionnaire that narrows a WordPress theme shortlist by editing workflow, site type, design needs, and budget.",
+  "metaDescription": "Use the KreativWP Theme Finder to build a smaller WordPress theme shortlist around your workflow and site requirements.",
   "category": "Free WordPress tool",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
+  "updated": "2026-09-26",
+  "updatedLabel": "September 26, 2026",
   "featured": true,
-  "isPlaceholder": true,
-  "availability": "planned",
+  "isPlaceholder": false,
+  "availability": "available",
   "purpose": "Help people build a shorter, better-matched theme shortlist before they evaluate individual products."
 }

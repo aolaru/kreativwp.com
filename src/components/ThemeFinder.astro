@@ -1,0 +1,39 @@
+<section class="theme-finder" aria-labelledby="theme-finder-title">
+  <div><p class="eyebrow">A better first shortlist</p><h2 id="theme-finder-title">Find a WordPress theme that fits the work</h2><p class="section-intro">Choose the editing workflow and site constraints first. The result is a small research shortlist, not a universal ranking.</p></div>
+  <form id="theme-finder-form" class="stack-finder__form">
+    <fieldset><legend>What are you building?</legend><label><input type="radio" name="site" value="content" checked /> Content, portfolio, or business site</label><label><input type="radio" name="site" value="store" /> An online store</label></fieldset>
+    <fieldset><legend>How do you want to edit?</legend><label><input type="radio" name="editor" value="blocks" checked /> WordPress block editor</label><label><input type="radio" name="editor" value="visual" /> A visual page builder</label></fieldset>
+    <fieldset><legend>What matters most at the start?</legend><label><input type="radio" name="priority" value="lean" checked /> A lean, deliberate foundation</label><label><input type="radio" name="priority" value="design" /> More visual design control</label></fieldset>
+    <fieldset><legend>Which constraint applies?</legend><label><input type="radio" name="budget" value="free" checked /> Start with a free version</label><label><input type="radio" name="budget" value="premium" /> A paid workflow is acceptable</label></fieldset>
+    <button class="button-like button-like--primary" type="submit">Build my theme shortlist</button>
+  </form>
+  <div class="stack-finder__result" id="theme-finder-result" aria-live="polite" hidden></div>
+</section>
+<script>
+  const form = document.querySelector("#theme-finder-form");
+  const result = document.querySelector("#theme-finder-result");
+  const link = (href, label) => {
+    const anchor = document.createElement("a");
+    anchor.href = href;
+    anchor.textContent = label;
+    return anchor.outerHTML;
+  };
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const values = new FormData(form);
+    const site = values.get("site");
+    const editor = values.get("editor");
+    const priority = values.get("priority");
+    const budget = values.get("budget");
+    let themes = editor === "visual"
+      ? [link("/themes/astra/", "Astra"), link("/themes/hello-elementor/", "Hello Elementor")]
+      : [link("/themes/generatepress/", "GeneratePress"), link("/themes/spectra-one/", "Spectra One")];
+    if (editor === "visual" && (priority === "design" || budget === "premium")) themes = [link("/themes/astra/", "Astra"), link("/themes/divi/", "Divi")];
+    if (editor === "blocks" && priority === "design") themes = [link("/themes/kadence/", "Kadence"), link("/themes/blocksy/", "Blocksy")];
+    if (site === "store") themes = editor === "visual" ? [link("/themes/astra/", "Astra"), link("/themes/blocksy/", "Blocksy"), link("/themes/neve/", "Neve")] : [link("/themes/kadence/", "Kadence"), link("/themes/blocksy/", "Blocksy"), link("/themes/neve/", "Neve")];
+    const workflow = editor === "visual" ? "a visual-builder workflow" : "a block-first workflow";
+    result.hidden = false;
+    result.innerHTML = `<p class="eyebrow">Your research shortlist</p><h3>Start with ${workflow}.</h3><p><strong>Theme shortlist:</strong> ${themes.join(", ")}</p><p>Build one representative page and an everyday editing workflow on staging before committing. This shortlist reflects the choices above; it is not a benchmark or a claim that one theme fits every site.</p><p class="stack-finder__caveat"><a href="/guides/best-lightweight-wordpress-themes/">Read the lightweight-theme guide</a> or compare every option in the <a href="/themes/">theme library</a>.</p>`;
+    result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+</script>
