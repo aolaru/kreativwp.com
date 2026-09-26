@@ -39,6 +39,10 @@ Builds as a static Astro site for deployment on any static host.
 
 The newsletter form can post directly to any provider-compatible endpoint. Set `PUBLIC_NEWSLETTER_FORM_ACTION` in the build environment to that endpoint; until it is configured, the form retains its email-request fallback. A provider account and its exact subscribe endpoint are required before live email capture can be enabled.
 
+## Measurement and Search Console
+
+Set `PUBLIC_GOOGLE_ANALYTICS_ID` to enable Google Analytics page views and tool-completion events. Set `PUBLIC_GOOGLE_SITE_VERIFICATION` to add the Search Console verification meta tag. Both are optional, so no third-party tracking script is shipped until an ID is configured.
+
 ## Workspace Reliability
 
 - Do not use a Dropbox-synced folder as the primary live working tree for this repo.

@@ -34,6 +34,7 @@
     const workflow = editor === "visual" ? "a visual-builder workflow" : "a block-first workflow";
     result.hidden = false;
     result.innerHTML = `<p class="eyebrow">Your research shortlist</p><h3>Start with ${workflow}.</h3><p><strong>Theme shortlist:</strong> ${themes.join(", ")}</p><p>Build one representative page and an everyday editing workflow on staging before committing. This shortlist reflects the choices above; it is not a benchmark or a claim that one theme fits every site.</p><p class="stack-finder__caveat"><a href="/guides/best-lightweight-wordpress-themes/">Read the lightweight-theme guide</a> or compare every option in the <a href="/themes/">theme library</a>.</p>`;
+    window.dispatchEvent(new CustomEvent("kreativwp:track", { detail: { name: "tool_completed", params: { tool_name: "theme_finder", site_type: site, editor_workflow: editor } } }));
     result.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 </script>

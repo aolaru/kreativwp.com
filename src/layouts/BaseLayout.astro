@@ -50,6 +50,8 @@ const navigation = [
 ];
 const isActive = (href: string) =>
   href === "/" ? currentPath === "/" : currentPath === href || currentPath.startsWith(href);
+const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID || "";
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || "";
 ---
 <!doctype html>
 <html lang="en">
@@ -60,6 +62,7 @@ const isActive = (href: string) =>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0f1526" />
     <meta name="robots" content={robots} />
+    {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
     <link rel="canonical" href={canonicalUrl.toString()} />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={ogTitle} />
@@ -104,6 +107,7 @@ const isActive = (href: string) =>
       })();
     </script>
     <link rel="stylesheet" href="/style.css" />
+    {googleAnalyticsId && <><script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script><script is:inline define:vars={{ googleAnalyticsId }}>window.dataLayer = window.dataLayer || []; function gtag(){window.dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", googleAnalyticsId); window.addEventListener("kreativwp:track", (event) => { const detail = event instanceof CustomEvent ? event.detail : {}; gtag("event", detail.name, detail.params || {}); });</script></>}
     {structuredData && <script type="application/ld+json" set:html={structuredData} />}
   </head>
   <body>

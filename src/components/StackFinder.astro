@@ -34,6 +34,7 @@
     if (needs.includes("redirects")) plugins.push(link("/plugins/reviews/redirection/", "Redirection"));
     result.hidden = false;
     result.innerHTML = `<p class="eyebrow">Your starting stack</p><h3>Start with ${editor === "blocks" ? "a block-first" : "a visual-builder"} workflow.</h3><p><strong>Theme shortlist:</strong> ${themes.join(" or ")}</p><p><strong>Plugin shortlist:</strong> ${plugins.join(", ")}</p><p class="stack-finder__caveat">Install one page-cache plugin only. Review every profile’s constraints before installation, then test the stack on a staging site.</p>`;
+    window.dispatchEvent(new CustomEvent("kreativwp:track", { detail: { name: "tool_completed", params: { tool_name: "stack_finder", site_type: site, editor_workflow: editor } } }));
     result.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 </script>
