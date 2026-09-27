@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Kreativ WP logo</title>
-  <desc id="desc">Black square with white KREATIV WP text.</desc>
-  <rect x="0" y="0" width="128" height="128" rx="10" ry="10" fill="#000000"/>
-  <text x="64" y="58" fill="#ffffff" font-family="Space Grotesk, Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="1">KREATIV</text>
-  <text x="64" y="82" fill="#ffffff" font-family="Space Grotesk, Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="1">WP</text>
+  <title id="title">KreativWP K mark</title>
+  <desc id="desc">A geometric blue letter K in a rounded square.</desc>
+  <defs>
+    <linearGradient id="kreativ-blue" x1="28" y1="22" x2="100" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b7fd1"/>
+      <stop offset="1" stop-color="#064d91"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#f1f8ff"/>
+  <rect x="1.5" y="1.5" width="125" height="125" rx="26.5" fill="none" stroke="#c6e1f7" stroke-width="3"/>
+  <path fill="url(#kreativ-blue)" d="M31 24h20v34.9L77.8 24h24.2L70.4 62.7l34.1 41.3H79.9L57.5 74.5 51 82.1V104H31V24Z"/>
+  <path fill="#78c6f4" d="M78.3 24H102L70.4 62.7l-9.2-11.2L78.3 24Z"/>
 </svg>

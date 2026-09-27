@@ -113,7 +113,10 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
     <main class={`container ${mainClass}`.trim()} id="main-content">
       <header class="hero">
         <nav class="top-menu" aria-label="Main navigation">
-          <a class="site-wordmark" href="/" aria-label="KreativWP home"><span>KREATIV</span>WP<small>WordPress resource</small></a>
+          <a class="site-wordmark" href="/" aria-label="KreativWP home">
+            <img class="site-wordmark__mark" src="/kreativ-wp-logo-128.svg" width="32" height="32" alt="" aria-hidden="true" />
+            <span class="site-wordmark__label"><strong>KREATIV</strong>WP<small>WordPress resource</small></span>
+          </a>
           <div class="top-menu__links">
             {navigation.map((item) => (
               <a class="menu-link" href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>

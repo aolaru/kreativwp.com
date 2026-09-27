@@ -1049,9 +1049,10 @@ body {
 
 .site-wordmark {
   color: var(--text);
+  align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
-  flex-direction: column;
+  gap: 0.45rem;
   font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: -0.08em;
@@ -1060,7 +1061,9 @@ body {
 }
 
 .site-wordmark:hover { text-decoration: none; }
-.site-wordmark span { letter-spacing: -0.08em; }
+.site-wordmark__mark { display: block; height: 2rem; width: 2rem; }
+.site-wordmark__label { display: flex; flex-direction: column; letter-spacing: -0.08em; }
+.site-wordmark__label strong { font-size: 0.72em; letter-spacing: -0.08em; }
 .site-wordmark small { color: var(--accent); font-size: 0.47rem; font-weight: 700; letter-spacing: 0.12em; margin-top: 0.3rem; text-transform: uppercase; }
 
 .top-menu__links,
@@ -1380,6 +1383,7 @@ body {
 
 @media (max-width: 560px) {
   .site-wordmark { font-size: 1rem; }
+  .site-wordmark__mark { height: 1.8rem; width: 1.8rem; }
   .top-menu__links { gap: .75rem; }
   .menu-link { font-size: .6rem; }
   .hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }

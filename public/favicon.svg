@@ -1,13 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Kreativ WP favicon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="KreativWP K mark">
   <defs>
-    <linearGradient id="k-gradient" x1="24" y1="18" x2="74" y2="82" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#72aee6" />
-      <stop offset="1" stop-color="#2271b1" />
+    <linearGradient id="kreativ-blue" x1="28" y1="22" x2="100" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b7fd1"/>
+      <stop offset="1" stop-color="#064d91"/>
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="20" fill="#0f1526" />
-  <path
-    fill="url(#k-gradient)"
-    d="M28 18H40V45.5L60.5 18H75L53 46.5L76 82H61.5L45.5 56.5L40 62.5V82H28V18Z"
-  />
+  <rect width="128" height="128" rx="28" fill="#f1f8ff"/>
+  <rect x="1.5" y="1.5" width="125" height="125" rx="26.5" fill="none" stroke="#c6e1f7" stroke-width="3"/>
+  <path fill="url(#kreativ-blue)" d="M31 24h20v34.9L77.8 24h24.2L70.4 62.7l34.1 41.3H79.9L57.5 74.5 51 82.1V104H31V24Z"/>
+  <path fill="#78c6f4" d="M78.3 24H102L70.4 62.7l-9.2-11.2L78.3 24Z"/>
 </svg>
