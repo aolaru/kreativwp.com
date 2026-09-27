@@ -69,12 +69,12 @@ test("editorial archives and search are reachable", async ({ page }) => {
 
 test("theme and plugin libraries use the visual discovery cards", async ({ page }) => {
   await page.goto("/themes/");
-  await expect(page.locator(".theme-card")).toHaveCount(20);
-  await expect(page.locator(".theme-card img")).toHaveCount(20);
-  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(19);
+  await expect(page.locator(".theme-card")).toHaveCount(30);
+  await expect(page.locator(".theme-card img")).toHaveCount(30);
+  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(29);
 
   await page.getByRole("button", { name: "Page builder" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(9);
+  await expect(page.locator(".theme-card:visible")).toHaveCount(16);
 
   await page.goto("/themes/astra/");
   await expect(page.locator(".source-links")).toBeVisible();
@@ -83,22 +83,22 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
 
   await page.goto("/plugins/");
-  await expect(page.locator(".plugin-card")).toHaveCount(15);
+  await expect(page.locator(".plugin-card")).toHaveCount(25);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
 
   await page.getByRole("button", { name: "Security" }).click();
-  await expect(page.locator(".plugin-card:visible")).toHaveCount(1);
+    await expect(page.locator(".plugin-card:visible")).toHaveCount(3);
 });
 
 test("homepage is the interactive theme library", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".theme-card")).toHaveCount(20);
+  await expect(page.locator(".theme-card")).toHaveCount(30);
   await expect(page.locator("#theme-finder-form")).toBeVisible();
   await expect(page.locator("#theme-shortlist-form")).toBeVisible();
   await page.getByRole("button", { name: "WooCommerce" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(9);
+  await expect(page.locator(".theme-card:visible")).toHaveCount(11);
   await page.getByRole("button", { name: "Free" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(8);
+  await expect(page.locator(".theme-card:visible")).toHaveCount(10);
 });
 
 test("published theme comparisons include a workflow decision guide", async ({ page }) => {
