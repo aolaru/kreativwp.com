@@ -7,6 +7,7 @@ const { filters, label } = Astro.props;
   <div class="library-filter__controls" role="group" aria-label={label}>
     {filters.map((filter, index) => <button class:list={["library-filter__button", { "is-active": index === 0 }]} type="button" data-filter-value={filter.value} aria-pressed={index === 0 ? "true" : "false"}>{filter.label}</button>)}
   </div>
+  <p class="library-filter__hint">Select one or more filters to combine requirements.</p>
   <p class="library-filter__status" aria-live="polite"></p>
 </div>
 <script>
@@ -15,10 +16,12 @@ const { filters, label } = Astro.props;
     const cards = Array.from(library.querySelectorAll("[data-library-card]"));
     const sections = Array.from(library.querySelectorAll("[data-filter-section]"));
     const status = library.querySelector(".library-filter__status");
-    const applyFilter = (value) => {
+    const activeFilters = new Set(["all"]);
+    const applyFilters = () => {
       let count = 0;
       cards.forEach((card) => {
-        const matches = value === "all" || (card.dataset.filters || "").split(" ").includes(value);
+        const values = (card.dataset.filters || "").split(" ");
+        const matches = activeFilters.has("all") || Array.from(activeFilters).every((filter) => values.includes(filter));
         card.hidden = !matches;
         if (matches) count += 1;
       });
@@ -26,13 +29,24 @@ const { filters, label } = Astro.props;
         section.hidden = !Array.from(section.querySelectorAll("[data-library-card]")).some((card) => !card.hidden);
       });
       buttons.forEach((button) => {
-        const active = button.dataset.filterValue === value;
+        const active = activeFilters.has(button.dataset.filterValue || "");
         button.classList.toggle("is-active", active);
         button.setAttribute("aria-pressed", String(active));
       });
       if (status) status.textContent = `${count} ${count === 1 ? "result" : "results"} shown.`;
     };
-    buttons.forEach((button) => button.addEventListener("click", () => applyFilter(button.dataset.filterValue || "all")));
-    applyFilter("all");
+    buttons.forEach((button) => button.addEventListener("click", () => {
+      const value = button.dataset.filterValue || "all";
+      if (value === "all") {
+        activeFilters.clear();
+        activeFilters.add("all");
+      } else {
+        activeFilters.delete("all");
+        activeFilters.has(value) ? activeFilters.delete(value) : activeFilters.add(value);
+        if (!activeFilters.size) activeFilters.add("all");
+      }
+      applyFilters();
+    }));
+    applyFilters();
   });
 </script>

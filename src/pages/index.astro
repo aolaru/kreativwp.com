@@ -1,5 +1,7 @@
 ---
 import ThemeLibrary from "../components/ThemeLibrary.astro";
+import ThemeFinder from "../components/ThemeFinder.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = JSON.stringify({
@@ -11,5 +13,10 @@ const structuredData = JSON.stringify({
 });
 ---
 <BaseLayout title="WordPress Themes | KreativWP" description="Browse independent, clearly scoped WordPress theme reviews and selection guidance from KreativWP." canonicalPath="/" heroEyebrow="WordPress theme library" heroTitle="Find a WordPress theme that fits the work." heroTagline="Explore 20 documented theme profiles by editing workflow, ecommerce needs, portfolio fit, and free availability." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
+  <ThemeFinder />
   <ThemeLibrary />
+  <section class="newsletter-panel" aria-labelledby="theme-checklist-title">
+    <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Choose a theme with fewer regrets.</h2></div>
+    <div><p>Get the KreativWP Theme Shortlist: the questions to ask about editing, performance, plugins, budget, and future migration before committing.</p><NewsletterForm id="theme-shortlist" label="Get the Theme Shortlist" /></div>
+  </section>
 </BaseLayout>

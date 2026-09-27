@@ -1,13 +1,14 @@
 {
   "title": "Blocksy vs Kadence",
-  "description": "A planned comparison framework for testing design controls, Gutenberg workflow, and WooCommerce considerations.",
-  "metaDescription": "Editorial preview: a future KreativWP Blocksy versus Kadence theme comparison.",
+  "description": "A documentation-led comparison of Blocksy’s Customizer-first controls and Kadence’s visual header, footer, and global design workflow.",
+  "metaDescription": "A transparently scoped Blocksy versus Kadence WordPress comparison from KreativWP.",
   "category": "Theme comparison",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
-  "isPlaceholder": true,
+  "updated": "2026-09-27",
+  "updatedLabel": "September 27, 2026",
+  "isPlaceholder": false,
   "leftName": "Blocksy",
   "rightName": "Kadence",
-  "comparisonAreas": ["Design and global style controls", "Gutenberg editing experience", "Commerce use cases", "Documented performance checks"],
-  "takeaway": "The eventual recommendation will be use-case specific and will show the test context behind it."
+  "comparisonAreas": ["Customizer-first controls versus visual header and footer builders", "Global color, typography, and layout settings", "Documented ecommerce and page-level layout workflow", "Same-content performance, accessibility, and support tests still required"],
+  "takeaway": "Blocksy is a sensible research path for site builders who prefer many presentation controls in a familiar Customizer workflow. Kadence deserves attention when visual header, footer, and global-design controls are central to the build.",
+  "decisionGuide": {"chooseLeft": "a Customizer-led workflow and page-level layout overrides are familiar to the person maintaining the site.", "chooseRight": "the team wants visual header and footer control alongside centrally managed palette, typography, and layout settings.", "verify": "Recreate your navigation, one product or landing page, and the mobile states before deciding. Confirm the feature and plan boundaries for your use case."}
 }

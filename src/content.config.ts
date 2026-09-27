@@ -144,7 +144,14 @@ const comparisons = defineCollection({
     leftName: z.string(),
     rightName: z.string(),
     comparisonAreas: z.array(z.string()),
-    takeaway: z.string()
+    takeaway: z.string(),
+    decisionGuide: z
+      .object({
+        chooseLeft: z.string(),
+        chooseRight: z.string(),
+        verify: z.string()
+      })
+      .optional()
   })
 });
 

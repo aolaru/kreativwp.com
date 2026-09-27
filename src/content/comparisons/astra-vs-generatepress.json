@@ -1,14 +1,15 @@
 {
   "title": "Astra vs GeneratePress",
-  "description": "A planned, evidence-led comparison structure for evaluating two popular WordPress themes without forcing a universal winner.",
-  "metaDescription": "Editorial preview: a future KreativWP Astra versus GeneratePress theme comparison.",
+  "description": "A documentation-led comparison of Astra’s broad template ecosystem and GeneratePress’s deliberate block-editor workflow.",
+  "metaDescription": "A transparently scoped Astra versus GeneratePress WordPress comparison from KreativWP.",
   "category": "Theme comparison",
-  "updated": "2026-09-18",
-  "updatedLabel": "September 18, 2026",
+  "updated": "2026-09-27",
+  "updatedLabel": "September 27, 2026",
   "featured": true,
-  "isPlaceholder": true,
+  "isPlaceholder": false,
   "leftName": "Astra",
   "rightName": "GeneratePress",
-  "comparisonAreas": ["Setup and starter-site workflow", "Performance in a documented test environment", "Block editor and customization workflow", "Pricing and support scope"],
-  "takeaway": "The final comparison will match different requirements to each theme instead of declaring one blanket winner."
+  "comparisonAreas": ["Starter-template breadth and first-site setup", "Block-editor composition and layout-control workflow", "Companion-plugin dependencies and premium boundaries", "Same-content performance, accessibility, and support tests still required"],
+  "takeaway": "Astra is the more natural research starting point when templates and editor flexibility lead the decision. GeneratePress is worth prioritizing when the team prefers composing a lean site system deliberately in the block editor.",
+  "decisionGuide": {"chooseLeft": "starter sites, broad editor compatibility, and a flexible first build matter more than a narrowly prescribed workflow.", "chooseRight": "your team is comfortable building deliberately with blocks and wants to keep the site system considered and composable.", "verify": "Use the same content, host, image strategy, and required plugins in both. Do not infer performance or support quality from documented features alone."}
 }

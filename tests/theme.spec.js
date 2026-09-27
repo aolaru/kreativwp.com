@@ -78,6 +78,8 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 
   await page.goto("/themes/astra/");
   await expect(page.locator(".source-links")).toBeVisible();
+  await expect(page.locator(".verdict-panel")).toBeVisible();
+  await expect(page.locator(".verdict-panel")).toContainText("last checked");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
 
   await page.goto("/plugins/");
@@ -91,8 +93,26 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 test("homepage is the interactive theme library", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".theme-card")).toHaveCount(20);
+  await expect(page.locator("#theme-finder-form")).toBeVisible();
+  await expect(page.locator("#theme-shortlist-form")).toBeVisible();
   await page.getByRole("button", { name: "WooCommerce" }).click();
   await expect(page.locator(".theme-card:visible")).toHaveCount(9);
+  await page.getByRole("button", { name: "Free" }).click();
+  await expect(page.locator(".theme-card:visible")).toHaveCount(8);
+});
+
+test("published theme comparisons include a workflow decision guide", async ({ page }) => {
+  for (const url of [
+    "/comparisons/astra-vs-divi/",
+    "/comparisons/astra-vs-generatepress/",
+    "/comparisons/blocksy-vs-kadence/",
+    "/comparisons/generatepress-vs-kadence/"
+  ]) {
+    await page.goto(url);
+    await expect(page.locator(".comparison-decision")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Choose for the workflow." })).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
+  }
 });
 
 test("stack finder returns a constrained theme and plugin shortlist", async ({ page }) => {
