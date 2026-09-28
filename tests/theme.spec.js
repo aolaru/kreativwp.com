@@ -83,11 +83,15 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
 
   await page.goto("/plugins/");
-  await expect(page.locator(".plugin-card")).toHaveCount(25);
+  await expect(page.locator(".plugin-card")).toHaveCount(32);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
 
   await page.getByRole("button", { name: "Security" }).click();
-    await expect(page.locator(".plugin-card:visible")).toHaveCount(3);
+  await expect(page.locator(".plugin-card:visible")).toHaveCount(4);
+
+  await page.getByRole("button", { name: "All plugins" }).click();
+  await page.getByRole("button", { name: "Ecommerce" }).click();
+  await expect(page.locator(".plugin-card:visible")).toHaveCount(3);
 });
 
 test("homepage is the interactive theme library", async ({ page }) => {

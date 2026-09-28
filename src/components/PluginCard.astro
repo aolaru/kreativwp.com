@@ -15,7 +15,7 @@ type Props = {
 };
 
 const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false } = Astro.props;
-const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN", calendar: "EVENTS", translations: "LANGUAGE", maintenance: "MANAGE" };
+const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN", calendar: "EVENTS", translations: "LANGUAGE", maintenance: "MANAGE", development: "DEBUG", tables: "TABLES", accessibility: "ACCESS" };
 ---
 <article class:list={["plugin-card", { "plugin-card--featured": featured }]} data-library-card data-filters={filterValues.join(" ")}>
   <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" }]} href={href} aria-label={`Read ${name}`}>
