@@ -1363,6 +1363,15 @@ body {
 .product-edition__list a { color: #fff; font-size: .72rem; font-weight: 700; text-decoration: none; }
 .product-edition__list a span { color: #8fceff; }
 
+.homepage-library { margin-bottom: 6rem; }
+.homepage-library__heading { align-items: end; display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr) minmax(180px, .55fr) auto; margin-bottom: 1.5rem; }
+.homepage-library__heading h2 { font-size: clamp(2.1rem, 3.4vw, 3.8rem); letter-spacing: -.07em; line-height: .92; max-width: 13ch; }
+.homepage-library__heading > p { color: var(--muted); font-size: .9rem; line-height: 1.5; max-width: 28ch; }
+.homepage-library__heading > .text-action { align-self: end; white-space: nowrap; }
+.homepage-library__grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.homepage-library__grid .theme-thumbnail { min-height: 195px; }
+.homepage-library__grid .plugin-thumbnail { min-height: 210px; }
+
 .guide-shelf { margin-bottom: 6rem; }
 .guide-shelf__grid { display: grid; gap: 4rem; grid-template-columns: .8fr 1.2fr; }
 .guide-shelf__grid > div { border-top: 1px solid var(--card-border); }
@@ -1389,6 +1398,9 @@ body {
   .theme-catalogue__heading { grid-template-columns: 1fr; }
   .theme-catalogue__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plugin-catalogue__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .homepage-library__heading { grid-template-columns: 1fr auto; }
+  .homepage-library__heading > p { grid-column: 1 / -1; grid-row: 2; }
+  .homepage-library__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stack-finder__form { grid-template-columns: 1fr; }
   .feature-desk__grid { gap: 1.5rem; }
   .lead-story { min-height: 420px; }
@@ -1420,6 +1432,10 @@ body {
   .theme-card--featured { grid-column: auto; grid-row: auto; }
   .theme-card--featured .theme-thumbnail { min-height: 235px; }
   .plugin-catalogue__grid { grid-template-columns: 1fr; }
+  .homepage-library { margin-bottom: 4rem; }
+  .homepage-library__heading { align-items: start; grid-template-columns: 1fr; }
+  .homepage-library__heading > p { grid-column: auto; grid-row: auto; }
+  .homepage-library__grid { grid-template-columns: 1fr; }
   .plugin-card--featured { grid-column: auto; }
   .comparison-showcase__cards article { min-height: 230px; }
   .newsletter-panel { margin-left: -1.25rem; margin-right: -1.25rem; padding: 2rem 1.25rem; }

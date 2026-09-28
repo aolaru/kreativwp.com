@@ -94,15 +94,17 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator(".plugin-card:visible")).toHaveCount(3);
 });
 
-test("homepage is the interactive theme library", async ({ page }) => {
+test("homepage curates latest research and KreativWP products", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".theme-card")).toHaveCount(30);
-  await expect(page.locator("#theme-finder-form")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Tools for a healthier WordPress site." })).toBeVisible();
+  await expect(page.locator(".product-edition__list article")).toHaveCount(2);
+  await expect(page.locator("#latest-themes-title")).toBeVisible();
+  await expect(page.locator("#latest-plugins-title")).toBeVisible();
+  await expect(page.locator(".theme-card")).toHaveCount(3);
+  await expect(page.locator(".plugin-card")).toHaveCount(3);
   await expect(page.locator("#theme-shortlist-form")).toBeVisible();
-  await page.getByRole("button", { name: "WooCommerce" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(11);
-  await page.getByRole("button", { name: "Free" }).click();
-  await expect(page.locator(".theme-card:visible")).toHaveCount(10);
+  await expect(page.getByRole("link", { name: "Browse all themes" })).toHaveAttribute("href", "/themes/");
+  await expect(page.getByRole("link", { name: "Browse all plugins" })).toHaveAttribute("href", "/plugins/");
 });
 
 test("published theme comparisons include a workflow decision guide", async ({ page }) => {
@@ -177,6 +179,6 @@ test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await expect(page.locator("nav.top-menu")).toBeVisible();
-  await expect(page.locator(".theme-archive")).toBeVisible();
+  await expect(page.locator(".homepage-library").first()).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
