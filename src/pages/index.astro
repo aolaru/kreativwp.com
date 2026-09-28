@@ -24,31 +24,30 @@ const structuredData = JSON.stringify({
   ]
 });
 ---
-<BaseLayout title="KreativWP | WordPress Research and Tools" description="Independent WordPress research, practical theme and plugin guidance, and maintenance tools from KreativWP." canonicalPath="/" heroEyebrow="Independent WordPress research" heroTitle="Better WordPress decisions, without the noise." heroTagline="Useful research for choosing a theme or plugin, plus practical tools built to keep WordPress sites healthy." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
+<BaseLayout title="KreativWP | WordPress Research and Tools" description="Independent WordPress research, practical theme and plugin guidance, and maintenance tools from KreativWP." canonicalPath="/" mainClass="homepage" heroEyebrow="Independent WordPress research" heroTitle="Choose WordPress with care." heroTagline="Thoughtful picks and practical tools for healthier, easier-to-manage sites." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
   <section class="home-actions" aria-label="Explore KreativWP">
-    <p>Start with the library when you need a better shortlist, or use our maintenance tools when a site needs attention.</p>
-    <div class="button-row"><a class="button-like button-like--primary" href="/themes/">Explore themes</a><a class="button-like" href="/tools/">Use free tools</a></div>
+    <div class="button-row"><a class="button-like button-like--primary" href="/themes/">Find a theme</a><a class="button-like" href="/plugins/">Find a plugin</a><a class="button-like" href="/tools/">Use free tools</a></div>
   </section>
 
   <section class="product-edition" aria-labelledby="products-title">
-    <div class="product-edition__intro"><p class="section-label">Built by KreativWP</p><h2 id="products-title">Tools for a healthier WordPress site.</h2><p>Focused utilities for finding broken links and missing images before they become a visitor problem.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
+    <div class="product-edition__intro"><p class="section-label">Built by KreativWP</p><h2 id="products-title">Little tools. Real relief.</h2><p>Keep the small problems from becoming site-wide problems.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
     <div class="product-edition__list">
       {liveProducts.map((entry, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><img src={entry.data.thumb} width="68" height="68" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><a href={`/plugins/${entry.id}/`}>Explore the tool <span aria-hidden="true">→</span></a></div></article>)}
     </div>
   </section>
 
   <section class="homepage-library" aria-labelledby="latest-themes-title">
-    <div class="homepage-library__heading"><div><p class="section-label">Latest research</p><h2 id="latest-themes-title">Recently updated theme profiles.</h2></div><p>Three current starting points from the theme library, each with scoped research and practical caveats.</p><a class="text-action" href="/themes/">Browse all themes <span aria-hidden="true">→</span></a></div>
-    <div class="homepage-library__grid">{latestThemes.map((entry) => <ThemeCard href={`/themes/${entry.id}/`} name={entry.data.themeName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} thumbnail={entry.data.thumbnail} thumbnailAlt={entry.data.thumbnailAlt} isPlaceholder={entry.data.isPlaceholder} />)}</div>
+    <div class="homepage-library__heading"><div><p class="section-label">Fresh picks</p><h2 id="latest-themes-title">Three themes to consider.</h2></div><a class="text-action" href="/themes/">See all themes <span aria-hidden="true">→</span></a></div>
+    <div class="homepage-library__grid">{latestThemes.map((entry) => <ThemeCard href={`/themes/${entry.id}/`} name={entry.data.themeName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} thumbnail={entry.data.thumbnail} thumbnailAlt={entry.data.thumbnailAlt} isPlaceholder={entry.data.isPlaceholder} compact />)}</div>
   </section>
 
   <section class="homepage-library" aria-labelledby="latest-plugins-title">
-    <div class="homepage-library__heading"><div><p class="section-label">Latest research</p><h2 id="latest-plugins-title">Recently updated plugin profiles.</h2></div><p>Targeted tools for real WordPress jobs—shown as research profiles, not a default-install list.</p><a class="text-action" href="/plugins/">Browse all plugins <span aria-hidden="true">→</span></a></div>
-    <div class="homepage-library__grid">{latestPlugins.map((entry) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} />)}</div>
+    <div class="homepage-library__heading"><div><p class="section-label">Fresh picks</p><h2 id="latest-plugins-title">Three plugins worth knowing.</h2></div><a class="text-action" href="/plugins/">See all plugins <span aria-hidden="true">→</span></a></div>
+    <div class="homepage-library__grid">{latestPlugins.map((entry) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} compact />)}</div>
   </section>
 
   <section class="newsletter-panel" aria-labelledby="theme-checklist-title">
-    <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Choose a theme with fewer regrets.</h2></div>
-    <div><p>Get the KreativWP Theme Shortlist: the questions to ask about editing, performance, plugins, budget, and future migration before committing.</p><NewsletterForm id="theme-shortlist" label="Get the Theme Shortlist" /></div>
+    <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Get the theme shortlist.</h2></div>
+    <div><p>A quieter way to make the first big WordPress choice.</p><NewsletterForm id="theme-shortlist" label="Send it to me" /></div>
   </section>
 </BaseLayout>

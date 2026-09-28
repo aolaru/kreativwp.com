@@ -96,15 +96,17 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 
 test("homepage curates latest research and KreativWP products", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Tools for a healthier WordPress site." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Little tools. Real relief." })).toBeVisible();
   await expect(page.locator(".product-edition__list article")).toHaveCount(2);
   await expect(page.locator("#latest-themes-title")).toBeVisible();
   await expect(page.locator("#latest-plugins-title")).toBeVisible();
   await expect(page.locator(".theme-card")).toHaveCount(3);
   await expect(page.locator(".plugin-card")).toHaveCount(3);
   await expect(page.locator("#theme-shortlist-form")).toBeVisible();
-  await expect(page.getByRole("link", { name: "Browse all themes" })).toHaveAttribute("href", "/themes/");
-  await expect(page.getByRole("link", { name: "Browse all plugins" })).toHaveAttribute("href", "/plugins/");
+  await expect(page.getByRole("link", { name: "See all themes" })).toHaveAttribute("href", "/themes/");
+  await expect(page.getByRole("link", { name: "See all plugins" })).toHaveAttribute("href", "/plugins/");
+  await expect(page.getByRole("link", { name: "Find a theme" })).toHaveAttribute("href", "/themes/");
+  await expect(page.getByRole("link", { name: "Find a plugin" })).toHaveAttribute("href", "/plugins/");
 });
 
 test("published theme comparisons include a workflow decision guide", async ({ page }) => {

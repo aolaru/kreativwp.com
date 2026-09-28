@@ -228,6 +228,15 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
         }
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const showFallback = (image) => image.parentElement?.classList.add("has-image-fallback");
+        document.querySelectorAll("img[data-card-image]").forEach((image) => {
+          image.addEventListener("error", () => showFallback(image));
+          if (image.complete && !image.naturalWidth) showFallback(image);
+        });
+      })();
+    </script>
     <slot name="scripts" />
   </body>
 </html>
