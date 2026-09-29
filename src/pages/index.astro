@@ -5,13 +5,13 @@ import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const latestThemes = (await getCollection("themeReviews"))
+const latestTheme = (await getCollection("themeReviews"))
   .sort((a, b) => b.data.updated.localeCompare(a.data.updated) || b.id.localeCompare(a.id))
-  .slice(0, 3);
-const latestPlugins = (await getCollection("pluginReviews"))
+  [0];
+const latestPlugin = (await getCollection("pluginReviews"))
   .filter((entry) => entry.data.recommendationType !== "research")
   .sort((a, b) => b.data.updated.localeCompare(a.data.updated) || b.id.localeCompare(a.id))
-  .slice(0, 3);
+  [0];
 const liveProducts = (await getCollection("plugins"))
   .filter((entry) => entry.data.live)
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
@@ -36,14 +36,14 @@ const structuredData = JSON.stringify({
     </div>
   </section>
 
-  <section class="homepage-library" aria-labelledby="latest-themes-title">
-    <div class="homepage-library__heading"><div><p class="section-label">Fresh picks</p><h2 id="latest-themes-title">Three themes to consider.</h2></div><a class="text-action" href="/themes/">See all themes <span aria-hidden="true">→</span></a></div>
-    <div class="homepage-library__grid">{latestThemes.map((entry) => <ThemeCard href={`/themes/${entry.id}/`} name={entry.data.themeName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} thumbnail={entry.data.thumbnail} thumbnailAlt={entry.data.thumbnailAlt} isPlaceholder={entry.data.isPlaceholder} compact />)}</div>
+  <section class="homepage-feature" aria-labelledby="latest-theme-title">
+    <div class="homepage-feature__heading"><div><p class="section-label">Latest theme profile</p><h2 id="latest-theme-title">One thoughtful starting point.</h2></div><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
+    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.description} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} />
   </section>
 
-  <section class="homepage-library" aria-labelledby="latest-plugins-title">
-    <div class="homepage-library__heading"><div><p class="section-label">Fresh picks</p><h2 id="latest-plugins-title">Three plugins worth knowing.</h2></div><a class="text-action" href="/plugins/">See all plugins <span aria-hidden="true">→</span></a></div>
-    <div class="homepage-library__grid">{latestPlugins.map((entry) => <PluginCard href={`/plugins/reviews/${entry.id}/`} name={entry.data.pluginName} developer={entry.data.developer} description={entry.data.description} freeVersion={entry.data.freeVersion} previewStyle={entry.data.previewStyle} imageSrc={entry.data.thumbnail} imageAlt={entry.data.thumbnailAlt} recommendationType={entry.data.recommendationType} isPlaceholder={entry.data.isPlaceholder} compact />)}</div>
+  <section class="homepage-feature homepage-feature--plugin" aria-labelledby="latest-plugin-title">
+    <div class="homepage-feature__heading"><div><p class="section-label">Latest plugin profile</p><h2 id="latest-plugin-title">A useful tool, in context.</h2></div><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
+    <PluginCard href={`/plugins/reviews/${latestPlugin.id}/`} name={latestPlugin.data.pluginName} developer={latestPlugin.data.developer} description={latestPlugin.data.description} freeVersion={latestPlugin.data.freeVersion} previewStyle={latestPlugin.data.previewStyle} imageSrc={latestPlugin.data.thumbnail} imageAlt={latestPlugin.data.thumbnailAlt} recommendationType={latestPlugin.data.recommendationType} isPlaceholder={latestPlugin.data.isPlaceholder} />
   </section>
 
   <section class="newsletter-panel" aria-labelledby="theme-checklist-title">

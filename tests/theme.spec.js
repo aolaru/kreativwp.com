@@ -98,13 +98,13 @@ test("homepage curates latest research and KreativWP products", async ({ page })
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Little tools. Real relief." })).toBeVisible();
   await expect(page.locator(".product-edition__list article")).toHaveCount(2);
-  await expect(page.locator("#latest-themes-title")).toBeVisible();
-  await expect(page.locator("#latest-plugins-title")).toBeVisible();
-  await expect(page.locator(".theme-card")).toHaveCount(3);
-  await expect(page.locator(".plugin-card")).toHaveCount(3);
+  await expect(page.locator("#latest-theme-title")).toBeVisible();
+  await expect(page.locator("#latest-plugin-title")).toBeVisible();
+  await expect(page.locator(".theme-card")).toHaveCount(1);
+  await expect(page.locator(".plugin-card")).toHaveCount(1);
   await expect(page.locator("#theme-shortlist-form")).toBeVisible();
-  await expect(page.getByRole("link", { name: "See all themes" })).toHaveAttribute("href", "/themes/");
-  await expect(page.getByRole("link", { name: "See all plugins" })).toHaveAttribute("href", "/plugins/");
+  await expect(page.getByRole("link", { name: "Explore all themes" })).toHaveAttribute("href", "/themes/");
+  await expect(page.getByRole("link", { name: "Explore all plugins" })).toHaveAttribute("href", "/plugins/");
   await expect(page.getByRole("link", { name: "Find a theme" })).toHaveAttribute("href", "/themes/");
   await expect(page.getByRole("link", { name: "Find a plugin" })).toHaveAttribute("href", "/plugins/");
 });
@@ -181,6 +181,6 @@ test("homepage remains usable on a narrow viewport", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await expect(page.locator("nav.top-menu")).toBeVisible();
-  await expect(page.locator(".homepage-library").first()).toBeVisible();
+  await expect(page.locator(".homepage-feature").first()).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
