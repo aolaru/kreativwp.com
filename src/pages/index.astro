@@ -13,6 +13,11 @@ if (!latestTheme || !latestPlugin) throw new Error("Homepage features must refer
 const liveProducts = (await getCollection("plugins"))
   .filter((entry) => entry.data.live)
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const previewProduct = liveProducts.find((entry) => entry.data.homepageScreenshot);
+const featuredGuide = (await getCollection("guides"))
+  .find((entry) => entry.id === homepageFeatures.guide && !entry.data.isPlaceholder);
+if (!featuredGuide) throw new Error("The homepage guide must be a published guide.");
+const shortDate = (date: string) => new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T00:00:00Z`));
 
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
@@ -22,27 +27,31 @@ const structuredData = JSON.stringify({
   ]
 });
 ---
-<BaseLayout title="KreativWP | WordPress Research and Tools" description="Independent WordPress research, practical theme and plugin guidance, and maintenance tools from KreativWP." canonicalPath="/" mainClass="homepage" heroEyebrow="Independent WordPress research" heroTitle="Choose WordPress with care." heroTagline="Thoughtful picks and practical tools for healthier, easier-to-manage sites." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
+<BaseLayout title="KreativWP | WordPress Research and Tools" description="Independent WordPress research, practical theme and plugin guidance, and maintenance tools from KreativWP." canonicalPath="/" mainClass="homepage" heroEyebrow="A small, independent WordPress resource" heroTitle="WordPress, with care." heroTagline="Hi, I’m Andrei. I build small WordPress tools and select resources to make everyday site work easier." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/" structuredData={structuredData}>
   <section class="home-actions" aria-label="Explore KreativWP">
     <div class="button-row"><a class="button-like button-like--primary" href="/themes/">Find a theme</a><a class="button-like" href="/plugins/">Find a plugin</a><a class="button-like" href="/tools/">Use free tools</a></div>
+    <a class="text-action home-about" href="/about/">A little about me <span aria-hidden="true">→</span></a>
   </section>
 
   <section class="product-edition" aria-labelledby="products-title">
-    <div class="product-edition__intro"><p class="section-label">Built by KreativWP</p><h2 id="products-title">Little tools. Real relief.</h2><p>Keep the small problems from becoming site-wide problems.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
+    <div class="product-edition__intro"><p class="section-label">Made by me</p><h2 id="products-title">Little tools. Real relief.</h2><p>Two free plugins for everyday site upkeep.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
     <div class="product-edition__list">
-      {liveProducts.map((entry, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><img src={entry.data.thumb} width="68" height="68" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><a href={`/plugins/${entry.id}/`}>Explore the tool <span aria-hidden="true">→</span></a></div></article>)}
+      {liveProducts.map((entry) => <article><img src={entry.data.thumb} width="48" height="48" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><div class="product-edition__actions">{entry.data.downloadHref && <a class="button-like button-like--primary" href={entry.data.downloadHref} aria-label={`Get the free plugin: ${entry.data.name}`}>Get the free plugin <span class="product-edition__format">ZIP</span></a>}<a class="text-action" href={`/plugins/${entry.id}/`} aria-label={`Learn about ${entry.data.name}`}>See how it works <span aria-hidden="true">→</span></a></div></div></article>)}
     </div>
+    {previewProduct?.data.homepageScreenshot && <figure class="product-edition__preview"><a href={`/plugins/${previewProduct.id}/`} aria-label={`See ${previewProduct.data.name} in action`}><img data-card-image src={previewProduct.data.homepageScreenshot.src} alt={previewProduct.data.homepageScreenshot.alt} width={previewProduct.data.homepageScreenshot.width} height={previewProduct.data.homepageScreenshot.height} loading="lazy" /></a><figcaption><a href={`/plugins/${previewProduct.id}/`}>{previewProduct.data.homepageScreenshot.caption} <span aria-hidden="true">→</span></a></figcaption></figure>}
   </section>
 
   <section class="homepage-feature" aria-labelledby="latest-theme-title">
-    <div class="homepage-feature__heading"><div><p class="section-label">Theme spotlight</p><h2 id="latest-theme-title">One thoughtful starting point.</h2></div><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
-    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.description} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} researchMethod={latestTheme.data.researchMethod} />
+    <div class="homepage-feature__heading"><h2 id="latest-theme-title">Theme pick</h2><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
+    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.homepageSummary || latestTheme.data.bestFor} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} researchMethod={latestTheme.data.researchMethod} ctaLabel={`Explore ${latestTheme.data.themeName}`} checkedDate={latestTheme.data.updated} checkedLabel={shortDate(latestTheme.data.updated)} />
   </section>
 
   <section class="homepage-feature homepage-feature--plugin" aria-labelledby="latest-plugin-title">
-    <div class="homepage-feature__heading"><div><p class="section-label">Plugin spotlight</p><h2 id="latest-plugin-title">A useful tool, in context.</h2></div><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
-    <PluginCard href={`/plugins/reviews/${latestPlugin.id}/`} name={latestPlugin.data.pluginName} developer={latestPlugin.data.developer} description={latestPlugin.data.description} freeVersion={latestPlugin.data.freeVersion} previewStyle={latestPlugin.data.previewStyle} imageSrc={latestPlugin.data.thumbnail} imageAlt={latestPlugin.data.thumbnailAlt} recommendationType={latestPlugin.data.recommendationType} isPlaceholder={latestPlugin.data.isPlaceholder} />
+    <div class="homepage-feature__heading"><h2 id="latest-plugin-title">Plugin pick</h2><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
+    <PluginCard href={`/plugins/reviews/${latestPlugin.id}/`} name={latestPlugin.data.pluginName} developer={latestPlugin.data.developer} description={latestPlugin.data.homepageSummary || latestPlugin.data.bestFor} freeVersion={latestPlugin.data.freeVersion} previewStyle={latestPlugin.data.previewStyle} imageSrc={latestPlugin.data.thumbnail} imageAlt={latestPlugin.data.thumbnailAlt} recommendationType={latestPlugin.data.recommendationType} isPlaceholder={latestPlugin.data.isPlaceholder} ctaLabel={`Explore ${latestPlugin.data.pluginName}`} checkedDate={latestPlugin.data.updated} checkedLabel={shortDate(latestPlugin.data.updated)} />
   </section>
+
+  <aside class="home-guide" aria-labelledby="home-guide-title"><p id="home-guide-title">Not sure where to start?</p><a href={`/guides/${featuredGuide.id}/`}>{featuredGuide.data.title} <span aria-hidden="true">→</span></a></aside>
 
   <section class="newsletter-panel" aria-labelledby="theme-checklist-title">
     <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Get the theme shortlist.</h2></div>

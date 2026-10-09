@@ -76,7 +76,9 @@ The homepage links to `/theme-checklist/`, an immediately usable 20-point checkl
 
 ## Homepage selections
 
-Choose the published theme and plugin spotlight IDs in `src/data/site.ts`. The build rejects missing or unpublished selections, so date ties cannot silently choose the homepage features.
+Choose the published theme, plugin, and guide IDs in `src/data/site.ts`. The build rejects missing or unpublished selections, so date ties cannot silently choose the homepage features. Theme and plugin profiles can supply a short `homepageSummary`; the homepage shows their recorded checked dates without changing those dates merely because homepage copy changed.
+
+Live products can supply an official `downloadHref` and a `homepageScreenshot` with its source, caption, alt text, and dimensions. The homepage keeps the ZIP download separate from the detail-page link. The current Report Broken Link preview is its official WordPress.org dashboard screenshot; this product collects visitor reports and is not an automatic link scanner.
 
 ## Hands-on theme evidence
 

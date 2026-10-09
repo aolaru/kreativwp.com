@@ -1,30 +1,38 @@
 {
   "name": "Kreativ Report Broken Link",
-  "description": "Find broken internal and external links and export clean maintenance reports.",
-  "cardMeta": "Scan and report broken links.",
-  "cardUse": "Find broken internal and external links and export clean reports.",
+  "description": "Let visitors flag broken links and manage their reports in WordPress.",
+  "cardMeta": "Visitor-powered broken-link reports.",
+  "cardUse": "Collect visitor reports, track fixes, and export a CSV.",
   "thumb": "/thumb-kreativ-report-broken-link-128.svg",
   "imageAlt": "Kreativ Report Broken Link thumbnail",
-  "metaDescription": "Scan internal and external links, detect breakage, and export actionable maintenance reports.",
+  "metaDescription": "Let visitors report broken links, manage reports in WordPress, and export a CSV. This plugin does not automatically scan your site.",
   "detailTitle": "Key Features",
   "detailItems": [
     {
-      "title": "Internal + external scanning",
-      "body": "Crawls links across your content and highlights broken targets by type, source, and status code."
+      "title": "Visitor reports, not an automatic scanner",
+      "body": "Adds a report button to enabled post types so visitors can flag a page with broken links. It does not crawl or automatically check URLs."
     },
     {
       "title": "Actionable reporting",
       "body": "Exports clear reports for cleanup sessions so teams can resolve link debt quickly."
     },
     {
-      "title": "Maintenance-first workflow",
-      "body": "Designed for recurring audits in real WordPress maintenance cycles."
+      "title": "Keep track of fixes",
+      "body": "Resolve, ignore, or reopen reports from the WordPress dashboard, with optional email notifications."
     }
   ],
   "ctaTitle": "Get the Plugin",
   "ctaLines": ["Last updated: May 10, 2026"],
   "ctaHref": "https://wordpress.org/plugins/kreativ-report-broken-link/",
   "ctaLabel": "View on WordPress.org",
+  "downloadHref": "https://downloads.wordpress.org/plugin/kreativ-report-broken-link.latest-stable.zip",
+  "homepageScreenshot": {
+    "src": "https://ps.w.org/kreativ-report-broken-link/assets/screenshot-2.png?rev=3446681",
+    "alt": "Kreativ Report Broken Link reports dashboard with status filters and resolve and ignore actions",
+    "caption": "Visitor reports, ready to review in WordPress.",
+    "width": 2762,
+    "height": 1494
+  },
   "supportingLinks": [
     {
       "label": "Read plugin update",
@@ -43,7 +51,7 @@
         },
         {
           "title": "Agencies maintaining multiple sites",
-          "body": "It is especially useful when link checking needs to become a repeatable maintenance task rather than an ad hoc sweep."
+          "body": "Use visitor feedback as one part of a maintenance routine. Pair it with a separate scanner when you need automatic link checks."
         }
       ]
     },
@@ -51,8 +59,8 @@
       "title": "Typical Workflow",
       "items": [
         {
-          "title": "Run a scan, review the report, fix the highest-impact pages",
-          "body": "The plugin is intended to support routine maintenance sessions where teams detect breakage, prioritize the most visible issues, and clean them up in batches."
+          "title": "Receive a report, check the page, then resolve it",
+          "body": "Review visitor-submitted reports in the dashboard, inspect the affected page, repair its links, and mark the report resolved. Export a CSV when you need to share the work."
         }
       ]
     }

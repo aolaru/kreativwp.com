@@ -22,6 +22,14 @@ const plugins = defineCollection({
     ctaLines: z.array(z.string()),
     ctaHref: z.string().optional(),
     ctaLabel: z.string().optional(),
+    downloadHref: z.string().url().optional(),
+    homepageScreenshot: z.object({
+      src: z.string().url(),
+      alt: z.string(),
+      caption: z.string(),
+      width: z.number().positive(),
+      height: z.number().positive()
+    }).optional(),
     supportingLinks: z
       .array(
         z.object({
@@ -89,6 +97,7 @@ const news = defineCollection({
 const editorialBase = z.object({
   title: z.string(),
   description: z.string(),
+  homepageSummary: z.string().max(160).optional(),
   metaDescription: z.string(),
   category: z.string(),
   updated: z.string(),

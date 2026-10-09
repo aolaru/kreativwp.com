@@ -13,9 +13,12 @@ type Props = {
   featured?: boolean;
   compact?: boolean;
   researchMethod?: "documented-research" | "hands-on";
+  ctaLabel?: string;
+  checkedDate?: string;
+  checkedLabel?: string;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, filterValues = [], isPlaceholder = false, featured = false, compact = false, researchMethod } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, filterValues = [], isPlaceholder = false, featured = false, compact = false, researchMethod, ctaLabel = "View profile", checkedDate, checkedLabel = checkedDate } = Astro.props;
 ---
 <article class:list={["theme-card", { "theme-card--featured": featured, "theme-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")}>
   <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name} theme review`}>
@@ -25,6 +28,7 @@ const { href, name, developer, description, freeVersion, previewStyle, thumbnail
     <div class="theme-card__meta"><span>{developer}</span><span>{isPlaceholder ? "In research" : researchMethod === "hands-on" ? "Hands-on review" : "Documented profile"}</span></div>
     <h3><a href={href}>{name}</a></h3>
     <p>{description}</p>
-    <div class="theme-card__footer"><span>{freeVersion === "Available" ? "Free version available" : "Research in progress"}</span><a href={href}>View profile <span aria-hidden="true">→</span></a></div>
+    {checkedDate && <p class="profile-checked">Checked <time datetime={checkedDate}>{checkedLabel}</time></p>}
+    <div class="theme-card__footer"><span>{freeVersion === "Available" ? "Free version available" : "Research in progress"}</span><a href={href}>{ctaLabel} <span aria-hidden="true">→</span></a></div>
   </div>
 </article>

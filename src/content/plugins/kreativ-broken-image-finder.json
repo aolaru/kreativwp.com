@@ -25,6 +25,7 @@
   "ctaLines": ["Last updated: May 10, 2026"],
   "ctaHref": "https://wordpress.org/plugins/kreativ-broken-image-finder/",
   "ctaLabel": "View on WordPress.org",
+  "downloadHref": "https://downloads.wordpress.org/plugin/kreativ-broken-image-finder.latest-stable.zip",
   "supportingLinks": [
     {
       "label": "Read plugin update",

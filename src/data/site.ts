@@ -1,6 +1,7 @@
 export const homepageFeatures = {
   theme: "generatepress",
-  plugin: "fluent-forms"
+  plugin: "fluent-forms",
+  guide: "choose-wordpress-theme"
 };
 
 export const footerLinks = [
