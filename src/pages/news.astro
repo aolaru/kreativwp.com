@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
 const newsPosts = (await getCollection("news")).sort((a, b) =>
   b.data.published.localeCompare(a.data.published)
 );
@@ -88,31 +89,7 @@ const nextRelease = (await getCollection("plugins"))
 
   <section class="launch-cta card" aria-labelledby="updates-title">
     <h2 id="updates-title">Get Product Updates</h2>
-    <p>Get monthly release notes in your inbox.</p>
-    <form class="signup-form" id="updates-form" novalidate>
-      <label class="sr-only" for="updates-email">Email address</label>
-      <input class="signup-input" id="updates-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
-      <button class="signup-button" type="submit">Request Updates</button>
-    </form>
+    <NewsletterForm id="updates" />
   </section>
 
-  <script slot="scripts" is:inline>
-    (() => {
-      const updatesForm = document.getElementById("updates-form");
-      const updatesEmail = document.getElementById("updates-email");
-      if (!updatesForm || !updatesEmail) return;
-      updatesForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (!updatesEmail.checkValidity()) {
-          updatesEmail.reportValidity();
-          return;
-        }
-        const email = encodeURIComponent(updatesEmail.value.trim());
-        if (!email) return;
-        window.location.href =
-          "mailto:info@kreativwp.com?subject=Kreativ%20WP%20Updates%20Request&body=Please%20add%20this%20email%20to%20Kreativ%20WP%20updates%3A%20" +
-          email;
-      });
-    })();
-  </script>
 </BaseLayout>

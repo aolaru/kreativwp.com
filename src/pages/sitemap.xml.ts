@@ -11,6 +11,7 @@ export async function GET({ site }) {
     { path: "/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "1.0" },
     { path: "/about/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
     { path: "/contact/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
+    { path: "/privacy/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.4" },
     { path: "/methodology/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
     { path: "/news/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
     { path: "/themes/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },

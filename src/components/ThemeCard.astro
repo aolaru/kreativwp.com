@@ -1,4 +1,5 @@
 ---
+import PreviewImage from "./PreviewImage.astro";
 type Props = {
   href: string;
   name: string;
@@ -25,7 +26,7 @@ const { href, name, developer, description, freeVersion, previewStyle, thumbnail
 ---
 <article class:list={["theme-card", { "theme-card--featured": featured, "theme-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")} data-card-name={name} data-updated={libraryUpdated} data-editorial-rank={editorialRank}>
   <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={`Read ${name} theme review`}>
-    {thumbnail ? <><img data-card-image src={thumbnail} alt={thumbnailAlt || `${name} theme screenshot`} loading="lazy" /><span class="theme-thumbnail__fallback" aria-hidden="true"><span class="theme-thumbnail__browser"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles"><i></i><i></i><i></i></span></span></> : <><span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span></>}
+    {thumbnail ? <><PreviewImage src={thumbnail} alt={thumbnailAlt || `${name} theme screenshot`} /><span class="theme-thumbnail__fallback" aria-hidden="true"><span class="theme-thumbnail__browser"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles"><i></i><i></i><i></i></span></span></> : <><span class="theme-thumbnail__browser" aria-hidden="true"><i></i><i></i><i></i></span><span class="theme-thumbnail__nav" aria-hidden="true"><b></b><em></em><em></em><em></em></span><span class="theme-thumbnail__hero" aria-hidden="true"><strong></strong><small></small><small></small><mark></mark></span><span class="theme-thumbnail__tiles" aria-hidden="true"><i></i><i></i><i></i></span></>}
   </a>
   <div class="theme-card__body">
     {editorialRank !== undefined && <p class="card-selection">Editor’s pick</p>}
@@ -33,6 +34,6 @@ const { href, name, developer, description, freeVersion, previewStyle, thumbnail
     <h3><a href={href}>{name}</a></h3>
     {bestFor ? <p class="card-best-for"><strong>Best for:</strong> {bestFor}</p> : <p>{description}</p>}
     {checkedDate && <p class="profile-checked">Checked <time datetime={checkedDate}>{checkedLabel}</time></p>}
-    <div class="theme-card__footer"><span>{freeVersion === "Available" ? "Free version available" : "Research in progress"}</span><a href={href}>{ctaLabel} <span aria-hidden="true">→</span></a></div>
+    <div class="theme-card__footer"><span>{isPlaceholder ? "Research in progress" : freeVersion === "Available" ? "Free version available" : freeVersion}</span><a href={href}>{ctaLabel} <span aria-hidden="true">→</span></a></div>
   </div>
 </article>

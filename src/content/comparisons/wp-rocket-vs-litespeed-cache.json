@@ -1,5 +1,82 @@
 {
-  "title": "WP Rocket vs LiteSpeed Cache", "description": "A documentation-led comparison centered on the hosting constraint behind two popular WordPress performance tools.", "metaDescription": "A transparently scoped WP Rocket versus LiteSpeed Cache comparison from KreativWP.", "category": "Plugin comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
-  "leftName": "WP Rocket", "rightName": "LiteSpeed Cache", "comparisonAreas": ["Page-cache approach and server-level requirements", "LiteSpeed or QUIC.cloud availability", "Dynamic-page exclusions for ecommerce and memberships", "A repeatable performance test with one cache plugin at a time"],
-  "takeaway": "Hosting is the first decision: LiteSpeed Cache’s caching features depend on LiteSpeed or QUIC.cloud, while WP Rocket is positioned as a paid page-cache choice for other stacks. Do not run two full-page cache plugins together."
+  "title": "WP Rocket vs LiteSpeed Cache",
+  "description": "A documentation-led comparison centered on the hosting constraint behind two popular WordPress performance tools.",
+  "metaDescription": "A transparently scoped WP Rocket versus LiteSpeed Cache comparison from KreativWP.",
+  "category": "Plugin comparison",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "leftName": "WP Rocket",
+  "rightName": "LiteSpeed Cache",
+  "comparisonAreas": [
+    "Page-cache approach and server-level requirements",
+    "LiteSpeed or QUIC.cloud availability",
+    "Dynamic-page exclusions for ecommerce and memberships",
+    "A repeatable performance test with one cache plugin at a time"
+  ],
+  "takeaway": "Hosting is the first decision: LiteSpeed Cache’s caching features depend on LiteSpeed or QUIC.cloud, while WP Rocket is positioned as a paid page-cache choice for other stacks. Do not run two full-page cache plugins together.",
+  "leftHref": "/plugins/reviews/wp-rocket/",
+  "rightHref": "/plugins/reviews/litespeed-cache/",
+  "rows": [
+    {
+      "label": "Cost boundary",
+      "left": "Paid page-cache product. Confirm the current license and renewals on the official site.",
+      "right": "Free WordPress plugin; optional QUIC.cloud services have their own usage and billing boundaries.",
+      "sourceIds": [
+        "rocket",
+        "litespeed"
+      ]
+    },
+    {
+      "label": "Cache prerequisite",
+      "left": "Plugin-managed page caching is documented; check host compatibility before adding it to a managed cache setup.",
+      "right": "Full-page cache requires a supported LiteSpeed server or QUIC.cloud. Optimization features alone do not prove that page caching is active.",
+      "sourceIds": [
+        "rocket",
+        "litespeed"
+      ]
+    },
+    {
+      "label": "Unknown hosting",
+      "left": "Do not buy by default. Ask the host which caching layer already exists and whether this plugin is supported.",
+      "right": "Do not assume that installing the plugin supplies the required server-side cache.",
+      "sourceIds": [
+        "rocket",
+        "litespeed"
+      ]
+    },
+    {
+      "label": "Store and member pages",
+      "left": "Test cart, checkout, accounts, and personalized content exclusions before launch.",
+      "right": "Validate exclusions and cache behavior for cart, checkout, accounts, and personalized content.",
+      "sourceIds": [
+        "rocket",
+        "litespeed"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "rocket",
+      "label": "WP Rocket page-cache behavior",
+      "href": "https://docs.wp-rocket.me/article/1528-page-caching"
+    },
+    {
+      "id": "rocket-plans",
+      "label": "WP Rocket current plans",
+      "href": "https://wp-rocket.me/"
+    },
+    {
+      "id": "litespeed",
+      "label": "LiteSpeed Cache server requirements and features",
+      "href": "https://docs.litespeedtech.com/lscache/lscwp/"
+    }
+  ],
+  "migration": "Disable the old full-page cache, remove its stale rules according to its instructions, clear server/CDN caches, and test dynamic pages before comparing cold and warm responses. Use the same host, content, and image strategy. There is no measured speed winner in this comparison.",
+  "decisionGuide": {
+    "chooseLeft": "the host supports it, no overlapping page-cache layer is needed, and a paid workflow is acceptable.",
+    "chooseRight": "LiteSpeed or QUIC.cloud page caching is confirmed and its workflow fits the site.",
+    "verify": "If hosting is unknown or already provides page caching, ask the host first. Use one full-page cache and verify dynamic-page exclusions."
+  }
 }

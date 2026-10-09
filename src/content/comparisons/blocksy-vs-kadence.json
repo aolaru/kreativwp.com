@@ -3,12 +3,84 @@
   "description": "A documentation-led comparison of Blocksy’s Customizer-first controls and Kadence’s visual header, footer, and global design workflow.",
   "metaDescription": "A transparently scoped Blocksy versus Kadence WordPress comparison from KreativWP.",
   "category": "Theme comparison",
-  "updated": "2026-09-27",
-  "updatedLabel": "September 27, 2026",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
   "isPlaceholder": false,
   "leftName": "Blocksy",
   "rightName": "Kadence",
-  "comparisonAreas": ["Customizer-first controls versus visual header and footer builders", "Global color, typography, and layout settings", "Documented ecommerce and page-level layout workflow", "Same-content performance, accessibility, and support tests still required"],
+  "comparisonAreas": [
+    "Customizer-first controls versus visual header and footer builders",
+    "Global color, typography, and layout settings",
+    "Documented ecommerce and page-level layout workflow",
+    "Same-content performance, accessibility, and support tests still required"
+  ],
   "takeaway": "Blocksy is a sensible research path for site builders who prefer many presentation controls in a familiar Customizer workflow. Kadence deserves attention when visual header, footer, and global-design controls are central to the build.",
-  "decisionGuide": {"chooseLeft": "a Customizer-led workflow and page-level layout overrides are familiar to the person maintaining the site.", "chooseRight": "the team wants visual header and footer control alongside centrally managed palette, typography, and layout settings.", "verify": "Recreate your navigation, one product or landing page, and the mobile states before deciding. Confirm the feature and plan boundaries for your use case."}
+  "decisionGuide": {
+    "chooseLeft": "a Customizer-led workflow and page-level layout overrides are familiar to the person maintaining the site.",
+    "chooseRight": "the team wants visual header and footer control alongside centrally managed palette, typography, and layout settings.",
+    "verify": "Recreate your navigation, one product or landing page, and the mobile states before deciding. Confirm the feature and plan boundaries for your use case."
+  },
+  "leftHref": "/themes/blocksy/",
+  "rightHref": "/themes/kadence/",
+  "rows": [
+    {
+      "label": "Everyday editing",
+      "left": "Classic theme controls in the Customizer, including global presentation and header/footer building.",
+      "right": "Classic theme with header/footer building and global palette, typography, and layout controls.",
+      "sourceIds": [
+        "blocksy",
+        "kadence"
+      ]
+    },
+    {
+      "label": "Free versus paid",
+      "left": "Free theme; Companion and Pro extend the ecosystem. Check the exact feature and edition.",
+      "right": "Free theme; Pro, blocks, and other packages extend the ecosystem. Theme and block-plugin licenses are distinct.",
+      "sourceIds": [
+        "blocksy-free",
+        "kadence-free"
+      ]
+    },
+    {
+      "label": "Content editor",
+      "left": "Supports WordPress blocks and documented page-builder integrations; it is not a full-site-editing block theme.",
+      "right": "Supports blocks within its theme layout system; Kadence Blocks is a separate plugin, not a requirement for core blocks.",
+      "sourceIds": [
+        "blocksy",
+        "kadence"
+      ]
+    },
+    {
+      "label": "Store considerations",
+      "left": "Documented WooCommerce controls; advanced extensions have edition limits.",
+      "right": "Documented WooCommerce styling and layout controls; confirm Pro boundaries for the required store features.",
+      "sourceIds": [
+        "blocksy",
+        "kadence"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "blocksy",
+      "label": "Blocksy workflow and integrations",
+      "href": "https://creativethemes.com/blocksy/"
+    },
+    {
+      "id": "blocksy-free",
+      "label": "Blocksy free directory edition",
+      "href": "https://wordpress.org/themes/blocksy/"
+    },
+    {
+      "id": "kadence",
+      "label": "Kadence theme controls",
+      "href": "https://www.kadencewp.com/kadence-theme/"
+    },
+    {
+      "id": "kadence-free",
+      "label": "Kadence free directory edition",
+      "href": "https://wordpress.org/themes/kadence/"
+    }
+  ],
+  "migration": "Try the same desktop and phone header in both. Theme-specific header elements, palettes, and Customizer settings do not transfer automatically. The profile tests cover free themes and core blocks—not a WooCommerce checkout or premium extension migration."
 }

@@ -1,13 +1,80 @@
 {
   "title": "Fluent Forms Review",
-  "description": "A documented profile of Fluent Forms for contact forms, submissions, integrations, and payment-form workflows.",
+  "description": "A contact form, created and submitted in WordPress. See the saved entry and the limits of this free-edition check.",
   "homepageSummary": "For site owners who need contact forms and a clear place to manage submissions.",
   "metaDescription": "A transparently scoped Fluent Forms WordPress plugin profile from KreativWP.",
-  "category": "Forms", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
-  "pluginName": "Fluent Forms", "developer": "WPManageNinja", "pricing": "Free and paid plans", "freeVersion": "Available", "previewStyle": "forms", "recommendationType": "core",
-  "highlights": ["Official documentation describes a drag-and-drop builder and ready-made form types", "The documented workflow includes submission management and reporting", "Payment forms and integrations are supported in the product ecosystem"],
+  "category": "Forms",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "pluginName": "Fluent Forms",
+  "developer": "WPManageNinja",
+  "pricing": "Free and paid plans",
+  "freeVersion": "Available",
+  "previewStyle": "forms",
+  "recommendationType": "core",
+  "highlights": [
+    "Official documentation describes a drag-and-drop builder and ready-made form types",
+    "The documented workflow includes submission management and reporting",
+    "Payment forms and integrations are supported in the product ecosystem"
+  ],
   "bestFor": "Sites that need forms beyond a basic contact address, while keeping the editor workflow approachable.",
-  "researchMethod": "documented-research", "researchScope": "This profile reviews Fluent Forms’ official documentation. It does not test deliverability, payment processing, or every integration.", "caveats": "Form plugins handle personal data. Validate consent, retention, spam prevention, notification delivery, and the exact plan’s capabilities before publishing forms.",
-  "thumbnail": "https://ps.w.org/fluentform/assets/screenshot-1.gif?rev=2957809", "thumbnailAlt": "Fluent Forms screenshot from its WordPress.org listing",
-  "sources": [{ "label": "Fluent Forms documentation", "href": "https://docs.fluentforms.com/" }], "officialUrl": "https://fluentforms.com/"
+  "researchMethod": "hands-on",
+  "researchScope": "Created a free contact-form template, embedded it on a published page, submitted synthetic fields, and verified dashboard retrieval. Documentation provides context for features outside that workflow.",
+  "caveats": "Form plugins handle personal data. Validate consent, retention, spam prevention, notification delivery, and the exact plan’s capabilities before publishing forms.",
+  "thumbnail": "https://ps.w.org/fluentform/assets/screenshot-1.gif?rev=2957809",
+  "thumbnailAlt": "Fluent Forms screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Fluent Forms documentation",
+      "href": "https://docs.fluentforms.com/"
+    }
+  ],
+  "officialUrl": "https://fluentforms.com/",
+  "handsOnTest": {
+    "date": "2026-10-09",
+    "pluginVersion": "6.2.15",
+    "wordpressVersion": "7.1.3",
+    "phpVersion": "8.5.3",
+    "environment": "Isolated local macOS PHP server; SQLite Database Integration; Chromium; free editions. Email sending disabled by a lab-only filter. No production accounts or site data.",
+    "checks": [
+      {
+        "title": "Create and embed",
+        "detail": "Created a free contact template through the plugin UI and embedded its shortcode on a published page."
+      },
+      {
+        "title": "Submit and retrieve",
+        "detail": "Submitted synthetic name, email, subject, and message fields. The public success message appeared; one database entry and its dashboard row were verified."
+      }
+    ],
+    "limitations": [
+      "Email sending was disabled, so notification deliverability is not established.",
+      "Payments, Pro integrations, spam handling, high-volume behavior, and production MySQL compatibility were not tested."
+    ],
+    "screenshots": [
+      {
+        "src": "/research/2026-10-09/plugins/fluentform-builder.png",
+        "label": "A newly created free contact-form template in the builder",
+        "alt": "A newly created free contact-form template in the builder in the isolated KreativWP plugin lab",
+        "width": 1200,
+        "height": 1093
+      },
+      {
+        "src": "/research/2026-10-09/plugins/fluentform-public.png",
+        "label": "The contact form embedded on a published WordPress page",
+        "alt": "The contact form embedded on a published WordPress page in the isolated KreativWP plugin lab",
+        "width": 1200,
+        "height": 1152
+      },
+      {
+        "src": "/research/2026-10-09/plugins/fluentform-entry.png",
+        "label": "The submitted contact entry in the WordPress dashboard",
+        "alt": "The submitted contact entry in the WordPress dashboard in the isolated KreativWP plugin lab",
+        "width": 1200,
+        "height": 910
+      }
+    ],
+    "evidenceHref": "/research/2026-10-09/plugins/plugin-workflows.json"
+  }
 }

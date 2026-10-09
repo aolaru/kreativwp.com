@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import PreviewImage from "../components/PreviewImage.astro";
 import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
 import { homepageFeatures } from "../data/site";
@@ -36,9 +37,9 @@ const structuredData = JSON.stringify({
   <section class="product-edition" aria-labelledby="products-title">
     <div class="product-edition__intro"><p class="section-label">Made by me</p><h2 id="products-title">Little tools. Real relief.</h2><p>Two free plugins for everyday site upkeep.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
     <div class="product-edition__list">
-      {liveProducts.map((entry) => <article><img src={entry.data.thumb} width="48" height="48" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><div class="product-edition__actions">{entry.data.downloadHref && <a class="button-like button-like--primary" href={entry.data.downloadHref} aria-label={`Get the free plugin: ${entry.data.name}`}>Get the free plugin <span class="product-edition__format">ZIP</span></a>}<a class="text-action" href={`/plugins/${entry.id}/`} aria-label={`Learn about ${entry.data.name}`}>See how it works <span aria-hidden="true">→</span></a></div></div></article>)}
+      {liveProducts.map((entry) => <article><img src={entry.data.thumb} width="48" height="48" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><div class="product-edition__actions">{entry.data.downloadHref && <a class="button-like button-like--primary" href={entry.data.downloadHref} data-track="product_download" data-product={entry.id} aria-label={`Get the free plugin: ${entry.data.name}`}>Get the free plugin <span class="product-edition__format">ZIP</span></a>}<a class="text-action" href={`/plugins/${entry.id}/`} aria-label={`Learn about ${entry.data.name}`}>See how it works <span aria-hidden="true">→</span></a></div></div></article>)}
     </div>
-    {previewProduct?.data.homepageScreenshot && <figure class="product-edition__preview"><a href={`/plugins/${previewProduct.id}/`} aria-label={`See ${previewProduct.data.name} in action`}><img data-card-image src={previewProduct.data.homepageScreenshot.src} alt={previewProduct.data.homepageScreenshot.alt} width={previewProduct.data.homepageScreenshot.width} height={previewProduct.data.homepageScreenshot.height} loading="lazy" /></a><figcaption><a href={`/plugins/${previewProduct.id}/`}>{previewProduct.data.homepageScreenshot.caption} <span aria-hidden="true">→</span></a></figcaption></figure>}
+    {previewProduct?.data.homepageScreenshot && <figure class="product-edition__preview"><a href={`/plugins/${previewProduct.id}/`} aria-label={`See ${previewProduct.data.name} in action`}><PreviewImage src={previewProduct.data.homepageScreenshot.src} alt={previewProduct.data.homepageScreenshot.alt} width={previewProduct.data.homepageScreenshot.width} height={previewProduct.data.homepageScreenshot.height} sizes="(max-width: 850px) calc(100vw - 40px), 340px" /></a><figcaption><a href={`/plugins/${previewProduct.id}/`}>{previewProduct.data.homepageScreenshot.caption} <span aria-hidden="true">→</span></a></figcaption></figure>}
   </section>
 
   <section class="homepage-feature" aria-labelledby="latest-theme-title">
@@ -55,6 +56,6 @@ const structuredData = JSON.stringify({
 
   <section class="newsletter-panel" aria-labelledby="theme-checklist-title">
     <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Get the theme shortlist.</h2></div>
-    <div><p>A short checklist for your next theme decision. Yours to keep—no email needed.</p><a class="button-like button-like--primary" href="/theme-checklist/">Open the checklist</a></div>
+    <div><p>A short checklist for your next theme decision. Yours to keep—no email needed.</p><a class="button-like button-like--primary" href="/theme-checklist/" data-track="checklist_open" data-resource="theme-checklist">Open the checklist</a></div>
   </section>
 </BaseLayout>

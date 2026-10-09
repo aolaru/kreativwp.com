@@ -9,20 +9,16 @@
   "detailTitle": "Key Features",
   "detailItems": [
     {
-      "title": "Broken media detection",
-      "body": "Scans content for missing or unreachable image references that harm trust and readability."
+      "title": "A manually started content scan",
+      "body": "Checks image source URLs in published content and featured images using HTTP HEAD requests. It does not inspect every CSS background, responsive image variant, or external page."
     },
     {
-      "title": "Content-level visibility",
-      "body": "Highlights affected posts and pages so teams can prioritize high-impact fixes first."
-    },
-    {
-      "title": "Maintenance ready",
-      "body": "Supports recurring quality checks as part of routine WordPress maintenance workflows."
+      "title": "An actionable report",
+      "body": "See affected content, response codes, and missing featured-image entries. Results help locate problems; verify a blocked request before treating it as a missing file."
     }
   ],
   "ctaTitle": "Get the Plugin",
-  "ctaLines": ["Last updated: May 10, 2026"],
+  "ctaLines": [],
   "ctaHref": "https://wordpress.org/plugins/kreativ-broken-image-finder/",
   "ctaLabel": "View on WordPress.org",
   "downloadHref": "https://downloads.wordpress.org/plugin/kreativ-broken-image-finder.latest-stable.zip",
@@ -30,30 +26,21 @@
     {
       "label": "Read plugin update",
       "href": "/news/kreativ-broken-image-finder-live/"
-    }
-  ],
-  "lastUpdated": "May 10, 2026",
-  "lastUpdatedIso": "2026-05-10",
-  "additionalSections": [
-    {
-      "title": "Who Should Use It",
-      "items": [
-        {
-          "title": "Content teams watching media quality",
-          "body": "This plugin is aimed at WordPress sites where missing images hurt trust, readability, and the perceived quality of published content."
-        },
-        {
-          "title": "Teams with recurring audits",
-          "body": "It fits sites that need a repeatable way to catch broken media references instead of discovering them one page at a time."
-        }
-      ]
     },
     {
-      "title": "Typical Workflow",
+      "label": "Read the local workflow checks and limitations",
+      "href": "/research/2026-10-09/plugins/plugin-workflows.json"
+    }
+  ],
+  "lastUpdated": "October 9, 2026",
+  "lastUpdatedIso": "2026-10-09",
+  "additionalSections": [
+    {
+      "title": "A useful boundary",
       "items": [
         {
-          "title": "Scan, identify affected content, repair the missing assets",
-          "body": "The expected workflow is straightforward: run checks, review affected posts or pages, then fix or replace missing media before the issue reaches users."
+          "title": "Manual checks, not an automatic schedule",
+          "body": "The plugin runs when you start a scan in the dashboard. Plan periodic checks after migrations or content changes. Large sites and image servers that block HEAD requests need extra care."
         }
       ]
     }
@@ -73,5 +60,29 @@
   ],
   "live": true,
   "statusPhase": "live",
-  "sortOrder": 2
+  "sortOrder": 2,
+  "quickStart": [
+    "In WordPress, open Plugins → Add New Plugin and search for “Kreativ Broken Image Finder”, or upload the ZIP. Install and activate it on staging first.",
+    "Open the Kreativ Broken Image Finder menu and choose “Run Full Scan”. Keep the dashboard open while the batches complete.",
+    "Review the summary and filter the results by post type, source, or response code. The scanner checks content <img> source URLs and featured images; CSS backgrounds are outside this scope.",
+    "Open each affected post, confirm the image really is unavailable, and repair or replace it. A blocked HEAD request can need manual verification. Run another scan after cleanup."
+  ],
+  "release": {
+    "version": "1.2.0",
+    "updated": "2026-02-20",
+    "wordpress": "5.0",
+    "php": "Not declared in the directory",
+    "tested": "6.9.10",
+    "checked": "2026-10-09",
+    "source": "https://wordpress.org/plugins/kreativ-broken-image-finder/"
+  },
+  "screenshots": [
+    {
+      "src": "/research/2026-10-09/plugins/kreativ-broken-image-finder-admin.png",
+      "label": "A completed manual scan with a missing-image HTTP 404 result",
+      "alt": "A completed manual scan with a missing-image HTTP 404 result in the isolated KreativWP plugin lab",
+      "width": 1200,
+      "height": 1304
+    }
+  ]
 }

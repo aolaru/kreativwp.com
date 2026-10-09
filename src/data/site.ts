@@ -10,3 +10,11 @@ export const footerLinks = [
   { label: "Kreativ Tools", href: "https://kreativtools.com" },
   { label: "KreativWP", href: "https://kreativwp.com" }
 ];
+
+export const trustLinks = [
+  { label: "About Andrei", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Methodology", href: "/methodology/" },
+  { label: "Privacy", href: "/privacy/" },
+  { label: "Updates", href: "/news/" }
+];

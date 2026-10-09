@@ -3,7 +3,7 @@ const { test, expect } = require("@playwright/test");
 const image = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jfXcAAAAASUVORK5CYII=", "base64");
 
 test("loaded plugin previews hide fallback art and have bounded desktop and mobile heights", async ({ page }) => {
-  await page.route(/https:\/\/(?:ps|ts)\.w\.org\//, (route) => route.fulfill({ contentType: "image/png", body: image }));
+  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.fulfill({ contentType: "image/png", body: image }));
   await page.goto("/");
   const thumbnail = page.locator(".homepage-feature .plugin-thumbnail");
   await thumbnail.scrollIntoViewIfNeeded();
@@ -16,7 +16,7 @@ test("loaded plugin previews hide fallback art and have bounded desktop and mobi
 });
 
 test("failed plugin previews show only their fallback", async ({ page }) => {
-  await page.route(/https:\/\/ps\.w\.org\//, (route) => route.abort());
+  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.abort());
   await page.goto("/");
   const thumbnail = page.locator(".homepage-feature .plugin-thumbnail");
   await thumbnail.scrollIntoViewIfNeeded();

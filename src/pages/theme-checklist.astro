@@ -38,7 +38,7 @@ const groups = [
   <section class="editorial-section checklist" aria-labelledby="checklist-title">
     <h2 id="checklist-title">Before you commit</h2>
     <p class="section-intro">Work through this with your shortlist. Use a staging site for anything that changes your current website.</p>
-    <div class="checklist__actions"><button class="button-like button-like--primary" id="print-checklist" type="button">Print or save as PDF</button><a class="button-like" href="/downloads/kreativwp-theme-checklist.txt" download>Download text checklist</a></div>
+    <div class="checklist__actions"><button class="button-like button-like--primary" id="print-checklist" type="button" data-track="checklist_print" data-resource="theme-checklist">Print or save as PDF</button><a class="button-like" href="/downloads/kreativwp-theme-checklist.txt" download data-track="checklist_download" data-resource="theme-checklist">Download text checklist</a></div>
     {groups.map((group, groupIndex) => <fieldset><legend>{group.title}</legend>{group.items.map((item, itemIndex) => <label><input type="checkbox" id={`check-${groupIndex}-${itemIndex}`} /><span>{item}</span></label>)}</fieldset>)}
     <p class="centered-action"><a class="button-like" href="/tools/theme-finder/">Build my theme shortlist</a></p>
   </section>

@@ -10,19 +10,15 @@
   "detailItems": [
     {
       "title": "Visitor reports, not an automatic scanner",
-      "body": "Adds a report button to enabled post types so visitors can flag a page with broken links. It does not crawl or automatically check URLs."
+      "body": "Adds a report button to enabled post types. Visitors flag a page that needs attention; the plugin does not crawl or automatically check links."
     },
     {
-      "title": "Actionable reporting",
-      "body": "Exports clear reports for cleanup sessions so teams can resolve link debt quickly."
-    },
-    {
-      "title": "Keep track of fixes",
-      "body": "Resolve, ignore, or reopen reports from the WordPress dashboard, with optional email notifications."
+      "title": "A dashboard for follow-up",
+      "body": "Review the reported page, resolve, ignore, or reopen reports. Optional notifications and CSV export help you keep the cleanup work organized."
     }
   ],
   "ctaTitle": "Get the Plugin",
-  "ctaLines": ["Last updated: May 10, 2026"],
+  "ctaLines": [],
   "ctaHref": "https://wordpress.org/plugins/kreativ-report-broken-link/",
   "ctaLabel": "View on WordPress.org",
   "downloadHref": "https://downloads.wordpress.org/plugin/kreativ-report-broken-link.latest-stable.zip",
@@ -37,30 +33,21 @@
     {
       "label": "Read plugin update",
       "href": "/news/kreativ-report-broken-link-live/"
-    }
-  ],
-  "lastUpdated": "May 10, 2026",
-  "lastUpdatedIso": "2026-05-10",
-  "additionalSections": [
-    {
-      "title": "Who Should Use It",
-      "items": [
-        {
-          "title": "Site owners doing regular cleanup",
-          "body": "This plugin is built for WordPress teams that need a practical way to find broken internal and external links before they turn into visible trust issues."
-        },
-        {
-          "title": "Agencies maintaining multiple sites",
-          "body": "Use visitor feedback as one part of a maintenance routine. Pair it with a separate scanner when you need automatic link checks."
-        }
-      ]
     },
     {
-      "title": "Typical Workflow",
+      "label": "Read the local workflow checks and limitations",
+      "href": "/research/2026-10-09/plugins/plugin-workflows.json"
+    }
+  ],
+  "lastUpdated": "October 9, 2026",
+  "lastUpdatedIso": "2026-10-09",
+  "additionalSections": [
+    {
+      "title": "A useful boundary",
       "items": [
         {
-          "title": "Receive a report, check the page, then resolve it",
-          "body": "Review visitor-submitted reports in the dashboard, inspect the affected page, repair its links, and mark the report resolved. Export a CSV when you need to share the work."
+          "title": "Pair feedback with your maintenance routine",
+          "body": "Visitor reports tell you where someone noticed a problem. They do not prove every link is healthy. Use a separate crawler if you need automatic URL checks."
         }
       ]
     }
@@ -80,5 +67,36 @@
   ],
   "live": true,
   "statusPhase": "live",
-  "sortOrder": 1
+  "sortOrder": 1,
+  "quickStart": [
+    "In WordPress, open Plugins → Add New Plugin and search for “Kreativ Report Broken Link”, or upload the ZIP. Install and activate it on staging first.",
+    "Open Kreativ Broken Links → Settings and choose which post types should show the report button. Check the notification email before enabling notifications.",
+    "Open a published post as a visitor and use “Report broken links on this page”. It reports the page; it does not automatically scan URLs.",
+    "Open Kreativ Broken Links → Reports, inspect the reported page, repair its links, and mark the report resolved. Export CSV when sharing a cleanup list."
+  ],
+  "release": {
+    "version": "1.3.7",
+    "updated": "2026-01-25",
+    "wordpress": "5.8",
+    "php": "7.4+",
+    "tested": "6.9.10",
+    "checked": "2026-10-09",
+    "source": "https://wordpress.org/plugins/kreativ-report-broken-link/"
+  },
+  "screenshots": [
+    {
+      "src": "/research/2026-10-09/plugins/kreativ-report-broken-link-visitor.png",
+      "label": "The visitor-facing report button on a published post",
+      "alt": "The visitor-facing report button on a published post in the isolated KreativWP plugin lab",
+      "width": 1200,
+      "height": 1810
+    },
+    {
+      "src": "/research/2026-10-09/plugins/kreativ-report-broken-link-admin.png",
+      "label": "A resolved visitor report in the dashboard",
+      "alt": "A resolved visitor report in the dashboard in the isolated KreativWP plugin lab",
+      "width": 1200,
+      "height": 900
+    }
+  ]
 }

@@ -1,0 +1,4 @@
+---
+const { date, label = date } = Astro.props;
+---
+<p class="editorial-byline">By <a href="/about/">Andrei Olaru</a>{date && <> · Checked <time datetime={date}>{label}</time></>} · <a href="/methodology/">Research standards</a></p>

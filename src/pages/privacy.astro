@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const gaEnabled = Boolean(import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID);
+const subscriptionEnabled = Boolean(import.meta.env.PUBLIC_NEWSLETTER_FORM_ACTION);
+---
+<BaseLayout title="Privacy | KreativWP" description="How KreativWP handles email requests, analytics, local preferences, and external links." canonicalPath="/privacy/" heroEyebrow="Privacy" heroTitle="A clear view of your data." heroTagline="What this website stores and which services it uses." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo">
+  <article class="editorial-section longform">
+    <h2>Website preferences and tools</h2><p>Your light/dark preference is stored in your browser’s local storage. Finder answers are processed in the browser; there is no account or server-side saved shortlist. The theme checklist is free without an email address.</p>
+    <h2>Analytics and third-party resources</h2><p>The site includes Cloudflare Web Analytics. It also loads the Space Grotesk font from Google Fonts. These requests disclose connection information to their providers. Some full-size screenshot links and plugin downloads lead to WordPress.org or vendor websites, which have their own policies.</p>
+    <p><a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">About Cloudflare Web Analytics</a> · <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener noreferrer">Google Fonts privacy information</a></p>
+    {gaEnabled ? <p>Google Analytics is enabled in this build. It receives page views and bounded interaction events such as a plugin download click or a finder completion. Email addresses, typed search queries, and full download URLs are not included in the custom event parameters. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s privacy policy</a></p> : <p>Google Analytics is not enabled in this build. Interaction events are prepared locally but are not sent to a Google Analytics account.</p>}
+    <h2>Email requests</h2>
+    {subscriptionEnabled ? <p>The updates form sends your email address to the configured subscription service. Review its privacy information and confirmation flow before subscribing. You can ask to stop receiving messages by emailing info@kreativwp.com.</p> : <p>The updates form prepares a message in your email app. Nothing is submitted until you send that message. Your address and message then arrive in the KreativWP mailbox so I can respond to your request; this is not an automatic newsletter signup.</p>}
+    <p>For questions about information you have sent me, or to request that updates stop, email <a href="mailto:info@kreativwp.com">info@kreativwp.com</a>. Please do not include passwords or sensitive site credentials.</p>
+  </article>
+</BaseLayout>

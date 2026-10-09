@@ -37,23 +37,19 @@ Builds as a static Astro site for deployment on any static host.
 
 ## Newsletter integration
 
-The newsletter form can post directly to any provider-compatible endpoint. Set `PUBLIC_NEWSLETTER_FORM_ACTION` in the build environment to that endpoint; until it is configured, the form retains its email-request fallback. A provider account and its exact subscribe endpoint are required before live email capture can be enabled.
+Without a provider, the updates form explicitly opens an email request. Visitors must send that message; the website does not claim they have subscribed. No email is stored by the website.
+
+For automatic subscription, set `PUBLIC_NEWSLETTER_FORM_ACTION` to a verified HTTPS endpoint that accepts a standard POST with an `email` field. Providers requiring tokens, different fields, or server-side calls need an adapter first. Verify its confirmation, unsubscribe, consent, and privacy flow before enabling it, and name the service in `/privacy/`. A submitted request event is not proof of a confirmed subscription.
 
 ## Measurement and Search Console
 
-Set `PUBLIC_GOOGLE_ANALYTICS_ID` to enable Google Analytics page views and tool-completion events. Set `PUBLIC_GOOGLE_SITE_VERIFICATION` to add the Search Console verification meta tag. Both are optional, so no third-party tracking script is shipped until an ID is configured.
+The existing Cloudflare Web Analytics beacon remains enabled. Set `PUBLIC_GOOGLE_ANALYTICS_ID` to enable optional Google Analytics page views and bounded interaction events: product download clicks, profile opens, finder completion, checklist actions, and updates requests. Custom event parameters do not contain email addresses, search text, or full destination URLs. Download clicks are not verified installs. No GA account receives these events when its ID is absent. Evaluate consent requirements before enabling GA. Set `PUBLIC_GOOGLE_SITE_VERIFICATION` for the optional Search Console verification meta tag.
 
 ## Workspace Reliability
 
 - Do not use a Dropbox-synced folder as the primary live working tree for this repo.
 - Git index operations and Astro builds can time out in synced folders.
 - Preferred workflow: keep the active clone in a normal local path and let Dropbox sync only backups or exports if needed.
-
-## Workspace Reliability
-
-- Do not use a Dropbox-synced folder as the primary live working tree for this repo.
-- Git index operations and Astro builds can time out in synced folders.
-- Preferred workflow: keep the active clone in a normal local path, then let Dropbox sync backups or a secondary copy if needed.
 
 ## Visual Regression Checks
 
@@ -64,11 +60,13 @@ Set `PUBLIC_GOOGLE_ANALYTICS_ID` to enable Google Analytics page views and tool-
 
 - Run built HTML validation: `npm run lint:html`
 - Run built internal link checks: `npm run lint:links`
+- Internal checks include fragments, same-site absolute links, image sources, and responsive `srcset` files.
+- Run network diagnostics separately: `npm run check:external`. Blocked responses are reported as indeterminate, not healthy. Use `--strict` to fail on blocked checks as well. PR/manual workflow: `.github/workflows/external-links.yml`.
 - Run all checks (HTML, links, visual tests): `npm run check`
 
 ## Editorial Content
 
-Editorial seed entries are deliberately marked `isPlaceholder: true`. Their detail pages remain `noindex` until hands-on testing replaces the preview copy with substantiated editorial material. Existing product routes under `/plugins/<slug>/` remain the canonical product URLs; `/products/` is the dedicated product archive.
+Unpublished editorial seeds use `isPlaceholder: true` and `noindex`. Published documented research is explicitly distinguished from scoped hands-on work; publication does not imply the product was tested. Existing product routes under `/plugins/<slug>/` remain canonical; `/products/` is the product archive.
 
 ## Theme checklist
 
@@ -85,6 +83,24 @@ Live products can supply an official `downloadHref` and a `homepageScreenshot` w
 The theme and plugin libraries share name search, name/recent/editorial sorting, URL-backed filters, and eight-card progressive loading. The full catalog remains in the HTML and is readable without JavaScript. URLs use `q`, `filters` (comma-separated values), and `sort` (`name`, `recent`, or `editorial`); loading more cards is local to the current view and resets when search, filters, or sorting change.
 
 Classification, filter groups, and explicit ordered editorial picks live in `src/data/library.ts`. Options in a “match any” group are alternatives; separate groups must all match. Theme “Requirements” is a “match all” group. Cards use a short excerpt from the existing profile’s `bestFor` text, or product `cardUse`, and do not enlarge the first alphabetical entry. Editorial selection is distinct from the profile’s research method and does not imply a default-install stack.
+
+Theme, plugin, and stack finders share the normalized catalog and pure rules in `src/data/recommendations.ts`. Free budgets exclude paid-only tools; unknown/managed hosting does not trigger a cache purchase; existing capabilities are skipped. A stack contains plugins only for explicitly selected jobs. These are research shortlists, not compatibility guarantees.
+
+## Optimized previews
+
+Run `npm run assets:previews` after adding catalog screenshots. It caches published HTTPS previews as local 320/640/1000px WebP variants where the source permits, and records provenance, dimensions, and byte counts in `public/media/previews.json`. `--refresh` replaces cached variants from their sources. Cards retain attribution and full-size source links. The shared preview component supplies responsive sizes and a graceful card fallback. Never manufacture a vendor screenshot.
+
+## Hands-on plugin evidence
+
+Scoped free-edition checks for Fluent Forms, UpdraftPlus, and Site Kit, plus both KreativWP products, are recorded in `public/research/2026-10-09/plugins/plugin-workflows.json`. Fluent Forms covers creation, embedding, submission, and dashboard retrieval. UpdraftPlus covers a local uploads archive and byte readback, **not** a full restore. Site Kit covers activation and its local/staging setup boundary, **not** connected Google reporting. Each page displays versions, limitations, and real screenshots.
+
+To repeat, create a fresh throwaway WordPress/SQLite installation inside a directory named `kreativwp-plugin-lab.<unique-suffix>`, install the five plugins, set WP_HOME/WP_SITEURL to its loopback server, disable WP cron, and install a lab-only MU-plugin containing `add_filter('pre_wp_mail', '__return_false');`. Never use production data or accounts. Serve it on port 5503 and this site's production preview on 5501, then run:
+
+```sh
+node scripts/review-plugin-workflows.mjs /private/tmp/kreativwp-plugin-lab.<unique-suffix>/wordpress /path/to/wp-cli.phar http://127.0.0.1:5503
+```
+
+The recorder creates a temporary reviewer account, fixture content/forms, an uploads backup, reports, and scan results in that lab. It does not authorize Google, send email, restore a site, or mutate this site's production WordPress installation. Review generated evidence before publishing it. Set `PLUGIN_LAB_PLUGINS` to a comma-separated subset to repeat individual checks.
 
 ## Hands-on theme evidence
 

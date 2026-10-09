@@ -1,6 +1,82 @@
 {
-  "title": "GeneratePress vs Kadence", "description": "A documentation-led comparison of a deliberate block-editor workflow and a more visual design-control workflow.", "metaDescription": "A transparently scoped GeneratePress versus Kadence WordPress comparison from KreativWP.", "category": "Theme comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
-  "leftName": "GeneratePress", "rightName": "Kadence", "comparisonAreas": ["Block Elements and composable layout workflow", "Header, footer, typography, and global design controls", "Companion-plugin and premium-feature dependencies", "Same-content performance and accessibility tests still required"],
+  "title": "GeneratePress vs Kadence",
+  "description": "A documentation-led comparison of a deliberate block-editor workflow and a more visual design-control workflow.",
+  "metaDescription": "A transparently scoped GeneratePress versus Kadence WordPress comparison from KreativWP.",
+  "category": "Theme comparison",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "leftName": "GeneratePress",
+  "rightName": "Kadence",
+  "comparisonAreas": [
+    "Block Elements and composable layout workflow",
+    "Header, footer, typography, and global design controls",
+    "Companion-plugin and premium-feature dependencies",
+    "Same-content performance and accessibility tests still required"
+  ],
   "takeaway": "GeneratePress is a stronger starting point for teams that prefer deliberate composition in the block editor; Kadence merits attention when visual header, footer, and global-design controls are central. Test both with the same content before deciding.",
-  "decisionGuide": {"chooseLeft": "your team is comfortable composing layouts deliberately with blocks and wants to make each site-system choice explicit.", "chooseRight": "global visual controls, especially headers and footers, should be immediately approachable for the people who will maintain the site.", "verify": "Create the same header, landing page, and representative content pattern in both. Check dependency, plan, accessibility, and editing implications on your real stack."}
+  "decisionGuide": {
+    "chooseLeft": "your team is comfortable composing layouts deliberately with blocks and wants to make each site-system choice explicit.",
+    "chooseRight": "global visual controls, especially headers and footers, should be immediately approachable for the people who will maintain the site.",
+    "verify": "Create the same header, landing page, and representative content pattern in both. Check dependency, plan, accessibility, and editing implications on your real stack."
+  },
+  "leftHref": "/themes/generatepress/",
+  "rightHref": "/themes/kadence/",
+  "rows": [
+    {
+      "label": "Free foundation",
+      "left": "Free classic theme with Customizer layout controls and WordPress core-block support.",
+      "right": "Free classic theme with a visual header/footer builder and central design controls.",
+      "sourceIds": [
+        "gp",
+        "kadence"
+      ]
+    },
+    {
+      "label": "Advanced templates",
+      "left": "GP Premium Block Elements compose hook, header, and other site areas using blocks.",
+      "right": "Pro theme features and optional block products extend the free theme; check which license supplies each feature.",
+      "sourceIds": [
+        "elements",
+        "kadence"
+      ]
+    },
+    {
+      "label": "Extra plugins",
+      "left": "GenerateBlocks is separate from the theme. Core WordPress blocks do not require it.",
+      "right": "Kadence Blocks is separate from the theme. Core WordPress blocks do not require it.",
+      "sourceIds": [
+        "gp",
+        "kadence"
+      ]
+    },
+    {
+      "label": "Choosing a workflow",
+      "left": "Consider it when you want to compose the site system deliberately; verify the premium modules needed.",
+      "right": "Consider it when visual header/footer and global palette controls are priorities.",
+      "sourceIds": [
+        "elements",
+        "kadence"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "gp",
+      "label": "GeneratePress free theme",
+      "href": "https://wordpress.org/themes/generatepress/"
+    },
+    {
+      "id": "elements",
+      "label": "GeneratePress Block Elements",
+      "href": "https://docs.generatepress.com/article/block-element-overview/"
+    },
+    {
+      "id": "kadence",
+      "label": "Kadence theme controls and ecosystem",
+      "href": "https://www.kadencewp.com/kadence-theme/"
+    }
+  ],
+  "migration": "Build one matching header and content template on staging, then check the editing handoff. Keep content-block dependencies separate from theme settings. The existing local reviews do not test premium modules, WooCommerce, or which complete stack is faster."
 }

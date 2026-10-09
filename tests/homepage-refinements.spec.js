@@ -4,11 +4,12 @@ const fs = require("node:fs");
 const theme = JSON.parse(fs.readFileSync("src/content/theme-reviews/generatepress.json", "utf8"));
 const plugin = JSON.parse(fs.readFileSync("src/content/plugin-reviews/fluent-forms.json", "utf8"));
 const products = ["kreativ-report-broken-link", "kreativ-broken-image-finder"].map((id) => ({ id, ...JSON.parse(fs.readFileSync(`src/content/plugins/${id}.json`, "utf8")) }));
-const productPreview = "https://ps.w.org/kreativ-report-broken-link/assets/screenshot-2.png?rev=3446681";
+const previewManifest = require("../public/media/previews.json");
+const productPreview = previewManifest[products[0].homepageScreenshot.src].src;
 
 test.beforeEach(async ({ page }) => {
   // Rendering regressions should not depend on WordPress.org availability.
-  await page.route(/https:\/\/(?:ps|ts)\.w\.org\//, (route) => route.fulfill({
+  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.fulfill({
     contentType: "image/svg+xml",
     body: '<svg xmlns="http://www.w3.org/2000/svg" width="2762" height="1494"><rect width="2762" height="1494" fill="#e5f1fc"/></svg>'
   }));
@@ -59,7 +60,7 @@ test("both products have a direct free ZIP and a separate detail link with a rea
 });
 
 test("a failed product preview hides its broken image and keeps the workflow link", async ({ page }) => {
-  await page.route(productPreview, (route) => route.abort());
+  await page.route(new RegExp(productPreview.replace(/-\\d+\\.webp$/, "-.*\\\\.webp")), (route) => route.abort());
   await page.goto("/");
   const figure = page.locator(".product-edition__preview");
   await figure.scrollIntoViewIfNeeded();

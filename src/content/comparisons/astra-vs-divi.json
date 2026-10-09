@@ -1,6 +1,87 @@
 {
-  "title": "Astra vs Divi", "description": "A documentation-led comparison of Astra’s flexible theme ecosystem and Divi’s all-in-one visual-building workflow.", "metaDescription": "A transparently scoped Astra versus Divi WordPress comparison from KreativWP.", "category": "Theme comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
-  "leftName": "Astra", "rightName": "Divi", "comparisonAreas": ["Starter templates and preferred editor workflow", "How much of the site system lives in the theme versus a visual builder", "Pricing, migration, and long-term editor fit", "Performance testing still required on the same representative site"],
+  "title": "Astra vs Divi",
+  "description": "A documentation-led comparison of Astra’s flexible theme ecosystem and Divi’s all-in-one visual-building workflow.",
+  "metaDescription": "A transparently scoped Astra versus Divi WordPress comparison from KreativWP.",
+  "category": "Theme comparison",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "leftName": "Astra",
+  "rightName": "Divi",
+  "comparisonAreas": [
+    "Starter templates and preferred editor workflow",
+    "How much of the site system lives in the theme versus a visual builder",
+    "Pricing, migration, and long-term editor fit",
+    "Performance testing still required on the same representative site"
+  ],
   "takeaway": "Choose Astra when you want flexibility across WordPress editing workflows; evaluate Divi when a unified visual builder and its broader ecosystem fit the team. Neither choice should be made without confirming editor ownership and migration expectations.",
-  "decisionGuide": {"chooseLeft": "you want to choose your preferred block-editor or page-builder stack independently and value a broad starter-template ecosystem.", "chooseRight": "your team wants to standardize on one visual builder for pages and site-wide templates.", "verify": "Build one representative page, template, and responsive variation in each workflow. Confirm the migration path and exact plan before committing."}
+  "decisionGuide": {
+    "chooseLeft": "you want to choose your preferred block-editor or page-builder stack independently and value a broad starter-template ecosystem.",
+    "chooseRight": "your team wants to standardize on one visual builder for pages and site-wide templates.",
+    "verify": "Build one representative page, template, and responsive variation in each workflow. Confirm the migration path and exact plan before committing."
+  },
+  "leftHref": "/themes/astra/",
+  "rightHref": "/themes/divi/",
+  "rows": [
+    {
+      "label": "Editing approach",
+      "left": "Use WordPress blocks or your chosen page builder; Astra supplies the theme foundation.",
+      "right": "Divi supplies its own visual builder and site-wide Theme Builder workflow.",
+      "sourceIds": [
+        "astra",
+        "divi"
+      ]
+    },
+    {
+      "label": "Free versus paid",
+      "left": "A free theme is available. Astra Pro and template/plugin packages add paid capabilities.",
+      "right": "A paid ecosystem; no free Divi theme edition is listed. Confirm the current license and included products.",
+      "sourceIds": [
+        "astra",
+        "divi"
+      ]
+    },
+    {
+      "label": "Templates and dependencies",
+      "left": "Starter sites are part of a separate template ecosystem; check the editor and plugins required by each import.",
+      "right": "Layouts and site templates are designed around the Divi builder. Check the specific layout’s requirements.",
+      "sourceIds": [
+        "templates",
+        "divi"
+      ]
+    },
+    {
+      "label": "Store workflow",
+      "left": "WooCommerce integration in the theme; advanced controls depend on edition and configuration.",
+      "right": "WooCommerce modules and product templates within the visual-building system.",
+      "sourceIds": [
+        "commerce",
+        "divi"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "astra",
+      "label": "Astra directory and free edition",
+      "href": "https://wordpress.org/themes/astra/"
+    },
+    {
+      "id": "templates",
+      "label": "Astra template FAQ",
+      "href": "https://wpastra.com/faq/"
+    },
+    {
+      "id": "commerce",
+      "label": "Astra WooCommerce integration",
+      "href": "https://wpastra.com/docs/woocommerce-integration/"
+    },
+    {
+      "id": "divi",
+      "label": "Divi builder and current plans",
+      "href": "https://www.elegantthemes.com/gallery/divi/"
+    }
+  ],
+  "migration": "Separate theme settings from builder content. On a staging copy, change the theme and inspect headers, product templates, and one existing page. Moving away from a visual builder may require rebuilding layouts; no migration exercise or speed comparison is claimed here."
 }

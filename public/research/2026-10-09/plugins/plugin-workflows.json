@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-09",
+  "wordpressVersion": "7.1.3",
+  "phpVersion": "8.5.3",
+  "environment": "Isolated local macOS PHP server; SQLite Database Integration; Chromium; free editions. Email sending disabled by a lab-only filter. No production accounts or site data.",
+  "plugins": [
+    {
+      "slug": "fluentform",
+      "pluginVersion": "6.2.15",
+      "checks": [
+        {
+          "title": "Create and embed",
+          "detail": "Created a free contact template through the plugin UI and embedded its shortcode on a published page."
+        },
+        {
+          "title": "Submit and retrieve",
+          "detail": "Submitted synthetic name, email, subject, and message fields. The public success message appeared; one database entry and its dashboard row were verified."
+        }
+      ],
+      "limitations": [
+        "Email sending was disabled, so notification deliverability is not established.",
+        "Payments, Pro integrations, spam handling, high-volume behavior, and production MySQL compatibility were not tested."
+      ],
+      "screenshots": [
+        {
+          "src": "/research/2026-10-09/plugins/fluentform-builder.png",
+          "label": "A newly created free contact-form template in the builder",
+          "alt": "A newly created free contact-form template in the builder in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 1093
+        },
+        {
+          "src": "/research/2026-10-09/plugins/fluentform-public.png",
+          "label": "The contact form embedded on a published WordPress page",
+          "alt": "The contact form embedded on a published WordPress page in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 1152
+        },
+        {
+          "src": "/research/2026-10-09/plugins/fluentform-entry.png",
+          "label": "The submitted contact entry in the WordPress dashboard",
+          "alt": "The submitted contact entry in the WordPress dashboard in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 910
+        }
+      ],
+      "formId": 5,
+      "savedEntryCount": 1
+    },
+    {
+      "slug": "updraftplus",
+      "pluginVersion": "1.26.8",
+      "checks": [
+        {
+          "title": "Create a local file backup",
+          "detail": "Started an uploads-only backup from the dashboard with database backup excluded. Ran due cron jobs in the isolated lab and verified the recorded uploads ZIP."
+        },
+        {
+          "title": "Check archive contents",
+          "detail": "Read back the known fixture from the generated ZIP and matched its bytes to the original. The dashboard exposed the backup and restore controls."
+        }
+      ],
+      "limitations": [
+        "This is an uploads-archive check, not a full plugin restore or disaster-recovery exercise.",
+        "Database backup, MySQL restores, scheduled timing, remote storage, and Premium features were not tested. SQLite is not a production MySQL test."
+      ],
+      "screenshots": [
+        {
+          "src": "/research/2026-10-09/plugins/updraftplus-backup.png",
+          "label": "A completed local uploads backup and its restore controls",
+          "alt": "A completed local uploads backup and its restore controls in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 1116
+        }
+      ],
+      "archiveReadbackVerified": true
+    },
+    {
+      "slug": "google-site-kit",
+      "pluginVersion": "1.189.0",
+      "checks": [
+        {
+          "title": "Activation and setup boundary",
+          "detail": "Activated the free plugin and opened its setup UI. It displayed the local/staging readiness warning and a Google sign-in step."
+        },
+        {
+          "title": "No account changes",
+          "detail": "No Google authorization, service connection, Analytics configuration, or production-site change was attempted. Anonymous usage-data sharing was left off."
+        }
+      ],
+      "limitations": [
+        "Connected Search Console/Analytics reports and verified public-site setup were not tested.",
+        "A public site and explicitly authorized Google account are required for a complete integration test; local activation is not proof of connected reporting."
+      ],
+      "screenshots": [
+        {
+          "src": "/research/2026-10-09/plugins/google-site-kit-setup.png",
+          "label": "Site Kit’s local/staging warning and Google authorization step",
+          "alt": "Site Kit’s local/staging warning and Google authorization step in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 900
+        }
+      ],
+      "authorizationAttempted": false
+    },
+    {
+      "slug": "kreativ-report-broken-link",
+      "pluginVersion": "1.3.7",
+      "checks": [
+        {
+          "title": "Report and resolve",
+          "detail": "Submitted a report from an anonymous visitor session, reviewed it in the dashboard, and marked it resolved."
+        },
+        {
+          "title": "Export",
+          "detail": "Downloaded the CSV and verified the resolved report’s post ID and status."
+        }
+      ],
+      "limitations": [
+        "Notifications, spam/abuse handling, and large report volumes were not tested.",
+        "This is visitor feedback, not an automatic link crawler."
+      ],
+      "screenshots": [
+        {
+          "src": "/research/2026-10-09/plugins/kreativ-report-broken-link-visitor.png",
+          "label": "The visitor-facing report button on a published post",
+          "alt": "The visitor-facing report button on a published post in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 1810
+        },
+        {
+          "src": "/research/2026-10-09/plugins/kreativ-report-broken-link-admin.png",
+          "label": "A resolved visitor report in the dashboard",
+          "alt": "A resolved visitor report in the dashboard in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 900
+        }
+      ],
+      "reportResolved": true,
+      "csvVerified": true
+    },
+    {
+      "slug": "kreativ-broken-image-finder",
+      "pluginVersion": "1.2.0",
+      "checks": [
+        {
+          "title": "Controlled image scan",
+          "detail": "Scanned a fixture containing one reachable local image URL and one known missing URL. The completed report recorded the missing request as HTTP 404."
+        }
+      ],
+      "limitations": [
+        "Large sites, remote hosts that block HEAD, CSS backgrounds, and responsive srcset variants were not tested.",
+        "The scan was manually started; no automatic schedule is claimed."
+      ],
+      "screenshots": [
+        {
+          "src": "/research/2026-10-09/plugins/kreativ-broken-image-finder-admin.png",
+          "label": "A completed manual scan with a missing-image HTTP 404 result",
+          "alt": "A completed manual scan with a missing-image HTTP 404 result in the isolated KreativWP plugin lab",
+          "width": 1200,
+          "height": 1304
+        }
+      ],
+      "scanStats": {
+        "total_posts": 9,
+        "total_images_found": 4,
+        "broken_images": 2,
+        "missing_featured_images": 9,
+        "scan_time": 0.93
+      }
+    }
+  ]
+}

@@ -24,12 +24,15 @@ const plugins = defineCollection({
     ctaLabel: z.string().optional(),
     downloadHref: z.string().url().optional(),
     homepageScreenshot: z.object({
-      src: z.string().url(),
+      src: z.string(),
       alt: z.string(),
       caption: z.string(),
       width: z.number().positive(),
       height: z.number().positive()
     }).optional(),
+    release: z.object({ version: z.string(), updated: z.string(), wordpress: z.string(), php: z.string(), tested: z.string(), checked: z.string(), source: z.string().url() }).optional(),
+    quickStart: z.array(z.string()).optional(),
+    screenshots: z.array(z.object({ src: z.string(), alt: z.string(), label: z.string(), width: z.number(), height: z.number() })).optional(),
     supportingLinks: z
       .array(
         z.object({
@@ -108,6 +111,14 @@ const editorialBase = z.object({
   thumbnailAlt: z.string().optional()
 });
 
+const handsOnTest = z.object({
+  date: z.string(), pluginVersion: z.string(), wordpressVersion: z.string(), phpVersion: z.string(),
+  environment: z.string(), checks: z.array(z.object({ title: z.string(), detail: z.string() })).min(1),
+  limitations: z.array(z.string()).min(1),
+  screenshots: z.array(z.object({ src: z.string(), alt: z.string(), label: z.string(), width: z.number(), height: z.number() })).min(1),
+  evidenceHref: z.string()
+});
+
 const themeReviews = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/theme-reviews" }),
   schema: editorialBase.extend({
@@ -158,7 +169,10 @@ const pluginReviews = defineCollection({
     caveats: z.string().optional(),
     sources: z.array(z.object({ label: z.string(), href: z.string().url() })).optional(),
     officialUrl: z.string().url().optional(),
-    affiliateId: z.string().optional()
+    affiliateId: z.string().optional(),
+    handsOnTest: handsOnTest.optional()
+  }).superRefine((entry, context) => {
+    if (entry.researchMethod === "hands-on" && !entry.handsOnTest) context.addIssue({ code: z.ZodIssueCode.custom, path: ["handsOnTest"], message: "Hands-on plugin reviews require recorded evidence and limitations." });
   })
 });
 
@@ -169,6 +183,11 @@ const comparisons = defineCollection({
     rightName: z.string(),
     comparisonAreas: z.array(z.string()),
     takeaway: z.string(),
+    leftHref: z.string(),
+    rightHref: z.string(),
+    rows: z.array(z.object({ label: z.string(), left: z.string(), right: z.string(), sourceIds: z.array(z.string()).min(1) })).min(4),
+    sources: z.array(z.object({ id: z.string(), label: z.string(), href: z.string().url() })).min(2),
+    migration: z.string(),
     decisionGuide: z
       .object({
         chooseLeft: z.string(),
@@ -176,6 +195,9 @@ const comparisons = defineCollection({
         verify: z.string()
       })
       .optional()
+  }).superRefine((entry, context) => {
+    const ids = new Set(entry.sources.map((source) => source.id));
+    for (const [index, row] of entry.rows.entries()) if (row.sourceIds.some((id) => !ids.has(id))) context.addIssue({ code: z.ZodIssueCode.custom, path: ["rows", index, "sourceIds"], message: "Every comparison row must reference a declared official source." });
   })
 });
 

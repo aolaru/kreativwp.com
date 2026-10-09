@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import EditorialByline from "../../components/EditorialByline.astro";
 import { getAffiliateLink } from "../../data/affiliate";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 export async function getStaticPaths() { const entries = await getCollection("themeReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
@@ -10,6 +11,7 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
 ---
 <BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="Theme review" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Themes", href: "/themes/" }, { label: entry.data.themeName }]} />
+  <EditorialByline date={entry.data.updated} label={entry.data.updatedLabel} />
   {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this page is a transparent template for planned hands-on testing, not a completed recommendation.</div> : <div class="editorial-notice" role="status">Published {entry.data.researchMethod === "documented-research" ? "documentation research" : "hands-on review"} — scope and source links are shown below.</div>}
   <section class="verdict-panel" aria-labelledby="verdict-title">
     <p class="section-label">KreativWP verdict</p><h2 id="verdict-title">A qualified fit, not a universal winner.</h2>

@@ -131,6 +131,7 @@ test("stack finder returns a constrained theme and plugin shortlist", async ({ p
   await page.getByLabel("A visual page builder").check();
   await page.getByLabel("LiteSpeed or QUIC.cloud").check();
   await page.getByLabel("Contact or lead-capture forms").check();
+  await page.getByLabel("Page performance and caching", { exact: true }).check();
   await page.getByRole("button", { name: "Build my starting stack" }).click();
   const result = page.locator("#stack-finder-result");
   await expect(result).toBeVisible();
@@ -153,7 +154,7 @@ test("theme finder returns a workflow-specific shortlist", async ({ page }) => {
 
 test("plugin finder returns a requirement-specific shortlist", async ({ page }) => {
   await page.goto("/tools/plugin-finder/");
-  await page.getByLabel("Security and recovery").check();
+  await page.getByLabel("What job needs attention?").selectOption("security");
   await page.getByRole("button", { name: "Build my plugin shortlist" }).click();
   const result = page.locator("#plugin-finder-result");
   await expect(result).toBeVisible();

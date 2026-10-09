@@ -1,5 +1,5 @@
 ---
-import { footerLinks } from "../data/site";
+import { footerLinks, trustLinks } from "../data/site";
 
 type Props = {
   title: string;
@@ -85,7 +85,6 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -124,10 +123,10 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
           </div>
           <div class="top-menu__tools">
             <a class="menu-link menu-link--icon" href="/search/" aria-label="Search KreativWP" title="Search KreativWP">
-              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only">Search</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6" /><path d="m15 15 6 6" /></svg><span class="sr-only">Search</span>
             </a>
             <button class="share-button" id="share-button" type="button" aria-label="Share this page" title="Share this page">
-              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span class="sr-only">Share this page</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.5 10.5 7-4m-7 7 7 4" /></svg><span class="sr-only">Share this page</span>
             </button>
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
               <span class="sr-only">Toggle color theme</span>
@@ -144,6 +143,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
       <slot />
 
       <footer class="footer">
+        <nav class="footer-trust" aria-label="About and help">{trustLinks.map((link) => <a href={link.href}>{link.label}</a>)}</nav>
         <p class="updated">
           {footerLinks.map((link, index) => (
             <>
@@ -238,5 +238,6 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
       })();
     </script>
     <slot name="scripts" />
+    <script>import "../scripts/measurement";</script>
   </body>
 </html>

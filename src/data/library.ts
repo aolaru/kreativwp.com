@@ -49,8 +49,8 @@ export function shortBestFor(value: string) {
 }
 
 export const themeFilters: Record<string, string[]> = {
-  astra: ["lightweight", "block-editor", "page-builder", "business", "starter-sites", "free"],
-  blocksy: ["lightweight", "block-editor", "ecommerce", "business", "starter-sites", "free"],
+  astra: ["lightweight", "block-editor", "page-builder", "ecommerce", "business", "starter-sites", "free"],
+  blocksy: ["lightweight", "block-editor", "page-builder", "ecommerce", "business", "starter-sites", "free"],
   divi: ["page-builder", "ecommerce", "business", "starter-sites"],
   frost: ["block-editor", "full-site-editing", "portfolio", "free"],
   generatepress: ["lightweight", "block-editor", "business", "free"],

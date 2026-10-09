@@ -3,13 +3,89 @@
   "description": "A documentation-led comparison of Astra’s broad template ecosystem and GeneratePress’s deliberate block-editor workflow.",
   "metaDescription": "A transparently scoped Astra versus GeneratePress WordPress comparison from KreativWP.",
   "category": "Theme comparison",
-  "updated": "2026-09-27",
-  "updatedLabel": "September 27, 2026",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
   "featured": true,
   "isPlaceholder": false,
   "leftName": "Astra",
   "rightName": "GeneratePress",
-  "comparisonAreas": ["Starter-template breadth and first-site setup", "Block-editor composition and layout-control workflow", "Companion-plugin dependencies and premium boundaries", "Same-content performance, accessibility, and support tests still required"],
+  "comparisonAreas": [
+    "Starter-template breadth and first-site setup",
+    "Block-editor composition and layout-control workflow",
+    "Companion-plugin dependencies and premium boundaries",
+    "Same-content performance, accessibility, and support tests still required"
+  ],
   "takeaway": "Astra is the more natural research starting point when templates and editor flexibility lead the decision. GeneratePress is worth prioritizing when the team prefers composing a lean site system deliberately in the block editor.",
-  "decisionGuide": {"chooseLeft": "starter sites, broad editor compatibility, and a flexible first build matter more than a narrowly prescribed workflow.", "chooseRight": "your team is comfortable building deliberately with blocks and wants to keep the site system considered and composable.", "verify": "Use the same content, host, image strategy, and required plugins in both. Do not infer performance or support quality from documented features alone."}
+  "decisionGuide": {
+    "chooseLeft": "starter sites, broad editor compatibility, and a flexible first build matter more than a narrowly prescribed workflow.",
+    "chooseRight": "your team is comfortable building deliberately with blocks and wants to keep the site system considered and composable.",
+    "verify": "Use the same content, host, image strategy, and required plugins in both. Do not infer performance or support quality from documented features alone."
+  },
+  "leftHref": "/themes/astra/",
+  "rightHref": "/themes/generatepress/",
+  "rows": [
+    {
+      "label": "Free starting point",
+      "left": "Free classic theme with Customizer controls; choose your own content editor.",
+      "right": "Free classic theme with Customizer controls; WordPress core blocks work without GP Premium.",
+      "sourceIds": [
+        "astra",
+        "gp"
+      ]
+    },
+    {
+      "label": "Site-system workflow",
+      "left": "Theme controls plus a broad starter-template ecosystem; verify the dependencies of the selected template.",
+      "right": "Core theme plus optional GP Premium and GenerateBlocks; paid Block Elements support composed site areas.",
+      "sourceIds": [
+        "templates",
+        "elements"
+      ]
+    },
+    {
+      "label": "Paid-feature boundaries",
+      "left": "Astra Pro adds theme features; templates and other products may belong to separate packages.",
+      "right": "GP Premium is separate from the free theme. Block Elements require the appropriate premium feature set.",
+      "sourceIds": [
+        "astra",
+        "elements"
+      ]
+    },
+    {
+      "label": "What was tested locally",
+      "left": "Free theme: representative page, editor save, article rendering, and mobile navigation.",
+      "right": "The same free-theme fixture and functional checks. These do not establish a performance winner.",
+      "sourceIds": [
+        "local-test"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "local-test",
+      "label": "KreativWP recorded free-theme workflow checks",
+      "href": "https://kreativwp.com/research/2026-10-09/theme-workflows.json"
+    },
+    {
+      "id": "astra",
+      "label": "Astra free theme",
+      "href": "https://wordpress.org/themes/astra/"
+    },
+    {
+      "id": "templates",
+      "label": "Astra Starter Templates FAQ",
+      "href": "https://wpastra.com/faq/"
+    },
+    {
+      "id": "gp",
+      "label": "GeneratePress free theme",
+      "href": "https://wordpress.org/themes/generatepress/"
+    },
+    {
+      "id": "elements",
+      "label": "GeneratePress Block Elements",
+      "href": "https://docs.generatepress.com/article/block-element-overview/"
+    }
+  ],
+  "migration": "The linked profiles contain the local free-theme evidence. Before changing a real site, export Customizer choices, audit template and block-plugin dependencies, and rebuild a representative header on staging. Starter-template imports are not a tested migration path."
 }

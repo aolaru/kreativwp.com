@@ -1,0 +1,7 @@
+---
+import manifest from "../../public/media/previews.json";
+type Props = { src: string; alt: string; width?: number; height?: number; sizes?: string; loading?: "lazy" | "eager"; card?: boolean };
+const { src, alt, width, height, sizes = "(max-width: 560px) calc(100vw - 40px), (max-width: 850px) 45vw, 480px", loading = "lazy", card = true } = Astro.props;
+const item = (manifest as Record<string, { src: string; width: number; height: number; variants: { src: string; width: number }[] }>)[src];
+---
+<img src={item?.src || src} srcset={item?.variants.map((variant) => `${variant.src} ${variant.width}w`).join(", ")} sizes={item ? sizes : undefined} alt={alt} width={width || item?.width} height={height || item?.height} loading={loading} decoding="async" data-card-image={card ? true : undefined} />

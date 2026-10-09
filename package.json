@@ -9,11 +9,14 @@
     "test:ci": "playwright test --reporter=line",
     "lint:html": "npm run build && html-validate \"dist/**/*.html\"",
     "lint:links": "npm run build && node scripts/check-internal-links.mjs dist",
+    "check:external": "node scripts/check-external-links.mjs dist",
+    "assets:previews": "node scripts/optimize-previews.mjs",
     "check": "npm run lint:html && npm run lint:links && npm run test:ci"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "html-validate": "^9.3.0"
+    "html-validate": "^9.3.0",
+    "sharp": "^0.35.5"
   },
   "dependencies": {
     "astro": "^6.1.10"

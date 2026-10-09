@@ -1,4 +1,5 @@
 ---
+import PreviewImage from "./PreviewImage.astro";
 type Props = {
   href: string;
   name: string;
@@ -26,7 +27,7 @@ const previewLabels: Record<string, string> = { performance: "SPEED", security: 
 ---
 <article class:list={["plugin-card", { "plugin-card--featured": featured, "plugin-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")} data-card-name={name} data-updated={libraryUpdated} data-editorial-rank={editorialRank}>
   <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" }]} href={href} aria-label={`Read ${name}`}>
-    {imageSrc ? <><img data-card-image src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /><span class="plugin-thumbnail__editorial plugin-thumbnail__fallback" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span></> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
+    {imageSrc ? <><PreviewImage src={imageSrc} alt={imageAlt || `${name} thumbnail`} /><span class="plugin-thumbnail__editorial plugin-thumbnail__fallback" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span></> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
   </a>
   <div class="plugin-card__body">
     {editorialRank !== undefined && <p class="card-selection">Editor’s pick</p>}

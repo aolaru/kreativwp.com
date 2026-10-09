@@ -1,5 +1,82 @@
 {
-  "title": "Rank Math vs Yoast", "description": "A documentation-led comparison for choosing one SEO control center—not layering competing SEO plugins.", "metaDescription": "A transparently scoped Rank Math versus Yoast WordPress comparison from KreativWP.", "category": "Plugin comparison", "updated": "2026-09-19", "updatedLabel": "September 19, 2026", "featured": true, "isPlaceholder": false,
-  "leftName": "Rank Math", "rightName": "Yoast", "comparisonAreas": ["Titles, metadata, and sitemap ownership", "Schema and content-workflow requirements", "Migration, imports, and existing SEO configuration", "A pre-launch technical SEO audit after any switch"],
-  "takeaway": "Choose one plugin based on the team’s workflow and existing configuration, then migrate carefully. The important outcome is a complete, auditable SEO setup—not running two plugins with overlapping output."
+  "title": "Rank Math vs Yoast",
+  "description": "A documentation-led comparison for choosing one SEO control center—not layering competing SEO plugins.",
+  "metaDescription": "A transparently scoped Rank Math versus Yoast WordPress comparison from KreativWP.",
+  "category": "Plugin comparison",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
+  "featured": true,
+  "isPlaceholder": false,
+  "leftName": "Rank Math",
+  "rightName": "Yoast",
+  "comparisonAreas": [
+    "Titles, metadata, and sitemap ownership",
+    "Schema and content-workflow requirements",
+    "Migration, imports, and existing SEO configuration",
+    "A pre-launch technical SEO audit after any switch"
+  ],
+  "takeaway": "Choose one plugin based on the team’s workflow and existing configuration, then migrate carefully. The important outcome is a complete, auditable SEO setup—not running two plugins with overlapping output.",
+  "leftHref": "/plugins/reviews/rank-math/",
+  "rightHref": "/plugins/reviews/yoast-seo/",
+  "rows": [
+    {
+      "label": "Free core",
+      "left": "Free SEO plugin with metadata and sitemap features; paid tiers extend the product.",
+      "right": "Free SEO plugin with metadata and sitemap features; Premium extends the product.",
+      "sourceIds": [
+        "rank",
+        "yoast-free"
+      ]
+    },
+    {
+      "label": "Content workflow",
+      "left": "Module-based SEO settings and content analysis; evaluate how much configuration the editorial team needs.",
+      "right": "SEO/readability analysis and a guided editorial workflow; check which assistance is free versus Premium.",
+      "sourceIds": [
+        "rank",
+        "yoast"
+      ]
+    },
+    {
+      "label": "Schema and paid limits",
+      "left": "Schema capabilities vary by feature and edition. Match the content type to the current official feature list.",
+      "right": "Structured-data output and additional Premium features. Check the plan for redirects and other advanced workflows.",
+      "sourceIds": [
+        "rank",
+        "yoast"
+      ]
+    },
+    {
+      "label": "Changing plugins",
+      "left": "The directory documents imports from other SEO tools; verify migrated metadata and sitemap ownership on staging.",
+      "right": "Review existing metadata and available import options before replacing the current setup.",
+      "sourceIds": [
+        "rank",
+        "yoast-free"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "rank",
+      "label": "Rank Math directory features and imports",
+      "href": "https://wordpress.org/plugins/seo-by-rank-math/"
+    },
+    {
+      "id": "yoast-free",
+      "label": "Yoast free edition",
+      "href": "https://wordpress.org/plugins/wordpress-seo/"
+    },
+    {
+      "id": "yoast",
+      "label": "Yoast Premium feature boundaries",
+      "href": "https://yoast.com/wordpress/plugins/seo/"
+    }
+  ],
+  "migration": "Do not leave two plugins generating competing canonical tags, titles, schema, or sitemaps. Back up, test imports on staging, and inspect the rendered source of a post, archive, and product. No ranking improvement or hands-on migration result is claimed.",
+  "decisionGuide": {
+    "chooseLeft": "its module and schema workflow fits your content types and the team can maintain that configuration.",
+    "chooseRight": "its editorial workflow fits the team, especially if you already have a working Yoast configuration.",
+    "verify": "Inspect metadata, canonical tags, structured data, and sitemap URLs after any change. Do not switch only because another plugin has a longer feature list."
+  }
 }

@@ -1,0 +1,12 @@
+---
+const { evidence } = Astro.props;
+---
+<section class="editorial-section hands-on-review" aria-labelledby="hands-on-title">
+  <p class="section-label">Checked in WordPress</p><h2 id="hands-on-title">What I actually tried</h2>
+  <dl class="fact-grid"><div><dt>Test date</dt><dd>{evidence.date}</dd></div><div><dt>Plugin version</dt><dd>{evidence.pluginVersion}</dd></div><div><dt>WordPress</dt><dd>{evidence.wordpressVersion}</dd></div><div><dt>PHP</dt><dd>{evidence.phpVersion}</dd></div></dl>
+  <p class="section-intro">{evidence.environment}</p>
+  <h3>Limits of this check</h3><ul class="check-list">{evidence.limitations.map((limit) => <li>{limit}</li>)}</ul>
+  <div class="hands-on-review__checks">{evidence.checks.map((check) => <article><h3>{check.title}</h3><p>{check.detail}</p></article>)}</div>
+  <div class="hands-on-review__gallery">{evidence.screenshots.map((shot) => <figure><a href={shot.src}><img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" /></a><figcaption>{shot.label} · open full screenshot</figcaption></figure>)}</div>
+  <p><a class="button-like" href={evidence.evidenceHref}>Read the recorded checks</a></p>
+</section>

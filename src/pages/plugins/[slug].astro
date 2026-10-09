@@ -1,76 +1,30 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
+import PreviewImage from "../../components/PreviewImage.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 export async function getStaticPaths() {
-  const plugins = await getCollection("plugins");
-  return plugins.map((plugin) => ({
-    params: { slug: plugin.id },
-    props: { plugin }
-  }));
+  return (await getCollection("plugins")).map((plugin) => ({ params: { slug: plugin.id }, props: { plugin } }));
 }
-
 const { plugin } = Astro.props;
-const lastLineLinksNews = plugin.data.ctaLines.map((line) =>
-  line === "Follow our News page for release updates."
-    ? 'Follow our <a class="detail-link" href="/news/">News</a> page for release updates.'
-    : line
-);
+const data = plugin.data;
 ---
-<BaseLayout
-  title={`${plugin.data.name} | Kreativ WP`}
-  description={plugin.data.metaDescription}
-  canonicalPath={`/plugins/${plugin.id}/`}
-  ogTitle={plugin.data.name}
-  ogDescription={plugin.data.metaDescription}
-  heroEyebrow="Plugin"
-  heroTitle={plugin.data.name}
-  heroTagline={plugin.data.description}
-  heroImageSrc={plugin.data.thumb}
-  heroImageAlt={plugin.data.imageAlt}
->
-  <section class="card plugin-details" aria-labelledby="features-title">
-    <h2 id="features-title">{plugin.data.detailTitle}</h2>
-    {plugin.data.detailItems.map((item) => (
-      <article class="plugin-detail">
-        <h3>{item.title}</h3>
-        <p>{item.body}</p>
-      </article>
-    ))}
+<BaseLayout title={`${data.name} | Kreativ WP`} description={data.metaDescription} canonicalPath={`/plugins/${plugin.id}/`} heroEyebrow={data.live ? "Free plugin · made by Andrei" : "Product in development"} heroTitle={data.name} heroTagline={data.description} heroImageSrc={data.thumb} heroImageAlt={data.imageAlt} mainClass="product-page" currentPath="/products/">
+  {data.live && <div class="product-install">
+    {data.downloadHref && <a class="button-like button-like--primary" href={data.downloadHref} data-track="product_download" data-product={plugin.id}>Get the free plugin ZIP</a>}
+    {data.ctaHref && <a class="text-action" href={data.ctaHref} target="_blank" rel="noopener noreferrer">View on WordPress.org ↗</a>}
+    <a class="text-action" href="#quick-start">Installation steps ↓</a>
+  </div>}
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/" }, { label: data.name }]} />
+  {data.release && <><dl class="product-facts"><div><dt>Version</dt><dd>{data.release.version}</dd></div><div><dt>WordPress</dt><dd>{data.release.wordpress}+</dd></div><div><dt>PHP minimum</dt><dd>{data.release.php}</dd></div><div><dt>Tested up to (directory)</dt><dd>{data.release.tested}</dd></div><div><dt>Release updated</dt><dd>{data.release.updated}</dd></div></dl><p class="editorial-byline">Directory metadata checked <time datetime={data.release.checked}>{data.release.checked}</time> · <a href={data.release.source} target="_blank" rel="noopener noreferrer">Official listing</a> · <a href="/contact/">Ask Andrei for support</a></p></>}
+  {data.screenshots?.length ? <section aria-labelledby="product-preview-title"><h2 id="product-preview-title">A look inside WordPress</h2><div class="product-gallery">{data.screenshots.map((shot) => <figure><a href={shot.src}><PreviewImage src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} card={false} /></a><figcaption>{shot.label} · open full screenshot</figcaption></figure>)}</div></section> : data.homepageScreenshot ? <figure class="product-gallery"><a href={data.homepageScreenshot.src}><PreviewImage src={data.homepageScreenshot.src} alt={data.homepageScreenshot.alt} width={data.homepageScreenshot.width} height={data.homepageScreenshot.height} card={false} /></a><figcaption>{data.homepageScreenshot.caption}</figcaption></figure> : null}
+  {data.quickStart?.length ? <section class="editorial-section product-start" aria-labelledby="quick-start"><h2 id="quick-start">From install to first result</h2><ol>{data.quickStart.map((step) => <li>{step}</li>)}</ol><p>Try it on staging first. <a href="/contact/">Need a hand? Email me.</a> Include the plugin version, WordPress version, and what happened—not passwords.</p></section> : null}
+  <section class="editorial-section" aria-labelledby="features-title"><h2 id="features-title">{data.detailTitle}</h2>{data.detailItems.map((item) => <article class="plugin-detail"><h3>{item.title}</h3><p>{item.body}</p></article>)}</section>
+  {data.additionalSections?.map((section, index) => <section class="editorial-section" aria-labelledby={`plugin-section-${index}`}><h2 id={`plugin-section-${index}`}>{section.title}</h2>{section.items.map((item) => <article class="plugin-detail"><h3>{item.title}</h3><p>{item.body}</p></article>)}</section>)}
+  <section class="launch-cta card" aria-labelledby="plugin-cta-title"><h2 id="plugin-cta-title">{data.ctaTitle}</h2>
+    {data.downloadHref ? <p><a class="button-like button-like--primary" href={data.downloadHref} data-track="product_download" data-product={plugin.id}>Get the free plugin ZIP</a></p> : data.ctaLines.map((line) => <p>{line}</p>)}
+    {data.ctaHref && <p><a class="detail-link" href={data.ctaHref} target="_blank" rel="noopener noreferrer">{data.ctaLabel}</a></p>}
+    {data.supportingLinks?.map((link) => <p><a class="detail-link" href={link.href}>{link.label}</a></p>)}
   </section>
-
-  {plugin.data.additionalSections?.map((section, index) => (
-    <section class="card plugin-details" aria-labelledby={`plugin-section-${index}`}>
-      <h2 id={`plugin-section-${index}`}>{section.title}</h2>
-      {section.items.map((item) => (
-        <article class="plugin-detail">
-          <h3>{item.title}</h3>
-          <p>{item.body}</p>
-        </article>
-      ))}
-    </section>
-  ))}
-
-  <section class="launch-cta card" aria-labelledby="plugin-cta-title">
-    <h2 id="plugin-cta-title">{plugin.data.ctaTitle}</h2>
-    {lastLineLinksNews.map((line) => <p set:html={line} />)}
-    {plugin.data.ctaHref && plugin.data.ctaLabel && (
-      <p><a class="button-like" href={plugin.data.ctaHref} target="_blank" rel="noopener noreferrer">{plugin.data.ctaLabel}</a></p>
-    )}
-    {plugin.data.supportingLinks?.map((link) => (
-      <p><a class="detail-link" href={link.href}>{link.label}</a></p>
-    ))}
-  </section>
-
-  {plugin.data.changelog?.length ? (
-    <section class="card plugin-details" aria-labelledby="plugin-changelog-title">
-      <h2 id="plugin-changelog-title">{plugin.data.changelogTitle || "Changelog"}</h2>
-      {plugin.data.changelog.map((entry) => (
-        <article class="plugin-detail">
-          <h3>{entry.date} · {entry.label}</h3>
-          <p>{entry.body}</p>
-        </article>
-      ))}
-    </section>
-  ) : null}
+  {data.changelog?.length ? <section class="editorial-section" aria-labelledby="plugin-changelog-title"><h2 id="plugin-changelog-title">Website notes</h2><p class="section-intro">These notes describe this website, not plugin release versions. See the official directory for the plugin changelog.</p>{data.changelog.map((entry) => <article class="plugin-detail"><h3>{entry.date} · {entry.label}</h3><p>{entry.body}</p></article>)}</section> : null}
 </BaseLayout>
