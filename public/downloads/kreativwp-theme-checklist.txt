@@ -1,0 +1,46 @@
+KREATIVWP — WORDPRESS THEME CHECKLIST
+https://kreativwp.com/theme-checklist/
+Updated October 9, 2026
+
+START WITH THE WORK
+[ ] Name the site's main job: publishing, leads, a portfolio, or selling.
+[ ] Choose one editing workflow: the block editor, full site editing, or a specific visual builder.
+[ ] Ask the person who will maintain the site to try that workflow.
+[ ] List the features you need now, separately from nice-to-have features.
+
+CHECK THE BOUNDARIES
+[ ] Check which required features are included in the free theme and which need an upgrade.
+[ ] Write down the first-year cost, renewal cost, and number of licensed sites.
+[ ] Identify required plugins, accounts, and subscriptions.
+[ ] Confirm the theme is maintained and supports your WordPress and PHP versions.
+
+TRY A REAL PAGE
+[ ] Build a representative page on staging with your own text and images.
+[ ] Test the header, navigation, forms, and footer on a phone.
+[ ] Check keyboard navigation, visible focus, headings, and text readability.
+[ ] For a store, test a product page, cart, and checkout with your required extensions.
+
+KEEP THE SITE MANAGEABLE
+[ ] Measure the completed page with its real images, fonts, and required plugins.
+[ ] Check whether your host already supplies caching, backups, or security features.
+[ ] Try changing a layout and publishing new content without a developer.
+[ ] Find out what remains in your content if the theme or builder is disabled.
+
+MAKE A REVERSIBLE DECISION
+[ ] Compare two or three candidates against the same requirements.
+[ ] Record the versions, configuration, and date you tested.
+[ ] Confirm the support route and upgrade terms on the official site.
+[ ] Back up the existing site and plan a rollback before migrating.
+
+YOUR SHORTLIST
+Candidate 1:
+Candidate 2:
+Candidate 3:
+Chosen editing workflow:
+First-year and renewal budget:
+Required plugins:
+Date and versions tested:
+Main trade-off:
+
+Build a shortlist: https://kreativwp.com/tools/theme-finder/
+Editorial standards: https://kreativwp.com/methodology/

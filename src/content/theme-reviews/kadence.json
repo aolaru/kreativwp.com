@@ -1,26 +1,91 @@
 {
   "title": "Kadence Theme Review",
-  "description": "A documentation-led profile of Kadence’s header and footer builders, global design settings, and accessibility-oriented claims.",
-  "metaDescription": "A transparently scoped, documentation-led Kadence WordPress theme profile from KreativWP.",
+  "description": "We tried free Kadence with core WordPress blocks: a sample page, mobile navigation, and an everyday editing task.",
+  "metaDescription": "Hands-on notes from testing the free Kadence theme with WordPress core blocks, mobile navigation, and page editing. Versions, screenshots, and limits included.",
   "category": "Theme review",
-  "updated": "2026-09-19",
-  "updatedLabel": "September 19, 2026",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
   "isPlaceholder": false,
   "themeName": "Kadence",
   "developer": "Kadence WP",
   "previewStyle": "kadence",
   "freeVersion": "Available",
   "price": "Check current plans on the official site",
-  "highlights": ["A drag-and-drop header builder and footer builder are documented as core theme features", "Global color palettes and typography settings are intended to apply design decisions site-wide", "The vendor documents accessibility-related capabilities including keyboard navigation and ARIA labels"],
+  "highlights": [
+    "A drag-and-drop header builder and footer builder are documented as core theme features",
+    "Global color palettes and typography settings are intended to apply design decisions site-wide",
+    "The vendor documents accessibility-related capabilities including keyboard navigation and ARIA labels"
+  ],
   "bestFor": "Site owners who want visual header and footer controls alongside centrally managed colors, typography, and layout settings.",
-  "researchMethod": "documented-research",
-  "researchScope": "This profile checks Kadence’s official feature documentation and WordPress.org listing. It distinguishes documented accessibility features from an independent accessibility audit.",
-  "caveats": "No controlled install, accessibility audit, WooCommerce build, or performance benchmark has been completed. Validate the output against your content, plugins, and accessibility requirements.",
+  "researchMethod": "hands-on",
+  "researchScope": "An initial functional review of the free Kadence 1.5.2 theme. We installed and activated it, rendered the same core-block sample page at 1200px and 375px, opened mobile navigation, viewed an article, saved a paragraph edit in the block editor, and changed the Site Identity title setting in the Customizer. Official documentation below supports the separate feature summary.",
+  "caveats": "This local, free-edition test does not establish production performance, full accessibility conformance, premium value, starter-site import quality, WooCommerce compatibility, update safety, or support quality. The Customizer setting was changed but not published or benchmarked.",
   "thumbnail": "https://ts.w.org/wp-content/themes/kadence/screenshot.png?ver=1.5.2",
   "thumbnailAlt": "Kadence theme screenshot from its WordPress.org listing",
   "sources": [
-    { "label": "Kadence on WordPress.org", "href": "https://wordpress.org/themes/kadence/" },
-    { "label": "Kadence Theme features", "href": "https://www.kadencewp.com/kadence-theme/features/" }
+    {
+      "label": "Kadence on WordPress.org",
+      "href": "https://wordpress.org/themes/kadence/"
+    },
+    {
+      "label": "Kadence Theme features",
+      "href": "https://www.kadencewp.com/kadence-theme/features/"
+    }
   ],
-  "officialUrl": "https://www.kadencewp.com/kadence-theme/"
+  "officialUrl": "https://www.kadencewp.com/kadence-theme/",
+  "handsOnTest": {
+    "date": "2026-10-09",
+    "themeVersion": "1.5.2",
+    "wordpressVersion": "7.1.3",
+    "phpVersion": "8.5.3",
+    "environment": "Local PHP development server on macOS; SQLite; Chromium; free editions; WordPress core blocks; no starter-site import or companion theme plugins. SQLite 3.51.2.",
+    "checks": [
+      {
+        "title": "Installed and activated",
+        "detail": "Installed the free Kadence 1.5.2 package from WordPress.org and activated it in the isolated test site."
+      },
+      {
+        "title": "Core blocks on desktop and mobile",
+        "detail": "The same heading, paragraphs, button, and three-column section rendered at 1200px and 375px without horizontal page overflow. This is a layout check, not an accessibility audit."
+      },
+      {
+        "title": "Mobile menu opened",
+        "detail": "Used the “Open menu” control and confirmed the Journal navigation link became visible."
+      },
+      {
+        "title": "An edit saved successfully",
+        "detail": "Edited a paragraph in the block editor, saved the published page, and confirmed the new text appeared on the public page."
+      },
+      {
+        "title": "Article content rendered",
+        "detail": "Opened the same sample article and confirmed its content appeared in the mobile browser."
+      },
+      {
+        "title": "Site Identity setting changed",
+        "detail": "Opened Site Identity in the Customizer and confirmed the site-title setting accepted a new value. We did not publish that change or evaluate every design control."
+      }
+    ],
+    "limitations": [
+      "Local functional checks, not production hosting or Core Web Vitals benchmarks.",
+      "Premium features, starter-site imports, WooCommerce, other plugins, updates, support quality, and a full accessibility audit were not tested.",
+      "The Customizer setting check did not test publishing, theme updates, or all layout controls."
+    ],
+    "screenshots": [
+      {
+        "src": "/research/2026-10-09/kadence-desktop.png",
+        "label": "Desktop · 1200px viewport",
+        "alt": "Kadence free theme rendering the KreativWP sample page on desktop",
+        "width": 1200,
+        "height": 1199
+      },
+      {
+        "src": "/research/2026-10-09/kadence-mobile.png",
+        "label": "Mobile · 375px viewport",
+        "alt": "Kadence free theme rendering the KreativWP sample page on mobile",
+        "width": 375,
+        "height": 1682
+      }
+    ],
+    "evidenceHref": "/research/2026-10-09/theme-workflows.json"
+  }
 }

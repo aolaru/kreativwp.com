@@ -69,3 +69,23 @@ Set `PUBLIC_GOOGLE_ANALYTICS_ID` to enable Google Analytics page views and tool-
 ## Editorial Content
 
 Editorial seed entries are deliberately marked `isPlaceholder: true`. Their detail pages remain `noindex` until hands-on testing replaces the preview copy with substantiated editorial material. Existing product routes under `/plugins/<slug>/` remain the canonical product URLs; `/products/` is the dedicated product archive.
+
+## Theme checklist
+
+The homepage links to `/theme-checklist/`, an immediately usable 20-point checklist with print controls and a text download at `/downloads/kreativwp-theme-checklist.txt`. No email is collected for this resource. The newsletter component remains available for a separately configured subscription workflow.
+
+## Homepage selections
+
+Choose the published theme and plugin spotlight IDs in `src/data/site.ts`. The build rejects missing or unpublished selections, so date ties cannot silently choose the homepage features.
+
+## Hands-on theme evidence
+
+The first free-theme workflow reviews cover Astra 4.14.0, GeneratePress 3.6.1, Blocksy 2.1.59, and Kadence 1.5.2. Evidence and screenshots live in `public/research/2026-10-09/`. The recorded environment is WordPress 7.1.3, PHP 8.5.3, SQLite Database Integration 3.1.0, and Chromium on a local macOS PHP server. These are functional checks, not production performance benchmarks or full accessibility audits.
+
+To repeat the workflow, prepare a fresh isolated WordPress installation with the SQLite integration drop-in, install the four free themes, and run `scripts/theme-review-fixture.php` through WP-CLI's `eval-file` command. The fixture uses the standard fresh-install IDs: page 4, journal page 5, and menu 2. Serve that installation on a loopback URL, then run:
+
+```sh
+THEME_LAB_PASSWORD='<local-test-password>' node scripts/review-theme-workflows.mjs /path/to/isolated-wordpress /path/to/wp-cli.phar http://127.0.0.1:5502
+```
+
+The default local reviewer username is `theme_reviewer`; override it with `THEME_LAB_USERNAME`. This script changes the isolated site's active theme, menu assignments, site title, and sample page; do not point it at an existing site. It saves generated evidence under a dated `public/research/` directory. Review the evidence before updating editorial copy or marking a profile `hands-on`; that status requires the test scope, versions, checks, limitations, and evidence link in the content schema.

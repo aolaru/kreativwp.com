@@ -1,17 +1,15 @@
 ---
 import { getCollection } from "astro:content";
-import NewsletterForm from "../components/NewsletterForm.astro";
 import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
+import { homepageFeatures } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const latestTheme = (await getCollection("themeReviews"))
-  .sort((a, b) => b.data.updated.localeCompare(a.data.updated) || b.id.localeCompare(a.id))
-  [0];
+  .find((entry) => entry.id === homepageFeatures.theme && !entry.data.isPlaceholder);
 const latestPlugin = (await getCollection("pluginReviews"))
-  .filter((entry) => entry.data.recommendationType !== "research")
-  .sort((a, b) => b.data.updated.localeCompare(a.data.updated) || b.id.localeCompare(a.id))
-  [0];
+  .find((entry) => entry.id === homepageFeatures.plugin && !entry.data.isPlaceholder && entry.data.recommendationType !== "research");
+if (!latestTheme || !latestPlugin) throw new Error("Homepage features must refer to published theme and plugin profiles.");
 const liveProducts = (await getCollection("plugins"))
   .filter((entry) => entry.data.live)
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
@@ -37,17 +35,17 @@ const structuredData = JSON.stringify({
   </section>
 
   <section class="homepage-feature" aria-labelledby="latest-theme-title">
-    <div class="homepage-feature__heading"><div><p class="section-label">Latest theme profile</p><h2 id="latest-theme-title">One thoughtful starting point.</h2></div><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
-    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.description} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} />
+    <div class="homepage-feature__heading"><div><p class="section-label">Theme spotlight</p><h2 id="latest-theme-title">One thoughtful starting point.</h2></div><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
+    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.description} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} researchMethod={latestTheme.data.researchMethod} />
   </section>
 
   <section class="homepage-feature homepage-feature--plugin" aria-labelledby="latest-plugin-title">
-    <div class="homepage-feature__heading"><div><p class="section-label">Latest plugin profile</p><h2 id="latest-plugin-title">A useful tool, in context.</h2></div><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
+    <div class="homepage-feature__heading"><div><p class="section-label">Plugin spotlight</p><h2 id="latest-plugin-title">A useful tool, in context.</h2></div><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
     <PluginCard href={`/plugins/reviews/${latestPlugin.id}/`} name={latestPlugin.data.pluginName} developer={latestPlugin.data.developer} description={latestPlugin.data.description} freeVersion={latestPlugin.data.freeVersion} previewStyle={latestPlugin.data.previewStyle} imageSrc={latestPlugin.data.thumbnail} imageAlt={latestPlugin.data.thumbnailAlt} recommendationType={latestPlugin.data.recommendationType} isPlaceholder={latestPlugin.data.isPlaceholder} />
   </section>
 
   <section class="newsletter-panel" aria-labelledby="theme-checklist-title">
     <div><p class="section-label">Free decision checklist</p><h2 id="theme-checklist-title">Get the theme shortlist.</h2></div>
-    <div><p>A quieter way to make the first big WordPress choice.</p><NewsletterForm id="theme-shortlist" label="Send it to me" /></div>
+    <div><p>A short checklist for your next theme decision. Yours to keep—no email needed.</p><a class="button-like button-like--primary" href="/theme-checklist/">Open the checklist</a></div>
   </section>
 </BaseLayout>

@@ -102,7 +102,7 @@ test("homepage curates latest research and KreativWP products", async ({ page })
   await expect(page.locator("#latest-plugin-title")).toBeVisible();
   await expect(page.locator(".theme-card")).toHaveCount(1);
   await expect(page.locator(".plugin-card")).toHaveCount(1);
-  await expect(page.locator("#theme-shortlist-form")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open the checklist" })).toHaveAttribute("href", "/theme-checklist/");
   await expect(page.getByRole("link", { name: "Explore all themes" })).toHaveAttribute("href", "/themes/");
   await expect(page.getByRole("link", { name: "Explore all plugins" })).toHaveAttribute("href", "/plugins/");
   await expect(page.getByRole("link", { name: "Find a theme" })).toHaveAttribute("href", "/themes/");

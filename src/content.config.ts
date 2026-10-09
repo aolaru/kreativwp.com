@@ -114,7 +114,22 @@ const themeReviews = defineCollection({
     caveats: z.string(),
     sources: z.array(z.object({ label: z.string(), href: z.string().url() })).min(1),
     officialUrl: z.string().url().optional(),
-    affiliateId: z.string().optional()
+    affiliateId: z.string().optional(),
+    handsOnTest: z.object({
+      date: z.string(),
+      themeVersion: z.string(),
+      wordpressVersion: z.string(),
+      phpVersion: z.string(),
+      environment: z.string(),
+      checks: z.array(z.object({ title: z.string(), detail: z.string() })).min(1),
+      limitations: z.array(z.string()).min(1),
+      screenshots: z.array(z.object({ src: z.string(), alt: z.string(), label: z.string(), width: z.number(), height: z.number() })),
+      evidenceHref: z.string()
+    }).optional()
+  }).superRefine((entry, context) => {
+    if (entry.researchMethod === "hands-on" && !entry.handsOnTest) {
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["handsOnTest"], message: "Hands-on reviews must include their test evidence and scope." });
+    }
   })
 });
 

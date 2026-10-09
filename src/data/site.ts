@@ -1,3 +1,8 @@
+export const homepageFeatures = {
+  theme: "generatepress",
+  plugin: "fluent-forms"
+};
+
 export const footerLinks = [
   { label: "Kreativ Font", href: "https://kreativfont.com" },
   { label: "Kreativ Sound", href: "https://kreativsound.com" },

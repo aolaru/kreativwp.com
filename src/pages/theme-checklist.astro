@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const groups = [
+  { title: "Start with the work", items: [
+    "Name the site’s main job: publishing, leads, a portfolio, or selling.",
+    "Choose one editing workflow: the block editor, full site editing, or a specific visual builder.",
+    "Ask the person who will maintain the site to try that workflow.",
+    "List the features you need now, separately from nice-to-have features."
+  ] },
+  { title: "Check the boundaries", items: [
+    "Check which required features are included in the free theme and which need an upgrade.",
+    "Write down the first-year cost, renewal cost, and number of licensed sites.",
+    "Identify required plugins, accounts, and subscriptions.",
+    "Confirm the theme is maintained and supports your WordPress and PHP versions."
+  ] },
+  { title: "Try a real page", items: [
+    "Build a representative page on staging with your own text and images.",
+    "Test the header, navigation, forms, and footer on a phone.",
+    "Check keyboard navigation, visible focus, headings, and text readability.",
+    "For a store, test a product page, cart, and checkout with your required extensions."
+  ] },
+  { title: "Keep the site manageable", items: [
+    "Measure the completed page with its real images, fonts, and required plugins.",
+    "Check whether your host already supplies caching, backups, or security features.",
+    "Try changing a layout and publishing new content without a developer.",
+    "Find out what remains in your content if the theme or builder is disabled."
+  ] },
+  { title: "Make a reversible decision", items: [
+    "Compare two or three candidates against the same requirements.",
+    "Record the versions, configuration, and date you tested.",
+    "Confirm the support route and upgrade terms on the official site.",
+    "Back up the existing site and plan a rollback before migrating."
+  ] }
+];
+---
+<BaseLayout title="WordPress Theme Checklist | KreativWP" description="A free, printable 20-point checklist for choosing a WordPress theme around your workflow, budget, and maintenance needs." canonicalPath="/theme-checklist/" mainClass="checklist-page" heroEyebrow="Yours to keep" heroTitle="Your theme checklist." heroTagline="Twenty small checks before one big decision. No email required." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
+  <section class="editorial-section checklist" aria-labelledby="checklist-title">
+    <h2 id="checklist-title">Before you commit</h2>
+    <p class="section-intro">Work through this with your shortlist. Use a staging site for anything that changes your current website.</p>
+    <div class="checklist__actions"><button class="button-like button-like--primary" id="print-checklist" type="button">Print or save as PDF</button><a class="button-like" href="/downloads/kreativwp-theme-checklist.txt" download>Download text checklist</a></div>
+    {groups.map((group, groupIndex) => <fieldset><legend>{group.title}</legend>{group.items.map((item, itemIndex) => <label><input type="checkbox" id={`check-${groupIndex}-${itemIndex}`} /><span>{item}</span></label>)}</fieldset>)}
+    <p class="centered-action"><a class="button-like" href="/tools/theme-finder/">Build my theme shortlist</a></p>
+  </section>
+  <script>document.getElementById("print-checklist")?.addEventListener("click", () => window.print());</script>
+</BaseLayout>

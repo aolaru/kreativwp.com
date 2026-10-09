@@ -1,10 +1,10 @@
 {
   "title": "GeneratePress Theme Review",
-  "description": "A documentation-led profile of GeneratePress for teams who prefer a deliberate, block-editor-centered site-building workflow.",
-  "metaDescription": "A transparently scoped, documentation-led GeneratePress WordPress theme profile from KreativWP.",
+  "description": "We tried free GeneratePress with core WordPress blocks: a sample page, mobile navigation, and an everyday editing task.",
+  "metaDescription": "Hands-on notes from testing the free GeneratePress theme with WordPress core blocks, mobile navigation, and page editing. Versions, screenshots, and limits included.",
   "category": "Theme review",
-  "updated": "2026-09-19",
-  "updatedLabel": "September 19, 2026",
+  "updated": "2026-10-09",
+  "updatedLabel": "October 9, 2026",
   "featured": true,
   "isPlaceholder": false,
   "themeName": "GeneratePress",
@@ -12,17 +12,82 @@
   "previewStyle": "generatepress",
   "freeVersion": "Available",
   "price": "Check current plans on the official site",
-  "highlights": ["The documented workflow centers on WordPress’s block editor", "Block Elements can place block-editor content in locations such as headers, footers, sidebars, and hooks", "Some advanced block-element capabilities require the companion GenerateBlocks plugin"],
+  "highlights": [
+    "The documented workflow centers on WordPress’s block editor",
+    "Block Elements can place block-editor content in locations such as headers, footers, sidebars, and hooks",
+    "Some advanced block-element capabilities require the companion GenerateBlocks plugin"
+  ],
   "bestFor": "Teams comfortable composing a site system deliberately in the block editor instead of starting from a large preset library.",
-  "researchMethod": "documented-research",
-  "researchScope": "This profile is based on the current WordPress.org listing and GeneratePress documentation for Block Elements and GenerateBlocks. It describes documented workflow, not measured performance.",
-  "caveats": "No controlled install, Core Web Vitals benchmark, or compatibility matrix has been completed. The profile does not assess third-party block-plugin styling or premium support.",
+  "researchMethod": "hands-on",
+  "researchScope": "An initial functional review of the free GeneratePress 3.6.1 theme. We installed and activated it, rendered the same core-block sample page at 1200px and 375px, opened mobile navigation, viewed an article, saved a paragraph edit in the block editor, and changed the Site Identity title setting in the Customizer. Official documentation below supports the separate feature summary.",
+  "caveats": "This local, free-edition test does not establish production performance, full accessibility conformance, premium value, starter-site import quality, WooCommerce compatibility, update safety, or support quality. The Customizer setting was changed but not published or benchmarked.",
   "thumbnail": "https://ts.w.org/wp-content/themes/generatepress/screenshot.png?ver=3.6.1",
   "thumbnailAlt": "GeneratePress theme screenshot from its WordPress.org listing",
   "sources": [
-    { "label": "GeneratePress on WordPress.org", "href": "https://wordpress.org/themes/generatepress/" },
-    { "label": "GeneratePress Block Elements documentation", "href": "https://docs.generatepress.com/article/block-element-overview/" }
+    {
+      "label": "GeneratePress on WordPress.org",
+      "href": "https://wordpress.org/themes/generatepress/"
+    },
+    {
+      "label": "GeneratePress Block Elements documentation",
+      "href": "https://docs.generatepress.com/article/block-element-overview/"
+    }
   ],
   "officialUrl": "https://generatepress.com/",
-  "affiliateId": "generatepress"
+  "affiliateId": "generatepress",
+  "handsOnTest": {
+    "date": "2026-10-09",
+    "themeVersion": "3.6.1",
+    "wordpressVersion": "7.1.3",
+    "phpVersion": "8.5.3",
+    "environment": "Local PHP development server on macOS; SQLite; Chromium; free editions; WordPress core blocks; no starter-site import or companion theme plugins. SQLite 3.51.2.",
+    "checks": [
+      {
+        "title": "Installed and activated",
+        "detail": "Installed the free GeneratePress 3.6.1 package from WordPress.org and activated it in the isolated test site."
+      },
+      {
+        "title": "Core blocks on desktop and mobile",
+        "detail": "The same heading, paragraphs, button, and three-column section rendered at 1200px and 375px without horizontal page overflow. This is a layout check, not an accessibility audit."
+      },
+      {
+        "title": "Mobile menu opened",
+        "detail": "Used the “Menu” control and confirmed the Journal navigation link became visible."
+      },
+      {
+        "title": "An edit saved successfully",
+        "detail": "Edited a paragraph in the block editor, saved the published page, and confirmed the new text appeared on the public page."
+      },
+      {
+        "title": "Article content rendered",
+        "detail": "Opened the same sample article and confirmed its content appeared in the mobile browser."
+      },
+      {
+        "title": "Site Identity setting changed",
+        "detail": "Opened Site Identity in the Customizer and confirmed the site-title setting accepted a new value. We did not publish that change or evaluate every design control."
+      }
+    ],
+    "limitations": [
+      "Local functional checks, not production hosting or Core Web Vitals benchmarks.",
+      "Premium features, starter-site imports, WooCommerce, other plugins, updates, support quality, and a full accessibility audit were not tested.",
+      "The Customizer setting check did not test publishing, theme updates, or all layout controls."
+    ],
+    "screenshots": [
+      {
+        "src": "/research/2026-10-09/generatepress-desktop.png",
+        "label": "Desktop · 1200px viewport",
+        "alt": "GeneratePress free theme rendering the KreativWP sample page on desktop",
+        "width": 1200,
+        "height": 1202
+      },
+      {
+        "src": "/research/2026-10-09/generatepress-mobile.png",
+        "label": "Mobile · 375px viewport",
+        "alt": "GeneratePress free theme rendering the KreativWP sample page on mobile",
+        "width": 375,
+        "height": 2481
+      }
+    ],
+    "evidenceHref": "/research/2026-10-09/theme-workflows.json"
+  }
 }

@@ -28,7 +28,7 @@
     let themes = editor === "visual"
       ? [link("/themes/astra/", "Astra"), link("/themes/hello-elementor/", "Hello Elementor")]
       : [link("/themes/generatepress/", "GeneratePress"), link("/themes/spectra-one/", "Spectra One")];
-    if (editor === "visual" && (priority === "design" || budget === "premium")) themes = [link("/themes/astra/", "Astra"), link("/themes/divi/", "Divi")];
+    if (editor === "visual" && budget === "premium") themes = [link("/themes/astra/", "Astra"), link("/themes/divi/", "Divi")];
     if (editor === "blocks" && priority === "design") themes = [link("/themes/kadence/", "Kadence"), link("/themes/blocksy/", "Blocksy")];
     if (site === "store") themes = editor === "visual" ? [link("/themes/astra/", "Astra"), link("/themes/blocksy/", "Blocksy"), link("/themes/neve/", "Neve")] : [link("/themes/kadence/", "Kadence"), link("/themes/blocksy/", "Blocksy"), link("/themes/neve/", "Neve")];
     const workflow = editor === "visual" ? "a visual-builder workflow" : "a block-first workflow";

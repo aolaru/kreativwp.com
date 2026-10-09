@@ -1,9 +1,11 @@
 import { getCollection } from "astro:content";
 
 export async function GET({ site }) {
-  const newsPosts = await getCollection("news");
-  const plugins = await getCollection("plugins");
-  const routeRefreshDate = "2026-09-18";
+  const [newsPosts, plugins, themes, reviews, comparisons, guides, tools] = await Promise.all([
+    getCollection("news"), getCollection("plugins"), getCollection("themeReviews"),
+    getCollection("pluginReviews"), getCollection("comparisons"), getCollection("guides"), getCollection("tools")
+  ]);
+  const routeRefreshDate = "2026-10-09";
   const lastModified = (date) => (date > routeRefreshDate ? date : routeRefreshDate);
   const urls = [
     { path: "/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "1.0" },
@@ -17,6 +19,16 @@ export async function GET({ site }) {
     { path: "/guides/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },
     { path: "/tools/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.7" },
     { path: "/products/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
+    { path: "/theme-checklist/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
+    ...[
+      { entries: themes, prefix: "/themes/" },
+      { entries: reviews, prefix: "/plugins/reviews/" },
+      { entries: comparisons, prefix: "/comparisons/" },
+      { entries: guides, prefix: "/guides/" },
+      { entries: tools.filter((entry) => entry.data.availability === "available"), prefix: "/tools/" }
+    ].flatMap(({ entries, prefix }) => entries.filter((entry) => !entry.data.isPlaceholder).map((entry) => ({
+      path: `${prefix}${entry.id}/`, lastmod: entry.data.updated, changefreq: "monthly", priority: "0.6"
+    }))),
     ...newsPosts.map((post) => ({
       path: `/news/${post.id}/`,
       lastmod: lastModified(post.data.published),
