@@ -1,52 +1,122 @@
 ---
-type Filter = { label: string; value: string };
-type Props = { filters: Filter[]; label: string };
-const { filters, label } = Astro.props;
+import type { FilterGroup } from "../data/library";
+
+type Props = { id: string; groups: FilterGroup[]; resource: string; label: string };
+const { id, groups, resource, label } = Astro.props;
 ---
-<div class="library-filter" data-library-filter>
-  <div class="library-filter__controls" role="group" aria-label={label}>
-    {filters.map((filter, index) => <button class:list={["library-filter__button", { "is-active": index === 0 }]} type="button" data-filter-value={filter.value} aria-pressed={index === 0 ? "true" : "false"}>{filter.label}</button>)}
+<div class="library-filter" data-library-filter hidden>
+  <div class="library-filter__toolbar">
+    <div><label for={`${id}-search`}>Search {resource} by name</label><input id={`${id}-search`} data-library-search type="search" placeholder={`Find a ${resource === "themes" ? "theme" : "plugin"}…`} autocomplete="off" /></div>
+    <div><label for={`${id}-sort`}>Sort {resource}</label><select id={`${id}-sort`} data-library-sort><option value="editorial">Editorial picks</option><option value="name">Name: A–Z</option><option value="recent">Recently checked</option></select></div>
   </div>
-  <p class="library-filter__hint">Select one or more filters to combine requirements.</p>
-  <p class="library-filter__status" aria-live="polite"></p>
+  <div class="library-filter__top"><button class="library-filter__button is-active" type="button" data-filter-value="all" aria-pressed="true">All {resource}</button><button class="library-filter__reset" data-library-reset type="button">Reset all</button></div>
+  <div class="library-filter__groups" role="group" aria-label={label}>
+    {groups.map((group) => <fieldset data-filter-group data-filter-mode={group.mode}><legend>{group.label} <small>{group.mode === "any" ? "match any" : "match all"}</small></legend><div class="library-filter__controls">{group.filters.map((filter) => <button class="library-filter__button" type="button" data-filter-value={filter.value} aria-pressed="false">{filter.label}</button>)}</div></fieldset>)}
+  </div>
+  <p class="library-filter__hint">Choose alternatives within “match any” groups. Different groups—and every “match all” requirement—must all match.</p>
+  <p class="library-filter__status" role="status" aria-live="polite" aria-atomic="true"></p>
+  <div class="library-filter__empty" data-library-empty hidden><h3>No matches this time.</h3><p>Try a shorter name, remove a requirement, or choose another option in the same group.</p><button class="button-like" data-library-reset type="button">Clear search and filters</button></div>
 </div>
+<noscript><p class="library-filter__hint">All {resource} are shown below. Enable JavaScript to search, sort, and filter.</p></noscript>
 <script>
-  document.querySelectorAll("[data-library]").forEach((library) => {
-    const buttons = Array.from(library.querySelectorAll("[data-filter-value]"));
-    const cards = Array.from(library.querySelectorAll("[data-library-card]"));
-    const sections = Array.from(library.querySelectorAll("[data-filter-section]"));
-    const status = library.querySelector(".library-filter__status");
-    const activeFilters = new Set(["all"]);
-    const applyFilters = () => {
-      let count = 0;
-      cards.forEach((card) => {
+  document.querySelectorAll<HTMLElement>("[data-library]").forEach((library) => {
+    if (library.dataset.libraryReady) return;
+    library.dataset.libraryReady = "true";
+    const controls = library.querySelector<HTMLElement>("[data-library-filter]");
+    const search = library.querySelector<HTMLInputElement>("[data-library-search]");
+    const sort = library.querySelector<HTMLSelectElement>("[data-library-sort]");
+    const grid = library.querySelector<HTMLElement>("[data-library-grid]");
+    const loadMore = library.querySelector<HTMLButtonElement>("[data-library-more]");
+    const empty = library.querySelector<HTMLElement>("[data-library-empty]");
+    const status = library.querySelector<HTMLElement>(".library-filter__status");
+    if (!controls || !search || !sort || !grid || !loadMore || !empty || !status) return;
+
+    const buttons = Array.from(controls.querySelectorAll<HTMLButtonElement>("[data-filter-value]"));
+    const groups = Array.from(controls.querySelectorAll<HTMLElement>("[data-filter-group]")).map((group) => ({
+      mode: group.dataset.filterMode,
+      values: Array.from(group.querySelectorAll<HTMLButtonElement>("[data-filter-value]")).map((button) => button.dataset.filterValue || "")
+    }));
+    const validFilters = new Set(groups.flatMap((group) => group.values));
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-library-card]"));
+    const activeFilters = new Set<string>();
+    const resource = library.dataset.libraryResource || "resources";
+    const batchSize = 8;
+    let limit = batchSize;
+    let matching: HTMLElement[] = [];
+
+    const normalize = (value: string) => value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("en").trim();
+    const byName = (a: HTMLElement, b: HTMLElement) => (a.dataset.cardName || "").localeCompare(b.dataset.cardName || "", "en", { sensitivity: "base" });
+    const readUrl = () => {
+      const params = new URL(location.href).searchParams;
+      search.value = params.get("q") || "";
+      sort.value = ["name", "recent", "editorial"].includes(params.get("sort") || "") ? params.get("sort")! : "editorial";
+      activeFilters.clear();
+      (params.get("filters") || "").split(",").map((value) => value.trim()).forEach((value) => { if (validFilters.has(value)) activeFilters.add(value); });
+      limit = batchSize;
+    };
+    const writeUrl = (method: "pushState" | "replaceState") => {
+      const url = new URL(location.href);
+      const query = search.value.trim();
+      query ? url.searchParams.set("q", query) : url.searchParams.delete("q");
+      activeFilters.size ? url.searchParams.set("filters", [...activeFilters].sort().join(",")) : url.searchParams.delete("filters");
+      sort.value !== "editorial" ? url.searchParams.set("sort", sort.value) : url.searchParams.delete("sort");
+      if (url.href !== location.href) history[method](null, "", url);
+    };
+    const apply = () => {
+      const query = normalize(search.value);
+      const ordered = [...cards].sort((a, b) => {
+        if (sort.value === "recent") return (b.dataset.updated || "").localeCompare(a.dataset.updated || "") || byName(a, b);
+        if (sort.value === "editorial") return Number(a.dataset.editorialRank ?? 9999) - Number(b.dataset.editorialRank ?? 9999) || byName(a, b);
+        return byName(a, b);
+      });
+      matching = ordered.filter((card) => {
+        if (!normalize(card.dataset.cardName || "").includes(query)) return false;
         const values = (card.dataset.filters || "").split(" ");
-        const matches = activeFilters.has("all") || Array.from(activeFilters).every((filter) => values.includes(filter));
-        card.hidden = !matches;
-        if (matches) count += 1;
+        return groups.every((group) => {
+          const selected = group.values.filter((value) => activeFilters.has(value));
+          return !selected.length || (group.mode === "all" ? selected.every((value) => values.includes(value)) : selected.some((value) => values.includes(value)));
+        });
       });
-      sections.forEach((section) => {
-        section.hidden = !Array.from(section.querySelectorAll("[data-library-card]")).some((card) => !card.hidden);
-      });
+      const shown = new Set(matching.slice(0, limit));
+      ordered.forEach((card) => { card.hidden = !shown.has(card); });
+      grid.replaceChildren(...ordered);
       buttons.forEach((button) => {
-        const active = activeFilters.has(button.dataset.filterValue || "");
+        const value = button.dataset.filterValue || "";
+        const active = value === "all" ? !activeFilters.size : activeFilters.has(value);
         button.classList.toggle("is-active", active);
         button.setAttribute("aria-pressed", String(active));
       });
-      if (status) status.textContent = `${count} ${count === 1 ? "result" : "results"} shown.`;
+      const visible = Math.min(limit, matching.length);
+      status.textContent = matching.length ? `Showing ${visible} of ${matching.length} ${resource}.` : `No ${resource} found.`;
+      empty.hidden = matching.length > 0;
+      loadMore.hidden = visible >= matching.length;
+      loadMore.textContent = `Show ${Math.min(batchSize, matching.length - visible)} more ${resource}`;
     };
+    const update = (method: "pushState" | "replaceState") => { limit = batchSize; apply(); writeUrl(method); };
     buttons.forEach((button) => button.addEventListener("click", () => {
       const value = button.dataset.filterValue || "all";
-      if (value === "all") {
-        activeFilters.clear();
-        activeFilters.add("all");
-      } else {
-        activeFilters.delete("all");
-        activeFilters.has(value) ? activeFilters.delete(value) : activeFilters.add(value);
-        if (!activeFilters.size) activeFilters.add("all");
-      }
-      applyFilters();
+      if (value === "all") activeFilters.clear();
+      else activeFilters.has(value) ? activeFilters.delete(value) : activeFilters.add(value);
+      update("pushState");
     }));
-    applyFilters();
+    library.querySelectorAll<HTMLButtonElement>("[data-library-reset]").forEach((button) => button.addEventListener("click", () => {
+      search.value = "";
+      sort.value = "editorial";
+      activeFilters.clear();
+      update("pushState");
+      search.focus();
+    }));
+    search.addEventListener("input", () => update("replaceState"));
+    sort.addEventListener("change", () => update("pushState"));
+    loadMore.addEventListener("click", () => {
+      const next = matching[limit];
+      limit += batchSize;
+      apply();
+      next?.querySelector<HTMLAnchorElement>("h3 a")?.focus();
+    });
+    window.addEventListener("popstate", () => { readUrl(); apply(); });
+    readUrl();
+    apply();
+    controls.hidden = false;
   });
 </script>

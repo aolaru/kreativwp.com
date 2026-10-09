@@ -80,6 +80,12 @@ Choose the published theme, plugin, and guide IDs in `src/data/site.ts`. The bui
 
 Live products can supply an official `downloadHref` and a `homepageScreenshot` with its source, caption, alt text, and dimensions. The homepage keeps the ZIP download separate from the detail-page link. The current Report Broken Link preview is its official WordPress.org dashboard screenshot; this product collects visitor reports and is not an automatic link scanner.
 
+## Library discovery
+
+The theme and plugin libraries share name search, name/recent/editorial sorting, URL-backed filters, and eight-card progressive loading. The full catalog remains in the HTML and is readable without JavaScript. URLs use `q`, `filters` (comma-separated values), and `sort` (`name`, `recent`, or `editorial`); loading more cards is local to the current view and resets when search, filters, or sorting change.
+
+Classification, filter groups, and explicit ordered editorial picks live in `src/data/library.ts`. Options in a “match any” group are alternatives; separate groups must all match. Theme “Requirements” is a “match all” group. Cards use a short excerpt from the existing profile’s `bestFor` text, or product `cardUse`, and do not enlarge the first alphabetical entry. Editorial selection is distinct from the profile’s research method and does not imply a default-install stack.
+
 ## Hands-on theme evidence
 
 The first free-theme workflow reviews cover Astra 4.14.0, GeneratePress 3.6.1, Blocksy 2.1.59, and Kadence 1.5.2. Evidence and screenshots live in `public/research/2026-10-09/`. The recorded environment is WordPress 7.1.3, PHP 8.5.3, SQLite Database Integration 3.1.0, and Chromium on a local macOS PHP server. These are functional checks, not production performance benchmarks or full accessibility audits.

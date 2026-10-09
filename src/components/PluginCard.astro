@@ -16,19 +16,23 @@ type Props = {
   ctaLabel?: string;
   checkedDate?: string;
   checkedLabel?: string;
+  bestFor?: string;
+  libraryUpdated?: string;
+  editorialRank?: number;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false, compact = false, ctaLabel = "View profile", checkedDate, checkedLabel = checkedDate } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false, compact = false, ctaLabel = "View profile", checkedDate, checkedLabel = checkedDate, bestFor, libraryUpdated, editorialRank } = Astro.props;
 const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN", calendar: "EVENTS", translations: "LANGUAGE", maintenance: "MANAGE", development: "DEBUG", tables: "TABLES", accessibility: "ACCESS" };
 ---
-<article class:list={["plugin-card", { "plugin-card--featured": featured, "plugin-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")}>
+<article class:list={["plugin-card", { "plugin-card--featured": featured, "plugin-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")} data-card-name={name} data-updated={libraryUpdated} data-editorial-rank={editorialRank}>
   <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" }]} href={href} aria-label={`Read ${name}`}>
     {imageSrc ? <><img data-card-image src={imageSrc} alt={imageAlt || `${name} thumbnail`} loading="lazy" /><span class="plugin-thumbnail__editorial plugin-thumbnail__fallback" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span></> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
   </a>
   <div class="plugin-card__body">
+    {editorialRank !== undefined && <p class="card-selection">Editor’s pick</p>}
     <div class="plugin-card__meta"><span>{developer}</span><span>{isPlaceholder || recommendationType === "research" ? "In research" : recommendationType === "conditional" ? "Use when needed" : recommendationType === "product" ? "KreativWP product" : "Core pick"}</span></div>
     <h3><a href={href}>{name}</a></h3>
-    <p>{description}</p>
+    {bestFor ? <p class="card-best-for"><strong>Best for:</strong> {bestFor}</p> : <p>{description}</p>}
     {checkedDate && <p class="profile-checked">Checked <time datetime={checkedDate}>{checkedLabel}</time></p>}
     <div class="plugin-card__footer"><span>{freeVersion}</span><a href={href}>{ctaLabel} <span aria-hidden="true">→</span></a></div>
   </div>

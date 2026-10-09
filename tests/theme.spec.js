@@ -74,6 +74,8 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(29);
 
   await page.getByRole("button", { name: "Page builder" }).click();
+  await expect(page.locator(".theme-card:visible")).toHaveCount(8);
+  await page.getByRole("button", { name: "Show 8 more themes" }).click();
   await expect(page.locator(".theme-card:visible")).toHaveCount(16);
 
   await page.goto("/themes/astra/");
