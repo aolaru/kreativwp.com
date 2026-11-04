@@ -1,0 +1,76 @@
+---
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const releaseNotes = [
+  {
+    title: "Built for publishing",
+    body: "A clean, readable foundation for journals, editorial sites, portfolios, studios, and content-led businesses."
+  },
+  {
+    title: "A WordPress-native setup",
+    body: "Use the Customizer for your logo, header image, menus, featured categories, footer content, and optional related posts."
+  },
+  {
+    title: "Designed to stay useful",
+    body: "Responsive layouts, WordPress block support, accessible navigation, and straightforward theme settings keep the base experience focused."
+  }
+];
+
+const plannedPro = [
+  "More starter layouts for creative and content-led sites.",
+  "A larger library of flexible page patterns.",
+  "A direct update and support path through KreativWP."
+];
+---
+<BaseLayout
+  title="Kreativ Core | WordPress Theme by KreativWP"
+  description="Kreativ Core is a clean, flexible WordPress theme for editorial sites, portfolios, studios, and content-led businesses."
+  canonicalPath="/products/kreativ-core/"
+  heroEyebrow="WordPress theme · by KreativWP"
+  heroTitle="Kreativ Core"
+  heroTagline="A calm, flexible foundation for publishing, portfolios, studios, and content-led websites."
+  heroImageSrc="/kreativ-wp-logo-128.svg"
+  heroImageAlt="KreativWP logo"
+  mainClass="product-page"
+  currentPath="/products/"
+>
+  <div class="product-install">
+    <a class="button-like button-like--primary" href="https://themes.trac.wordpress.org/ticket/297788" target="_blank" rel="noopener noreferrer">Follow the WordPress.org review ↗</a>
+    <a class="text-action" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">View the source on GitHub ↗</a>
+  </div>
+
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/" }, { label: "Kreativ Core" }]} />
+
+  <dl class="product-facts">
+    <div><dt>Current version</dt><dd>1.0.9</dd></div>
+    <div><dt>Free edition</dt><dd>Submitted to WordPress.org</dd></div>
+    <div><dt>License</dt><dd>GPL-2.0-or-later</dd></div>
+    <div><dt>Pro edition</dt><dd>In planning</dd></div>
+  </dl>
+
+  <figure class="product-gallery">
+    <a href="/kreativ-core-preview.png"><img src="/kreativ-core-preview.png" alt="Kreativ Core theme preview showing an editorial layout for publishing, portfolios, and business sites" width="1200" height="900" /></a>
+    <figcaption>Current theme preview · open full image</figcaption>
+  </figure>
+
+  <section class="editorial-section" aria-labelledby="core-features-title">
+    <p class="section-label">The free foundation</p>
+    <h2 id="core-features-title">Space for the work, not more noise.</h2>
+    {releaseNotes.map((item) => <article class="plugin-detail"><h3>{item.title}</h3><p>{item.body}</p></article>)}
+  </section>
+
+  <section class="editorial-section" aria-labelledby="core-status-title">
+    <h2 id="core-status-title">Release status</h2>
+    <p class="section-intro">Kreativ Core 1.0.9 has been submitted to the WordPress.org Theme Directory and is awaiting manual review. The automated scan passed before submission.</p>
+    <p>Until the directory listing is live, follow the review ticket or inspect the public source repository for the current theme files.</p>
+  </section>
+
+  <section class="launch-cta card" aria-labelledby="core-pro-title">
+    <p class="section-label">Looking ahead</p>
+    <h2 id="core-pro-title">Kreativ Core Pro is being planned.</h2>
+    <p>The Pro edition will extend the free theme without making the core experience dependent on a purchase.</p>
+    <ul class="check-list">{plannedPro.map((item) => <li>{item}</li>)}</ul>
+    <p><a class="detail-link" href="/contact/">Ask about the Pro roadmap</a></p>
+  </section>
+</BaseLayout>
