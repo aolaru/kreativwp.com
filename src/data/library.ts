@@ -61,6 +61,7 @@ export const themeFilters: Record<string, string[]> = {
   inspiro: ["portfolio", "page-builder", "starter-sites", "free"],
   jadro: ["lightweight", "block-editor", "full-site-editing", "business", "free"],
   kadence: ["block-editor", "ecommerce", "business", "starter-sites", "free"],
+  "kreativ-core": ["portfolio"],
   neve: ["lightweight", "block-editor", "page-builder", "ecommerce", "business", "starter-sites", "free"],
   oceanwp: ["ecommerce", "page-builder", "business", "starter-sites", "free"],
   ollie: ["block-editor", "full-site-editing", "free"],

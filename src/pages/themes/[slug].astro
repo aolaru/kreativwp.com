@@ -9,8 +9,16 @@ export async function getStaticPaths() { const entries = await getCollection("th
 const { entry } = Astro.props;
 const affiliate = getAffiliateLink(entry.data.affiliateId);
 ---
-<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="Theme review" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow={entry.data.ownProduct ? "WordPress theme · by KreativWP" : "Theme review"} heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Themes", href: "/themes/" }, { label: entry.data.themeName }]} />
+  {entry.data.ownProduct ? <>
+    <div class="editorial-notice" role="status">Our theme — Kreativ Core is developed by KreativWP. This product profile is not an independent review.</div>
+    <div class="product-install"><a class="button-like button-like--primary" href="/products/kreativ-core/">Explore the full product page</a><a class="text-action" href={entry.data.officialUrl} target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></div>
+    {entry.data.thumbnail && <figure class="core-theme-art"><img src={entry.data.thumbnail} alt={entry.data.thumbnailAlt} width="1200" height="900" /><figcaption>Theme artwork</figcaption></figure>}
+    <section class="editorial-section" aria-labelledby="core-overview-title"><h2 id="core-overview-title">A home for your ideas.</h2><p class="section-intro">{entry.data.bestFor}</p><dl class="fact-grid"><div><dt>Developer</dt><dd>{entry.data.developer}</dd></div><div><dt>Availability</dt><dd>{entry.data.freeVersion}</dd></div><div><dt>License</dt><dd>GPL-2.0-or-later</dd></div></dl></section>
+    <section class="editorial-section" aria-labelledby="core-highlights-title"><h2 id="core-highlights-title">What’s included</h2><ul class="check-list">{entry.data.highlights.map((item) => <li>{item}</li>)}</ul></section>
+    <section class="editorial-section" aria-labelledby="core-source-title"><h2 id="core-source-title">Before you get started</h2><p class="section-intro">{entry.data.caveats}</p><p><a class="button-like" href="/products/kreativ-core/">See setup and theme details</a></p></section>
+  </> : <>
   <EditorialByline date={entry.data.updated} label={entry.data.updatedLabel} />
   {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this page is a transparent template for planned hands-on testing, not a completed recommendation.</div> : <div class="editorial-notice" role="status">Published {entry.data.researchMethod === "documented-research" ? "documentation research" : "hands-on review"} — scope and source links are shown below.</div>}
   <section class="verdict-panel" aria-labelledby="verdict-title">
@@ -31,4 +39,11 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
   <section class="editorial-section" aria-labelledby="testing-title"><h2 id="testing-title">What the documentation confirms</h2><ul class="check-list">{entry.data.highlights.map((item) => <li>{item}</li>)}</ul></section>
   <section class="editorial-section" aria-labelledby="scope-title"><h2 id="scope-title">Research scope</h2><p class="section-intro">{entry.data.researchScope}</p><p class="editorial-caveat"><strong>Important:</strong> {entry.data.caveats}</p><div class="source-links"><strong>Sources</strong><ul>{entry.data.sources.map((source) => <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></div>{entry.data.officialUrl ? <p class="centered-action"><a class="button-like" href={entry.data.officialUrl} target="_blank" rel="noopener noreferrer">Visit the official site</a></p> : null}</section>
   {affiliate ? <><AffiliateDisclosure /><p class="centered-action"><a class="button-like" href={affiliate.href} target="_blank" rel="sponsored noopener noreferrer">{affiliate.label}</a></p></> : null}
+  </>}
 </BaseLayout>
+
+<style>
+  .core-theme-art { margin: 2rem 0 3rem; }
+  .core-theme-art img { display: block; width: 100%; height: auto; border: 1px solid var(--card-border); }
+  .core-theme-art figcaption { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
+</style>

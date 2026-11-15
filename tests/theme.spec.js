@@ -1,4 +1,5 @@
 const { test, expect } = require("@playwright/test");
+const fs = require("node:fs");
 
 test("homepage navigation and theme toggle work", async ({ page }) => {
   await page.goto("/");
@@ -69,8 +70,9 @@ test("editorial archives and search are reachable", async ({ page }) => {
 
 test("theme and plugin libraries use the visual discovery cards", async ({ page }) => {
   await page.goto("/themes/");
-  await expect(page.locator(".theme-card")).toHaveCount(30);
-  await expect(page.locator(".theme-card img")).toHaveCount(30);
+  const themeCount = fs.readdirSync("src/content/theme-reviews").filter((name) => name.endsWith(".json")).length;
+  await expect(page.locator(".theme-card")).toHaveCount(themeCount);
+  await expect(page.locator(".theme-card img")).toHaveCount(themeCount);
   await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(29);
 
   await page.getByRole("button", { name: "Page builder" }).click();

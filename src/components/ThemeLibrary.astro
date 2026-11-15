@@ -12,8 +12,8 @@ if (librarySelections.themes.some((id) => !themes.some((entry) => entry.id === i
   <p class="section-intro">Find a theme by name, workflow, and fit. Editor’s picks are starting points—not a universal ranking.</p>
   <LibraryFilter id="theme-library" label="Filter WordPress themes" resource="themes" groups={themeFilterGroups} />
   <div class="theme-catalogue__grid" id="theme-library-grid" data-library-grid>
-    {themes.map((theme) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} bestFor={shortBestFor(theme.data.bestFor)} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} filterValues={themeFilters[theme.id] || []} isPlaceholder={theme.data.isPlaceholder} researchMethod={theme.data.researchMethod} libraryUpdated={theme.data.updated} editorialRank={editorialRank(theme.id, "themes")} />)}
+    {themes.map((theme) => <ThemeCard href={`/themes/${theme.id}/`} name={theme.data.themeName} developer={theme.data.developer} description={theme.data.description} bestFor={shortBestFor(theme.data.bestFor)} freeVersion={theme.data.freeVersion} previewStyle={theme.data.previewStyle} thumbnail={theme.data.thumbnail} thumbnailAlt={theme.data.thumbnailAlt} filterValues={themeFilters[theme.id] || []} isPlaceholder={theme.data.isPlaceholder} researchMethod={theme.data.researchMethod} ownProduct={theme.data.ownProduct} libraryUpdated={theme.data.updated} editorialRank={editorialRank(theme.id, "themes")} />)}
   </div>
   <div class="library-more"><button class="button-like" type="button" data-library-more aria-controls="theme-library-grid" hidden>Show more themes</button></div>
-  <p class="theme-catalogue__note">Screenshots come from WordPress.org. Profiles distinguish documentation research from hands-on tests.</p>
+  <p class="theme-catalogue__note">Theme images come from their official sources; Kreativ Core uses its theme artwork. Profiles distinguish documentation research from hands-on tests and identify our own products.</p>
 </section>

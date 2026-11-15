@@ -2,75 +2,96 @@
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const releaseNotes = [
-  {
-    title: "Built for publishing",
-    body: "A clean, readable foundation for journals, editorial sites, portfolios, studios, and content-led businesses."
-  },
-  {
-    title: "A WordPress-native setup",
-    body: "Use the Customizer for your logo, header image, menus, featured categories, footer content, and optional related posts."
-  },
-  {
-    title: "Designed to stay useful",
-    body: "Responsive layouts, WordPress block support, accessible navigation, and straightforward theme settings keep the base experience focused."
-  }
-];
-
-const plannedPro = [
-  "More starter layouts for creative and content-led sites.",
-  "A larger library of flexible page patterns.",
-  "A direct update and support path through KreativWP."
+const features = [
+  { title: "Make your words the focus", body: "Sectioned homepages and category-led layouts give your stories room to breathe." },
+  { title: "Make it yours", body: "Add your logo, choose featured categories, and set up your menus and footer in WordPress." },
+  { title: "Comfortable on any screen", body: "A responsive layout, native WordPress images, and an optional dark mode make reading feel at home." },
+  { title: "Keep readers exploring", body: "Turn on the built-in related posts section to help visitors discover more of your work." }
 ];
 ---
 <BaseLayout
-  title="Kreativ Core | WordPress Theme by KreativWP"
-  description="Kreativ Core is a clean, flexible WordPress theme for editorial sites, portfolios, studios, and content-led businesses."
+  title="Kreativ Core | A WordPress theme for publishing"
+  description="Meet Kreativ Core, a responsive WordPress theme for blogs, journals, portfolios, and content-led websites."
   canonicalPath="/products/kreativ-core/"
-  heroEyebrow="WordPress theme · by KreativWP"
+  heroEyebrow="A WordPress theme by KreativWP"
   heroTitle="Kreativ Core"
-  heroTagline="A calm, flexible foundation for publishing, portfolios, studios, and content-led websites."
+  heroTagline="A thoughtful home for your stories, ideas, and creative work."
   heroImageSrc="/kreativ-wp-logo-128.svg"
   heroImageAlt="KreativWP logo"
-  mainClass="product-page"
+  mainClass="product-page core-page"
   currentPath="/products/"
 >
   <div class="product-install">
-    <a class="button-like button-like--primary" href="https://themes.trac.wordpress.org/ticket/297788" target="_blank" rel="noopener noreferrer">Follow the WordPress.org review ↗</a>
-    <a class="text-action" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">View the source on GitHub ↗</a>
+    <a class="button-like button-like--primary" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">Explore the theme on GitHub ↗</a>
+    <a class="text-action" href="#core-features">See what’s included ↓</a>
+    <a class="text-action" href="/themes/kreativ-core/">View in the theme library →</a>
   </div>
 
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/" }, { label: "Kreativ Core" }]} />
 
-  <dl class="product-facts">
-    <div><dt>Current version</dt><dd>1.0.9</dd></div>
-    <div><dt>Free edition</dt><dd>Submitted to WordPress.org</dd></div>
-    <div><dt>License</dt><dd>GPL-2.0-or-later</dd></div>
-    <div><dt>Pro edition</dt><dd>In planning</dd></div>
-  </dl>
-
-  <figure class="product-gallery">
-    <a href="/kreativ-core-preview.png"><img src="/kreativ-core-preview.png" alt="Kreativ Core theme preview showing an editorial layout for publishing, portfolios, and business sites" width="1200" height="900" /></a>
-    <figcaption>Current theme preview · open full image</figcaption>
+  <figure class="core-artwork">
+    <img src="/kreativ-core-preview.png" alt="Kreativ Core artwork describing a clean, flexible editorial WordPress theme" width="1200" height="900" />
+    <figcaption>Kreativ Core theme artwork</figcaption>
   </figure>
 
-  <section class="editorial-section" aria-labelledby="core-features-title">
-    <p class="section-label">The free foundation</p>
-    <h2 id="core-features-title">Space for the work, not more noise.</h2>
-    {releaseNotes.map((item) => <article class="plugin-detail"><h3>{item.title}</h3><p>{item.body}</p></article>)}
+  <section class="core-intro" aria-labelledby="core-intro-title">
+    <div><p class="section-label">Made for publishing</p><h2 id="core-intro-title">Your work deserves a beautiful home.</h2></div>
+    <div><p>From a personal journal to a creative studio, Kreativ Core gives your content a clear, welcoming place to live.</p><a class="text-action" href="#core-start">See how to get started ↓</a></div>
   </section>
 
-  <section class="editorial-section" aria-labelledby="core-status-title">
-    <h2 id="core-status-title">Release status</h2>
-    <p class="section-intro">Kreativ Core 1.0.9 has been submitted to the WordPress.org Theme Directory and is awaiting manual review. The automated scan passed before submission.</p>
-    <p>Until the directory listing is live, follow the review ticket or inspect the public source repository for the current theme files.</p>
+  <section class="core-section" id="core-features" aria-labelledby="core-features-title">
+    <p class="section-label">The essentials</p>
+    <h2 id="core-features-title">Everything you need to get started.</h2>
+    <div class="core-features">{features.map((feature, index) => <article><span class="core-feature-number">0{index + 1}</span><h3>{feature.title}</h3><p>{feature.body}</p></article>)}</div>
   </section>
 
-  <section class="launch-cta card" aria-labelledby="core-pro-title">
-    <p class="section-label">Looking ahead</p>
-    <h2 id="core-pro-title">Kreativ Core Pro is being planned.</h2>
-    <p>The Pro edition will extend the free theme without making the core experience dependent on a purchase.</p>
-    <ul class="check-list">{plannedPro.map((item) => <li>{item}</li>)}</ul>
-    <p><a class="detail-link" href="/contact/">Ask about the Pro roadmap</a></p>
+  <section class="core-section core-start" id="core-start" aria-labelledby="core-start-title">
+    <div><p class="section-label">Getting started</p><h2 id="core-start-title">Make it feel like you.</h2><p>Start with the source, then shape your site in WordPress.</p><a class="button-like button-like--primary" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">View source and instructions ↗</a></div>
+    <ol><li>Copy the theme folder into <code>wp-content/themes/</code> and activate Kreativ Core.</li><li>Add a logo and set up your primary and footer menus.</li><li>Choose featured categories and an editorial homepage template.</li></ol>
+  </section>
+
+  <section class="core-section" aria-labelledby="core-details-title">
+    <p class="section-label">The details</p>
+    <h2 id="core-details-title">Simple, open, and yours to explore.</h2>
+    <dl class="core-facts"><div><dt>Repository version</dt><dd>1.0.7</dd></div><div><dt>WordPress</dt><dd>6.4 or later</dd></div><div><dt>PHP</dt><dd>7.4 or later</dd></div><div><dt>License</dt><dd>GPL-2.0 or later</dd></div></dl>
+    <p class="core-note">These requirements describe the linked GitHub source. Kreativ Core has also been submitted to WordPress.org; <a href="https://themes.trac.wordpress.org/ticket/297788" target="_blank" rel="noopener noreferrer">see the review ticket</a> for its status.</p>
+  </section>
+
+  <section class="core-cta" aria-labelledby="core-cta-title">
+    <p class="section-label">Built by KreativWP</p><h2 id="core-cta-title">Ready to make something yours?</h2>
+    <p>Explore the theme, or get in touch if you have a question.</p>
+    <div class="product-install"><a class="button-like button-like--primary" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">Explore Kreativ Core ↗</a><a class="text-action" href="/contact/">Contact us →</a></div>
   </section>
 </BaseLayout>
+
+<style>
+  .core-artwork { margin: 2rem 0 4rem; }
+  .core-artwork img { display: block; width: 100%; height: auto; border: 1px solid var(--card-border); }
+  .core-artwork figcaption { color: var(--muted); font-size: .78rem; margin-top: .5rem; }
+  .core-intro, .core-start { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; align-items: start; }
+  .core-intro, .core-section { margin-bottom: 5rem; }
+  .core-intro h2, .core-section h2, .core-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.08; letter-spacing: -.04em; max-width: 20ch; }
+  .core-intro p:not(.section-label), .core-start p:not(.section-label), .core-cta p:not(.section-label) { color: var(--muted); margin-bottom: 1rem; }
+  .core-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .core-features article { background: var(--bg-alt); border: 1px solid var(--card-border); padding: 1.5rem; }
+  .core-feature-number { color: var(--accent); font-size: .75rem; font-weight: 700; }
+  .core-features h3 { font-size: 1.12rem; margin: 1.2rem 0 .4rem; }
+  .core-features p, .core-start li, .core-note { color: var(--muted); font-size: .95rem; }
+  .core-start { padding: 2rem; background: var(--bg-alt); border: 1px solid var(--card-border); }
+  .core-start h2 { margin-bottom: .8rem; }
+  .core-start ol { padding-left: 1.4rem; }
+  .core-start li + li { margin-top: 1rem; }
+  .core-start code { overflow-wrap: anywhere; }
+  .core-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; border-top: 1px solid var(--card-border); margin-top: 2rem; padding-top: 1.2rem; }
+  .core-facts dt { color: var(--muted); font-size: .8rem; }
+  .core-facts dd { font-weight: 700; }
+  .core-note { margin-top: 1.5rem; max-width: 65ch; }
+  .core-cta { border-top: 1px solid var(--card-border); padding: 3rem 0 1rem; }
+  .core-cta h2 { margin-bottom: .8rem; }
+  @media (max-width: 650px) {
+    .core-intro, .core-start, .core-features { grid-template-columns: 1fr; }
+    .core-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .core-intro, .core-section, .core-artwork { margin-bottom: 3rem; }
+    .core-start { padding: 1.5rem; }
+  }
+</style>

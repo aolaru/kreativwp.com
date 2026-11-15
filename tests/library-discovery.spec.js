@@ -29,6 +29,18 @@ test("name search is immediate, case insensitive, and scoped to each library", a
   }
 });
 
+test("Kreativ Core is discoverable and identified as our own theme", async ({ page }) => {
+  await page.goto("/themes/");
+  await page.getByLabel("Search themes by name").fill("Kreativ Core");
+  const card = page.locator("[data-library-card]:visible");
+  await expect(card).toHaveCount(1);
+  await expect(card).toContainText("Our theme");
+  await card.getByRole("link", { name: "View profile" }).click();
+  await expect(page).toHaveURL(/\/themes\/kreativ-core\/$/);
+  await expect(page.getByRole("status")).toContainText("not an independent review");
+  await expect(page.getByRole("link", { name: "Explore the full product page" })).toHaveAttribute("href", "/products/kreativ-core/");
+});
+
 test("name sorting is global, including specialized plugins and own products", async ({ page }) => {
   for (const [path, resource, names] of [["/themes/", "themes", themeNames], ["/plugins/", "plugins", pluginNames]]) {
     await page.goto(path);
@@ -61,7 +73,7 @@ test("editorial selections are explicit and all cards have short best-for lines"
     await expect(page.locator("[data-library] .card-selection")).toHaveCount(4);
     await expect(page.locator("[data-library] .theme-card--featured, [data-library] .plugin-card--featured")).toHaveCount(0);
     const fits = await page.locator("[data-library-card] .card-best-for").allTextContents();
-    expect(fits.length).toBe(path === "/themes/" ? 30 : 32);
+    expect(fits.length).toBe(path === "/themes/" ? themeNames.length : pluginNames.length);
     for (const fit of fits) { expect(fit).toMatch(/^Best for:/); expect(fit.length).toBeLessThanOrEqual(121); }
   }
 });
@@ -121,7 +133,7 @@ test("empty results explain how to recover and reset without hiding the controls
 });
 
 test("load-more batches have accurate counts, no duplicates, and usable keyboard focus", async ({ page }) => {
-  for (const [path, count] of [["/themes/", 30], ["/plugins/", 32]]) {
+  for (const [path, count] of [["/themes/", themeNames.length], ["/plugins/", pluginNames.length]]) {
     await page.goto(path);
     await expect(page.locator("[data-library-card]:visible")).toHaveCount(8);
     await expect(page.locator(".library-filter__status")).toContainText(`Showing 8 of ${count}`);
@@ -176,7 +188,7 @@ test("mobile grids are balanced, bounded, and do not overflow in either theme", 
 test("without JavaScript all profiles remain readable and filter controls stay hidden", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  for (const [path, count] of [["/themes/", 30], ["/plugins/", 32]]) {
+  for (const [path, count] of [["/themes/", themeNames.length], ["/plugins/", pluginNames.length]]) {
     await page.goto(`http://127.0.0.1:5500${path}`);
     await expect(page.locator("[data-library-card]:visible")).toHaveCount(count);
     await expect(page.locator("[data-library-filter]")).toBeHidden();

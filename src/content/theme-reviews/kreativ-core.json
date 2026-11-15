@@ -1,0 +1,28 @@
+{
+  "title": "Kreativ Core",
+  "description": "A responsive WordPress theme for journals, blogs, portfolios, and content-led websites.",
+  "metaDescription": "Explore Kreativ Core, a WordPress theme by KreativWP with editorial homepage templates, dark mode, and Customizer options.",
+  "category": "Theme profile",
+  "updated": "2026-11-15",
+  "updatedLabel": "November 15, 2026",
+  "isPlaceholder": false,
+  "ownProduct": true,
+  "themeName": "Kreativ Core",
+  "developer": "KreativWP",
+  "previewStyle": "kreativ-core",
+  "freeVersion": "Source available",
+  "price": "Source available under GPL-2.0-or-later",
+  "highlights": [
+    "Sectioned homepage templates and category-driven layouts for publishing",
+    "Custom logo, featured categories, footer menu, and footer text options",
+    "Responsive images, optional dark mode, and built-in related posts"
+  ],
+  "bestFor": "Blogs, journals, and portfolios that need a content-focused classic WordPress theme.",
+  "researchMethod": "documented-research",
+  "researchScope": "This product profile describes the theme's public source and documentation. Kreativ Core is developed by KreativWP, so this is not an independent review.",
+  "caveats": "The public repository identifies its source as version 1.0.7. Check the WordPress.org review ticket for the directory submission status and test the theme with your own content and plugins.",
+  "thumbnail": "/kreativ-core-preview.png",
+  "thumbnailAlt": "Kreativ Core theme artwork",
+  "sources": [{ "label": "Kreativ Core source and documentation", "href": "https://github.com/aolaru/kreativ-oceania-theme" }],
+  "officialUrl": "https://github.com/aolaru/kreativ-oceania-theme"
+}

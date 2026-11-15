@@ -124,6 +124,7 @@ const themeReviews = defineCollection({
   schema: editorialBase.extend({
     themeName: z.string(),
     developer: z.string(),
+    ownProduct: z.boolean().default(false),
     previewStyle: z.string(),
     freeVersion: z.string(),
     price: z.string(),
