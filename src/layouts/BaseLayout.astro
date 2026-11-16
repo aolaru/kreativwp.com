@@ -113,8 +113,8 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
       <header class="hero">
         <nav class="top-menu" aria-label="Main navigation">
           <a class="site-wordmark" href="/" aria-label="KreativWP home">
-            <img class="site-wordmark__mark" src="/kreativ-wp-logo-128.svg?v=37c7ac8" width="32" height="32" alt="" aria-hidden="true" />
-            <span class="site-wordmark__label"><strong>KREATIV</strong>WP<small>WordPress resource</small></span>
+            <img class="site-wordmark__mark" src="/kreativ-wp-logo-128.svg?v=37c7ac8" width="44" height="44" alt="" aria-hidden="true" />
+            <span class="site-wordmark__label"><span class="site-wordmark__name">Kreativ <span>WP</span></span><small>Themes · plugins · tools</small></span>
           </a>
           <form class="header-search" action="/search/" role="search">
             <label class="sr-only" for="header-search-input">Search KreativWP</label>
@@ -138,8 +138,8 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
             </button>
           </div>
           <details class="mobile-menu">
-            <summary>Menu</summary>
-            <div class="mobile-menu__links">{navigation.map((item) => <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>)}</div>
+            <summary><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg><span>Menu</span></summary>
+            <div class="mobile-menu__links"><p>Explore KreativWP</p>{navigation.map((item) => <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}><span>{item.label}</span><span aria-hidden="true">→</span></a>)}</div>
           </details>
         </nav>
         <span class="sr-only" id="theme-status" aria-live="polite"></span>
@@ -164,6 +164,21 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
       </footer>
     </main>
 
+    <script is:inline>
+      (() => {
+        const menu = document.querySelector(".mobile-menu");
+        if (!(menu instanceof HTMLDetailsElement)) return;
+        document.addEventListener("click", (event) => {
+          if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+        });
+        menu.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && menu.open) {
+            menu.open = false;
+            menu.querySelector("summary")?.focus();
+          }
+        });
+      })();
+    </script>
     <script is:inline>
       (() => {
         const key = "kreativwp-theme";

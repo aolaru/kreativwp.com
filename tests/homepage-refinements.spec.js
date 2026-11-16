@@ -57,6 +57,15 @@ test("the homepage and navigation remain usable on small screens", async ({ page
   await page.locator(".mobile-menu summary").click();
   await expect(page.locator(".mobile-menu__links").getByRole("link", { name: "Themes" })).toBeVisible();
   await expect(page.locator(".mobile-menu__links").getByRole("link", { name: "Themes" })).toHaveAttribute("href", "/themes/");
+  await page.locator(".mobile-menu__links a").first().focus();
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".mobile-menu")).not.toHaveAttribute("open");
+  await expect(page.locator(".mobile-menu summary")).toBeFocused();
+  await page.goto("/themes/");
+  await page.locator(".mobile-menu summary").click();
+  await expect(page.locator(".mobile-menu__links").getByRole("link", { name: "Themes" })).toHaveAttribute("aria-current", "page");
+  await page.locator(".hero h1").click({ position: { x: 5, y: 5 } });
+  await expect(page.locator(".mobile-menu")).not.toHaveAttribute("open");
 });
 
 test("product buttons retain accessible contrast in both themes", async ({ page }) => {
