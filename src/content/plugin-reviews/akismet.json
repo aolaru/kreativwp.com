@@ -1,0 +1,35 @@
+{
+  "title": "Akismet Review",
+  "description": "A hosted service for filtering spam in WordPress comments and forms.",
+  "homepageSummary": "Sites that need hosted spam filtering for comments or supported forms.",
+  "metaDescription": "A documented KreativWP profile of Akismet, including its purpose and important limitations.",
+  "category": "Spam protection",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Akismet",
+  "developer": "Automattic",
+  "pricing": "Service plans vary; check current pricing for your site",
+  "freeVersion": "Available",
+  "highlights": [
+    "Checks submissions for suspected spam",
+    "Works with WordPress comments and supported integrations",
+    "Requires an Akismet account and API key"
+  ],
+  "bestFor": "Sites that need hosted spam filtering for comments or supported forms.",
+  "previewStyle": "security",
+  "thumbnailKind": "icon",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Akismet WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Review current pricing, service data handling, and potential false positives; do not assume all commercial use is free.",
+  "thumbnail": "https://ps.w.org/akismet/assets/icon-256x256.png?rev=2818463",
+  "thumbnailAlt": "Akismet icon from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Akismet on WordPress.org",
+      "href": "https://wordpress.org/plugins/akismet/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/akismet/"
+}

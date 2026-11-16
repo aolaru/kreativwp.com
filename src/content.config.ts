@@ -165,6 +165,7 @@ const pluginReviews = defineCollection({
     bestFor: z.string(),
     previewStyle: z.string(),
     recommendationType: z.enum(["core", "conditional", "research"]).default("research"),
+    thumbnailKind: z.enum(["screenshot", "icon"]).default("screenshot"),
     researchMethod: z.enum(["documented-research", "hands-on"]).optional(),
     researchScope: z.string().optional(),
     caveats: z.string().optional(),

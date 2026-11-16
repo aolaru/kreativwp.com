@@ -22,7 +22,7 @@ export const pluginFilterGroups: FilterGroup[] = [
     { label: "Page builder", value: "page-builder" }, { label: "Development", value: "development" },
     { label: "Accessibility", value: "accessibility" }, { label: "Content", value: "content" },
     { label: "Maintenance", value: "maintenance" }, { label: "Images", value: "images" },
-    { label: "Translation", value: "translation" }, { label: "Events", value: "events" }
+    { label: "Translation", value: "translation" }, { label: "Events", value: "events" }, { label: "Privacy", value: "privacy" }
   ] },
   { label: "Profile type", mode: "any", filters: [
     { label: "Core stack", value: "core" }, { label: "Use when needed", value: "conditional" },
@@ -79,7 +79,17 @@ export const themeFilters: Record<string, string[]> = {
   "colibri-wp": ["page-builder", "business", "portfolio", "starter-sites", "free"],
   qi: ["page-builder", "business", "portfolio", "starter-sites", "free"],
   shapely: ["page-builder", "business", "portfolio", "free"],
-  panoramic: ["page-builder", "business", "portfolio", "ecommerce", "free"]
+  panoramic: ["page-builder", "business", "portfolio", "ecommerce", "free"],
+  ona: ["block-editor", "full-site-editing", "portfolio", "free"],
+  woostify: ["page-builder", "ecommerce", "free"],
+  bjork: ["block-editor", "full-site-editing", "free"],
+  tove: ["block-editor", "full-site-editing", "business", "free"],
+  "twenty-twenty-two": ["block-editor", "full-site-editing", "portfolio", "business", "free"],
+  ashe: ["page-builder", "ecommerce", "free"],
+  bricksy: ["block-editor", "full-site-editing", "free"],
+  blockbase: ["block-editor", "full-site-editing", "free"],
+  responsive: ["page-builder", "business", "portfolio", "ecommerce", "starter-sites", "free"],
+  "twenty-twenty-one": ["block-editor", "free"]
 };
 
 export const pluginFilters: Record<string, string[]> = {
@@ -112,5 +122,15 @@ export const pluginFilters: Record<string, string[]> = {
   "query-monitor": ["development", "performance", "conditional"],
   tablepress: ["content", "conditional"],
   "antispam-bee": ["security", "conditional"],
-  "wp-accessibility": ["accessibility", "conditional"]
+  "wp-accessibility": ["accessibility", "conditional"],
+  wpforms: ["forms", "conditional"],
+  polylang: ["translation", "conditional"],
+  akismet: ["security", "conditional"],
+  "all-in-one-wp-migration": ["backups", "maintenance", "conditional"],
+  wpvivid: ["backups", "maintenance", "conditional"],
+  "code-snippets": ["development", "conditional"],
+  "simple-history": ["maintenance", "security", "conditional"],
+  "regenerate-thumbnails": ["images", "maintenance", "conditional"],
+  complianz: ["privacy", "conditional"],
+  "wp-super-cache": ["performance", "conditional"]
 };

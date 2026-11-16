@@ -1,0 +1,34 @@
+{
+  "title": "Simple History Review",
+  "description": "An activity log for tracking changes in WordPress.",
+  "homepageSummary": "Teams that need a clearer record of site changes.",
+  "metaDescription": "A documented KreativWP profile of Simple History, including its purpose and important limitations.",
+  "category": "Activity logs",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Simple History",
+  "developer": "Pär Thernström",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "Records supported WordPress activity in a dashboard log",
+    "Provides filtering and event details",
+    "Retention and extended features depend on configuration and edition"
+  ],
+  "bestFor": "Teams that need a clearer record of site changes.",
+  "previewStyle": "maintenance",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Simple History WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Review retention, privacy, storage, and which plugin events are logged; an activity log is not a complete security system.",
+  "thumbnail": "https://ps.w.org/simple-history/assets/screenshot-1.png?rev=3537767",
+  "thumbnailAlt": "Simple History screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Simple History on WordPress.org",
+      "href": "https://wordpress.org/plugins/simple-history/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/simple-history/"
+}

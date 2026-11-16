@@ -1,0 +1,34 @@
+{
+  "title": "WPvivid Review",
+  "description": "A backup, migration, and staging plugin.",
+  "homepageSummary": "Site owners comparing backup and staging workflows.",
+  "metaDescription": "A documented KreativWP profile of WPvivid, including its purpose and important limitations.",
+  "category": "Backups",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "WPvivid",
+  "developer": "WPvivid",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "The listing describes backup and migration tools",
+    "Includes staging in its basic feature set",
+    "Paid features and storage integrations vary"
+  ],
+  "bestFor": "Site owners comparing backup and staging workflows.",
+  "previewStyle": "maintenance",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official WPvivid WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Verify backup coverage, storage, restore capability, and plan limits; avoid overlapping backup schedules.",
+  "thumbnail": "https://ps.w.org/wpvivid-backuprestore/assets/screenshot-1.png?rev=2099721",
+  "thumbnailAlt": "WPvivid screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "WPvivid on WordPress.org",
+      "href": "https://wordpress.org/plugins/wpvivid-backuprestore/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/wpvivid-backuprestore/"
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Woostify Theme Review",
+  "description": "A WooCommerce-oriented theme for online shops.",
+  "homepageSummary": "Store owners evaluating a WooCommerce-focused theme.",
+  "metaDescription": "A documented KreativWP profile of Woostify, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Woostify",
+  "developer": "Woostify",
+  "previewStyle": "woostify",
+  "freeVersion": "Available",
+  "price": "Free version available; check current upgrades",
+  "highlights": [
+    "The directory positions it for WooCommerce stores",
+    "Lists support for popular page builders",
+    "Offers starter demos and layout controls"
+  ],
+  "bestFor": "Store owners evaluating a WooCommerce-focused theme.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Woostify WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Test checkout, extensions, mobile product pages, and which demos or features require an upgrade.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/woostify/screenshot.png?ver=2.6.1",
+  "thumbnailAlt": "Woostify theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Woostify on WordPress.org",
+      "href": "https://wordpress.org/themes/woostify/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/woostify/"
+}

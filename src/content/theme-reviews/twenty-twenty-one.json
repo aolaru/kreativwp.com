@@ -1,0 +1,33 @@
+{
+  "title": "Twenty Twenty-One Theme Review",
+  "description": "A classic WordPress default theme with block-editor styling.",
+  "homepageSummary": "Site owners maintaining a classic default theme or building a simple content site.",
+  "metaDescription": "A documented KreativWP profile of Twenty Twenty-One, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Twenty Twenty-One",
+  "developer": "WordPress.org",
+  "previewStyle": "twenty-twenty-one",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": [
+    "A community-maintained WordPress default theme",
+    "Supports the block editor with theme styles",
+    "Includes customization and accessibility-oriented features"
+  ],
+  "bestFor": "Site owners maintaining a classic default theme or building a simple content site.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Twenty Twenty-One WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "This is a classic theme rather than a full Site Editor block theme; test changes and plugins on staging.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/twentytwentyone/screenshot.png?ver=2.9",
+  "thumbnailAlt": "Twenty Twenty-One theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Twenty Twenty-One on WordPress.org",
+      "href": "https://wordpress.org/themes/twentytwentyone/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/twentytwentyone/"
+}

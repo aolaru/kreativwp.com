@@ -1,0 +1,33 @@
+{
+  "title": "Twenty Twenty-Two Theme Review",
+  "description": "The first default WordPress block theme, with patterns and Site Editor support.",
+  "homepageSummary": "People learning the Site Editor or maintaining a site built with this default theme.",
+  "metaDescription": "A documented KreativWP profile of Twenty Twenty-Two, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Twenty Twenty-Two",
+  "developer": "WordPress.org",
+  "previewStyle": "twenty-twenty-two",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": [
+    "Built for the WordPress Site Editor",
+    "Includes block patterns and style variations",
+    "The directory lists uses including blogs, businesses, and portfolios"
+  ],
+  "bestFor": "People learning the Site Editor or maintaining a site built with this default theme.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Twenty Twenty-Two WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Its visual defaults and older pattern choices may require adaptation; test the editing workflow and your content.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/twentytwentytwo/screenshot.png?ver=2.2",
+  "thumbnailAlt": "Twenty Twenty-Two theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Twenty Twenty-Two on WordPress.org",
+      "href": "https://wordpress.org/themes/twentytwentytwo/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/twentytwentytwo/"
+}

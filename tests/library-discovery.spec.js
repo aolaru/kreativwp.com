@@ -86,8 +86,8 @@ test("workflow alternatives use OR, while separate groups and requirements use A
   await page.getByRole("button", { name: "Free", exact: true }).click();
   await page.getByRole("button", { name: "Starter sites", exact: true }).click();
   await page.getByRole("button", { name: "Portfolio", exact: true }).click();
-  await expect(page.locator("[data-library-card]:visible")).toHaveCount(4);
-  expect((await visibleNames(page)).sort()).toEqual(["Colibri WP", "Inspiro", "Qi Theme", "Sydney"].sort());
+  await expect(page.locator("[data-library-card]:visible")).toHaveCount(5);
+  expect((await visibleNames(page)).sort()).toEqual(["Colibri WP", "Inspiro", "Qi Theme", "Responsive", "Sydney"].sort());
 });
 
 test("shareable URL parameters restore search, filter selections, and sort after reload", async ({ page }) => {
@@ -109,12 +109,12 @@ test("browser Back and Forward restore filter state", async ({ page }) => {
   await page.getByRole("button", { name: "Events", exact: true }).click();
   await expect(page.locator("[data-library-card]:visible h3")).toHaveText("The Events Calendar");
   await page.getByRole("button", { name: "Translation", exact: true }).click();
-  await expect(page.locator("[data-library-card]:visible")).toHaveCount(2);
+  await expect(page.locator("[data-library-card]:visible")).toHaveCount(3);
   await page.goBack();
   await expect(page.locator("[data-library-card]:visible h3")).toHaveText("The Events Calendar");
   await expect(page.getByRole("button", { name: "Translation", exact: true })).toHaveAttribute("aria-pressed", "false");
   await page.goForward();
-  await expect(page.locator("[data-library-card]:visible")).toHaveCount(2);
+  await expect(page.locator("[data-library-card]:visible")).toHaveCount(3);
 });
 
 test("empty results explain how to recover and reset without hiding the controls", async ({ page }) => {
@@ -152,12 +152,12 @@ test("load-more batches have accurate counts, no duplicates, and usable keyboard
   }
 });
 
-test("missing task filters reveal events, translation, and images", async ({ page }) => {
-  for (const [label, name] of [["Events", "The Events Calendar"], ["Translation", "TranslatePress"], ["Images", "ShortPixel"]]) {
+test("task filters reveal events, translation, and image tools", async ({ page }) => {
+  for (const [label, names] of [["Events", ["The Events Calendar"]], ["Translation", ["Polylang", "TranslatePress"]], ["Images", ["Regenerate Thumbnails", "ShortPixel"]]]) {
     await page.goto("/plugins/");
     await page.locator(".library-filter__details summary").click();
     await page.getByRole("button", { name: label, exact: true }).click();
-    await expect(page.locator("[data-library-card]:visible h3")).toHaveText(name);
+    await expect(page.locator("[data-library-card]:visible h3")).toHaveText(names);
   }
   await page.getByRole("button", { name: "Core stack", exact: true }).click();
   await expect(page.locator("[data-library-empty]")).toBeVisible();

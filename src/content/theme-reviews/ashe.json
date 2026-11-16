@@ -1,0 +1,33 @@
+{
+  "title": "Ashe Theme Review",
+  "description": "A blog-focused theme for personal and multi-author publishing.",
+  "homepageSummary": "Bloggers looking for a conventional, image-led layout.",
+  "metaDescription": "A documented KreativWP profile of Ashe, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Ashe",
+  "developer": "WP Royal",
+  "previewStyle": "ashe",
+  "freeVersion": "Available",
+  "price": "Free version available; check current upgrades",
+  "highlights": [
+    "The listing positions Ashe for personal and multi-author blogs",
+    "Lists support for featured images and WooCommerce",
+    "Describes custom logo, header, and footer options"
+  ],
+  "bestFor": "Bloggers looking for a conventional, image-led layout.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Ashe WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Confirm which options and integrations require an upgrade, and test image-heavy pages with real content.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/ashe/screenshot.jpg?ver=2.275",
+  "thumbnailAlt": "Ashe theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Ashe on WordPress.org",
+      "href": "https://wordpress.org/themes/ashe/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/ashe/"
+}

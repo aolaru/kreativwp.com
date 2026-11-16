@@ -1,0 +1,33 @@
+{
+  "title": "Björk Theme Review",
+  "description": "A minimal block theme for blogs and personal sites.",
+  "homepageSummary": "Writers who want a simple blog with a desktop sidebar.",
+  "metaDescription": "A documented KreativWP profile of Björk, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Björk",
+  "developer": "Anders Norén",
+  "previewStyle": "bjork",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": [
+    "The listing describes a block theme for blogs and personal sites",
+    "Provides theme styles and block patterns",
+    "Uses a sticky sidebar menu on desktop"
+  ],
+  "bestFor": "Writers who want a simple blog with a desktop sidebar.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Björk WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Test the navigation with your own content and confirm the sidebar works for your audience.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/bjork/screenshot.png?ver=1.0.0",
+  "thumbnailAlt": "Björk theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Björk on WordPress.org",
+      "href": "https://wordpress.org/themes/bjork/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/bjork/"
+}

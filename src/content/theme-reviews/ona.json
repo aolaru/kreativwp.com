@@ -1,0 +1,33 @@
+{
+  "title": "Ona Theme Review",
+  "description": "A minimal block theme with style variations and reusable patterns.",
+  "homepageSummary": "Publishers and studios who want a minimal, pattern-led starting point.",
+  "metaDescription": "A documented KreativWP profile of Ona, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Ona",
+  "developer": "DeoThemes",
+  "previewStyle": "ona",
+  "freeVersion": "Available",
+  "price": "Free version available; check current upgrades",
+  "highlights": [
+    "The directory describes a full-site-editing theme",
+    "Includes block patterns and style variations",
+    "The project offers child themes for different designs"
+  ],
+  "bestFor": "Publishers and studios who want a minimal, pattern-led starting point.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Ona WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check which child themes or layouts require a paid upgrade and whether their patterns fit your content.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/ona/screenshot.jpg?ver=1.29",
+  "thumbnailAlt": "Ona theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Ona on WordPress.org",
+      "href": "https://wordpress.org/themes/ona/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/ona/"
+}

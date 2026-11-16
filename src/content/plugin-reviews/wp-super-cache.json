@@ -1,0 +1,35 @@
+{
+  "title": "WP Super Cache Review",
+  "description": "A page-cache plugin for eligible WordPress hosting setups.",
+  "homepageSummary": "Sites needing a page cache where hosting does not already supply one.",
+  "metaDescription": "A documented KreativWP profile of WP Super Cache, including its purpose and important limitations.",
+  "category": "Performance",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "WP Super Cache",
+  "developer": "Automattic",
+  "pricing": "Free",
+  "freeVersion": "Available",
+  "highlights": [
+    "Provides static page caching",
+    "Offers configurable cache settings",
+    "Maintained as a WordPress.org plugin"
+  ],
+  "bestFor": "Sites needing a page cache where hosting does not already supply one.",
+  "previewStyle": "performance",
+  "thumbnailKind": "icon",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official WP Super Cache WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check host caching first, exclude dynamic pages where appropriate, and do not stack multiple full-page caches.",
+  "thumbnail": "https://ps.w.org/wp-super-cache/assets/icon-256x256.png?rev=3721847",
+  "thumbnailAlt": "WP Super Cache icon from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "WP Super Cache on WordPress.org",
+      "href": "https://wordpress.org/plugins/wp-super-cache/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/wp-super-cache/"
+}

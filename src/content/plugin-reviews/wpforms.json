@@ -1,0 +1,34 @@
+{
+  "title": "WPForms Review",
+  "description": "A form builder for contact forms and other site enquiries.",
+  "homepageSummary": "Sites needing a form builder with a visual editing workflow.",
+  "metaDescription": "A documented KreativWP profile of WPForms, including its purpose and important limitations.",
+  "category": "Forms",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "WPForms",
+  "developer": "Syed Balkhi",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "The directory lists a drag-and-drop form builder",
+    "Offers form templates and a WordPress block",
+    "Free and paid features cover different workflows"
+  ],
+  "bestFor": "Sites needing a form builder with a visual editing workflow.",
+  "previewStyle": "forms",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official WPForms WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check which integrations, payment options, and submission features require a paid plan; test delivery and spam protection.",
+  "thumbnail": "https://ps.w.org/wpforms-lite/assets/screenshot-1.png?rev=3102297",
+  "thumbnailAlt": "WPForms screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "WPForms on WordPress.org",
+      "href": "https://wordpress.org/plugins/wpforms-lite/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/wpforms-lite/"
+}

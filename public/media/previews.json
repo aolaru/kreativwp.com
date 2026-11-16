@@ -24,6 +24,46 @@
       }
     ]
   },
+  "https://ps.w.org/akismet/assets/icon-256x256.png?rev=2818463": {
+    "source": "https://ps.w.org/akismet/assets/icon-256x256.png?rev=2818463",
+    "checked": "2026-11-16",
+    "width": 256,
+    "height": 256,
+    "originalBytes": 3821,
+    "src": "/media/previews/19a99c2bdb9e90fd-256.webp",
+    "variants": [
+      {
+        "src": "/media/previews/19a99c2bdb9e90fd-256.webp",
+        "width": 256,
+        "bytes": 1386
+      }
+    ]
+  },
+  "https://ps.w.org/all-in-one-wp-migration/assets/screenshot-1.png?rev=1625263": {
+    "source": "https://ps.w.org/all-in-one-wp-migration/assets/screenshot-1.png?rev=1625263",
+    "checked": "2026-11-16",
+    "width": 1218,
+    "height": 1252,
+    "originalBytes": 136611,
+    "src": "/media/previews/cab1919fabf33495-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/cab1919fabf33495-320.webp",
+        "width": 320,
+        "bytes": 5796
+      },
+      {
+        "src": "/media/previews/cab1919fabf33495-640.webp",
+        "width": 640,
+        "bytes": 15050
+      },
+      {
+        "src": "/media/previews/cab1919fabf33495-1000.webp",
+        "width": 1000,
+        "bytes": 26052
+      }
+    ]
+  },
   "https://ps.w.org/antispam-bee/assets/screenshot-1.png": {
     "source": "https://ps.w.org/antispam-bee/assets/screenshot-1.png",
     "checked": "2026-10-09",
@@ -46,6 +86,56 @@
         "src": "/media/previews/6185f03001f56757-1000.webp",
         "width": 1000,
         "bytes": 16060
+      }
+    ]
+  },
+  "https://ps.w.org/code-snippets/assets/screenshot-1.png?rev=3750673": {
+    "source": "https://ps.w.org/code-snippets/assets/screenshot-1.png?rev=3750673",
+    "checked": "2026-11-16",
+    "width": 2880,
+    "height": 1800,
+    "originalBytes": 289890,
+    "src": "/media/previews/aa687d3d2fbf8c8c-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/aa687d3d2fbf8c8c-320.webp",
+        "width": 320,
+        "bytes": 5540
+      },
+      {
+        "src": "/media/previews/aa687d3d2fbf8c8c-640.webp",
+        "width": 640,
+        "bytes": 15170
+      },
+      {
+        "src": "/media/previews/aa687d3d2fbf8c8c-1000.webp",
+        "width": 1000,
+        "bytes": 29896
+      }
+    ]
+  },
+  "https://ps.w.org/complianz-gdpr/assets/screenshot-1.jpg?rev=3421067": {
+    "source": "https://ps.w.org/complianz-gdpr/assets/screenshot-1.jpg?rev=3421067",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 170642,
+    "src": "/media/previews/b71e0eb0fee39b75-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/b71e0eb0fee39b75-320.webp",
+        "width": 320,
+        "bytes": 4058
+      },
+      {
+        "src": "/media/previews/b71e0eb0fee39b75-640.webp",
+        "width": 640,
+        "bytes": 13136
+      },
+      {
+        "src": "/media/previews/b71e0eb0fee39b75-1000.webp",
+        "width": 1000,
+        "bytes": 26328
       }
     ]
   },
@@ -299,6 +389,31 @@
       }
     ]
   },
+  "https://ps.w.org/polylang/assets/screenshot-1.png?rev=3755060": {
+    "source": "https://ps.w.org/polylang/assets/screenshot-1.png?rev=3755060",
+    "checked": "2026-11-16",
+    "width": 900,
+    "height": 400,
+    "originalBytes": 63312,
+    "src": "/media/previews/77a239da1018abdc-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/77a239da1018abdc-320.webp",
+        "width": 320,
+        "bytes": 2938
+      },
+      {
+        "src": "/media/previews/77a239da1018abdc-640.webp",
+        "width": 640,
+        "bytes": 8574
+      },
+      {
+        "src": "/media/previews/77a239da1018abdc-900.webp",
+        "width": 900,
+        "bytes": 14320
+      }
+    ]
+  },
   "https://ps.w.org/query-monitor/assets/screenshot-1.png": {
     "source": "https://ps.w.org/query-monitor/assets/screenshot-1.png",
     "checked": "2026-10-09",
@@ -349,6 +464,31 @@
       }
     ]
   },
+  "https://ps.w.org/regenerate-thumbnails/assets/screenshot-1.png": {
+    "source": "https://ps.w.org/regenerate-thumbnails/assets/screenshot-1.png",
+    "checked": "2026-11-16",
+    "width": 1419,
+    "height": 1404,
+    "originalBytes": 246721,
+    "src": "/media/previews/b64a6a2702edd244-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/b64a6a2702edd244-320.webp",
+        "width": 320,
+        "bytes": 10742
+      },
+      {
+        "src": "/media/previews/b64a6a2702edd244-640.webp",
+        "width": 640,
+        "bytes": 41592
+      },
+      {
+        "src": "/media/previews/b64a6a2702edd244-1000.webp",
+        "width": 1000,
+        "bytes": 87226
+      }
+    ]
+  },
   "https://ps.w.org/seo-by-rank-math/assets/screenshot-1.gif?rev=2626116": {
     "source": "https://ps.w.org/seo-by-rank-math/assets/screenshot-1.gif?rev=2626116",
     "checked": "2026-10-09",
@@ -396,6 +536,31 @@
         "src": "/media/previews/60dc5d05d503701e-1000.webp",
         "width": 1000,
         "bytes": 13954
+      }
+    ]
+  },
+  "https://ps.w.org/simple-history/assets/screenshot-1.png?rev=3537767": {
+    "source": "https://ps.w.org/simple-history/assets/screenshot-1.png?rev=3537767",
+    "checked": "2026-11-16",
+    "width": 3200,
+    "height": 2260,
+    "originalBytes": 201233,
+    "src": "/media/previews/0be2112693cf1089-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/0be2112693cf1089-320.webp",
+        "width": 320,
+        "bytes": 6524
+      },
+      {
+        "src": "/media/previews/0be2112693cf1089-640.webp",
+        "width": 640,
+        "bytes": 20166
+      },
+      {
+        "src": "/media/previews/0be2112693cf1089-1000.webp",
+        "width": 1000,
+        "bytes": 43406
       }
     ]
   },
@@ -694,6 +859,96 @@
       }
     ]
   },
+  "https://ps.w.org/wp-super-cache/assets/icon-256x256.png?rev=3721847": {
+    "source": "https://ps.w.org/wp-super-cache/assets/icon-256x256.png?rev=3721847",
+    "checked": "2026-11-16",
+    "width": 256,
+    "height": 256,
+    "originalBytes": 3105,
+    "src": "/media/previews/24a84926bd4e946a-256.webp",
+    "variants": [
+      {
+        "src": "/media/previews/24a84926bd4e946a-256.webp",
+        "width": 256,
+        "bytes": 1656
+      }
+    ]
+  },
+  "https://ps.w.org/wpforms-lite/assets/screenshot-1.png?rev=3102297": {
+    "source": "https://ps.w.org/wpforms-lite/assets/screenshot-1.png?rev=3102297",
+    "checked": "2026-11-16",
+    "width": 2880,
+    "height": 1800,
+    "originalBytes": 96694,
+    "src": "/media/previews/5d91f473d522b7af-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/5d91f473d522b7af-320.webp",
+        "width": 320,
+        "bytes": 5080
+      },
+      {
+        "src": "/media/previews/5d91f473d522b7af-640.webp",
+        "width": 640,
+        "bytes": 12940
+      },
+      {
+        "src": "/media/previews/5d91f473d522b7af-1000.webp",
+        "width": 1000,
+        "bytes": 23540
+      }
+    ]
+  },
+  "https://ps.w.org/wpvivid-backuprestore/assets/screenshot-1.png?rev=2099721": {
+    "source": "https://ps.w.org/wpvivid-backuprestore/assets/screenshot-1.png?rev=2099721",
+    "checked": "2026-11-16",
+    "width": 1427,
+    "height": 728,
+    "originalBytes": 66174,
+    "src": "/media/previews/0c256db5929b1040-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/0c256db5929b1040-320.webp",
+        "width": 320,
+        "bytes": 3200
+      },
+      {
+        "src": "/media/previews/0c256db5929b1040-640.webp",
+        "width": 640,
+        "bytes": 10246
+      },
+      {
+        "src": "/media/previews/0c256db5929b1040-1000.webp",
+        "width": 1000,
+        "bytes": 22602
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/ashe/screenshot.jpg?ver=2.275": {
+    "source": "https://ts.w.org/wp-content/themes/ashe/screenshot.jpg?ver=2.275",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 719869,
+    "src": "/media/previews/a40b9a88b7a382cf-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/a40b9a88b7a382cf-320.webp",
+        "width": 320,
+        "bytes": 13252
+      },
+      {
+        "src": "/media/previews/a40b9a88b7a382cf-640.webp",
+        "width": 640,
+        "bytes": 37056
+      },
+      {
+        "src": "/media/previews/a40b9a88b7a382cf-1000.webp",
+        "width": 1000,
+        "bytes": 69762
+      }
+    ]
+  },
   "https://ts.w.org/wp-content/themes/astra/screenshot.jpg?ver=4.13.12": {
     "source": "https://ts.w.org/wp-content/themes/astra/screenshot.jpg?ver=4.13.12",
     "checked": "2026-10-09",
@@ -716,6 +971,56 @@
         "src": "/media/previews/3646dc48b6ab884e-1000.webp",
         "width": 1000,
         "bytes": 30038
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/bjork/screenshot.png?ver=1.0.0": {
+    "source": "https://ts.w.org/wp-content/themes/bjork/screenshot.png?ver=1.0.0",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 22282,
+    "src": "/media/previews/51812be6aca9d608-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/51812be6aca9d608-320.webp",
+        "width": 320,
+        "bytes": 3364
+      },
+      {
+        "src": "/media/previews/51812be6aca9d608-640.webp",
+        "width": 640,
+        "bytes": 8378
+      },
+      {
+        "src": "/media/previews/51812be6aca9d608-1000.webp",
+        "width": 1000,
+        "bytes": 14100
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/blockbase/screenshot.png?ver=3.1.30": {
+    "source": "https://ts.w.org/wp-content/themes/blockbase/screenshot.png?ver=3.1.30",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 568959,
+    "src": "/media/previews/bdb5624c41083c63-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/bdb5624c41083c63-320.webp",
+        "width": 320,
+        "bytes": 6006
+      },
+      {
+        "src": "/media/previews/bdb5624c41083c63-640.webp",
+        "width": 640,
+        "bytes": 18854
+      },
+      {
+        "src": "/media/previews/bdb5624c41083c63-1000.webp",
+        "width": 1000,
+        "bytes": 42468
       }
     ]
   },
@@ -766,6 +1071,31 @@
         "src": "/media/previews/f031613644e877db-1000.webp",
         "width": 1000,
         "bytes": 26130
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/bricksy/screenshot.png?ver=1.5.7": {
+    "source": "https://ts.w.org/wp-content/themes/bricksy/screenshot.png?ver=1.5.7",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 407084,
+    "src": "/media/previews/733d9fdc583fa331-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/733d9fdc583fa331-320.webp",
+        "width": 320,
+        "bytes": 6676
+      },
+      {
+        "src": "/media/previews/733d9fdc583fa331-640.webp",
+        "width": 640,
+        "bytes": 18786
+      },
+      {
+        "src": "/media/previews/733d9fdc583fa331-1000.webp",
+        "width": 1000,
+        "bytes": 34178
       }
     ]
   },
@@ -1144,6 +1474,31 @@
       }
     ]
   },
+  "https://ts.w.org/wp-content/themes/ona/screenshot.jpg?ver=1.29": {
+    "source": "https://ts.w.org/wp-content/themes/ona/screenshot.jpg?ver=1.29",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 149031,
+    "src": "/media/previews/979fb03d07659e77-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/979fb03d07659e77-320.webp",
+        "width": 320,
+        "bytes": 7584
+      },
+      {
+        "src": "/media/previews/979fb03d07659e77-640.webp",
+        "width": 640,
+        "bytes": 20616
+      },
+      {
+        "src": "/media/previews/979fb03d07659e77-1000.webp",
+        "width": 1000,
+        "bytes": 40292
+      }
+    ]
+  },
   "https://ts.w.org/wp-content/themes/panoramic/screenshot.png": {
     "source": "https://ts.w.org/wp-content/themes/panoramic/screenshot.png",
     "checked": "2026-10-09",
@@ -1216,6 +1571,31 @@
         "src": "/media/previews/ca46f0e6e9250c38-1000.webp",
         "width": 1000,
         "bytes": 20796
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/responsive/screenshot.png?ver=6.5.2": {
+    "source": "https://ts.w.org/wp-content/themes/responsive/screenshot.png?ver=6.5.2",
+    "checked": "2026-11-16",
+    "width": 1144,
+    "height": 858,
+    "originalBytes": 192146,
+    "src": "/media/previews/9fab1aa5c6f094f9-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/9fab1aa5c6f094f9-320.webp",
+        "width": 320,
+        "bytes": 7356
+      },
+      {
+        "src": "/media/previews/9fab1aa5c6f094f9-640.webp",
+        "width": 640,
+        "bytes": 20094
+      },
+      {
+        "src": "/media/previews/9fab1aa5c6f094f9-1000.webp",
+        "width": 1000,
+        "bytes": 36284
       }
     ]
   },
@@ -1319,6 +1699,31 @@
       }
     ]
   },
+  "https://ts.w.org/wp-content/themes/tove/screenshot.png?ver=1.0.0": {
+    "source": "https://ts.w.org/wp-content/themes/tove/screenshot.png?ver=1.0.0",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 47754,
+    "src": "/media/previews/53a1288a32c22fd0-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/53a1288a32c22fd0-320.webp",
+        "width": 320,
+        "bytes": 7972
+      },
+      {
+        "src": "/media/previews/53a1288a32c22fd0-640.webp",
+        "width": 640,
+        "bytes": 17948
+      },
+      {
+        "src": "/media/previews/53a1288a32c22fd0-1000.webp",
+        "width": 1000,
+        "bytes": 29394
+      }
+    ]
+  },
   "https://ts.w.org/wp-content/themes/twentytwentyfive/screenshot.png?ver=1.5": {
     "source": "https://ts.w.org/wp-content/themes/twentytwentyfive/screenshot.png?ver=1.5",
     "checked": "2026-10-09",
@@ -1369,6 +1774,31 @@
       }
     ]
   },
+  "https://ts.w.org/wp-content/themes/twentytwentyone/screenshot.png?ver=2.9": {
+    "source": "https://ts.w.org/wp-content/themes/twentytwentyone/screenshot.png?ver=2.9",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 282897,
+    "src": "/media/previews/05557e48f0471104-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/05557e48f0471104-320.webp",
+        "width": 320,
+        "bytes": 6572
+      },
+      {
+        "src": "/media/previews/05557e48f0471104-640.webp",
+        "width": 640,
+        "bytes": 16518
+      },
+      {
+        "src": "/media/previews/05557e48f0471104-1000.webp",
+        "width": 1000,
+        "bytes": 29930
+      }
+    ]
+  },
   "https://ts.w.org/wp-content/themes/twentytwentythree/screenshot.png": {
     "source": "https://ts.w.org/wp-content/themes/twentytwentythree/screenshot.png",
     "checked": "2026-10-09",
@@ -1391,6 +1821,56 @@
         "src": "/media/previews/4b098e4105fa5fea-1000.webp",
         "width": 1000,
         "bytes": 27830
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/twentytwentytwo/screenshot.png?ver=2.2": {
+    "source": "https://ts.w.org/wp-content/themes/twentytwentytwo/screenshot.png?ver=2.2",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 160517,
+    "src": "/media/previews/12f7d0ab1b6c76bb-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/12f7d0ab1b6c76bb-320.webp",
+        "width": 320,
+        "bytes": 6462
+      },
+      {
+        "src": "/media/previews/12f7d0ab1b6c76bb-640.webp",
+        "width": 640,
+        "bytes": 15522
+      },
+      {
+        "src": "/media/previews/12f7d0ab1b6c76bb-1000.webp",
+        "width": 1000,
+        "bytes": 27644
+      }
+    ]
+  },
+  "https://ts.w.org/wp-content/themes/woostify/screenshot.png?ver=2.6.1": {
+    "source": "https://ts.w.org/wp-content/themes/woostify/screenshot.png?ver=2.6.1",
+    "checked": "2026-11-16",
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 368363,
+    "src": "/media/previews/67b39cff6b973b83-640.webp",
+    "variants": [
+      {
+        "src": "/media/previews/67b39cff6b973b83-320.webp",
+        "width": 320,
+        "bytes": 5688
+      },
+      {
+        "src": "/media/previews/67b39cff6b973b83-640.webp",
+        "width": 640,
+        "bytes": 15936
+      },
+      {
+        "src": "/media/previews/67b39cff6b973b83-1000.webp",
+        "width": 1000,
+        "bytes": 29668
       }
     ]
   },

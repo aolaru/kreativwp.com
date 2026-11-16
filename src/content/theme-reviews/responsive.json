@@ -1,0 +1,33 @@
+{
+  "title": "Responsive Theme Review",
+  "description": "A multipurpose theme with ready-to-import site templates.",
+  "homepageSummary": "People comparing starter templates for business and portfolio sites.",
+  "metaDescription": "A documented KreativWP profile of Responsive, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Responsive",
+  "developer": "CyberChimps",
+  "previewStyle": "responsive",
+  "freeVersion": "Available",
+  "price": "Free version available; check current upgrades",
+  "highlights": [
+    "The listing describes importable templates for multiple site types",
+    "Lists WooCommerce and page-builder integrations",
+    "Offers layout and header customization"
+  ],
+  "bestFor": "People comparing starter templates for business and portfolio sites.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Responsive WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check which templates and features require an upgrade and test the selected builder and plugins.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/responsive/screenshot.png?ver=6.5.2",
+  "thumbnailAlt": "Responsive theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Responsive on WordPress.org",
+      "href": "https://wordpress.org/themes/responsive/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/responsive/"
+}

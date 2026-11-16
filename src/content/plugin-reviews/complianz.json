@@ -1,0 +1,34 @@
+{
+  "title": "Complianz Review",
+  "description": "A cookie-consent and privacy configuration plugin.",
+  "homepageSummary": "Site owners evaluating consent tools for their services and regions.",
+  "metaDescription": "A documented KreativWP profile of Complianz, including its purpose and important limitations.",
+  "category": "Privacy",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Complianz",
+  "developer": "Complianz",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "Provides a configuration wizard and cookie banner",
+    "Documents cookie scanning and integration options",
+    "Features and regional support vary by edition"
+  ],
+  "bestFor": "Site owners evaluating consent tools for their services and regions.",
+  "previewStyle": "maintenance",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Complianz WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "A plugin alone does not establish legal compliance. Verify integrations, consent behavior, and applicable requirements with qualified guidance.",
+  "thumbnail": "https://ps.w.org/complianz-gdpr/assets/screenshot-1.jpg?rev=3421067",
+  "thumbnailAlt": "Complianz screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Complianz on WordPress.org",
+      "href": "https://wordpress.org/plugins/complianz-gdpr/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/complianz-gdpr/"
+}

@@ -1,0 +1,34 @@
+{
+  "title": "Polylang Review",
+  "description": "A multilingual plugin for managing translated WordPress content.",
+  "homepageSummary": "Sites that need a multilingual content and publishing process.",
+  "metaDescription": "A documented KreativWP profile of Polylang, including its purpose and important limitations.",
+  "category": "Translation",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Polylang",
+  "developer": "Chouby",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "Supports creating content in multiple languages",
+    "Provides language settings and language switching",
+    "Free and paid editions have different capabilities"
+  ],
+  "bestFor": "Sites that need a multilingual content and publishing process.",
+  "previewStyle": "translations",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Polylang WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Plan language URLs, translation responsibilities, and plugin compatibility; check paid requirements for your store.",
+  "thumbnail": "https://ps.w.org/polylang/assets/screenshot-1.png?rev=3755060",
+  "thumbnailAlt": "Polylang screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Polylang on WordPress.org",
+      "href": "https://wordpress.org/plugins/polylang/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/polylang/"
+}

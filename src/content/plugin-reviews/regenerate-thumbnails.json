@@ -1,0 +1,34 @@
+{
+  "title": "Regenerate Thumbnails Review",
+  "description": "A utility for regenerating image sizes in the media library.",
+  "homepageSummary": "Sites that have changed themes or registered image sizes.",
+  "metaDescription": "A documented KreativWP profile of Regenerate Thumbnails, including its purpose and important limitations.",
+  "category": "Images",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Regenerate Thumbnails",
+  "developer": "Alex Mills and contributors",
+  "pricing": "Free",
+  "freeVersion": "Available",
+  "highlights": [
+    "Regenerates image sizes for media library attachments",
+    "Can process individual images or larger selections",
+    "The listing documents an option to remove unused sizes"
+  ],
+  "bestFor": "Sites that have changed themes or registered image sizes.",
+  "previewStyle": "images",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Regenerate Thumbnails WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Back up media first and review deletion settings carefully. The directory's tested-up-to version should be checked against your WordPress version.",
+  "thumbnail": "https://ps.w.org/regenerate-thumbnails/assets/screenshot-1.png",
+  "thumbnailAlt": "Regenerate Thumbnails screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Regenerate Thumbnails on WordPress.org",
+      "href": "https://wordpress.org/plugins/regenerate-thumbnails/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/regenerate-thumbnails/"
+}

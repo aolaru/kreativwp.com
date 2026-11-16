@@ -1,0 +1,34 @@
+{
+  "title": "All-in-One WP Migration Review",
+  "description": "A plugin for exporting and importing WordPress sites.",
+  "homepageSummary": "Site owners planning a migration and checking size and hosting limits.",
+  "metaDescription": "A documented KreativWP profile of All-in-One WP Migration, including its purpose and important limitations.",
+  "category": "Migration",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "All-in-One WP Migration",
+  "developer": "ServMask",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "The listing describes exporting and importing WordPress sites",
+    "Provides a WordPress dashboard workflow",
+    "Extensions cover additional destinations and features"
+  ],
+  "bestFor": "Site owners planning a migration and checking size and hosting limits.",
+  "previewStyle": "maintenance",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official All-in-One WP Migration WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Confirm import size, extension costs, hosting limits, and rollback steps; rehearse a restore before moving production.",
+  "thumbnail": "https://ps.w.org/all-in-one-wp-migration/assets/screenshot-1.png?rev=1625263",
+  "thumbnailAlt": "All-in-One WP Migration screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "All-in-One WP Migration on WordPress.org",
+      "href": "https://wordpress.org/plugins/all-in-one-wp-migration/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/all-in-one-wp-migration/"
+}

@@ -73,7 +73,7 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   const themeCount = fs.readdirSync("src/content/theme-reviews").filter((name) => name.endsWith(".json")).length;
   await expect(page.locator(".theme-card")).toHaveCount(themeCount);
   await expect(page.locator(".theme-card img")).toHaveCount(themeCount);
-  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(29);
+  await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(themeCount - 2);
 
   await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Page builder" }).click();
@@ -88,12 +88,13 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index,follow");
 
   await page.goto("/plugins/");
-  await expect(page.locator(".plugin-card")).toHaveCount(32);
+  const pluginReviews = fs.readdirSync("src/content/plugin-reviews").filter((name) => name.endsWith(".json")).length;
+  await expect(page.locator(".plugin-card")).toHaveCount(pluginReviews + 2);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
 
   await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Security" }).click();
-  await expect(page.locator(".plugin-card:visible")).toHaveCount(4);
+  await expect(page.locator(".plugin-card:visible")).toHaveCount(6);
 
   await page.getByRole("button", { name: "All plugins" }).click();
   await page.getByRole("button", { name: "Ecommerce" }).click();

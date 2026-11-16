@@ -7,6 +7,8 @@ import PluginEvidence from "../../../components/PluginEvidence.astro";
 import { getAffiliateLink } from "../../../data/affiliate";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PreviewImage from "../../../components/PreviewImage.astro";
+import RelatedProfiles from "../../../components/RelatedProfiles.astro";
+import { relatedProfiles } from "../../../data/related";
 export async function getStaticPaths() { const entries = await getCollection("pluginReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const affiliate = getAffiliateLink(entry.data.affiliateId);
@@ -14,7 +16,7 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
 <BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/plugins/reviews/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} mainClass="review-page" heroEyebrow="Plugin recommendation" heroTitle={entry.data.pluginName} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/plugins/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Plugins", href: "/plugins/" }, { label: entry.data.title }]} />
   <section class="review-overview" aria-labelledby="review-overview-title">
-    {entry.data.thumbnail && <div class="review-overview__image"><PreviewImage src={entry.data.thumbnail} alt={entry.data.thumbnailAlt || `${entry.data.pluginName} preview`} loading="eager" card={false} /></div>}
+    {entry.data.thumbnail && <div class:list={["review-overview__image", { "review-overview__image--icon": entry.data.thumbnailKind === "icon" }]}><PreviewImage src={entry.data.thumbnail} alt={entry.data.thumbnailAlt || `${entry.data.pluginName} preview`} loading="eager" card={false} /></div>}
     <div><p class="section-label">At a glance</p><h2 id="review-overview-title">What it’s useful for.</h2><p>{entry.data.bestFor}</p><dl><div><dt>Availability</dt><dd>{entry.data.freeVersion}</dd></div><div><dt>Research</dt><dd>{entry.data.isPlaceholder ? "In research" : entry.data.handsOnTest ? "Scoped hands-on check" : "Documentation research"}</dd></div></dl><a class="text-action" href={entry.data.researchScope ? "#scope-title" : "#focus-title"}>See the details →</a></div>
   </section>
   <EditorialByline date={entry.data.updated} label={entry.data.updatedLabel} />
@@ -24,4 +26,5 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
   <section class="editorial-section" aria-labelledby="focus-title"><h2 id="focus-title">What the documentation confirms</h2><ul class="check-list">{entry.data.highlights.map((item) => <li>{item}</li>)}</ul></section>
   {entry.data.researchScope ? <section class="editorial-section" aria-labelledby="scope-title"><h2 id="scope-title">Research scope</h2><p class="section-intro">{entry.data.researchScope}</p>{entry.data.caveats ? <p class="editorial-caveat"><strong>Important:</strong> {entry.data.caveats}</p> : null}{entry.data.sources ? <div class="source-links"><strong>Sources</strong><ul>{entry.data.sources.map((source) => <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></div> : null}{entry.data.officialUrl ? <p class="centered-action"><a class="button-like" href={entry.data.officialUrl} target="_blank" rel="noopener noreferrer">Visit the official site</a></p> : null}</section> : null}
   {affiliate ? <><AffiliateDisclosure /><p class="centered-action"><a class="button-like" href={affiliate.href} target="_blank" rel="sponsored noopener noreferrer">{affiliate.label}</a></p></> : null}
+  <RelatedProfiles links={relatedProfiles("plugins", entry.id)} />
 </BaseLayout>

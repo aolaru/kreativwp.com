@@ -9,6 +9,7 @@ type Props = {
   previewStyle: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageKind?: "screenshot" | "icon";
   recommendationType?: "core" | "conditional" | "research" | "product";
   filterValues?: string[];
   isPlaceholder?: boolean;
@@ -22,11 +23,11 @@ type Props = {
   editorialRank?: number;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false, compact = false, ctaLabel = "View plugin", checkedDate, checkedLabel = checkedDate, bestFor, libraryUpdated, editorialRank } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, imageSrc, imageAlt, imageKind = "screenshot", recommendationType = "core", filterValues = [], isPlaceholder = false, featured = false, compact = false, ctaLabel = "View plugin", checkedDate, checkedLabel = checkedDate, bestFor, libraryUpdated, editorialRank } = Astro.props;
 const previewLabels: Record<string, string> = { performance: "SPEED", security: "SECURE", forms: "FORMS", analytics: "INSIGHT", email: "EMAIL", seo: "SEARCH", commerce: "STORE", redirects: "ROUTES", images: "IMAGES", designer: "DESIGN", calendar: "EVENTS", translations: "LANGUAGE", maintenance: "MANAGE", development: "DEBUG", tables: "TABLES", accessibility: "ACCESS" };
 ---
 <article class:list={["plugin-card", { "plugin-card--featured": featured, "plugin-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")} data-card-name={name} data-updated={libraryUpdated} data-editorial-rank={editorialRank}>
-  <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" }]} href={href} aria-label={`Read ${name}`}>
+  <a class:list={["plugin-thumbnail", `plugin-thumbnail--${previewStyle}`, { "plugin-thumbnail--screenshot": Boolean(imageSrc) && previewStyle !== "product" && imageKind === "screenshot" }]} href={href} aria-label={`Read ${name}`}>
     {imageSrc ? <><PreviewImage src={imageSrc} alt={imageAlt || `${name} thumbnail`} /><span class="plugin-thumbnail__editorial plugin-thumbnail__fallback" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span></> : <span class="plugin-thumbnail__editorial" aria-hidden="true"><b>{previewLabels[previewStyle] || "PLUGIN"}</b><i></i><i></i><i></i><em></em></span>}
   </a>
   <div class="plugin-card__body">

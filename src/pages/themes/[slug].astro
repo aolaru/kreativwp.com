@@ -6,6 +6,8 @@ import EditorialByline from "../../components/EditorialByline.astro";
 import { getAffiliateLink } from "../../data/affiliate";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PreviewImage from "../../components/PreviewImage.astro";
+import RelatedProfiles from "../../components/RelatedProfiles.astro";
+import { relatedProfiles } from "../../data/related";
 export async function getStaticPaths() { const entries = await getCollection("themeReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const affiliate = getAffiliateLink(entry.data.affiliateId);
@@ -45,6 +47,7 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
   <section class="editorial-section" aria-labelledby="scope-title"><h2 id="scope-title">Research scope</h2><p class="section-intro">{entry.data.researchScope}</p><p class="editorial-caveat"><strong>Important:</strong> {entry.data.caveats}</p><div class="source-links"><strong>Sources</strong><ul>{entry.data.sources.map((source) => <li><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></div>{entry.data.officialUrl ? <p class="centered-action"><a class="button-like" href={entry.data.officialUrl} target="_blank" rel="noopener noreferrer">Visit the official site</a></p> : null}</section>
   {affiliate ? <><AffiliateDisclosure /><p class="centered-action"><a class="button-like" href={affiliate.href} target="_blank" rel="sponsored noopener noreferrer">{affiliate.label}</a></p></> : null}
   </>}
+  <RelatedProfiles links={relatedProfiles("themes", entry.id)} />
 </BaseLayout>
 
 <style>

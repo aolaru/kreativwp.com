@@ -1,0 +1,33 @@
+{
+  "title": "Bricksy Theme Review",
+  "description": "A block theme with ready-made patterns and style variations.",
+  "homepageSummary": "Creators looking for a pattern-based block theme.",
+  "metaDescription": "A documented KreativWP profile of Bricksy, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Bricksy",
+  "developer": "Anariel Design",
+  "previewStyle": "bricksy",
+  "freeVersion": "Available",
+  "price": "Free version available; check current upgrades",
+  "highlights": [
+    "The directory describes a full-site-editing theme",
+    "Includes ready-made block patterns",
+    "Lists several style variations"
+  ],
+  "bestFor": "Creators looking for a pattern-based block theme.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Bricksy WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check the patterns and any optional paid resources against the layouts you actually need.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/bricksy/screenshot.png?ver=1.5.7",
+  "thumbnailAlt": "Bricksy theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Bricksy on WordPress.org",
+      "href": "https://wordpress.org/themes/bricksy/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/bricksy/"
+}

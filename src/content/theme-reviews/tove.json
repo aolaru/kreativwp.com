@@ -1,0 +1,33 @@
+{
+  "title": "Tove Theme Review",
+  "description": "A colorful block theme designed with cafés and restaurants in mind.",
+  "homepageSummary": "Cafés and small businesses exploring pattern-based layouts.",
+  "metaDescription": "A documented KreativWP profile of Tove, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Tove",
+  "developer": "Anders Norén",
+  "previewStyle": "tove",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": [
+    "The listing describes a full-site-editing block theme",
+    "The designs target cafés and restaurants",
+    "Includes patterns for headers, footers, and page sections"
+  ],
+  "bestFor": "Cafés and small businesses exploring pattern-based layouts.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Tove WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Check menu layouts, reservation integrations, and mobile content before building a live site.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/tove/screenshot.png?ver=1.0.0",
+  "thumbnailAlt": "Tove theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Tove on WordPress.org",
+      "href": "https://wordpress.org/themes/tove/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/tove/"
+}

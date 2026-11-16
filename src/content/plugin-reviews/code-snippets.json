@@ -1,0 +1,34 @@
+{
+  "title": "Code Snippets Review",
+  "description": "A dashboard for managing custom code snippets.",
+  "homepageSummary": "People comfortable reviewing small code changes and testing them on staging.",
+  "metaDescription": "A documented KreativWP profile of Code Snippets, including its purpose and important limitations.",
+  "category": "Development",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "pluginName": "Code Snippets",
+  "developer": "Code Snippets Pro",
+  "pricing": "Free plugin; check current service or upgrade costs",
+  "freeVersion": "Available",
+  "highlights": [
+    "Manage snippets from the WordPress dashboard",
+    "The listing documents a code editor and snippet controls",
+    "Additional snippet features vary by edition"
+  ],
+  "bestFor": "People comfortable reviewing small code changes and testing them on staging.",
+  "previewStyle": "development",
+  "recommendationType": "conditional",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Code Snippets WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "Custom code can break a site or weaken security. Keep backups, review code, and test on staging before activation.",
+  "thumbnail": "https://ps.w.org/code-snippets/assets/screenshot-1.png?rev=3750673",
+  "thumbnailAlt": "Code Snippets screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Code Snippets on WordPress.org",
+      "href": "https://wordpress.org/plugins/code-snippets/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/plugins/code-snippets/"
+}

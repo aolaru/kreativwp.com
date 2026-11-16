@@ -1,0 +1,33 @@
+{
+  "title": "Blockbase Theme Review",
+  "description": "A minimal block theme built around templates and global styles.",
+  "homepageSummary": "People who prefer shaping a minimal site in the Site Editor.",
+  "metaDescription": "A documented KreativWP profile of Blockbase, covering its intended use and important limitations.",
+  "category": "Theme review",
+  "updated": "2026-11-16",
+  "updatedLabel": "November 16, 2026",
+  "isPlaceholder": false,
+  "themeName": "Blockbase",
+  "developer": "Automattic",
+  "previewStyle": "blockbase",
+  "freeVersion": "Available",
+  "price": "Free",
+  "highlights": [
+    "The listing describes a simple full-site-editing theme",
+    "Supports templates and global styles",
+    "Includes style variations"
+  ],
+  "bestFor": "People who prefer shaping a minimal site in the Site Editor.",
+  "researchMethod": "documented-research",
+  "researchScope": "This profile summarizes the official Blockbase WordPress.org listing. It is documentation research, not an independent hands-on test.",
+  "caveats": "A minimal foundation can require more design work; test your templates and maintenance workflow.",
+  "thumbnail": "https://ts.w.org/wp-content/themes/blockbase/screenshot.png?ver=3.1.30",
+  "thumbnailAlt": "Blockbase theme screenshot from its WordPress.org listing",
+  "sources": [
+    {
+      "label": "Blockbase on WordPress.org",
+      "href": "https://wordpress.org/themes/blockbase/"
+    }
+  ],
+  "officialUrl": "https://wordpress.org/themes/blockbase/"
+}
