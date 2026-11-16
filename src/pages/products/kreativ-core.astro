@@ -22,13 +22,14 @@ const features = [
   currentPath="/products/"
 >
   <div class="product-install">
-    <a class="button-like button-like--primary" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">Explore the theme on GitHub ↗</a>
+    <a class="button-like button-like--primary" href="https://github.com/aolaru/kreativ-oceania-theme" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
     <a class="text-action" href="#core-features">See what’s included ↓</a>
     <a class="text-action" href="/themes/kreativ-core/">View in the theme library →</a>
   </div>
 
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/" }, { label: "Kreativ Core" }]} />
 
+  <dl class="product-facts core-quick-facts"><div><dt>Availability</dt><dd>Source available</dd></div><div><dt>GitHub version</dt><dd>1.0.7</dd></div><div><dt>License</dt><dd>GPL-2.0 or later</dd></div></dl>
   <figure class="core-artwork">
     <img src="/kreativ-core-preview.png" alt="Kreativ Core artwork describing a clean, flexible editorial WordPress theme" width="1200" height="900" />
     <figcaption>Kreativ Core theme artwork</figcaption>
@@ -65,6 +66,7 @@ const features = [
 </BaseLayout>
 
 <style>
+  .core-quick-facts { border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 1rem 0; margin-top: 1.5rem; }
   .core-artwork { margin: 2rem 0 4rem; }
   .core-artwork img { display: block; width: 100%; height: auto; border: 1px solid var(--card-border); }
   .core-artwork figcaption { color: var(--muted); font-size: .78rem; margin-top: .5rem; }

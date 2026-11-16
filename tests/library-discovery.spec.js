@@ -35,7 +35,7 @@ test("Kreativ Core is discoverable and identified as our own theme", async ({ pa
   const card = page.locator("[data-library-card]:visible");
   await expect(card).toHaveCount(1);
   await expect(card).toContainText("Our theme");
-  await card.getByRole("link", { name: "View profile" }).click();
+  await card.getByRole("link", { name: "View theme" }).click();
   await expect(page).toHaveURL(/\/themes\/kreativ-core\/$/);
   await expect(page.getByRole("status")).toContainText("not an independent review");
   await expect(page.getByRole("link", { name: "Explore the full product page" })).toHaveAttribute("href", "/products/kreativ-core/");
@@ -80,6 +80,7 @@ test("editorial selections are explicit and all cards have short best-for lines"
 
 test("workflow alternatives use OR, while separate groups and requirements use AND", async ({ page }) => {
   await page.goto("/themes/");
+  await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Page builder", exact: true }).click();
   await page.getByRole("button", { name: "Full site editing", exact: true }).click();
   await page.getByRole("button", { name: "Free", exact: true }).click();
@@ -92,6 +93,7 @@ test("workflow alternatives use OR, while separate groups and requirements use A
 test("shareable URL parameters restore search, filter selections, and sort after reload", async ({ page }) => {
   await page.goto("/themes/?q=astra&filters=page-builder,free&sort=name#theme-reviews-title");
   for (let attempt = 0; attempt < 2; attempt++) {
+    await page.locator(".library-filter__details summary").click();
     await expect(page.getByLabel("Search themes by name")).toHaveValue("astra");
     await expect(page.getByLabel("Sort themes")).toHaveValue("name");
     await expect(page.getByRole("button", { name: "Page builder", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -103,6 +105,7 @@ test("shareable URL parameters restore search, filter selections, and sort after
 
 test("browser Back and Forward restore filter state", async ({ page }) => {
   await page.goto("/plugins/");
+  await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Events", exact: true }).click();
   await expect(page.locator("[data-library-card]:visible h3")).toHaveText("The Events Calendar");
   await page.getByRole("button", { name: "Translation", exact: true }).click();
@@ -152,6 +155,7 @@ test("load-more batches have accurate counts, no duplicates, and usable keyboard
 test("missing task filters reveal events, translation, and images", async ({ page }) => {
   for (const [label, name] of [["Events", "The Events Calendar"], ["Translation", "TranslatePress"], ["Images", "ShortPixel"]]) {
     await page.goto("/plugins/");
+    await page.locator(".library-filter__details summary").click();
     await page.getByRole("button", { name: label, exact: true }).click();
     await expect(page.locator("[data-library-card]:visible h3")).toHaveText(name);
   }
@@ -161,6 +165,7 @@ test("missing task filters reveal events, translation, and images", async ({ pag
 
 test("invalid URL filter and sort values are ignored safely", async ({ page }) => {
   await page.goto("/themes/?filters=unknown&sort=invalid");
+  await page.locator(".library-filter__details summary").click();
   await expect(page.getByLabel("Sort themes")).toHaveValue("editorial");
   await expect(page.getByRole("button", { name: "All themes", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("[data-library-card]:visible")).toHaveCount(8);

@@ -1,6 +1,4 @@
 export const homepageFeatures = {
-  theme: "generatepress",
-  plugin: "fluent-forms",
   guide: "choose-wordpress-theme"
 };
 

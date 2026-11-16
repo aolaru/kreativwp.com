@@ -5,11 +5,12 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import EditorialByline from "../../components/EditorialByline.astro";
 import { getAffiliateLink } from "../../data/affiliate";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PreviewImage from "../../components/PreviewImage.astro";
 export async function getStaticPaths() { const entries = await getCollection("themeReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const affiliate = getAffiliateLink(entry.data.affiliateId);
 ---
-<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow={entry.data.ownProduct ? "WordPress theme · by KreativWP" : "Theme review"} heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/themes/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} mainClass="review-page" heroEyebrow={entry.data.ownProduct ? "WordPress theme · by KreativWP" : "Theme review"} heroTitle={entry.data.themeName} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/themes/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Themes", href: "/themes/" }, { label: entry.data.themeName }]} />
   {entry.data.ownProduct ? <>
     <div class="editorial-notice" role="status">Our theme — Kreativ Core is developed by KreativWP. This product profile is not an independent review.</div>
@@ -19,10 +20,14 @@ const affiliate = getAffiliateLink(entry.data.affiliateId);
     <section class="editorial-section" aria-labelledby="core-highlights-title"><h2 id="core-highlights-title">What’s included</h2><ul class="check-list">{entry.data.highlights.map((item) => <li>{item}</li>)}</ul></section>
     <section class="editorial-section" aria-labelledby="core-source-title"><h2 id="core-source-title">Before you get started</h2><p class="section-intro">{entry.data.caveats}</p><p><a class="button-like" href="/products/kreativ-core/">See setup and theme details</a></p></section>
   </> : <>
+  <section class="review-overview" aria-labelledby="review-overview-title">
+    {entry.data.thumbnail && <div class="review-overview__image"><PreviewImage src={entry.data.thumbnail} alt={entry.data.thumbnailAlt || `${entry.data.themeName} theme preview`} loading="eager" card={false} /></div>}
+    <div><p class="section-label">At a glance</p><h2 id="review-overview-title">Is it a fit for you?</h2><p>{entry.data.bestFor}</p><dl><div><dt>Availability</dt><dd>{entry.data.freeVersion === "Available" ? "Free version available" : entry.data.freeVersion}</dd></div><div><dt>Research</dt><dd>{entry.data.isPlaceholder ? "In research" : entry.data.researchMethod === "hands-on" ? "Hands-on review" : "Documentation research"}</dd></div></dl><a class="text-action" href="#scope-title">See research and sources →</a></div>
+  </section>
   <EditorialByline date={entry.data.updated} label={entry.data.updatedLabel} />
   {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this page is a transparent template for planned hands-on testing, not a completed recommendation.</div> : <div class="editorial-notice" role="status">Published {entry.data.researchMethod === "documented-research" ? "documentation research" : "hands-on review"} — scope and source links are shown below.</div>}
   <section class="verdict-panel" aria-labelledby="verdict-title">
-    <p class="section-label">KreativWP verdict</p><h2 id="verdict-title">A qualified fit, not a universal winner.</h2>
+    <p class="section-label">Our perspective</p><h2 id="verdict-title">Where it fits.</h2>
     <div class="verdict-panel__grid"><div><strong>Consider it for</strong><p>{entry.data.bestFor}</p></div><div><strong>Pause if</strong><p>{entry.data.caveats}</p></div><div><strong>Review status</strong><p>{entry.data.researchMethod === "hands-on" ? "Hands-on review" : "Documented research"} · last checked {entry.data.updatedLabel}</p></div></div>
     <p class="verdict-panel__method"><a href="/methodology/">Read our editorial standards</a> before using this profile as a purchase decision.</p>
   </section>

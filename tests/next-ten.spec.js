@@ -62,7 +62,7 @@ test("all primary actions meet text contrast in light, dark, and hover states", 
 test("mobile navigation has comfortable targets and live products offer installation in the first screen", async ({ page }) => {
   for (const width of [320, 375, 768]) {
     await page.setViewportSize({ width, height: 812 }); await page.goto("/");
-    for (const control of await page.locator(".top-menu .menu-link, .top-menu button").all()) expect((await control.boundingBox()).height).toBeGreaterThanOrEqual(44);
+    for (const control of await page.locator(".top-menu .menu-link:visible, .top-menu button:visible, .mobile-menu summary:visible").all()) expect((await control.boundingBox()).height).toBeGreaterThanOrEqual(44);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   await page.setViewportSize({ width: 375, height: 812 });
@@ -90,7 +90,7 @@ test("all six comparisons have sourced rows, linked profiles, and migration advi
 test("previews are responsive local images and the large homepage GIF is no longer requested", async ({ page }) => {
   const requests = []; page.on("request", (request) => requests.push(request.url()));
   await page.goto("/");
-  const preview = page.locator(".homepage-feature--plugin img");
+  const preview = page.locator(".homepage-feature--plugin img").first();
   await preview.scrollIntoViewIfNeeded();
   await expect(preview).toHaveAttribute("srcset", /320w/);
   await expect(preview).toHaveAttribute("src", /^\/media\/previews\/.*\.webp$/);

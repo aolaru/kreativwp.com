@@ -23,7 +23,7 @@ type Props = {
   ownProduct?: boolean;
 };
 
-const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, filterValues = [], isPlaceholder = false, featured = false, compact = false, researchMethod, ctaLabel = "View profile", checkedDate, checkedLabel = checkedDate, bestFor, libraryUpdated, editorialRank, ownProduct = false } = Astro.props;
+const { href, name, developer, description, freeVersion, previewStyle, thumbnail, thumbnailAlt, filterValues = [], isPlaceholder = false, featured = false, compact = false, researchMethod, ctaLabel = "View theme", checkedDate, checkedLabel = checkedDate, bestFor, libraryUpdated, editorialRank, ownProduct = false } = Astro.props;
 ---
 <article class:list={["theme-card", { "theme-card--featured": featured, "theme-card--compact": compact }]} data-library-card data-filters={filterValues.join(" ")} data-card-name={name} data-updated={libraryUpdated} data-editorial-rank={editorialRank}>
   <a class={`theme-thumbnail theme-thumbnail--${previewStyle}`} href={href} aria-label={ownProduct ? `View ${name} theme profile` : `Read ${name} theme review`}>

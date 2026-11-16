@@ -1,89 +1,67 @@
 const { test, expect } = require("@playwright/test");
 const fs = require("node:fs");
 
-const theme = JSON.parse(fs.readFileSync("src/content/theme-reviews/generatepress.json", "utf8"));
-const plugin = JSON.parse(fs.readFileSync("src/content/plugin-reviews/fluent-forms.json", "utf8"));
 const products = ["kreativ-report-broken-link", "kreativ-broken-image-finder"].map((id) => ({ id, ...JSON.parse(fs.readFileSync(`src/content/plugins/${id}.json`, "utf8")) }));
-const previewManifest = require("../public/media/previews.json");
-const productPreview = previewManifest[products[0].homepageScreenshot.src].src;
 
-test.beforeEach(async ({ page }) => {
-  // Rendering regressions should not depend on WordPress.org availability.
-  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.fulfill({
-    contentType: "image/svg+xml",
-    body: '<svg xmlns="http://www.w3.org/2000/svg" width="2762" height="1494"><rect width="2762" height="1494" fill="#e5f1fc"/></svg>'
-  }));
-});
-
-test("a personal, shorter hero brings products into the first desktop viewport", async ({ page }) => {
+test("the personal homepage introduces Kreativ Core and both live plugins", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".hero .tagline")).toContainText("Hi, I’m Andrei.");
-  await expect(page.getByRole("link", { name: "A little about me" })).toHaveAttribute("href", "/about/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("WordPress, with care.");
-  const productPanel = await page.locator(".product-edition").boundingBox();
-  expect(productPanel.y).toBeLessThan(450);
-  await expect(page.getByRole("heading", { name: "Theme pick", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Plugin pick", exact: true })).toBeVisible();
-});
-
-test("spotlights use audience summaries, specific CTAs, and genuine checked dates", async ({ page }) => {
-  await page.goto("/");
-  for (const [selector, entry, name, href] of [
-    [".theme-card", theme, theme.themeName, "/themes/generatepress/"],
-    [".plugin-card", plugin, plugin.pluginName, "/plugins/reviews/fluent-forms/"]
-  ]) {
-    const card = page.locator(selector);
-    await expect(card).toContainText(entry.homepageSummary);
-    await expect(card.locator("time")).toHaveAttribute("datetime", entry.updated);
-    await expect(card.locator(".profile-checked")).toContainText("Checked");
-    await expect(card.getByRole("link", { name: `Explore ${name}` })).toHaveAttribute("href", href);
-  }
-  await expect(page.getByRole("link", { name: "View profile", exact: true })).toHaveCount(0);
-});
-
-test("both products have a direct free ZIP and a separate detail link with a real preview", async ({ page }) => {
-  await page.goto("/");
+  await expect(page.locator(".home-core")).toContainText("Kreativ Core");
+  await expect(page.locator(".home-core img")).toHaveAttribute("alt", /artwork/i);
+  await expect(page.locator(".home-core a").first()).toHaveAttribute("href", "/products/kreativ-core/");
   for (const product of products) {
-    const row = page.locator(".product-edition__list article").filter({ has: page.getByRole("heading", { name: product.name, exact: true }) });
-    await expect(row.getByRole("link", { name: `Get the free plugin: ${product.name}`, exact: true })).toHaveAttribute("href", product.downloadHref);
-    await expect(row.getByRole("link", { name: `Learn about ${product.name}`, exact: true })).toHaveAttribute("href", `/plugins/${product.id}/`);
+    const card = page.locator(".home-product").filter({ has: page.getByRole("heading", { name: product.name, exact: true }) });
+    await expect(card.locator("img").first()).toBeVisible();
+    await expect(card.getByRole("link", { name: `Download free: ${product.name}` })).toHaveAttribute("href", product.downloadHref);
+    await expect(card.getByRole("link", { name: "View product" })).toHaveAttribute("href", `/plugins/${product.id}/`);
   }
-  const image = page.locator(".product-edition__preview img");
-  await image.scrollIntoViewIfNeeded();
-  await expect(image).toBeVisible();
-  await expect(image).toHaveAttribute("src", productPreview);
-  await expect(image).toHaveAttribute("width", "2762");
-  await expect(image).toHaveAttribute("height", "1494");
-  await expect.poll(() => image.evaluate((element) => element.naturalWidth)).toBeGreaterThan(0);
-  await expect(page.locator(".product-edition__preview figcaption")).toContainText("Visitor reports");
-  await expect(page.locator(".product-edition__list")).not.toContainText("Scan and report broken links");
 });
 
-test("a failed product preview hides its broken image and keeps the workflow link", async ({ page }) => {
-  await page.route(new RegExp(productPreview.replace(/-\\d+\\.webp$/, "-.*\\\\.webp")), (route) => route.abort());
+test("three curated theme and plugin picks link to profiles and retain checked dates", async ({ page }) => {
   await page.goto("/");
-  const figure = page.locator(".product-edition__preview");
-  await figure.scrollIntoViewIfNeeded();
-  await expect(figure.locator("img")).toBeHidden();
-  await expect(figure.locator("figcaption a")).toBeVisible();
-  await expect(figure.locator("figcaption a")).toHaveAttribute("href", "/plugins/kreativ-report-broken-link/");
-});
-
-test("the guide follows the picks and the page remains usable at narrow widths", async ({ page }) => {
-  await page.goto("/");
+  await expect(page.locator(".homepage-feature .theme-card")).toHaveCount(3);
+  await expect(page.locator(".homepage-feature .plugin-card")).toHaveCount(3);
+  for (const card of await page.locator(".homepage-feature .theme-card, .homepage-feature .plugin-card").all()) {
+    await expect(card.locator("time")).toHaveAttribute("datetime", /\d{4}-\d{2}-\d{2}/);
+    await expect(card.locator("img")).toHaveAttribute("alt", /.+/);
+  }
   await expect(page.locator(".home-guide a")).toHaveAttribute("href", "/guides/choose-wordpress-theme/");
-  expect(await page.locator(".home-guide").evaluate((guide) => Boolean(guide.previousElementSibling?.classList.contains("homepage-feature--plugin")))).toBe(true);
+});
+
+test("a missing product screenshot falls back to its icon without hiding its actions", async ({ page }) => {
+  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.abort());
+  await page.goto("/");
+  const card = page.locator(".home-product").first();
+  await card.scrollIntoViewIfNeeded();
+  await expect(card.locator("a.has-image-fallback .home-product__fallback img")).toBeVisible();
+  await expect(card.getByRole("link", { name: "View product" })).toBeVisible();
+});
+
+test("header search identifies Kreativ Core as our own theme", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("searchbox", { name: "Search KreativWP" }).fill("Kreativ Core");
+  await page.getByRole("button", { name: "Submit search" }).click();
+  await expect(page).toHaveURL(/\/search\/\?q=Kreativ\+Core/);
+  const result = page.locator("#search-results [data-search]:visible").filter({ has: page.getByRole("link", { name: "Kreativ Core", exact: true }) });
+  await expect(result).toContainText("KreativWP theme");
+});
+
+test("the homepage and navigation remain usable on small screens", async ({ page }) => {
+  await page.goto("/");
   for (const width of [320, 375, 768, 980, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    const buttons = page.locator(".product-edition__actions .button-like");
-    for (const button of await buttons.all()) expect((await button.boundingBox()).width).toBeLessThan(width);
   }
+  await page.setViewportSize({ width: 375, height: 900 });
+  await page.locator(".mobile-menu summary").click();
+  await expect(page.locator(".mobile-menu__links").getByRole("link", { name: "Themes" })).toBeVisible();
+  await expect(page.locator(".mobile-menu__links").getByRole("link", { name: "Themes" })).toHaveAttribute("href", "/themes/");
 });
 
-test("product download buttons remain readable in both themes and on hover", async ({ page }) => {
+test("product buttons retain accessible contrast in both themes", async ({ page }) => {
   await page.goto("/");
-  const button = page.locator(".product-edition__actions .button-like--primary").first();
+  const button = page.locator(".home-product .button-like--primary").first();
   const contrast = () => button.evaluate((element) => {
     const luminance = (color) => {
       const values = color.match(/[\d.]+/g).slice(0, 3).map(Number).map((value) => {
@@ -99,9 +77,5 @@ test("product download buttons remain readable in both themes and on hover", asy
   for (const mode of ["light", "dark"]) {
     if (mode === "dark") await page.getByRole("button", { name: "Switch to dark theme" }).click();
     expect(await contrast()).toBeGreaterThanOrEqual(4.5);
-    await button.hover();
-    await page.waitForFunction(() => document.getAnimations().every((animation) => animation.playState !== "running"));
-    expect(await contrast()).toBeGreaterThanOrEqual(4.5);
-    await page.mouse.move(0, 0);
   }
 });

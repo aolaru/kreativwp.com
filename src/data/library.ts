@@ -43,7 +43,7 @@ export function editorialRank(id: string, collection: keyof typeof librarySelect
 }
 
 export function shortBestFor(value: string) {
-  const text = value.replace(/\s+/g, " ").trim();
+  const text = value.replace(/\s+/g, " ").trim().replace(/^For\s+/, "");
   const firstSentence = text.split(/(?<=[.!?])\s/)[0];
   return firstSentence.length <= 110 ? firstSentence : firstSentence.slice(0, 107).replace(/\s+\S*$/, "") + "…";
 }

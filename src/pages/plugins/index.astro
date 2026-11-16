@@ -7,7 +7,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const reviews = (await getCollection("pluginReviews")).map((entry) => ({
   id: entry.id, href: `/plugins/reviews/${entry.id}/`, name: entry.data.pluginName,
-  developer: entry.data.developer, description: entry.data.description, bestFor: entry.data.bestFor,
+  developer: entry.data.developer, description: entry.data.description, bestFor: entry.data.homepageSummary || entry.data.bestFor,
   freeVersion: entry.data.freeVersion, previewStyle: entry.data.previewStyle,
   imageSrc: entry.data.thumbnail, imageAlt: entry.data.thumbnailAlt,
   filters: pluginFilters[entry.id] || [], recommendationType: entry.data.recommendationType,
@@ -26,7 +26,7 @@ if (librarySelections.plugins.some((id) => !entries.some((entry) => entry.id ===
 <BaseLayout title="WordPress Plugin Reviews | KreativWP" description="Task-first WordPress plugin research, practical maintenance tools, and products built by KreativWP." canonicalPath="/plugins/" heroEyebrow="WordPress research" heroTitle="Plugins" heroTagline="Find a plugin for the job. Add only what your site needs." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/plugins/">
   <section class="plugin-archive" data-library data-library-resource="plugins" aria-labelledby="plugin-reviews-title">
     <div class="section-heading"><div><p class="eyebrow">Editorial library</p><h2 id="plugin-reviews-title">Explore WordPress plugins</h2></div><a class="detail-link" href="/products/">Our products</a></div>
-    <p class="section-intro">Browse by task and fit. Core picks are not a default-install list; avoid overlapping tools. Research briefs are clearly marked.</p>
+    <p class="section-intro">Find the right tool for the job.</p>
     <LibraryFilter id="plugin-library" label="Filter WordPress plugins" resource="plugins" groups={pluginFilterGroups} />
     <div class="plugin-catalogue__grid" id="plugin-library-grid" data-library-grid>
       {entries.map((entry) => <PluginCard href={entry.href} name={entry.name} developer={entry.developer} description={entry.description} bestFor={shortBestFor(entry.bestFor)} freeVersion={entry.freeVersion} previewStyle={entry.previewStyle} imageSrc={entry.imageSrc} imageAlt={entry.imageAlt} filterValues={entry.filters} recommendationType={entry.recommendationType} isPlaceholder={entry.isPlaceholder} libraryUpdated={entry.updated} editorialRank={editorialRank(entry.id, "plugins")} />)}

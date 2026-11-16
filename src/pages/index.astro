@@ -4,17 +4,17 @@ import PreviewImage from "../components/PreviewImage.astro";
 import PluginCard from "../components/PluginCard.astro";
 import ThemeCard from "../components/ThemeCard.astro";
 import { homepageFeatures } from "../data/site";
+import { librarySelections } from "../data/library";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const latestTheme = (await getCollection("themeReviews"))
-  .find((entry) => entry.id === homepageFeatures.theme && !entry.data.isPlaceholder);
-const latestPlugin = (await getCollection("pluginReviews"))
-  .find((entry) => entry.id === homepageFeatures.plugin && !entry.data.isPlaceholder && entry.data.recommendationType !== "research");
-if (!latestTheme || !latestPlugin) throw new Error("Homepage features must refer to published theme and plugin profiles.");
+const themeCollection = await getCollection("themeReviews");
+const pluginCollection = await getCollection("pluginReviews");
+const themePicks = librarySelections.themes.slice(0, 3).map((id) => themeCollection.find((entry) => entry.id === id && !entry.data.isPlaceholder));
+const pluginPicks = librarySelections.plugins.slice(0, 3).map((id) => pluginCollection.find((entry) => entry.id === id && !entry.data.isPlaceholder && entry.data.recommendationType !== "research"));
+if (themePicks.some((entry) => !entry) || pluginPicks.some((entry) => !entry)) throw new Error("Homepage picks must refer to published profiles.");
 const liveProducts = (await getCollection("plugins"))
   .filter((entry) => entry.data.live)
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-const previewProduct = liveProducts.find((entry) => entry.data.homepageScreenshot);
 const featuredGuide = (await getCollection("guides"))
   .find((entry) => entry.id === homepageFeatures.guide && !entry.data.isPlaceholder);
 if (!featuredGuide) throw new Error("The homepage guide must be a published guide.");
@@ -34,22 +34,28 @@ const structuredData = JSON.stringify({
     <a class="text-action home-about" href="/about/">A little about me <span aria-hidden="true">→</span></a>
   </section>
 
-  <section class="product-edition" aria-labelledby="products-title">
-    <div class="product-edition__intro"><p class="section-label">Made by me</p><h2 id="products-title">Little tools. Real relief.</h2><p>Two free plugins for everyday site upkeep.</p><a class="text-action" href="/products/">Explore all products <span aria-hidden="true">→</span></a></div>
-    <div class="product-edition__list">
-      {liveProducts.map((entry) => <article><img src={entry.data.thumb} width="48" height="48" alt={entry.data.imageAlt} loading="lazy" /><div><h3>{entry.data.name}</h3><p>{entry.data.description}</p><div class="product-edition__actions">{entry.data.downloadHref && <a class="button-like button-like--primary" href={entry.data.downloadHref} data-track="product_download" data-product={entry.id} aria-label={`Get the free plugin: ${entry.data.name}`}>Get the free plugin <span class="product-edition__format">ZIP</span></a>}<a class="text-action" href={`/plugins/${entry.id}/`} aria-label={`Learn about ${entry.data.name}`}>See how it works <span aria-hidden="true">→</span></a></div></div></article>)}
+  <section class="home-products" aria-labelledby="products-title">
+    <div class="homepage-feature__heading"><div><p class="section-label">Made by me</p><h2 id="products-title">Little tools. Real relief.</h2></div><a class="text-action" href="/products/">Explore all products →</a></div>
+    <article class="home-core">
+      <div><p class="section-label">Our WordPress theme</p><h3>Kreativ Core</h3><p>A thoughtful home for your stories, ideas, and creative work.</p><a class="button-like button-like--primary" href="/products/kreativ-core/">Explore Kreativ Core</a><p class="home-core__status">Source available · WordPress.org submission</p></div>
+      <figure><a href="/products/kreativ-core/" aria-label="Explore Kreativ Core"><img src="/kreativ-core-preview.png" alt="Kreativ Core theme artwork" width="1200" height="900" /></a><figcaption>Theme artwork</figcaption></figure>
+    </article>
+    <div class="home-product-grid">
+      {liveProducts.map((entry) => <article class="home-product">
+        <a href={`/plugins/${entry.id}/`} aria-label={`See ${entry.data.name} in action`}>{entry.data.homepageScreenshot ? <PreviewImage src={entry.data.homepageScreenshot.src} alt={entry.data.homepageScreenshot.alt} width={entry.data.homepageScreenshot.width} height={entry.data.homepageScreenshot.height} sizes="(max-width: 650px) calc(100vw - 40px), 450px" /> : entry.data.screenshots?.[0] ? <PreviewImage src={entry.data.screenshots[0].src} alt={entry.data.screenshots[0].alt} width={entry.data.screenshots[0].width} height={entry.data.screenshots[0].height} /> : <img src={entry.data.thumb} alt={entry.data.imageAlt} width="128" height="128" />}<span class="home-product__fallback" aria-hidden="true"><img src={entry.data.thumb} alt="" width="128" height="128" /></span></a>
+        <div class="home-product__body"><p class="section-label">Free WordPress plugin</p><h3>{entry.data.name}</h3><p>{entry.data.description}</p><div class="product-edition__actions">{entry.data.downloadHref && <a class="button-like button-like--primary" href={entry.data.downloadHref} data-track="product_download" data-product={entry.id} aria-label={`Download free: ${entry.data.name}`}>Download free</a>}<a class="text-action" href={`/plugins/${entry.id}/`}>View product →</a></div></div>
+      </article>)}
     </div>
-    {previewProduct?.data.homepageScreenshot && <figure class="product-edition__preview"><a href={`/plugins/${previewProduct.id}/`} aria-label={`See ${previewProduct.data.name} in action`}><PreviewImage src={previewProduct.data.homepageScreenshot.src} alt={previewProduct.data.homepageScreenshot.alt} width={previewProduct.data.homepageScreenshot.width} height={previewProduct.data.homepageScreenshot.height} sizes="(max-width: 850px) calc(100vw - 40px), 340px" /></a><figcaption><a href={`/plugins/${previewProduct.id}/`}>{previewProduct.data.homepageScreenshot.caption} <span aria-hidden="true">→</span></a></figcaption></figure>}
   </section>
 
   <section class="homepage-feature" aria-labelledby="latest-theme-title">
-    <div class="homepage-feature__heading"><h2 id="latest-theme-title">Theme pick</h2><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
-    <ThemeCard href={`/themes/${latestTheme.id}/`} name={latestTheme.data.themeName} developer={latestTheme.data.developer} description={latestTheme.data.homepageSummary || latestTheme.data.bestFor} freeVersion={latestTheme.data.freeVersion} previewStyle={latestTheme.data.previewStyle} thumbnail={latestTheme.data.thumbnail} thumbnailAlt={latestTheme.data.thumbnailAlt} isPlaceholder={latestTheme.data.isPlaceholder} researchMethod={latestTheme.data.researchMethod} ctaLabel={`Explore ${latestTheme.data.themeName}`} checkedDate={latestTheme.data.updated} checkedLabel={shortDate(latestTheme.data.updated)} />
+    <div class="homepage-feature__heading"><div><p class="section-label">A few starting points</p><h2 id="latest-theme-title">Theme picks</h2></div><a class="text-action" href="/themes/">Explore all themes <span aria-hidden="true">→</span></a></div>
+    <div class="home-pick-grid">{themePicks.map((item) => item && <ThemeCard href={`/themes/${item.id}/`} name={item.data.themeName} developer={item.data.developer} description={item.data.homepageSummary || item.data.bestFor} freeVersion={item.data.freeVersion} previewStyle={item.data.previewStyle} thumbnail={item.data.thumbnail} thumbnailAlt={item.data.thumbnailAlt} researchMethod={item.data.researchMethod} ctaLabel="View theme" checkedDate={item.data.updated} checkedLabel={shortDate(item.data.updated)} />)}</div>
   </section>
 
   <section class="homepage-feature homepage-feature--plugin" aria-labelledby="latest-plugin-title">
-    <div class="homepage-feature__heading"><h2 id="latest-plugin-title">Plugin pick</h2><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
-    <PluginCard href={`/plugins/reviews/${latestPlugin.id}/`} name={latestPlugin.data.pluginName} developer={latestPlugin.data.developer} description={latestPlugin.data.homepageSummary || latestPlugin.data.bestFor} freeVersion={latestPlugin.data.freeVersion} previewStyle={latestPlugin.data.previewStyle} imageSrc={latestPlugin.data.thumbnail} imageAlt={latestPlugin.data.thumbnailAlt} recommendationType={latestPlugin.data.recommendationType} isPlaceholder={latestPlugin.data.isPlaceholder} ctaLabel={`Explore ${latestPlugin.data.pluginName}`} checkedDate={latestPlugin.data.updated} checkedLabel={shortDate(latestPlugin.data.updated)} />
+    <div class="homepage-feature__heading"><div><p class="section-label">Useful for specific jobs</p><h2 id="latest-plugin-title">Plugin picks</h2></div><a class="text-action" href="/plugins/">Explore all plugins <span aria-hidden="true">→</span></a></div>
+    <div class="home-pick-grid">{pluginPicks.map((item) => item && <PluginCard href={`/plugins/reviews/${item.id}/`} name={item.data.pluginName} developer={item.data.developer} description={item.data.homepageSummary || item.data.bestFor} freeVersion={item.data.freeVersion} previewStyle={item.data.previewStyle} imageSrc={item.data.thumbnail} imageAlt={item.data.thumbnailAlt} recommendationType={item.data.recommendationType} ctaLabel="View plugin" checkedDate={item.data.updated} checkedLabel={shortDate(item.data.updated)} />)}</div>
   </section>
 
   <aside class="home-guide" aria-labelledby="home-guide-title"><p id="home-guide-title">Not sure where to start?</p><a href={`/guides/${featuredGuide.id}/`}>{featuredGuide.data.title} <span aria-hidden="true">→</span></a></aside>

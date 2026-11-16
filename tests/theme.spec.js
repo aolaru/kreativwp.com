@@ -75,6 +75,7 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator(".theme-card img")).toHaveCount(themeCount);
   await expect(page.locator('.theme-card img[alt*="WordPress.org listing"]')).toHaveCount(29);
 
+  await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Page builder" }).click();
   await expect(page.locator(".theme-card:visible")).toHaveCount(8);
   await page.getByRole("button", { name: "Show 8 more themes" }).click();
@@ -90,6 +91,7 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
   await expect(page.locator(".plugin-card")).toHaveCount(32);
   await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
 
+  await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Security" }).click();
   await expect(page.locator(".plugin-card:visible")).toHaveCount(4);
 
@@ -101,11 +103,11 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 test("homepage curates latest research and KreativWP products", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Little tools. Real relief." })).toBeVisible();
-  await expect(page.locator(".product-edition__list article")).toHaveCount(2);
+  await expect(page.locator(".home-product")).toHaveCount(2);
   await expect(page.locator("#latest-theme-title")).toBeVisible();
   await expect(page.locator("#latest-plugin-title")).toBeVisible();
-  await expect(page.locator(".theme-card")).toHaveCount(1);
-  await expect(page.locator(".plugin-card")).toHaveCount(1);
+  await expect(page.locator(".theme-card")).toHaveCount(3);
+  await expect(page.locator(".plugin-card")).toHaveCount(3);
   await expect(page.getByRole("link", { name: "Open the checklist" })).toHaveAttribute("href", "/theme-checklist/");
   await expect(page.getByRole("link", { name: "Explore all themes" })).toHaveAttribute("href", "/themes/");
   await expect(page.getByRole("link", { name: "Explore all plugins" })).toHaveAttribute("href", "/plugins/");

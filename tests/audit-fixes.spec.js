@@ -5,7 +5,7 @@ const image = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQ
 test("loaded plugin previews hide fallback art and have bounded desktop and mobile heights", async ({ page }) => {
   await page.route(/\/media\/previews\/.*\.webp/, (route) => route.fulfill({ contentType: "image/png", body: image }));
   await page.goto("/");
-  const thumbnail = page.locator(".homepage-feature .plugin-thumbnail");
+  const thumbnail = page.locator(".homepage-feature .plugin-thumbnail").first();
   await thumbnail.scrollIntoViewIfNeeded();
   await expect(thumbnail.locator("img")).toBeVisible();
   await expect(thumbnail.locator(".plugin-thumbnail__fallback")).toBeHidden();
@@ -18,7 +18,7 @@ test("loaded plugin previews hide fallback art and have bounded desktop and mobi
 test("failed plugin previews show only their fallback", async ({ page }) => {
   await page.route(/\/media\/previews\/.*\.webp/, (route) => route.abort());
   await page.goto("/");
-  const thumbnail = page.locator(".homepage-feature .plugin-thumbnail");
+  const thumbnail = page.locator(".homepage-feature .plugin-thumbnail").first();
   await thumbnail.scrollIntoViewIfNeeded();
   await expect(thumbnail).toHaveClass(/has-image-fallback/);
   await expect(thumbnail.locator("img")).toBeHidden();

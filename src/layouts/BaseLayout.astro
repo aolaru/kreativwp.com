@@ -116,6 +116,11 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
             <img class="site-wordmark__mark" src="/kreativ-wp-logo-128.svg?v=37c7ac8" width="32" height="32" alt="" aria-hidden="true" />
             <span class="site-wordmark__label"><strong>KREATIV</strong>WP<small>WordPress resource</small></span>
           </a>
+          <form class="header-search" action="/search/" role="search">
+            <label class="sr-only" for="header-search-input">Search KreativWP</label>
+            <input id="header-search-input" name="q" type="search" placeholder="Search…" />
+            <button type="submit" aria-label="Submit search">↗</button>
+          </form>
           <div class="top-menu__links">
             {navigation.map((item) => (
               <a class="menu-link" href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
@@ -132,6 +137,10 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
               <span class="sr-only">Toggle color theme</span>
             </button>
           </div>
+          <details class="mobile-menu">
+            <summary>Menu</summary>
+            <div class="mobile-menu__links">{navigation.map((item) => <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>)}</div>
+          </details>
         </nav>
         <span class="sr-only" id="theme-status" aria-live="polite"></span>
         <img class="logo-mark" src={heroImageSrc} width="128" height="128" alt={heroImageAlt} />

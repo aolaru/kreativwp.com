@@ -9,11 +9,14 @@ const { id, groups, resource, label } = Astro.props;
     <div><label for={`${id}-search`}>Search {resource} by name</label><input id={`${id}-search`} data-library-search type="search" placeholder={`Find a ${resource === "themes" ? "theme" : "plugin"}…`} autocomplete="off" /></div>
     <div><label for={`${id}-sort`}>Sort {resource}</label><select id={`${id}-sort`} data-library-sort><option value="editorial">Editorial picks</option><option value="name">Name: A–Z</option><option value="recent">Recently checked</option></select></div>
   </div>
+  <details class="library-filter__details">
+  <summary>Filter by fit</summary>
   <div class="library-filter__top"><button class="library-filter__button is-active" type="button" data-filter-value="all" aria-pressed="true">All {resource}</button><button class="library-filter__reset" data-library-reset type="button">Reset all</button></div>
   <div class="library-filter__groups" role="group" aria-label={label}>
     {groups.map((group) => <fieldset data-filter-group data-filter-mode={group.mode}><legend>{group.label} <small>{group.mode === "any" ? "match any" : "match all"}</small></legend><div class="library-filter__controls">{group.filters.map((filter) => <button class="library-filter__button" type="button" data-filter-value={filter.value} aria-pressed="false">{filter.label}</button>)}</div></fieldset>)}
   </div>
   <p class="library-filter__hint">Choose alternatives within “match any” groups. Different groups—and every “match all” requirement—must all match.</p>
+  </details>
   <p class="library-filter__status" role="status" aria-live="polite" aria-atomic="true"></p>
   <div class="library-filter__empty" data-library-empty hidden><h3>No matches this time.</h3><p>Try a shorter name, remove a requirement, or choose another option in the same group.</p><button class="button-like" data-library-reset type="button">Clear search and filters</button></div>
 </div>
@@ -87,6 +90,8 @@ const { id, groups, resource, label } = Astro.props;
         button.setAttribute("aria-pressed", String(active));
       });
       const visible = Math.min(limit, matching.length);
+      const summary = controls.querySelector("summary");
+      if (summary) summary.textContent = activeFilters.size ? `Filter by fit (${activeFilters.size} active)` : "Filter by fit";
       status.textContent = matching.length ? `Showing ${visible} of ${matching.length} ${resource}.` : `No ${resource} found.`;
       empty.hidden = matching.length > 0;
       loadMore.hidden = visible >= matching.length;

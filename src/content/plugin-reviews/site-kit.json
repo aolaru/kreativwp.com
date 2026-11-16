@@ -1,5 +1,6 @@
 {
   "title": "Site Kit by Google Review",
+  "homepageSummary": "For viewing Google search and analytics information in WordPress.",
   "description": "A hands-on look at Site Kit’s setup boundary. Connected Google reporting has not been tested.",
   "metaDescription": "A transparently scoped Site Kit by Google WordPress plugin profile from KreativWP.",
   "category": "Analytics",

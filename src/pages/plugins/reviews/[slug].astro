@@ -6,12 +6,17 @@ import EditorialByline from "../../../components/EditorialByline.astro";
 import PluginEvidence from "../../../components/PluginEvidence.astro";
 import { getAffiliateLink } from "../../../data/affiliate";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PreviewImage from "../../../components/PreviewImage.astro";
 export async function getStaticPaths() { const entries = await getCollection("pluginReviews"); return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const affiliate = getAffiliateLink(entry.data.affiliateId);
 ---
-<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/plugins/reviews/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} heroEyebrow="Plugin recommendation" heroTitle={entry.data.title} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/plugins/">
+<BaseLayout title={`${entry.data.title} | KreativWP`} description={entry.data.metaDescription} canonicalPath={`/plugins/reviews/${entry.id}/`} robots={entry.data.isPlaceholder ? "noindex,follow" : undefined} mainClass="review-page" heroEyebrow="Plugin recommendation" heroTitle={entry.data.pluginName} heroTagline={entry.data.description} heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo" currentPath="/plugins/">
   <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Plugins", href: "/plugins/" }, { label: entry.data.title }]} />
+  <section class="review-overview" aria-labelledby="review-overview-title">
+    {entry.data.thumbnail && <div class="review-overview__image"><PreviewImage src={entry.data.thumbnail} alt={entry.data.thumbnailAlt || `${entry.data.pluginName} preview`} loading="eager" card={false} /></div>}
+    <div><p class="section-label">At a glance</p><h2 id="review-overview-title">What it’s useful for.</h2><p>{entry.data.bestFor}</p><dl><div><dt>Availability</dt><dd>{entry.data.freeVersion}</dd></div><div><dt>Research</dt><dd>{entry.data.isPlaceholder ? "In research" : entry.data.handsOnTest ? "Scoped hands-on check" : "Documentation research"}</dd></div></dl><a class="text-action" href={entry.data.researchScope ? "#scope-title" : "#focus-title"}>See the details →</a></div>
+  </section>
   <EditorialByline date={entry.data.updated} label={entry.data.updatedLabel} />
   {entry.data.isPlaceholder ? <div class="editorial-notice" role="status">Editorial preview — this is a planned, evidence-led recommendation structure, not a completed tested review.</div> : <div class="editorial-notice" role="status">{entry.data.handsOnTest ? "Scoped hands-on check plus documentation research — see the exact workflow and limitations below." : "Published documentation research — scope and source links are shown below."}</div>}
   {entry.data.handsOnTest && <PluginEvidence evidence={entry.data.handsOnTest} />}

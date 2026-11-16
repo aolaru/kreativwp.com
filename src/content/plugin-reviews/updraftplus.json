@@ -1,5 +1,6 @@
 {
   "title": "UpdraftPlus Review",
+  "homepageSummary": "For creating backups as part of a tested recovery routine.",
   "description": "A local uploads backup checked in WordPress—not a full restore or disaster-recovery test.",
   "metaDescription": "A transparently scoped UpdraftPlus WordPress plugin profile from KreativWP.",
   "category": "Backups",

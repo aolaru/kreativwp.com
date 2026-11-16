@@ -4,7 +4,7 @@ import ContentCard from "../../components/ContentCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const [themes, pluginReviews, comparisons, guides, tools, products] = await Promise.all([getCollection("themeReviews"), getCollection("pluginReviews"), getCollection("comparisons"), getCollection("guides"), getCollection("tools"), getCollection("plugins")]);
 const results = [
-  ...themes.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/themes/${entry.id}/`, type: "Theme review", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
+  ...themes.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/themes/${entry.id}/`, type: entry.data.ownProduct ? "KreativWP theme" : "Theme review", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
   ...pluginReviews.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/plugins/reviews/${entry.id}/`, type: "Plugin recommendation", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
   ...comparisons.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/comparisons/${entry.id}/`, type: "Comparison", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
   ...guides.map((entry) => ({ title: entry.data.title, description: entry.data.description, href: `/guides/${entry.id}/`, type: "Guide", updatedLabel: entry.data.updatedLabel, isPlaceholder: entry.data.isPlaceholder })),
