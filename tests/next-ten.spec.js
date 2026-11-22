@@ -159,8 +159,8 @@ test("published plugin checks have real versions, recorded outcomes, and readabl
 
 test("product evidence remains separate from vendor release metadata", async ({ page }) => {
   await page.goto('/plugins/kreativ-broken-image-finder/');
-  await expect(page.locator('.product-facts')).toContainText('1.2.0');
-  await expect(page.locator('.product-facts')).toContainText('2026-02-20');
-  await expect(page.locator('.product-gallery img')).toHaveCount(1);
-  await expect(page.getByRole('link', { name: 'Read the local workflow checks and limitations' })).toHaveAttribute('href', '/research/2026-10-09/plugins/plugin-workflows.json');
+  await expect(page.locator('.product-facts')).toContainText('1.3.0');
+  await expect(page.locator('.product-facts')).toContainText('2026-10-29');
+  await expect(page.locator('.product-gallery img')).toHaveCount(3);
+  await expect(page.getByRole('link', { name: 'Read the historical 1.2.0 workflow checks and limitations' })).toHaveAttribute('href', '/research/2026-10-09/plugins/plugin-workflows.json');
 });

@@ -9,12 +9,12 @@
   "detailTitle": "Key Features",
   "detailItems": [
     {
-      "title": "A manually started content scan",
-      "body": "Checks image source URLs in published content and featured images using HTTP HEAD requests. It does not inspect every CSS background, responsive image variant, or external page."
+      "title": "A broader image scan",
+      "body": "Scans published posts, pages and public custom post types, including content, excerpts, custom fields and featured images. It checks image references in srcset, lazy-load attributes and CSS URLs, plus Media Library originals and generated sizes."
     },
     {
       "title": "An actionable report",
-      "body": "See affected content, response codes, and missing featured-image entries. Results help locate problems; verify a blocked request before treating it as a missing file."
+      "body": "See the affected item, source, field name and response code. Filter or export the report, recheck a repaired item, and ignore selected URLs, domains or items. Verify blocked requests before treating them as missing files."
     }
   ],
   "ctaTitle": "Get the Plugin",
@@ -28,19 +28,19 @@
       "href": "/news/kreativ-broken-image-finder-live/"
     },
     {
-      "label": "Read the local workflow checks and limitations",
+      "label": "Read the historical 1.2.0 workflow checks and limitations",
       "href": "/research/2026-10-09/plugins/plugin-workflows.json"
     }
   ],
-  "lastUpdated": "October 9, 2026",
-  "lastUpdatedIso": "2026-10-09",
+  "lastUpdated": "November 22, 2026",
+  "lastUpdatedIso": "2026-11-22",
   "additionalSections": [
     {
       "title": "A useful boundary",
       "items": [
         {
           "title": "Manual checks, not an automatic schedule",
-          "body": "The plugin runs when you start a scan in the dashboard. Plan periodic checks after migrations or content changes. Large sites and image servers that block HEAD requests need extra care."
+          "body": "Scans are started manually in the dashboard or with WP-CLI. Results identify issues for you to review; the plugin does not automatically change content. Images generated only by themes or external services may be outside the scan's scope."
         }
       ]
     }
@@ -64,25 +64,39 @@
   "quickStart": [
     "In WordPress, open Plugins → Add New Plugin and search for “Kreativ Broken Image Finder”, or upload the ZIP. Install and activate it on staging first.",
     "Open the Kreativ Broken Image Finder menu and choose “Run Full Scan”. Keep the dashboard open while the batches complete.",
-    "Review the summary and filter the results by post type, source, or response code. The scanner checks content <img> source URLs and featured images; CSS backgrounds are outside this scope.",
-    "Open each affected post, confirm the image really is unavailable, and repair or replace it. A blocked HEAD request can need manual verification. Run another scan after cleanup."
+    "Review the summary and filter results by post type, source, or response code. Check the field name for images found in excerpts or custom fields.",
+    "Open the affected item and verify the image before repairing it. Blocked requests and temporary errors can need manual review. Save your changes, then use Recheck."
   ],
   "release": {
-    "version": "1.2.0",
-    "updated": "2026-02-20",
+    "version": "1.3.0",
+    "updated": "2026-10-29",
     "wordpress": "5.0",
-    "php": "Not declared in the directory",
-    "tested": "6.9.10",
-    "checked": "2026-10-09",
+    "php": "7.4",
+    "tested": "6.9.12",
+    "checked": "2026-11-22",
     "source": "https://wordpress.org/plugins/kreativ-broken-image-finder/"
   },
   "screenshots": [
     {
-      "src": "/research/2026-10-09/plugins/kreativ-broken-image-finder-admin.png",
-      "label": "A completed manual scan with a missing-image HTTP 404 result",
-      "alt": "A completed manual scan with a missing-image HTTP 404 result in the isolated KreativWP plugin lab",
+      "src": "/images/kreativ-broken-image-finder/scanner.png",
+      "label": "Version 1.3.0 scanner and settings in a local WordPress test site",
+      "alt": "Broken Image Finder scan button and settings in WordPress",
       "width": 1200,
-      "height": 1304
+      "height": 674
+    },
+    {
+      "src": "/images/kreativ-broken-image-finder/results.png",
+      "label": "Report showing findings from post content and excerpts",
+      "alt": "Broken image report showing content and excerpt sources",
+      "width": 1200,
+      "height": 674
+    },
+    {
+      "src": "/images/kreativ-broken-image-finder/custom-fields.png",
+      "label": "Report filtered to a broken image in the legacy_content custom field",
+      "alt": "Custom field finding with field name and HTTP 404 status",
+      "width": 1200,
+      "height": 674
     }
   ]
 }
