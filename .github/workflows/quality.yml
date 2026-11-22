@@ -11,7 +11,8 @@ on:
 
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    # Playwright 1.58's Linux dependencies target Ubuntu 24.04.
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
