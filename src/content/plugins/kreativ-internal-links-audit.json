@@ -1,77 +1,50 @@
 {
-  "name": "Kreativ Internal Links Audit",
-  "description": "A full internal linking health audit to improve structure, crawl depth, and discoverability.",
-  "cardMeta": "Audit internal linking quality across your site.",
-  "cardUse": "Identify weak, missing, and unbalanced internal links to improve structure and crawlability.",
+  "name": "Kreativ Link Audit and Editorial Suggestions",
+  "description": "Audit internal content links, find orphaned posts, and review suggestions for useful connections.",
+  "cardMeta": "Internal link auditing and editorial suggestions.",
+  "cardUse": "Find orphaned content and review potential links before adding them.",
   "thumb": "/thumb-kreativ-internal-links-audit-128.svg",
-  "imageAlt": "Kreativ Internal Links Audit thumbnail",
-  "metaDescription": "Audit internal link quality, discover weak link patterns, and improve crawlability.",
-  "detailTitle": "Planned Features",
+  "imageAlt": "Kreativ Link Audit and Editorial Suggestions thumbnail",
+  "metaDescription": "Audit internal links and review editorial link suggestions in WordPress with Kreativ Link Audit and Editorial Suggestions.",
+  "detailTitle": "What the plugin does",
   "detailItems": [
     {
-      "title": "Link distribution analysis",
-      "body": "Identify underlinked pages and excessive concentration around a small subset of URLs."
+      "title": "Audit your content",
+      "body": "Run a resumable scan of stored published posts, pages, and enabled public post types. Review orphaned content, weak links, and a searchable link explorer."
     },
     {
-      "title": "Coverage and opportunity signals",
-      "body": "Surface link gaps where related pages should reference each other for better navigation and crawl paths."
+      "title": "Find relevant opportunities",
+      "body": "Suggestions are generated locally using title, category, tag, and keyword overlap. Review each suggestion in context."
     },
     {
-      "title": "Actionable prioritization",
-      "body": "Highlight high-value fixes first so teams can improve structural quality with predictable effort."
+      "title": "Stay in control",
+      "body": "Preview a proposed insertion before confirming it. Undo supported insertions while preserving later edits elsewhere in the content."
     }
   ],
-  "ctaTitle": "Status",
+  "ctaTitle": "Availability",
   "ctaLines": [
-    "Last updated: May 10, 2026",
-    "Current status: In development. Submission prep and release scoping are in progress.",
-    "Follow our News page for release updates."
+    "Version 1.0.3 has been submitted to the WordPress.org Plugin Directory and is awaiting review.",
+    "The plugin is not yet available in the directory."
   ],
-  "lastUpdated": "May 10, 2026",
-  "lastUpdatedIso": "2026-05-10",
+  "lastUpdated": "November 22, 2026",
+  "lastUpdatedIso": "2026-11-22",
   "additionalSections": [
     {
-      "title": "Who It Is For",
+      "title": "How it works",
       "items": [
         {
-          "title": "Content-heavy WordPress sites",
-          "body": "This plugin is aimed at publishers, agencies, and site owners who need a clearer view of how internal links are distributed across a growing content base."
+          "title": "Local analysis",
+          "body": "Analysis runs on your WordPress installation. No external service, account, tracking, or paid upgrade is required."
         },
         {
-          "title": "Teams doing ongoing maintenance",
-          "body": "It is especially useful when internal linking is no longer something you can review manually page by page."
-        }
-      ]
-    },
-    {
-      "title": "What Problem It Solves",
-      "items": [
-        {
-          "title": "Weak structure is hard to see early",
-          "body": "Many WordPress sites accumulate underlinked pages, uneven link concentration, and missed linking opportunities without obvious warning signs."
-        },
-        {
-          "title": "Manual audits do not scale",
-          "body": "The goal is to turn crawl-structure and internal-linking issues into a practical maintenance workflow instead of an occasional one-off review."
-        }
-      ]
-    },
-    {
-      "title": "First Release Scope",
-      "items": [
-        {
-          "title": "What v1 will include",
-          "body": "The first version is expected to focus on underlinked pages, internal-link imbalance, and actionable signals for missing or weak contextual links."
-        },
-        {
-          "title": "What v1 will not do",
-          "body": "The first release is not intended to be a full SEO suite or an automatic link-rewriting tool. It is being scoped as a focused audit and reporting plugin."
+          "title": "Editorial review",
+          "body": "Scans do not change content. Adding a link requires an authorized editor to preview and confirm the change."
         }
       ]
     }
   ],
   "live": false,
-  "homepageStatus": "In development · Submission prep in progress",
+  "homepageStatus": "Awaiting WordPress.org review",
   "statusPhase": "in-development",
   "sortOrder": 3
 }

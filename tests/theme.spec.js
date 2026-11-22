@@ -39,7 +39,7 @@ test("plugin detail pages are reachable", async ({ page }) => {
   const pages = [
     { url: "/plugins/kreativ-report-broken-link/", title: /Kreativ Report Broken Link/i },
     { url: "/plugins/kreativ-broken-image-finder/", title: /Kreativ Broken Image Finder/i },
-    { url: "/plugins/kreativ-internal-links-audit/", title: /Kreativ Internal Links Audit/i },
+    { url: "/plugins/kreativ-internal-links-audit/", title: /Kreativ Link Audit and Editorial Suggestions/i },
     { url: "/plugins/kreativ-smart-related-posts/", title: /Kreativ Smart Related Posts/i }
   ];
 
