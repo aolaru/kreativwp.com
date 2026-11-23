@@ -8,6 +8,8 @@ type Props = {
   ogTitle?: string;
   ogDescription?: string;
   ogType?: "website" | "article";
+  ogImageSrc?: string;
+  ogImageAlt?: string;
   robots?: string;
   mainClass?: string;
   heroEyebrow: string;
@@ -26,6 +28,8 @@ const {
   ogTitle = title,
   ogDescription = description,
   ogType = "website",
+  ogImageSrc = "/og-image-1200x630.png",
+  ogImageAlt = "Kreativ WP: themes, plugins, and tools",
   robots = "index,follow",
   mainClass = "",
   heroEyebrow,
@@ -38,7 +42,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, Astro.site);
-const ogImage = new URL("/og-image-1200x630.png", Astro.site);
+const ogImage = new URL(ogImageSrc, Astro.site);
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Themes", href: "/themes/" },
@@ -73,12 +77,12 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION |
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Kreativ WP plugin showcase preview" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImage.toString()} />
-    <meta name="twitter:image:alt" content="Kreativ WP plugin showcase preview" />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=37c7ac8" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

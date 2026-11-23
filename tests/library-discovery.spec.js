@@ -153,7 +153,7 @@ test("load-more batches have accurate counts, no duplicates, and usable keyboard
 });
 
 test("task filters reveal events, translation, and image tools", async ({ page }) => {
-  for (const [label, names] of [["Events", ["The Events Calendar"]], ["Translation", ["Polylang", "TranslatePress"]], ["Images", ["Regenerate Thumbnails", "ShortPixel"]]]) {
+  for (const [label, names] of [["Events", ["The Events Calendar"]], ["Translation", ["Polylang", "TranslatePress"]], ["Images", ["Kreativ Broken Image Finder", "Regenerate Thumbnails", "ShortPixel"]]]) {
     await page.goto("/plugins/");
     await page.locator(".library-filter__details summary").click();
     await page.getByRole("button", { name: label, exact: true }).click();

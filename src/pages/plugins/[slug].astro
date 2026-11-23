@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 const { plugin } = Astro.props;
 const data = plugin.data;
 ---
-<BaseLayout title={`${data.name} | Kreativ WP`} description={data.metaDescription} canonicalPath={`/plugins/${plugin.id}/`} heroEyebrow={data.live ? "Free plugin · made by Andrei" : "Product in development"} heroTitle={data.name} heroTagline={data.description} heroImageSrc={data.thumb} heroImageAlt={data.imageAlt} mainClass="product-page" currentPath="/products/">
+<BaseLayout ogImageSrc={`/images/social/${plugin.id}.png`} ogImageAlt={`${data.name} by Kreativ WP`} title={`${data.name} | Kreativ WP`} description={data.metaDescription} canonicalPath={`/plugins/${plugin.id}/`} heroEyebrow={data.live ? "Free plugin · made by Andrei" : "Product in development"} heroTitle={data.name} heroTagline={data.description} heroImageSrc={data.thumb} heroImageAlt={data.imageAlt} mainClass="product-page" currentPath="/products/">
   {data.live && <div class="product-install">
     {data.downloadHref && <a class="button-like button-like--primary" href={data.downloadHref} data-track="product_download" data-product={plugin.id}>Get the free plugin ZIP</a>}
     {data.ctaHref && <a class="text-action" href={data.ctaHref} target="_blank" rel="noopener noreferrer">View on WordPress.org ↗</a>}

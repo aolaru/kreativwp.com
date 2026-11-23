@@ -14,7 +14,7 @@ const results = [
 ---
 <BaseLayout title="Search KreativWP" description="Search WordPress themes, plugins, comparisons, guides, tools, and KreativWP products." canonicalPath="/search/" robots="noindex,follow" heroEyebrow="Find a resource" heroTitle="Search KreativWP" heroTagline="Search themes, plugins, comparisons, guides, tools, and products." heroImageSrc="/kreativ-wp-logo-128.svg" heroImageAlt="KreativWP logo">
   <section class="editorial-section" aria-labelledby="search-title"><h2 id="search-title">Search the library</h2><form class="site-search" id="site-search"><label for="site-search-input">Search all resources</label><div><input id="site-search-input" name="q" type="search" placeholder="Try “theme”, “performance”, or “broken images”" autocomplete="off" /><button class="button-like button-like--primary" type="submit">Search</button></div></form><p class="search-status" id="search-status" aria-live="polite"></p></section>
-  <section class="content-grid content-grid--three" id="search-results" aria-label="Search results">{results.map((entry) => <div data-search={`${entry.title} ${entry.description} ${entry.type}`.toLowerCase()}><ContentCard {...entry} /></div>)}</section>
+  <section class="content-grid content-grid--three" id="search-results" aria-label="Search results">{results.map((entry) => <div data-search={`${entry.title} ${entry.description} ${entry.type}`.toLowerCase()} data-search-title={entry.title.toLowerCase()}><ContentCard {...entry} /></div>)}</section>
   <script is:inline>
     (() => {
       const form = document.getElementById("site-search");
@@ -25,7 +25,16 @@ const results = [
       const search = () => {
         const query = input.value.trim().toLowerCase();
         let count = 0;
-        cards.forEach((card) => { const match = !query || (card.dataset.search || "").includes(query); card.hidden = !match; if (match) count += 1; });
+        const words = query.split(/\s+/).filter(Boolean);
+        const scored = cards.map((card, index) => {
+          const text = card.dataset.search || ""; const title = card.dataset.searchTitle || "";
+          const match = words.every((word) => text.includes(word));
+          const score = query ? (title === query ? 1000 : title.startsWith(query) ? 500 : title.includes(query) ? 250 : 0) + words.reduce((sum, word) => sum + (title.includes(word) ? 20 : 1), 0) : 0;
+          card.hidden = !match; if (match) count += 1;
+          return { card, index, score };
+        });
+        const results = document.getElementById("search-results");
+        scored.sort((a, b) => b.score - a.score || a.index - b.index).forEach(({ card }) => results.append(card));
         status.textContent = query ? `${count} result${count === 1 ? "" : "s"} for “${input.value.trim()}”.` : `Browse ${count} resources.`;
         const url = new URL(window.location.href); if (query) url.searchParams.set("q", input.value.trim()); else url.searchParams.delete("q"); window.history.replaceState({}, "", url);
       };

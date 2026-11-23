@@ -10,6 +10,8 @@ const features = [
 ];
 ---
 <BaseLayout
+  ogImageSrc="/images/social/kreativ-core.png"
+  ogImageAlt="Kreativ Core theme by Kreativ WP"
   title="Kreativ Core | A WordPress theme for publishing"
   description="Meet Kreativ Core, a responsive WordPress theme for blogs, journals, portfolios, and content-led websites."
   canonicalPath="/products/kreativ-core/"
@@ -34,6 +36,12 @@ const features = [
     <img src="/kreativ-core-preview.png" alt="Kreativ Core artwork describing a clean, flexible editorial WordPress theme" width="1200" height="900" />
     <figcaption>Kreativ Core theme artwork</figcaption>
   </figure>
+
+  <section class="core-section" aria-labelledby="core-preview-title">
+    <p class="section-label">See it in WordPress</p><h2 id="core-preview-title">A look at the theme.</h2>
+    <p class="core-note">Kreativ Core 1.0.22 on a local WordPress installation with sample content. The grey graphics are the theme’s default placeholders.</p>
+    <div class="core-demo"><figure><a href="/images/kreativ-core/desktop.png"><img src="/images/kreativ-core/desktop.png" alt="Kreativ Core sample journal on a desktop screen" width="1440" height="1000" loading="lazy" /></a><figcaption>Sample journal on desktop · open full screenshot</figcaption></figure><figure><a href="/images/kreativ-core/mobile.png"><img src="/images/kreativ-core/mobile.png" alt="Kreativ Core sample journal on a mobile screen" width="390" height="844" loading="lazy" /></a><figcaption>Sample journal on mobile · open full screenshot</figcaption></figure></div>
+  </section>
 
   <section class="core-intro" aria-labelledby="core-intro-title">
     <div><p class="section-label">Made for publishing</p><h2 id="core-intro-title">Your work deserves a beautiful home.</h2></div>
@@ -70,6 +78,9 @@ const features = [
   .core-artwork { margin: 2rem 0 4rem; }
   .core-artwork img { display: block; width: 100%; height: auto; border: 1px solid var(--card-border); }
   .core-artwork figcaption { color: var(--muted); font-size: .78rem; margin-top: .5rem; }
+  .core-demo { display: grid; grid-template-columns: 3fr 1fr; align-items: start; gap: 1rem; margin-top: 1.5rem; }
+  .core-demo img { display: block; width: 100%; height: auto; border: 1px solid var(--card-border); }
+  .core-demo figcaption { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
   .core-intro, .core-start { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; align-items: start; }
   .core-intro, .core-section { margin-bottom: 5rem; }
   .core-intro h2, .core-section h2, .core-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.08; letter-spacing: -.04em; max-width: 20ch; }
@@ -92,6 +103,7 @@ const features = [
   .core-cta h2 { margin-bottom: .8rem; }
   @media (max-width: 650px) {
     .core-intro, .core-start, .core-features { grid-template-columns: 1fr; }
+    .core-demo { grid-template-columns: 2fr 1fr; }
     .core-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .core-intro, .core-section, .core-artwork { margin-bottom: 3rem; }
     .core-start { padding: 1.5rem; }

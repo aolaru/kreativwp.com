@@ -5,22 +5,21 @@ export async function GET({ site }) {
     getCollection("news"), getCollection("plugins"), getCollection("themeReviews"),
     getCollection("pluginReviews"), getCollection("comparisons"), getCollection("guides"), getCollection("tools")
   ]);
-  const routeRefreshDate = "2026-10-09";
-  const lastModified = (date) => (date > routeRefreshDate ? date : routeRefreshDate);
   const urls = [
-    { path: "/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "1.0" },
-    { path: "/about/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
-    { path: "/contact/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
-    { path: "/privacy/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.4" },
-    { path: "/methodology/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
-    { path: "/news/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
-    { path: "/themes/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },
-    { path: "/plugins/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },
-    { path: "/comparisons/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },
-    { path: "/guides/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.8" },
-    { path: "/tools/", lastmod: routeRefreshDate, changefreq: "weekly", priority: "0.7" },
-    { path: "/products/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.7" },
-    { path: "/theme-checklist/", lastmod: routeRefreshDate, changefreq: "monthly", priority: "0.6" },
+    { path: "/", changefreq: "weekly", priority: "1.0" },
+    { path: "/about/", changefreq: "monthly", priority: "0.7" },
+    { path: "/contact/", changefreq: "monthly", priority: "0.7" },
+    { path: "/privacy/", changefreq: "monthly", priority: "0.4" },
+    { path: "/methodology/", changefreq: "monthly", priority: "0.6" },
+    { path: "/news/", changefreq: "monthly", priority: "0.6" },
+    { path: "/themes/", changefreq: "weekly", priority: "0.8" },
+    { path: "/plugins/", changefreq: "weekly", priority: "0.8" },
+    { path: "/comparisons/", changefreq: "weekly", priority: "0.8" },
+    { path: "/guides/", changefreq: "weekly", priority: "0.8" },
+    { path: "/tools/", changefreq: "weekly", priority: "0.7" },
+    { path: "/products/", changefreq: "monthly", priority: "0.7" },
+    { path: "/products/kreativ-core/", lastmod: themes.find((entry) => entry.id === "kreativ-core")?.data.updated, changefreq: "monthly", priority: "0.8" },
+    { path: "/theme-checklist/", changefreq: "monthly", priority: "0.6" },
     ...[
       { entries: themes, prefix: "/themes/" },
       { entries: reviews, prefix: "/plugins/reviews/" },
@@ -32,13 +31,13 @@ export async function GET({ site }) {
     }))),
     ...newsPosts.map((post) => ({
       path: `/news/${post.id}/`,
-      lastmod: lastModified(post.data.published),
+      lastmod: post.data.published,
       changefreq: "monthly",
       priority: "0.5"
     })),
     ...plugins.map((plugin) => ({
       path: `/plugins/${plugin.id}/`,
-      lastmod: lastModified(plugin.data.lastUpdatedIso),
+      lastmod: plugin.data.lastUpdatedIso,
       changefreq: "monthly",
       priority: plugin.data.live ? "0.7" : "0.6"
     }))
@@ -50,7 +49,7 @@ ${urls
   .map(
     (url) => `  <url>
     <loc>${new URL(url.path, site).toString()}</loc>
-    <lastmod>${url.lastmod}</lastmod>
+${url.lastmod ? `    <lastmod>${url.lastmod}</lastmod>\n` : ""}
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
   </url>`

@@ -59,6 +59,10 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          PUBLIC_NEWSLETTER_FORM_ACTION: ${{ vars.PUBLIC_NEWSLETTER_FORM_ACTION }}
+          PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.PUBLIC_GOOGLE_ANALYTICS_ID }}
+          PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
         run: npm run build
 
       - name: Upload Pages artifact

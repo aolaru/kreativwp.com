@@ -113,3 +113,10 @@ THEME_LAB_PASSWORD='<local-test-password>' node scripts/review-theme-workflows.m
 ```
 
 The default local reviewer username is `theme_reviewer`; override it with `THEME_LAB_USERNAME`. This script changes the isolated site's active theme, menu assignments, site title, and sample page; do not point it at an existing site. It saves generated evidence under a dated `public/research/` directory. Review the evidence before updating editorial copy or marking a profile `hands-on`; that status requires the test scope, versions, checks, limitations, and evidence link in the content schema.
+
+
+### Optional production integrations
+
+The site works without external accounts. The updates form currently opens a prepared email; it is not an automatic subscription. To enable a real subscription, first choose a provider and confirm that its HTTPS endpoint accepts a standard POST with an `email` field and provides appropriate confirmation and privacy information. Set the GitHub repository Actions variable `PUBLIC_NEWSLETTER_FORM_ACTION` to that endpoint and update the privacy page with the provider and its policy. Test the complete subscription and unsubscribe flow before announcing it.
+
+To enable the optional Google Analytics event integration, set the GitHub Actions variable `PUBLIC_GOOGLE_ANALYTICS_ID` to the measurement ID. The site also uses Cloudflare Web Analytics; configure analytics and any consent controls in line with your actual requirements before enabling another service. `PUBLIC_GOOGLE_SITE_VERIFICATION` is optional. These public build values are not secrets. With no values set, the manual email fallback and existing privacy copy remain in place.

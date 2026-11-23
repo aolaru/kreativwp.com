@@ -27,6 +27,19 @@
   "lastUpdatedIso": "2026-11-23",
   "additionalSections": [
     {
+      "title": "A small hands-on check",
+      "items": [
+        {
+          "title": "Related posts on a sample article",
+          "body": "On November 23, 2026, we installed the free 1.2.3 release in an isolated local WordPress 7.1.5 site (PHP 8.5.3, MySQL 8.4). With automatic placement enabled and AI disabled, a sample post showed three links to other published posts sharing its category. This confirms that one basic workflow; it does not test AI, editorial pinning, accessibility, other themes, or production performance."
+        },
+        {
+          "title": "Avoid duplicate related-post sections",
+          "body": "The test theme also supplied its own related posts. If your theme or another plugin already displays them, disable one section or use manual placement to avoid showing two lists."
+        }
+      ]
+    },
+    {
       "title": "Privacy and requirements",
       "items": [
         {
@@ -72,6 +85,13 @@
       "label": "Preview and customize the related-posts block; example titles are shown",
       "width": 1440,
       "height": 505
+    },
+    {
+      "src": "/images/kreativ-smart-related-posts/local-results.png",
+      "label": "Our local test: related links on a sample post, with AI disabled",
+      "alt": "Three related sample posts displayed by the plugin on a WordPress article",
+      "width": 704,
+      "height": 98
     }
   ],
   "homepageScreenshot": {

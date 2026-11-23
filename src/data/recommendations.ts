@@ -1,4 +1,4 @@
-export type Candidate = { id: string; name: string; href: string; tags: string[]; free: boolean; rank: number };
+export type Candidate = { id: string; name: string; href: string; tags: string[]; free: boolean; rank: number; ownProduct?: boolean };
 export type Catalog = { themes: Candidate[]; plugins: Candidate[] };
 export type Recommendation = Candidate & { reason: string };
 export type FinderOptions = { site?: string; editor?: string; priority?: string; budget?: string; hosting?: string; jobs?: string[]; existing?: string[] };
@@ -9,7 +9,7 @@ export const pluginJobs = [
   ["maintenance", "Redirects or media maintenance"], ["backups", "Backups"],
   ["seo", "SEO"], ["email", "Email delivery"], ["ecommerce", "Ecommerce"],
   ["images", "Image optimization"], ["translation", "Translation"], ["events", "Events"],
-  ["content", "Tables and structured content"], ["development", "Developer diagnostics"],
+  ["content", "Tables and structured content"], ["broken-images", "Find broken images"], ["broken-links", "Collect broken link reports"], ["related-posts", "Show related posts"], ["development", "Developer diagnostics"],
   ["accessibility", "Accessibility assistance"], ["page-builder", "Visual page building"]
 ];
 
@@ -45,7 +45,8 @@ export function recommendPlugins(catalog: Catalog, options: FinderOptions) {
     analytics: ["site-kit"], seo: ["rank-math", "yoast-seo"], email: ["wp-mail-smtp"], ecommerce: ["woocommerce", "surecart"],
     maintenance: ["redirection"], images: ["shortpixel"], translation: ["translatepress-multilingual"],
     events: ["the-events-calendar"], content: ["tablepress"], development: ["query-monitor"],
-    accessibility: ["wp-accessibility"], "page-builder": ["elementor"]
+    accessibility: ["wp-accessibility"], "page-builder": ["elementor"],
+    "broken-images": ["kreativ-broken-image-finder"], "broken-links": ["kreativ-report-broken-link"], "related-posts": ["kreativ-smart-related-posts"]
   };
   for (const job of jobs) {
     if (existing.has(job)) { notes.push(`You already have ${job} covered. Review that setup before adding an overlapping plugin.`); continue; }
@@ -64,7 +65,7 @@ export function recommendPlugins(catalog: Catalog, options: FinderOptions) {
       && preferred.includes(plugin.id)).sort((a, b) => preferred.indexOf(a.id) - preferred.indexOf(b.id));
     // Alternatives are not a combined install list: select one starting point per job.
     const candidate = matches[0];
-    if (candidate && !recommendations.some((entry) => entry.id === candidate.id)) recommendations.push({ ...candidate, reason: `For your ${job} requirement. ${candidate.free ? "A free edition is available; check quotas and paid-feature boundaries." : "Paid option; confirm the current plan before buying."}` });
+    if (candidate && !recommendations.some((entry) => entry.id === candidate.id)) recommendations.push({ ...candidate, reason: `${candidate.ownProduct ? "Built by KreativWP. " : ""}For your ${job.replaceAll("-", " ")} requirement. ${candidate.free ? "A free edition is available; check quotas and paid-feature boundaries." : "Paid option; confirm the current plan before buying."}` });
   }
   if (!jobs.size) notes.push("No extra plugin job was selected. Keep the existing stack; add a plugin only when you have a specific unmet requirement.");
   if (jobs.has("ecommerce")) notes.push("Store tools are alternatives, not additions to an existing store. Test checkout and account pages before launch.");

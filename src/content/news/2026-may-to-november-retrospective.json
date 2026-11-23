@@ -1,0 +1,56 @@
+{
+  "title": "What’s New at Kreativ WP: May to November 2026",
+  "description": "A look back at the main Kreativ WP website, research, theme, and plugin milestones since May 2026.",
+  "metaDescription": "Explore the major Kreativ WP milestones since May 2026, from our WordPress research library to Kreativ Core and our plugins.",
+  "published": "2026-11-23",
+  "publishedLabel": "November 23, 2026",
+  "tag": "Website and product retrospective",
+  "kind": "website",
+  "featured": true,
+  "intro": "A lot has changed since our May update. Here are the major milestones, gathered into one timeline.",
+  "sectionTitle": "The milestones",
+  "items": [
+    {
+      "title": "September 18 · A broader WordPress resource",
+      "body": "Kreativ WP expanded from a plugin-focused site into a resource for choosing and using WordPress themes and plugins, with editorial guidance and a published methodology.",
+      "href": "/methodology/",
+      "linkLabel": "How we work"
+    },
+    {
+      "title": "September 19 · Theme and plugin discovery",
+      "body": "We introduced visual theme browsing, a task-focused plugin library, official previews, and interactive starting points for finding WordPress tools.",
+      "href": "/themes/",
+      "linkLabel": "Explore the theme library"
+    },
+    {
+      "title": "September 26–29 · A clearer identity and homepage",
+      "body": "The site gained a theme finder and guide, then a white-and-blue identity, the Kreativ WP K mark, and a homepage that gives our own products more room alongside research.",
+      "href": "/tools/theme-finder/",
+      "linkLabel": "Try the theme finder"
+    },
+    {
+      "title": "October 9 · More useful evidence and discovery",
+      "body": "We added recorded free-theme workflow checks, a printable theme checklist, and improved library search, sorting, and shareable filters. The checks describe what was tested and their limits.",
+      "href": "/guides/testing-methodology/",
+      "linkLabel": "See how testing works"
+    },
+    {
+      "title": "November 4–15 · Kreativ Core arrives on the site",
+      "body": "Kreativ Core received its own product page and a theme-library profile, bringing our publishing-focused WordPress theme into the same discovery experience as the rest of the library.",
+      "href": "/products/kreativ-core/",
+      "linkLabel": "Explore Kreativ Core"
+    },
+    {
+      "title": "November 16 · A larger research library",
+      "body": "We added ten theme profiles and ten plugin profiles, refreshed the homepage and discovery experience, and refined the Kreativ WP header and navigation.",
+      "href": "/plugins/",
+      "linkLabel": "Browse plugin profiles"
+    },
+    {
+      "title": "November 22–23 · Product pages brought up to date",
+      "body": "We refreshed the Broken Image Finder and Link Audit pages, updated Broken Link and Kreativ Core details, and presented Smart Related Posts as a live WordPress.org plugin with screenshots and download links.",
+      "href": "/products/",
+      "linkLabel": "See our products"
+    }
+  ]
+}

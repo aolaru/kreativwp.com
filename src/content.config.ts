@@ -91,7 +91,9 @@ const news = defineCollection({
     items: z.array(
       z.object({
         title: z.string(),
-        body: z.string()
+        body: z.string(),
+        href: z.string().optional(),
+        linkLabel: z.string().optional()
       })
     )
   })
