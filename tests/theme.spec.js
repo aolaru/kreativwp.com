@@ -89,8 +89,8 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 
   await page.goto("/plugins/");
   const pluginReviews = fs.readdirSync("src/content/plugin-reviews").filter((name) => name.endsWith(".json")).length;
-  await expect(page.locator(".plugin-card")).toHaveCount(pluginReviews + 2);
-  await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(2);
+  await expect(page.locator(".plugin-card")).toHaveCount(pluginReviews + 3);
+  await expect(page.locator(".plugin-thumbnail--product img")).toHaveCount(3);
 
   await page.locator(".library-filter__details summary").click();
   await page.getByRole("button", { name: "Security" }).click();
@@ -104,7 +104,7 @@ test("theme and plugin libraries use the visual discovery cards", async ({ page 
 test("homepage curates latest research and KreativWP products", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Little tools. Real relief." })).toBeVisible();
-  await expect(page.locator(".home-product")).toHaveCount(2);
+  await expect(page.locator(".home-product")).toHaveCount(3);
   await expect(page.locator("#latest-theme-title")).toBeVisible();
   await expect(page.locator("#latest-plugin-title")).toBeVisible();
   await expect(page.locator(".theme-card")).toHaveCount(3);

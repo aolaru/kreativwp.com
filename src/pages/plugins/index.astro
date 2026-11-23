@@ -18,7 +18,7 @@ const products = (await getCollection("plugins")).filter((entry) => entry.data.l
   id: entry.id, href: `/plugins/${entry.id}/`, name: entry.data.name,
   developer: "KreativWP", description: entry.data.description, bestFor: entry.data.cardUse,
   freeVersion: "Free on WordPress.org", previewStyle: "product",
-  imageSrc: entry.data.thumb, imageAlt: entry.data.imageAlt, filters: ["maintenance", "product"],
+  imageSrc: entry.data.thumb, imageAlt: entry.data.imageAlt, filters: entry.id === "kreativ-smart-related-posts" ? ["product"] : ["maintenance", "product"],
   imageKind: "icon" as const,
   recommendationType: "product" as const, isPlaceholder: false, updated: entry.data.lastUpdatedIso
 }));

@@ -1,9 +1,9 @@
 const { test, expect } = require("@playwright/test");
 const fs = require("node:fs");
 
-const products = ["kreativ-report-broken-link", "kreativ-broken-image-finder"].map((id) => ({ id, ...JSON.parse(fs.readFileSync(`src/content/plugins/${id}.json`, "utf8")) }));
+const products = ["kreativ-report-broken-link", "kreativ-broken-image-finder", "kreativ-smart-related-posts"].map((id) => ({ id, ...JSON.parse(fs.readFileSync(`src/content/plugins/${id}.json`, "utf8")) }));
 
-test("the personal homepage introduces Kreativ Core and both live plugins", async ({ page }) => {
+test("the personal homepage introduces Kreativ Core and the live plugins", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".hero .tagline")).toContainText("Hi, I’m Andrei.");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("WordPress, with care.");
@@ -30,7 +30,7 @@ test("three curated theme and plugin picks link to profiles and retain checked d
 });
 
 test("a missing product screenshot falls back to its icon without hiding its actions", async ({ page }) => {
-  await page.route(/\/media\/previews\/.*\.webp/, (route) => route.abort());
+  await page.route(/\/images\/kreativ-report-broken-link\/dashboard\.png/, (route) => route.abort());
   await page.goto("/");
   const card = page.locator(".home-product").first();
   await card.scrollIntoViewIfNeeded();

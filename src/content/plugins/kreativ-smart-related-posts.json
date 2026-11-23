@@ -1,77 +1,84 @@
 {
   "name": "Kreativ Smart Related Posts",
-  "description": "Show relevant related content based on context to increase discovery and engagement.",
-  "cardMeta": "Show context-aware related content.",
-  "cardUse": "Improve discovery and session depth with smarter internal recommendations.",
+  "description": "Help readers discover related posts using categories and tags, with optional AI re-ranking.",
+  "cardMeta": "Related posts for content discovery.",
+  "cardUse": "Show relevant articles automatically or with a block or shortcode.",
   "thumb": "/thumb-kreativ-smart-related-posts-128.svg",
   "imageAlt": "Kreativ Smart Related Posts thumbnail",
-  "metaDescription": "Context-aware related post recommendations to improve content discovery and session depth.",
-  "detailTitle": "Planned Features",
+  "metaDescription": "Display related posts with taxonomy matching, flexible layouts, and optional AI re-ranking.",
+  "detailTitle": "How it works",
   "detailItems": [
     {
-      "title": "Context-aware recommendations",
-      "body": "Prioritize related posts using content context and topical proximity instead of static tag overlap alone."
+      "title": "Relevant posts, ready to show",
+      "body": "Match published posts by shared categories and tags. Display recommendations automatically after posts, or place them with a block or shortcode."
     },
     {
-      "title": "Flexible display controls",
-      "body": "Configure placement, limit, and presentation style to match different themes and content layouts."
+      "title": "Make the layout your own",
+      "body": "Choose a grid, list, or minimal layout, customize the display, and pin or exclude posts from the editor."
     },
     {
-      "title": "Engagement-focused defaults",
-      "body": "Designed to support longer sessions and stronger internal discovery without manual curation overhead."
+      "title": "Optional AI re-ranking",
+      "body": "Taxonomy matching works without an AI provider or API key. Optional background AI re-ranking uses the WordPress AI Client, requires WordPress 7.0 or later and a configured provider, and is disabled by default."
     }
   ],
-  "ctaTitle": "Status",
-  "ctaLines": [
-    "Last updated: May 10, 2026",
-    "Current status: Prototype direction is still under review. Planned after Internal Links Audit.",
-    "Follow our News page for release updates."
-  ],
-  "lastUpdated": "May 10, 2026",
-  "lastUpdatedIso": "2026-05-10",
+  "ctaTitle": "Get the plugin",
+  "ctaLines": [],
+  "lastUpdated": "November 23, 2026",
+  "lastUpdatedIso": "2026-11-23",
   "additionalSections": [
     {
-      "title": "Who It Is For",
+      "title": "Privacy and requirements",
       "items": [
         {
-          "title": "Sites that need better content discovery",
-          "body": "This plugin is aimed at blogs, magazines, and documentation-style sites that want readers to discover more relevant content without hand-curating every related-post block."
-        },
-        {
-          "title": "Teams that want useful defaults",
-          "body": "It is being designed for site owners who want stronger internal recommendations without building a custom recommendation system."
-        }
-      ]
-    },
-    {
-      "title": "What Problem It Solves",
-      "items": [
-        {
-          "title": "Generic related posts often miss context",
-          "body": "Simple tag overlap or date-based widgets often produce low-value recommendations that do not improve session depth or content discovery."
-        },
-        {
-          "title": "Manual curation does not scale",
-          "body": "The goal is to make related-post output feel relevant enough to support navigation and engagement without creating another maintenance burden."
-        }
-      ]
-    },
-    {
-      "title": "First Release Scope",
-      "items": [
-        {
-          "title": "What v1 will include",
-          "body": "The first version is expected to focus on context-aware matching, basic display controls, and sensible defaults that work on typical content sites."
-        },
-        {
-          "title": "What v1 will not do",
-          "body": "The initial release is not being positioned as a machine-learning recommendation engine or a full personalization platform. The scope stays intentionally practical."
+          "title": "You choose whether to use AI",
+          "body": "If you enable AI re-ranking, source post titles and excerpts and candidate post details are sent to the provider configured through the WordPress AI Client. Review that provider’s privacy terms before enabling it."
         }
       ]
     }
   ],
-  "live": false,
-  "homepageStatus": "Prototype under review · Planned after Internal Links Audit",
-  "statusPhase": "prototype",
-  "sortOrder": 4
+  "live": true,
+  "homepageStatus": "Free on WordPress.org",
+  "statusPhase": "live",
+  "sortOrder": 4,
+  "ctaHref": "https://wordpress.org/plugins/kreativ-smart-related-posts/",
+  "ctaLabel": "View on WordPress.org",
+  "downloadHref": "https://downloads.wordpress.org/plugin/kreativ-smart-related-posts.latest-stable.zip",
+  "quickStart": [
+    "Install Kreativ Smart Related Posts from Plugins → Add New Plugin, or upload the ZIP, then activate it.",
+    "Configure the related-post display in the plugin settings. Use automatic placement, the block, or a shortcode.",
+    "Review the result on a published post and adjust the layout or pin and exclude posts in the editor.",
+    "If you want AI re-ranking, configure a WordPress AI provider and enable it explicitly."
+  ],
+  "release": {
+    "version": "1.2.3",
+    "updated": "2026-11-07",
+    "wordpress": "5.8",
+    "php": "7.4",
+    "tested": "7.1.5",
+    "checked": "2026-11-23",
+    "source": "https://wordpress.org/plugins/kreativ-smart-related-posts/"
+  },
+  "screenshots": [
+    {
+      "src": "/images/kreativ-smart-related-posts/editor.jpg",
+      "alt": "Related-post controls for pinning and excluding posts in the WordPress editor",
+      "label": "Pin or exclude posts in the editor",
+      "width": 1440,
+      "height": 570
+    },
+    {
+      "src": "/images/kreativ-smart-related-posts/block.jpg",
+      "alt": "Related-posts block preview and layout controls in the WordPress editor",
+      "label": "Preview and customize the related-posts block; example titles are shown",
+      "width": 1440,
+      "height": 505
+    }
+  ],
+  "homepageScreenshot": {
+    "src": "/images/kreativ-smart-related-posts/block.jpg",
+    "alt": "Related-posts block preview and layout controls in the WordPress editor",
+    "caption": "Preview and customize the related-posts block; example titles are shown",
+    "width": 1440,
+    "height": 505
+  }
 }

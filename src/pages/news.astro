@@ -84,7 +84,7 @@ const nextRelease = (await getCollection("plugins"))
 
   <section class="launch-cta card" aria-labelledby="roadmap-title">
     <h2 id="roadmap-title">Roadmap</h2>
-    <p>Current focus is getting back into WordPress plugin submission flow, with {nextRelease.data.name} still positioned as the next release target.</p>
+    <p>{nextRelease ? `${nextRelease.data.name} has been submitted for WordPress.org review. Visit its product page for the latest availability information.` : "Explore our live plugins and product pages for the latest updates."}</p>
   </section>
 
   <section class="launch-cta card" aria-labelledby="updates-title">
